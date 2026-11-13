@@ -21,4 +21,5 @@ jobs:
             cd /var/www/html/kidstube-api
             sudo -H -u www-data git pull origin main
             sudo -H -u www-data npm ci
+            sudo -H -u www-data npm run build
             sudo systemctl restart kidstube-api.service
