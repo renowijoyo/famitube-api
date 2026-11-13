@@ -1,6 +1,15 @@
+import crypto from 'crypto';
 import { Router, Request, Response, NextFunction } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { db } from './db.js';
+import {
+  AuthenticatedRequest,
+  hashPassword,
+  requireAuth,
+  sendVerificationEmail,
+  signAuthToken,
+  verifyPassword
+} from './auth.js';
 import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail } from './utils.js';
 import { Video, Channel, Playlist, ChannelType } from './types.js';
 
@@ -171,8 +180,174 @@ apiRouter.get(
 );
 
 // ==========================================
-// ADMIN APIS (Curator Dashboard)
+// AUTHENTICATION APIS (Curator Login & Email Verification)
 // ==========================================
+
+apiRouter.post(
+  '/auth/register',
+  asyncHandler(async (req, res) => {
+    const { email, password, name } = req.body;
+    const cleanEmail = String(email || '').trim().toLowerCase();
+    const cleanName = String(name || cleanEmail.split('@')[0] || '').trim();
+
+    if (!cleanEmail || !cleanEmail.includes('@')) {
+      return res.status(400).json({ success: false, message: 'Valid email is required' });
+    }
+    if (!password || String(password).length < 6) {
+      return res
+        .status(400)
+        .json({ success: false, message: 'Password must be at least 6 characters' });
+    }
+
+    const existing = await db.getUserByEmail(cleanEmail);
+    if (existing) {
+      return res.status(409).json({ success: false, message: 'Email is already registered' });
+    }
+
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const verificationExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+    const user = await db.createUser({
+      id: `usr-${uuidv4().slice(0, 8)}`,
+      email: cleanEmail,
+      name: cleanName || 'Curator',
+      passwordHash: hashPassword(String(password)),
+      isVerified: false,
+      verificationToken,
+      verificationExpiresAt,
+      createdAt: new Date().toISOString()
+    });
+
+    await sendVerificationEmail(user.email, user.name, verificationToken);
+
+    res.status(201).json({
+      success: true,
+      message: 'Registration successful! Please check your email to verify your account before logging in.'
+    });
+  })
+);
+
+apiRouter.get(
+  '/auth/verify-email',
+  asyncHandler(async (req, res) => {
+    const token = String(req.query.token || '').trim();
+    const webUrl = process.env.WEB_APP_URL || 'http://localhost:3000';
+    const wantsHtml = (req.headers.accept || '').includes('text/html');
+
+    const sendResult = (ok: boolean, status: number, message: string) => {
+      if (wantsHtml) {
+        return res.status(status).send(`<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>KidsTube Email Verification</title>
+<style>body{font-family:Arial,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}
+.card{background:#1e293b;padding:32px;border-radius:16px;max-width:440px;text-align:center;border:1px solid #334155;}
+a.btn{display:inline-block;margin-top:16px;padding:10px 20px;background:#ff3366;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;}</style>
+</head><body><div class="card"><h2>${ok ? 'Email Verified!' : 'Verification Failed'}</h2><p>${message}</p><a class="btn" href="${webUrl}">Go to KidsTube Studio</a></div></body></html>`);
+      }
+      return res.status(status).json({ success: ok, message });
+    };
+
+    if (!token) {
+      return sendResult(false, 400, 'Verification token is missing.');
+    }
+
+    const user = await db.getUserByVerificationToken(token);
+    if (!user) {
+      return sendResult(false, 400, 'Invalid or already-used verification token.');
+    }
+
+    if (user.verificationExpiresAt && new Date(user.verificationExpiresAt).getTime() < Date.now()) {
+      return sendResult(false, 400, 'Verification token has expired. Please request a new one.');
+    }
+
+    await db.markUserVerified(user.id);
+    return sendResult(true, 200, 'Your email has been verified. You can now sign in to KidsTube Studio.');
+  })
+);
+
+apiRouter.post(
+  '/auth/resend-verification',
+  asyncHandler(async (req, res) => {
+    const cleanEmail = String(req.body.email || '').trim().toLowerCase();
+    if (!cleanEmail) {
+      return res.status(400).json({ success: false, message: 'Email is required' });
+    }
+
+    const user = await db.getUserByEmail(cleanEmail);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'No account found with that email' });
+    }
+    if (user.isVerified) {
+      return res.json({ success: true, message: 'Account is already verified. You can log in.' });
+    }
+
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const verificationExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+    await db.updateUserVerificationToken(user.id, verificationToken, verificationExpiresAt);
+    await sendVerificationEmail(user.email, user.name, verificationToken);
+
+    res.json({
+      success: true,
+      message: 'Verification email resent. Please check your inbox.'
+    });
+  })
+);
+
+apiRouter.post(
+  '/auth/login',
+  asyncHandler(async (req, res) => {
+    const cleanEmail = String(req.body.email || '').trim().toLowerCase();
+    const password = String(req.body.password || '');
+
+    if (!cleanEmail || !password) {
+      return res.status(400).json({ success: false, message: 'Email and password are required' });
+    }
+
+    const user = await db.getUserByEmail(cleanEmail);
+    if (!user || !verifyPassword(password, user.passwordHash)) {
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
+    }
+
+    if (!user.isVerified) {
+      return res.status(403).json({
+        success: false,
+        needsVerification: true,
+        message: 'Please verify your email address before logging in.'
+      });
+    }
+
+    const token = signAuthToken({
+      sub: user.id,
+      email: user.email,
+      name: user.name
+    });
+
+    res.json({
+      success: true,
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        isVerified: user.isVerified
+      }
+    });
+  })
+);
+
+apiRouter.get(
+  '/auth/me',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    res.json({ success: true, user: req.user });
+  })
+);
+
+// ==========================================
+// ADMIN APIS (Curator Dashboard - Protected)
+// ==========================================
+
+apiRouter.use('/admin', requireAuth);
 
 apiRouter.get(
   '/admin/stats',

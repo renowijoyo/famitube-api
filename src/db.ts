@@ -6,7 +6,8 @@ import {
   Category,
   AppConfig,
   LiveScheduleState,
-  UpNextItem
+  UpNextItem,
+  User
 } from './types.js';
 
 const INITIAL_CATEGORIES: Category[] = [
@@ -292,6 +293,19 @@ function mapPlaylistRow(row: RowDataPacket): Playlist {
   };
 }
 
+function mapUserRow(row: RowDataPacket): User {
+  return {
+    id: row.id,
+    email: row.email,
+    name: row.name,
+    passwordHash: row.passwordHash,
+    isVerified: Boolean(row.isVerified),
+    verificationToken: row.verificationToken || undefined,
+    verificationExpiresAt: row.verificationExpiresAt || undefined,
+    createdAt: row.createdAt
+  };
+}
+
 class Database {
   private pool!: Pool;
 
@@ -414,6 +428,19 @@ class Database {
       CREATE TABLE IF NOT EXISTS app_config (
         id VARCHAR(64) PRIMARY KEY,
         config JSON NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id VARCHAR(64) PRIMARY KEY,
+        email VARCHAR(255) NOT NULL UNIQUE,
+        name VARCHAR(255) NOT NULL,
+        passwordHash VARCHAR(255) NOT NULL,
+        isVerified TINYINT(1) NOT NULL DEFAULT 0,
+        verificationToken VARCHAR(128),
+        verificationExpiresAt VARCHAR(64),
+        createdAt VARCHAR(64) NOT NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
   }
@@ -910,6 +937,67 @@ class Database {
       totalPlaylists: Number(plRows[0].cnt) || 0,
       totalViews: vidRows.reduce((sum, v) => sum + (Number(v.views) || 0), 0)
     };
+  }
+
+  // --- Users & Auth ---
+  public async getUserByEmail(email: string): Promise<User | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM users WHERE LOWER(email) = LOWER(?)',
+      [email.trim()]
+    );
+    if (rows.length === 0) return undefined;
+    return mapUserRow(rows[0]);
+  }
+
+  public async getUserById(id: string): Promise<User | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM users WHERE id = ?', [id]);
+    if (rows.length === 0) return undefined;
+    return mapUserRow(rows[0]);
+  }
+
+  public async getUserByVerificationToken(token: string): Promise<User | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM users WHERE verificationToken = ?',
+      [token]
+    );
+    if (rows.length === 0) return undefined;
+    return mapUserRow(rows[0]);
+  }
+
+  public async createUser(user: User): Promise<User> {
+    await this.pool.query(
+      `INSERT INTO users (id, email, name, passwordHash, isVerified, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        user.id,
+        user.email.trim().toLowerCase(),
+        user.name.trim(),
+        user.passwordHash,
+        user.isVerified ? 1 : 0,
+        user.verificationToken || null,
+        user.verificationExpiresAt || null,
+        user.createdAt
+      ]
+    );
+    return user;
+  }
+
+  public async markUserVerified(id: string): Promise<void> {
+    await this.pool.query(
+      'UPDATE users SET isVerified = 1, verificationToken = NULL, verificationExpiresAt = NULL WHERE id = ?',
+      [id]
+    );
+  }
+
+  public async updateUserVerificationToken(
+    id: string,
+    token: string,
+    expiresAt: string
+  ): Promise<void> {
+    await this.pool.query(
+      'UPDATE users SET verificationToken = ?, verificationExpiresAt = ? WHERE id = ?',
+      [token, expiresAt, id]
+    );
   }
 }
 

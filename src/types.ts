@@ -88,3 +88,14 @@ export interface DatabaseSchema {
   categories: Category[];
   config: AppConfig;
 }
+
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  passwordHash: string;
+  isVerified: boolean;
+  verificationToken?: string;
+  verificationExpiresAt?: string;
+  createdAt: string;
+}
