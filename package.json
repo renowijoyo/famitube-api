@@ -9,13 +9,18 @@
     "start": "tsx src/index.ts",
     "seed": "tsx src/seed.ts"
   },
-  "keywords": ["kidstube", "video-curation", "android-backend"],
+  "keywords": [
+    "kidstube",
+    "video-curation",
+    "android-backend"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "mysql2": "^3.24.6",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

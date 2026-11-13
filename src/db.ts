@@ -1,7 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 import {
-  DatabaseSchema,
   Video,
   Channel,
   Playlist,
@@ -10,9 +8,6 @@ import {
   LiveScheduleState,
   UpNextItem
 } from './types.js';
-
-const DATA_DIR = path.resolve(process.cwd(), 'data');
-const DB_PATH = path.join(DATA_DIR, 'db.json');
 
 const INITIAL_CATEGORIES: Category[] = [
   { id: 'cat-all', name: 'All Videos', icon: 'auto_awesome', color: '#FF4D6D' },
@@ -235,74 +230,268 @@ const INITIAL_CONFIG: AppConfig = {
   }
 };
 
-class Database {
-  private data: DatabaseSchema;
-
-  constructor() {
-    this.data = this.load();
+function parseJson<T>(val: unknown, fallback: T): T {
+  if (val === null || val === undefined) return fallback;
+  if (typeof val === 'string') {
+    try {
+      return JSON.parse(val) as T;
+    } catch {
+      return fallback;
+    }
   }
+  return val as T;
+}
 
-  private load(): DatabaseSchema {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+function mapVideoRow(row: RowDataPacket): Video {
+  return {
+    id: row.id,
+    title: row.title,
+    description: row.description || '',
+    sourceType: row.sourceType,
+    sourceUrl: row.sourceUrl,
+    youtubeVideoId: row.youtubeVideoId || undefined,
+    thumbnailUrl: row.thumbnailUrl,
+    duration: Number(row.duration) || 180,
+    channelId: row.channelId,
+    channelTitle: row.channelTitle,
+    channelAvatar: row.channelAvatar,
+    category: row.category,
+    ageRating: row.ageRating,
+    isFeatured: Boolean(row.isFeatured),
+    isApproved: Boolean(row.isApproved),
+    views: Number(row.views) || 0,
+    tags: parseJson<string[]>(row.tags, []),
+    createdAt: row.createdAt
+  };
+}
+
+function mapChannelRow(row: RowDataPacket): Channel {
+  return {
+    id: row.id,
+    name: row.name,
+    description: row.description || '',
+    avatarUrl: row.avatarUrl,
+    bannerUrl: row.bannerUrl || undefined,
+    category: row.category,
+    isVerified: Boolean(row.isVerified),
+    channelType: row.channelType || 'ON_DEMAND',
+    scheduleStartTime: row.scheduleStartTime || undefined,
+    videoIds: parseJson<string[]>(row.videoIds, [])
+  };
+}
+
+function mapPlaylistRow(row: RowDataPacket): Playlist {
+  return {
+    id: row.id,
+    title: row.title,
+    description: row.description || '',
+    thumbnailUrl: row.thumbnailUrl,
+    videoIds: parseJson<string[]>(row.videoIds, []),
+    category: row.category,
+    ageRating: row.ageRating
+  };
+}
+
+class Database {
+  private pool!: Pool;
+
+  public async init(): Promise<void> {
+    const databaseUrl = process.env.DATABASE_URL;
+
+    if (databaseUrl) {
+      this.pool = mysql.createPool(databaseUrl);
+    } else {
+      const host = process.env.MYSQL_HOST || '127.0.0.1';
+      const port = Number(process.env.MYSQL_PORT) || 3306;
+      const user = process.env.MYSQL_USER || 'root';
+      const password = process.env.MYSQL_PASSWORD || '';
+      const database = process.env.MYSQL_DATABASE || 'kidstube';
+
+      const bootstrapConn = await mysql.createConnection({ host, port, user, password });
+      await bootstrapConn.query(
+        `CREATE DATABASE IF NOT EXISTS \`${database.replace(/`/g, '')}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`
+      );
+      await bootstrapConn.end();
+
+      this.pool = mysql.createPool({
+        host,
+        port,
+        user,
+        password,
+        database,
+        waitForConnections: true,
+        connectionLimit: 10
+      });
     }
 
-    if (fs.existsSync(DB_PATH)) {
-      try {
-        const raw = fs.readFileSync(DB_PATH, 'utf-8');
-        const parsed = JSON.parse(raw) as DatabaseSchema;
-        // Ensure channelType & videoIds exist on migrated channels
-        parsed.channels = (parsed.channels || []).map((ch) => ({
-          ...ch,
-          channelType: ch.channelType || 'ON_DEMAND',
-          videoIds:
-            ch.videoIds ||
-            (parsed.videos || []).filter((v) => v.channelId === ch.id).map((v) => v.id)
-        }));
-        // Seed Live TV channel if not present yet
-        if (!parsed.channels.some((c) => c.channelType === 'LIVE_TV')) {
-          parsed.channels.unshift(INITIAL_CHANNELS[0]);
-          this.saveDirect(parsed);
-        }
-        return parsed;
-      } catch (err) {
-        console.error('Failed to parse database file, resetting to initial data:', err);
+    await this.createTables();
+    await this.seedIfEmpty();
+  }
+
+  private async createTables(): Promise<void> {
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS categories (
+        id VARCHAR(64) PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        icon VARCHAR(64) NOT NULL,
+        color VARCHAR(32) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS channels (
+        id VARCHAR(64) PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        avatarUrl TEXT NOT NULL,
+        bannerUrl TEXT,
+        category VARCHAR(255) NOT NULL,
+        isVerified TINYINT(1) NOT NULL DEFAULT 1,
+        channelType VARCHAR(32) NOT NULL DEFAULT 'ON_DEMAND',
+        scheduleStartTime VARCHAR(64),
+        videoIds JSON NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS videos (
+        id VARCHAR(64) PRIMARY KEY,
+        title VARCHAR(512) NOT NULL,
+        description TEXT NOT NULL,
+        sourceType VARCHAR(32) NOT NULL,
+        sourceUrl TEXT NOT NULL,
+        youtubeVideoId VARCHAR(64),
+        thumbnailUrl TEXT NOT NULL,
+        duration INT NOT NULL DEFAULT 180,
+        channelId VARCHAR(64) NOT NULL,
+        channelTitle VARCHAR(255) NOT NULL,
+        channelAvatar TEXT NOT NULL,
+        category VARCHAR(255) NOT NULL,
+        ageRating VARCHAR(32) NOT NULL DEFAULT 'ALL',
+        isFeatured TINYINT(1) NOT NULL DEFAULT 0,
+        isApproved TINYINT(1) NOT NULL DEFAULT 1,
+        views INT NOT NULL DEFAULT 0,
+        tags JSON NOT NULL,
+        createdAt VARCHAR(64) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS playlists (
+        id VARCHAR(64) PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        thumbnailUrl TEXT NOT NULL,
+        videoIds JSON NOT NULL,
+        category VARCHAR(255) NOT NULL,
+        ageRating VARCHAR(32) NOT NULL DEFAULT 'ALL'
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS app_config (
+        id VARCHAR(64) PRIMARY KEY,
+        config JSON NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+  }
+
+  private async seedIfEmpty(): Promise<void> {
+    const [catRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM categories');
+    if (catRows[0].cnt === 0) {
+      for (const c of INITIAL_CATEGORIES) {
+        await this.pool.query(
+          'INSERT INTO categories (id, name, icon, color) VALUES (?, ?, ?, ?)',
+          [c.id, c.name, c.icon, c.color]
+        );
       }
     }
 
-    const initial: DatabaseSchema = {
-      videos: INITIAL_VIDEOS,
-      channels: INITIAL_CHANNELS,
-      playlists: INITIAL_PLAYLISTS,
-      categories: INITIAL_CATEGORIES,
-      config: INITIAL_CONFIG
-    };
-
-    this.saveDirect(initial);
-    return initial;
-  }
-
-  private saveDirect(data: DatabaseSchema): void {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+    const [chanRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM channels');
+    if (chanRows[0].cnt === 0) {
+      for (const ch of INITIAL_CHANNELS) {
+        await this.pool.query(
+          `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            ch.id,
+            ch.name,
+            ch.description,
+            ch.avatarUrl,
+            ch.bannerUrl || null,
+            ch.category,
+            ch.isVerified ? 1 : 0,
+            ch.channelType,
+            ch.scheduleStartTime || null,
+            JSON.stringify(ch.videoIds || [])
+          ]
+        );
+      }
     }
-    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
-  }
 
-  public save(): void {
-    this.saveDirect(this.data);
+    const [vidRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM videos');
+    if (vidRows[0].cnt === 0) {
+      for (const v of INITIAL_VIDEOS) {
+        await this.pool.query(
+          `INSERT INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            v.id,
+            v.title,
+            v.description,
+            v.sourceType,
+            v.sourceUrl,
+            v.youtubeVideoId || null,
+            v.thumbnailUrl,
+            v.duration,
+            v.channelId,
+            v.channelTitle,
+            v.channelAvatar,
+            v.category,
+            v.ageRating,
+            v.isFeatured ? 1 : 0,
+            v.isApproved ? 1 : 0,
+            v.views,
+            JSON.stringify(v.tags || []),
+            v.createdAt
+          ]
+        );
+      }
+    }
+
+    const [plRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM playlists');
+    if (plRows[0].cnt === 0) {
+      for (const p of INITIAL_PLAYLISTS) {
+        await this.pool.query(
+          `INSERT INTO playlists (id, title, description, thumbnailUrl, videoIds, category, ageRating)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [p.id, p.title, p.description, p.thumbnailUrl, JSON.stringify(p.videoIds), p.category, p.ageRating]
+        );
+      }
+    }
+
+    const [cfgRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM app_config');
+    if (cfgRows[0].cnt === 0) {
+      await this.pool.query('INSERT INTO app_config (id, config) VALUES (?, ?)', [
+        'default',
+        JSON.stringify(INITIAL_CONFIG)
+      ]);
+    }
   }
 
   // --- Videos ---
-  public getVideos(filter?: {
+  public async getVideos(filter?: {
     category?: string;
     channelId?: string;
     ageRating?: string;
     search?: string;
     onlyApproved?: boolean;
     featured?: boolean;
-  }): Video[] {
-    let list = this.data.videos;
+  }): Promise<Video[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM videos ORDER BY createdAt DESC'
+    );
+    let list = rows.map(mapVideoRow);
 
     if (filter?.onlyApproved ?? true) {
       list = list.filter((v) => v.isApproved);
@@ -311,7 +500,7 @@ class Database {
       list = list.filter((v) => v.category.toLowerCase() === filter.category!.toLowerCase());
     }
     if (filter?.channelId) {
-      const ch = this.data.channels.find((c) => c.id === filter.channelId);
+      const ch = await this.getChannelById(filter.channelId);
       if (ch && ch.videoIds && ch.videoIds.length > 0) {
         const orderMap = new Map(ch.videoIds.map((id, idx) => [id, idx]));
         list = list
@@ -341,137 +530,229 @@ class Database {
     return list;
   }
 
-  public getVideoById(id: string): Video | undefined {
-    return this.data.videos.find((v) => v.id === id);
+  public async getVideoById(id: string): Promise<Video | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM videos WHERE id = ?', [id]);
+    if (rows.length === 0) return undefined;
+    return mapVideoRow(rows[0]);
   }
 
-  public addVideo(video: Video): Video {
-    this.data.videos.unshift(video);
-    // Also add to channel's videoIds if channel exists
-    const channel = this.data.channels.find((c) => c.id === video.channelId);
+  public async addVideo(video: Video): Promise<Video> {
+    await this.pool.query(
+      `INSERT INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        video.id,
+        video.title,
+        video.description,
+        video.sourceType,
+        video.sourceUrl,
+        video.youtubeVideoId || null,
+        video.thumbnailUrl,
+        video.duration,
+        video.channelId,
+        video.channelTitle,
+        video.channelAvatar,
+        video.category,
+        video.ageRating,
+        video.isFeatured ? 1 : 0,
+        video.isApproved ? 1 : 0,
+        video.views,
+        JSON.stringify(video.tags || []),
+        video.createdAt
+      ]
+    );
+
+    const channel = await this.getChannelById(video.channelId);
     if (channel) {
-      channel.videoIds = channel.videoIds || [];
-      if (!channel.videoIds.includes(video.id)) {
-        channel.videoIds.push(video.id);
+      const videoIds = channel.videoIds || [];
+      if (!videoIds.includes(video.id)) {
+        videoIds.push(video.id);
+        await this.pool.query('UPDATE channels SET videoIds = ? WHERE id = ?', [
+          JSON.stringify(videoIds),
+          channel.id
+        ]);
       }
     }
-    this.save();
+
     return video;
   }
 
-  public updateVideo(id: string, updates: Partial<Video>): Video | null {
-    const idx = this.data.videos.findIndex((v) => v.id === id);
-    if (idx === -1) return null;
-    this.data.videos[idx] = { ...this.data.videos[idx], ...updates };
-    this.save();
-    return this.data.videos[idx];
+  public async updateVideo(id: string, updates: Partial<Video>): Promise<Video | null> {
+    const existing = await this.getVideoById(id);
+    if (!existing) return null;
+
+    const merged: Video = { ...existing, ...updates, id };
+    await this.pool.query(
+      `UPDATE videos SET title = ?, description = ?, sourceType = ?, sourceUrl = ?, youtubeVideoId = ?, thumbnailUrl = ?, duration = ?, channelId = ?, channelTitle = ?, channelAvatar = ?, category = ?, ageRating = ?, isFeatured = ?, isApproved = ?, views = ?, tags = ?, createdAt = ?
+       WHERE id = ?`,
+      [
+        merged.title,
+        merged.description,
+        merged.sourceType,
+        merged.sourceUrl,
+        merged.youtubeVideoId || null,
+        merged.thumbnailUrl,
+        merged.duration,
+        merged.channelId,
+        merged.channelTitle,
+        merged.channelAvatar,
+        merged.category,
+        merged.ageRating,
+        merged.isFeatured ? 1 : 0,
+        merged.isApproved ? 1 : 0,
+        merged.views,
+        JSON.stringify(merged.tags || []),
+        merged.createdAt,
+        id
+      ]
+    );
+    return merged;
   }
 
-  public deleteVideo(id: string): boolean {
-    const prevLen = this.data.videos.length;
-    this.data.videos = this.data.videos.filter((v) => v.id !== id);
-    this.data.channels.forEach((ch) => {
-      if (ch.videoIds) {
-        ch.videoIds = ch.videoIds.filter((vid) => vid !== id);
+  public async deleteVideo(id: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>('DELETE FROM videos WHERE id = ?', [id]);
+    if (result.affectedRows === 0) return false;
+
+    const [channels] = await this.pool.query<RowDataPacket[]>('SELECT id, videoIds FROM channels');
+    for (const ch of channels) {
+      const videoIds = parseJson<string[]>(ch.videoIds, []);
+      if (videoIds.includes(id)) {
+        const filtered = videoIds.filter((vid) => vid !== id);
+        await this.pool.query('UPDATE channels SET videoIds = ? WHERE id = ?', [
+          JSON.stringify(filtered),
+          ch.id
+        ]);
       }
-    });
-    if (this.data.videos.length !== prevLen) {
-      this.save();
-      return true;
     }
-    return false;
+    return true;
   }
 
-  public incrementViews(id: string): void {
-    const video = this.getVideoById(id);
-    if (video) {
-      video.views += 1;
-      this.save();
-    }
+  public async incrementViews(id: string): Promise<void> {
+    await this.pool.query('UPDATE videos SET views = views + 1 WHERE id = ?', [id]);
   }
 
   // --- Channels ---
-  public getChannelVideos(channelId: string): Video[] {
+  public async getChannelVideos(channelId: string): Promise<Video[]> {
     return this.getVideos({ channelId, onlyApproved: true });
   }
 
-  public getChannels(): Channel[] {
-    return this.data.channels.map((c) => ({
-      ...c,
-      channelType: c.channelType || 'ON_DEMAND',
-      videoCount: this.getChannelVideos(c.id).length
-    }));
+  public async getChannels(): Promise<Channel[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM channels');
+    const channels = rows.map(mapChannelRow);
+    return Promise.all(
+      channels.map(async (c) => ({
+        ...c,
+        videoCount: (await this.getChannelVideos(c.id)).length
+      }))
+    );
   }
 
-  public getChannelById(id: string): Channel | undefined {
-    const c = this.data.channels.find((ch) => ch.id === id);
-    if (!c) return undefined;
+  public async getChannelById(id: string): Promise<Channel | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM channels WHERE id = ?', [id]);
+    if (rows.length === 0) return undefined;
+    const ch = mapChannelRow(rows[0]);
+    const [vidRows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT id, channelId FROM videos WHERE isApproved = 1'
+    );
+    const chVideoIds = new Set(ch.videoIds || []);
+    const count = vidRows.filter((v) => chVideoIds.has(v.id) || v.channelId === ch.id).length;
     return {
-      ...c,
-      channelType: c.channelType || 'ON_DEMAND',
-      videoCount: this.getChannelVideos(c.id).length
+      ...ch,
+      videoCount: count
     };
   }
 
-  public addChannel(channel: Channel): Channel {
-    this.data.channels.push({
+  public async addChannel(channel: Channel): Promise<Channel> {
+    const normalized: Channel = {
       ...channel,
       channelType: channel.channelType || 'ON_DEMAND',
       scheduleStartTime: channel.scheduleStartTime || new Date().toISOString(),
       videoIds: channel.videoIds || []
-    });
-    this.save();
-    return channel;
+    };
+    await this.pool.query(
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        normalized.id,
+        normalized.name,
+        normalized.description,
+        normalized.avatarUrl,
+        normalized.bannerUrl || null,
+        normalized.category,
+        normalized.isVerified ? 1 : 0,
+        normalized.channelType,
+        normalized.scheduleStartTime || null,
+        JSON.stringify(normalized.videoIds || [])
+      ]
+    );
+    return normalized;
   }
 
-  public updateChannel(id: string, updates: Partial<Channel>): Channel | null {
-    const idx = this.data.channels.findIndex((c) => c.id === id);
-    if (idx === -1) return null;
-    this.data.channels[idx] = { ...this.data.channels[idx], ...updates };
-    this.save();
-    return this.getChannelById(id)!;
+  public async updateChannel(id: string, updates: Partial<Channel>): Promise<Channel | null> {
+    const existing = await this.getChannelById(id);
+    if (!existing) return null;
+
+    const merged: Channel = { ...existing, ...updates, id };
+    await this.pool.query(
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?
+       WHERE id = ?`,
+      [
+        merged.name,
+        merged.description,
+        merged.avatarUrl,
+        merged.bannerUrl || null,
+        merged.category,
+        merged.isVerified ? 1 : 0,
+        merged.channelType,
+        merged.scheduleStartTime || null,
+        JSON.stringify(merged.videoIds || []),
+        id
+      ]
+    );
+    return (await this.getChannelById(id)) || null;
   }
 
-  public deleteChannel(id: string): boolean {
-    const prev = this.data.channels.length;
-    this.data.channels = this.data.channels.filter((c) => c.id !== id);
-    if (this.data.channels.length !== prev) {
-      this.save();
-      return true;
-    }
-    return false;
+  public async deleteChannel(id: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>('DELETE FROM channels WHERE id = ?', [id]);
+    return result.affectedRows > 0;
   }
 
-  public addVideoToChannel(channelId: string, videoId: string): Channel | null {
-    const ch = this.data.channels.find((c) => c.id === channelId);
-    const vid = this.getVideoById(videoId);
+  public async addVideoToChannel(channelId: string, videoId: string): Promise<Channel | null> {
+    const ch = await this.getChannelById(channelId);
+    const vid = await this.getVideoById(videoId);
     if (!ch || !vid) return null;
 
-    ch.videoIds = ch.videoIds || [];
-    if (!ch.videoIds.includes(videoId)) {
-      ch.videoIds.push(videoId);
-      this.save();
+    const videoIds = ch.videoIds || [];
+    if (!videoIds.includes(videoId)) {
+      videoIds.push(videoId);
+      await this.pool.query('UPDATE channels SET videoIds = ? WHERE id = ?', [
+        JSON.stringify(videoIds),
+        channelId
+      ]);
     }
-    return this.getChannelById(channelId)!;
+    return (await this.getChannelById(channelId)) || null;
   }
 
-  public removeVideoFromChannel(channelId: string, videoId: string): Channel | null {
-    const ch = this.data.channels.find((c) => c.id === channelId);
+  public async removeVideoFromChannel(channelId: string, videoId: string): Promise<Channel | null> {
+    const ch = await this.getChannelById(channelId);
     if (!ch) return null;
-    ch.videoIds = (ch.videoIds || []).filter((id) => id !== videoId);
-    this.save();
-    return this.getChannelById(channelId)!;
+    const videoIds = (ch.videoIds || []).filter((id) => id !== videoId);
+    await this.pool.query('UPDATE channels SET videoIds = ? WHERE id = ?', [
+      JSON.stringify(videoIds),
+      channelId
+    ]);
+    return (await this.getChannelById(channelId)) || null;
   }
 
   /**
    * Computes the current live broadcast state for a LIVE_TV channel based on wall-clock time.
    * Loops seamlessly through the channel's scheduled videos using each video's duration.
    */
-  public getLiveChannelState(channelId: string): LiveScheduleState | null {
-    const channel = this.getChannelById(channelId);
+  public async getLiveChannelState(channelId: string): Promise<LiveScheduleState | null> {
+    const channel = await this.getChannelById(channelId);
     if (!channel) return null;
 
-    const videos = this.getChannelVideos(channelId);
+    const videos = await this.getChannelVideos(channelId);
     if (videos.length === 0) {
       return {
         channel,
@@ -528,50 +809,84 @@ class Database {
   }
 
   // --- Playlists ---
-  public getPlaylists(): Playlist[] {
-    return this.data.playlists;
+  public async getPlaylists(): Promise<Playlist[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM playlists');
+    return rows.map(mapPlaylistRow);
   }
 
-  public getPlaylistById(id: string): Playlist | undefined {
-    return this.data.playlists.find((p) => p.id === id);
+  public async getPlaylistById(id: string): Promise<Playlist | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM playlists WHERE id = ?', [id]);
+    if (rows.length === 0) return undefined;
+    return mapPlaylistRow(rows[0]);
   }
 
-  public addPlaylist(playlist: Playlist): Playlist {
-    this.data.playlists.push(playlist);
-    this.save();
+  public async addPlaylist(playlist: Playlist): Promise<Playlist> {
+    await this.pool.query(
+      `INSERT INTO playlists (id, title, description, thumbnailUrl, videoIds, category, ageRating)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        playlist.id,
+        playlist.title,
+        playlist.description,
+        playlist.thumbnailUrl,
+        JSON.stringify(playlist.videoIds || []),
+        playlist.category,
+        playlist.ageRating
+      ]
+    );
     return playlist;
   }
 
   // --- Categories ---
-  public getCategories(): Category[] {
-    return this.data.categories.map((c) => ({
-      ...c,
+  public async getCategories(): Promise<Category[]> {
+    const [catRows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM categories');
+    const [vidRows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT category FROM videos WHERE isApproved = 1'
+    );
+    return catRows.map((c) => ({
+      id: c.id,
+      name: c.name,
+      icon: c.icon,
+      color: c.color,
       videoCount:
         c.id === 'cat-all'
-          ? this.data.videos.filter((v) => v.isApproved).length
-          : this.data.videos.filter((v) => v.category === c.name && v.isApproved).length
+          ? vidRows.length
+          : vidRows.filter((v) => v.category === c.name).length
     }));
   }
 
   // --- Config ---
-  public getConfig(): AppConfig {
-    return this.data.config;
+  public async getConfig(): Promise<AppConfig> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT config FROM app_config WHERE id = ?',
+      ['default']
+    );
+    if (rows.length === 0) return INITIAL_CONFIG;
+    return parseJson<AppConfig>(rows[0].config, INITIAL_CONFIG);
   }
 
-  public updateConfig(updates: Partial<AppConfig>): AppConfig {
-    this.data.config = { ...this.data.config, ...updates };
-    this.save();
-    return this.data.config;
+  public async updateConfig(updates: Partial<AppConfig>): Promise<AppConfig> {
+    const current = await this.getConfig();
+    const merged: AppConfig = { ...current, ...updates };
+    await this.pool.query(
+      'INSERT INTO app_config (id, config) VALUES (?, ?) ON DUPLICATE KEY UPDATE config = VALUES(config)',
+      ['default', JSON.stringify(merged)]
+    );
+    return merged;
   }
 
-  public getStats() {
+  public async getStats() {
+    const [vidRows] = await this.pool.query<RowDataPacket[]>('SELECT isApproved, views FROM videos');
+    const [chanRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM channels');
+    const [plRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM playlists');
+
     return {
-      totalVideos: this.data.videos.length,
-      approvedVideos: this.data.videos.filter((v) => v.isApproved).length,
-      pendingVideos: this.data.videos.filter((v) => !v.isApproved).length,
-      totalChannels: this.data.channels.length,
-      totalPlaylists: this.data.playlists.length,
-      totalViews: this.data.videos.reduce((sum, v) => sum + (v.views || 0), 0)
+      totalVideos: vidRows.length,
+      approvedVideos: vidRows.filter((v) => Boolean(v.isApproved)).length,
+      pendingVideos: vidRows.filter((v) => !Boolean(v.isApproved)).length,
+      totalChannels: Number(chanRows[0].cnt) || 0,
+      totalPlaylists: Number(plRows[0].cnt) || 0,
+      totalViews: vidRows.reduce((sum, v) => sum + (Number(v.views) || 0), 0)
     };
   }
 }
