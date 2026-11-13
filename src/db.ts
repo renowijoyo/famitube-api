@@ -305,15 +305,9 @@ class Database {
       const port = Number(process.env.MYSQL_PORT) || 3306;
       const user = process.env.MYSQL_USER || 'root';
       const password = process.env.MYSQL_PASSWORD || '';
-      const database = process.env.MYSQL_DATABASE || 'kidstube';
+      const database = process.env.MYSQL_DATABASE || 'kidstubedb';
 
-      const bootstrapConn = await mysql.createConnection({ host, port, user, password });
-      await bootstrapConn.query(
-        `CREATE DATABASE IF NOT EXISTS \`${database.replace(/`/g, '')}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`
-      );
-      await bootstrapConn.end();
-
-      this.pool = mysql.createPool({
+      const bootstrapPool = mysql.createPool({
         host,
         port,
         user,
@@ -322,6 +316,34 @@ class Database {
         waitForConnections: true,
         connectionLimit: 10
       });
+
+      try {
+        await bootstrapPool.query('SELECT 1');
+        this.pool = bootstrapPool;
+      } catch (err: unknown) {
+        const mysqlErr = err as { code?: string };
+        if (mysqlErr.code === 'ER_BAD_DB_ERROR') {
+          await bootstrapPool.end();
+          const bootstrapConn = await mysql.createConnection({ host, port, user, password });
+          await bootstrapConn.query(
+            `CREATE DATABASE IF NOT EXISTS \`${database.replace(/`/g, '')}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`
+          );
+          await bootstrapConn.end();
+
+          this.pool = mysql.createPool({
+            host,
+            port,
+            user,
+            password,
+            database,
+            waitForConnections: true,
+            connectionLimit: 10
+          });
+        } else {
+          await bootstrapPool.end();
+          throw err;
+        }
+      }
     }
 
     await this.createTables();
