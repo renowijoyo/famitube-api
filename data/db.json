@@ -1,0 +1,307 @@
+{
+  "videos": [
+    {
+      "id": "vid-1",
+      "title": "Big Buck Bunny - An Animated Spring Adventure",
+      "description": "A giant rabbit with a heart bigger than himself meets bullying forest creatures who ruin his day. A heartwarming open-movie classic.",
+      "sourceType": "DIRECT",
+      "sourceUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=800&h=450&fit=crop",
+      "duration": 596,
+      "channelId": "chan-blender",
+      "channelTitle": "Blender Open Animation",
+      "channelAvatar": "https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop",
+      "category": "Cartoons & Fun",
+      "ageRating": "ALL",
+      "isFeatured": true,
+      "isApproved": true,
+      "views": 12450,
+      "tags": [
+        "rabbit",
+        "cartoon",
+        "nature",
+        "spring",
+        "animals"
+      ],
+      "createdAt": "2026-11-11T01:03:24.060Z"
+    },
+    {
+      "id": "vid-2",
+      "title": "Why Do We Have Seasons? Earth Tilt Explained!",
+      "description": "Ever wonder why summer is hot and winter is cold? Join us on a journey through space to see how our tilted Earth creates summer, fall, winter, and spring!",
+      "sourceType": "YOUTUBE",
+      "sourceUrl": "https://www.youtube.com/watch?v=b25g4nZTHvM",
+      "youtubeVideoId": "b25g4nZTHvM",
+      "thumbnailUrl": "https://img.youtube.com/vi/b25g4nZTHvM/hqdefault.jpg",
+      "duration": 254,
+      "channelId": "chan-scishow",
+      "channelTitle": "SciShow Kids",
+      "channelAvatar": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop",
+      "category": "Science & Space",
+      "ageRating": "YOUNG_KIDS",
+      "isFeatured": true,
+      "isApproved": true,
+      "views": 8930,
+      "tags": [
+        "earth",
+        "seasons",
+        "space",
+        "science",
+        "sun"
+      ],
+      "createdAt": "2026-11-09T01:03:24.061Z"
+    },
+    {
+      "id": "vid-3",
+      "title": "Elephants 101 - Gentle Giants of the Savanna",
+      "description": "Learn incredible facts about elephant trunks, family herds, and how these smart giants communicate over miles!",
+      "sourceType": "YOUTUBE",
+      "sourceUrl": "https://www.youtube.com/watch?v=Aw6GkiCvcWs",
+      "youtubeVideoId": "Aw6GkiCvcWs",
+      "thumbnailUrl": "https://img.youtube.com/vi/Aw6GkiCvcWs/hqdefault.jpg",
+      "duration": 215,
+      "channelId": "chan-natgeo",
+      "channelTitle": "Nat Geo Kids",
+      "channelAvatar": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop",
+      "category": "Animals & Nature",
+      "ageRating": "ALL",
+      "isFeatured": false,
+      "isApproved": true,
+      "views": 15400,
+      "tags": [
+        "elephants",
+        "safari",
+        "wildlife",
+        "nature"
+      ],
+      "createdAt": "2026-11-08T01:03:24.061Z"
+    },
+    {
+      "id": "vid-4",
+      "title": "The Solar System Song - Planets for Kids",
+      "description": "Sing along to all 8 planets from Mercury to Neptune! Fun music video teaching kids the order and sizes of planets.",
+      "sourceType": "YOUTUBE",
+      "sourceUrl": "https://www.youtube.com/watch?v=mQrlgH933Po",
+      "youtubeVideoId": "mQrlgH933Po",
+      "thumbnailUrl": "https://img.youtube.com/vi/mQrlgH933Po/hqdefault.jpg",
+      "duration": 185,
+      "channelId": "chan-supersimple",
+      "channelTitle": "Simple Songs & Fun",
+      "channelAvatar": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop",
+      "category": "Music & Rhymes",
+      "ageRating": "TODDLER",
+      "isFeatured": true,
+      "isApproved": true,
+      "views": 28310,
+      "tags": [
+        "solar system",
+        "planets",
+        "song",
+        "singalong",
+        "space"
+      ],
+      "createdAt": "2026-11-06T01:03:24.061Z"
+    },
+    {
+      "id": "vid-5",
+      "title": "For the Birds - Pixar Style Cartoon Comedy",
+      "description": "A flock of small birds sitting on a telephone wire get an unexpected visit from a quirky large bird.",
+      "sourceType": "DIRECT",
+      "sourceUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1522858547550-3405742f160d?w=800&h=450&fit=crop",
+      "duration": 15,
+      "channelId": "chan-blender",
+      "channelTitle": "Blender Open Animation",
+      "channelAvatar": "https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop",
+      "category": "Cartoons & Fun",
+      "ageRating": "ALL",
+      "isFeatured": false,
+      "isApproved": true,
+      "views": 4520,
+      "tags": [
+        "birds",
+        "comedy",
+        "animation",
+        "short"
+      ],
+      "createdAt": "2026-11-03T01:03:24.061Z"
+    },
+    {
+      "id": "vid-6",
+      "title": "How Do Airplanes Fly? Bernoulli & Lift for Kids",
+      "description": "Discover how wings create lift, engines provide thrust, and how pilots steer huge planes through the sky!",
+      "sourceType": "YOUTUBE",
+      "sourceUrl": "https://www.youtube.com/watch?v=Gg0TXNXgz-w",
+      "youtubeVideoId": "Gg0TXNXgz-w",
+      "thumbnailUrl": "https://img.youtube.com/vi/Gg0TXNXgz-w/hqdefault.jpg",
+      "duration": 310,
+      "channelId": "chan-scishow",
+      "channelTitle": "SciShow Kids",
+      "channelAvatar": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop",
+      "category": "Science & Space",
+      "ageRating": "YOUNG_KIDS",
+      "isFeatured": false,
+      "isApproved": true,
+      "views": 19800,
+      "tags": [
+        "airplane",
+        "flight",
+        "physics",
+        "invention"
+      ],
+      "createdAt": "2026-11-01T01:03:24.061Z"
+    }
+  ],
+  "channels": [
+    {
+      "id": "chan-livetv",
+      "name": "KidsTube Live TV",
+      "description": "24/7 scheduled kids TV broadcast! Always playing curated cartoons & science.",
+      "avatarUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop",
+      "bannerUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop",
+      "category": "Cartoons & Fun",
+      "isVerified": true,
+      "channelType": "LIVE_TV",
+      "scheduleStartTime": "2026-01-01T00:00:00.000Z",
+      "videoIds": [
+        "vid-1",
+        "vid-2",
+        "vid-4",
+        "vid-6"
+      ]
+    },
+    {
+      "id": "chan-natgeo",
+      "name": "Nat Geo Kids",
+      "description": "Awesome videos about animals, science, history, and fun adventures!",
+      "avatarUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop",
+      "bannerUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1000&h=300&fit=crop",
+      "category": "Animals & Nature",
+      "isVerified": true,
+      "channelType": "ON_DEMAND",
+      "videoIds": [
+        "vid-3"
+      ]
+    },
+    {
+      "id": "chan-scishow",
+      "name": "SciShow Kids",
+      "description": "Explore the fascinating science behind everyday questions and mysteries.",
+      "avatarUrl": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop",
+      "bannerUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&h=300&fit=crop",
+      "category": "Science & Space",
+      "isVerified": true,
+      "channelType": "ON_DEMAND",
+      "videoIds": [
+        "vid-2",
+        "vid-6"
+      ]
+    },
+    {
+      "id": "chan-blender",
+      "name": "Blender Open Animation",
+      "description": "Award-winning open source 3D animated shorts suitable for all ages.",
+      "avatarUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop",
+      "bannerUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop",
+      "category": "Cartoons & Fun",
+      "isVerified": true,
+      "channelType": "ON_DEMAND",
+      "videoIds": [
+        "vid-1",
+        "vid-5"
+      ]
+    },
+    {
+      "id": "chan-supersimple",
+      "name": "Simple Songs & Fun",
+      "description": "Catchy songs, nursery rhymes, and upbeat learning tunes for young kids.",
+      "avatarUrl": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop",
+      "bannerUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1000&h=300&fit=crop",
+      "category": "Music & Rhymes",
+      "isVerified": true,
+      "channelType": "ON_DEMAND",
+      "videoIds": [
+        "vid-4"
+      ]
+    }
+  ],
+  "playlists": [
+    {
+      "id": "pl-space",
+      "title": "Space Explorers Club",
+      "description": "Journey to the stars, planets, and galaxies!",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=350&fit=crop",
+      "videoIds": [
+        "vid-2",
+        "vid-4"
+      ],
+      "category": "Science & Space",
+      "ageRating": "ALL"
+    },
+    {
+      "id": "pl-fun-cartoons",
+      "title": "Weekend Morning Cartoons",
+      "description": "Safe, fun, hilarious cartoons guaranteed to make you smile.",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=600&h=350&fit=crop",
+      "videoIds": [
+        "vid-1",
+        "vid-5"
+      ],
+      "category": "Cartoons & Fun",
+      "ageRating": "ALL"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-all",
+      "name": "All Videos",
+      "icon": "auto_awesome",
+      "color": "#FF4D6D"
+    },
+    {
+      "id": "cat-science",
+      "name": "Science & Space",
+      "icon": "rocket_launch",
+      "color": "#4361EE"
+    },
+    {
+      "id": "cat-cartoons",
+      "name": "Cartoons & Fun",
+      "icon": "theater_comedy",
+      "color": "#7209B7"
+    },
+    {
+      "id": "cat-learning",
+      "name": "Learning & ABCs",
+      "icon": "school",
+      "color": "#4CC9F0"
+    },
+    {
+      "id": "cat-music",
+      "name": "Music & Rhymes",
+      "icon": "music_note",
+      "color": "#F72585"
+    },
+    {
+      "id": "cat-animals",
+      "name": "Animals & Nature",
+      "icon": "pets",
+      "color": "#06D6A0"
+    },
+    {
+      "id": "cat-crafts",
+      "name": "Art & Crafts",
+      "icon": "palette",
+      "color": "#FFB703"
+    }
+  ],
+  "config": {
+    "appName": "KidsTube Safe Video Player",
+    "version": "1.0.0",
+    "welcomeMessage": "Welcome to KidsTube! Enjoy safe, curated videos chosen with care.",
+    "parentalDefaults": {
+      "defaultWatchLimitMinutes": 45,
+      "enforcePin": true
+    }
+  }
+}
