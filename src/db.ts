@@ -1,13 +1,25 @@
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 import {
   Video,
+  AgeRating,
   Channel,
+  ChannelVisibility,
+  PermissionPreset,
+  ChannelPermissions,
+  PERMISSION_PRESETS,
+  ChannelInvite,
+  ChannelMember,
+  ChannelSuggestion,
+  SuggestionStatus,
+  ChannelVideoComment,
+  ChannelWithAccess,
   Playlist,
   Category,
   AppConfig,
   LiveScheduleState,
   UpNextItem,
-  User
+  User,
+  UserRole
 } from './types.js';
 
 const INITIAL_CATEGORIES: Category[] = [
@@ -479,7 +491,90 @@ function mapChannelRow(row: RowDataPacket): Channel {
     isVerified: Boolean(row.isVerified),
     channelType: row.channelType || 'ON_DEMAND',
     scheduleStartTime: row.scheduleStartTime || undefined,
-    videoIds: parseJson<string[]>(row.videoIds, [])
+    videoIds: parseJson<string[]>(row.videoIds, []),
+    ownerId: row.ownerId || undefined,
+    visibility: (row.visibility as ChannelVisibility) || 'PUBLIC',
+    createdAt: row.createdAt || undefined
+  };
+}
+
+function normalizePermissions(raw: unknown, preset?: PermissionPreset): ChannelPermissions {
+  const base =
+    preset && preset !== 'CUSTOM' ? PERMISSION_PRESETS[preset] : PERMISSION_PRESETS.VIEWER;
+  const parsed = parseJson<Partial<ChannelPermissions>>(raw, {});
+  return {
+    canAddVideo: typeof parsed.canAddVideo === 'boolean' ? parsed.canAddVideo : base.canAddVideo,
+    canSuggestVideo:
+      typeof parsed.canSuggestVideo === 'boolean' ? parsed.canSuggestVideo : base.canSuggestVideo,
+    canComment: typeof parsed.canComment === 'boolean' ? parsed.canComment : base.canComment
+  };
+}
+
+function mapInviteRow(row: RowDataPacket): ChannelInvite {
+  const preset = (row.preset as PermissionPreset) || 'SUGGESTER';
+  return {
+    id: row.id,
+    channelId: row.channelId,
+    token: row.token,
+    createdBy: row.createdBy,
+    label: row.label || undefined,
+    preset,
+    permissions: normalizePermissions(row.permissions, preset),
+    maxUses: row.maxUses !== null && row.maxUses !== undefined ? Number(row.maxUses) : null,
+    useCount: Number(row.useCount) || 0,
+    expiresAt: row.expiresAt || null,
+    isRevoked: Boolean(row.isRevoked),
+    createdAt: row.createdAt
+  };
+}
+
+function mapMemberRow(row: RowDataPacket): ChannelMember {
+  const preset = (row.preset as PermissionPreset) || 'VIEWER';
+  return {
+    id: row.id,
+    channelId: row.channelId,
+    userId: row.userId,
+    userName: row.userName || undefined,
+    userEmail: row.userEmail || undefined,
+    inviteId: row.inviteId || null,
+    preset,
+    permissions: normalizePermissions(row.permissions, preset),
+    joinedAt: row.joinedAt
+  };
+}
+
+function mapSuggestionRow(row: RowDataPacket): ChannelSuggestion {
+  return {
+    id: row.id,
+    channelId: row.channelId,
+    suggestedBy: row.suggestedBy,
+    suggesterName: row.suggesterName || undefined,
+    title: row.title,
+    description: row.description || '',
+    sourceType: row.sourceType,
+    sourceUrl: row.sourceUrl,
+    youtubeVideoId: row.youtubeVideoId || undefined,
+    thumbnailUrl: row.thumbnailUrl,
+    duration: Number(row.duration) || 180,
+    category: row.category,
+    ageRating: row.ageRating || 'ALL',
+    note: row.note || undefined,
+    status: (row.status as SuggestionStatus) || 'PENDING',
+    reviewedBy: row.reviewedBy || null,
+    reviewedAt: row.reviewedAt || null,
+    createdAt: row.createdAt
+  };
+}
+
+function mapCommentRow(row: RowDataPacket): ChannelVideoComment {
+  return {
+    id: row.id,
+    channelId: row.channelId,
+    videoId: row.videoId,
+    authorId: row.authorId,
+    authorName: row.authorName || undefined,
+    content: row.content,
+    createdAt: row.createdAt
   };
 }
 
@@ -501,6 +596,9 @@ function mapUserRow(row: RowDataPacket): User {
     email: row.email,
     name: row.name,
     passwordHash: row.passwordHash,
+    role: (row.role as UserRole) || 'PARENT',
+    parentId: row.parentId || undefined,
+    ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
     verificationToken: row.verificationToken || undefined,
     verificationExpiresAt: row.verificationExpiresAt || undefined,
@@ -587,9 +685,16 @@ class Database {
         isVerified TINYINT(1) NOT NULL DEFAULT 1,
         channelType VARCHAR(32) NOT NULL DEFAULT 'ON_DEMAND',
         scheduleStartTime VARCHAR(64),
-        videoIds JSON NOT NULL
+        videoIds JSON NOT NULL,
+        ownerId VARCHAR(64) NULL,
+        visibility VARCHAR(16) NOT NULL DEFAULT 'PUBLIC',
+        createdAt VARCHAR(64) NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+
+    await this.ensureColumnExists('channels', 'ownerId', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('channels', 'visibility', "VARCHAR(16) NOT NULL DEFAULT 'PUBLIC'");
+    await this.ensureColumnExists('channels', 'createdAt', 'VARCHAR(64) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS videos (
@@ -639,12 +744,98 @@ class Database {
         email VARCHAR(255) NOT NULL UNIQUE,
         name VARCHAR(255) NOT NULL,
         passwordHash VARCHAR(255) NOT NULL,
+        role VARCHAR(16) NOT NULL DEFAULT 'PARENT',
+        parentId VARCHAR(64) NULL,
+        ageRating VARCHAR(32) NULL,
         isVerified TINYINT(1) NOT NULL DEFAULT 0,
         verificationToken VARCHAR(128),
         verificationExpiresAt VARCHAR(64),
-        createdAt VARCHAR(64) NOT NULL
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_users_parent (parentId)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+
+    await this.ensureColumnExists('users', 'role', "VARCHAR(16) NOT NULL DEFAULT 'PARENT'");
+    await this.ensureColumnExists('users', 'parentId', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('users', 'ageRating', 'VARCHAR(32) NULL');
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS channel_invites (
+        id VARCHAR(64) PRIMARY KEY,
+        channelId VARCHAR(64) NOT NULL,
+        token VARCHAR(128) NOT NULL UNIQUE,
+        createdBy VARCHAR(64) NOT NULL,
+        label VARCHAR(128),
+        preset VARCHAR(32) NOT NULL DEFAULT 'SUGGESTER',
+        permissions JSON NOT NULL,
+        maxUses INT NULL,
+        useCount INT NOT NULL DEFAULT 0,
+        expiresAt VARCHAR(64) NULL,
+        isRevoked TINYINT(1) NOT NULL DEFAULT 0,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_invites_channel (channelId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS channel_members (
+        id VARCHAR(64) PRIMARY KEY,
+        channelId VARCHAR(64) NOT NULL,
+        userId VARCHAR(64) NOT NULL,
+        inviteId VARCHAR(64) NULL,
+        preset VARCHAR(32) NOT NULL DEFAULT 'VIEWER',
+        permissions JSON NOT NULL,
+        joinedAt VARCHAR(64) NOT NULL,
+        UNIQUE KEY uniq_channel_user (channelId, userId),
+        INDEX idx_members_user (userId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS channel_suggestions (
+        id VARCHAR(64) PRIMARY KEY,
+        channelId VARCHAR(64) NOT NULL,
+        suggestedBy VARCHAR(64) NOT NULL,
+        title VARCHAR(512) NOT NULL,
+        description TEXT NOT NULL,
+        sourceType VARCHAR(32) NOT NULL,
+        sourceUrl TEXT NOT NULL,
+        youtubeVideoId VARCHAR(64),
+        thumbnailUrl TEXT NOT NULL,
+        duration INT NOT NULL DEFAULT 180,
+        category VARCHAR(255) NOT NULL,
+        ageRating VARCHAR(32) NOT NULL DEFAULT 'ALL',
+        note TEXT,
+        status VARCHAR(16) NOT NULL DEFAULT 'PENDING',
+        reviewedBy VARCHAR(64) NULL,
+        reviewedAt VARCHAR(64) NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_suggestions_channel_status (channelId, status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS channel_video_comments (
+        id VARCHAR(64) PRIMARY KEY,
+        channelId VARCHAR(64) NOT NULL,
+        videoId VARCHAR(64) NOT NULL,
+        authorId VARCHAR(64) NOT NULL,
+        content TEXT NOT NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_comments_channel_video (channelId, videoId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+  }
+
+  private async ensureColumnExists(table: string, column: string, definition: string): Promise<void> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT COUNT(*) AS cnt FROM INFORMATION_SCHEMA.COLUMNS
+       WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?`,
+      [table, column]
+    );
+    if (Number(rows[0]?.cnt || 0) === 0) {
+      await this.pool.query(`ALTER TABLE \`${table}\` ADD COLUMN \`${column}\` ${definition}`);
+    }
   }
 
   private async seedIfEmpty(): Promise<void> {
@@ -887,8 +1078,11 @@ class Database {
     return this.getVideos({ channelId, onlyApproved: true });
   }
 
-  public async getChannels(): Promise<Channel[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM channels');
+  public async getChannels(options?: { onlyPublic?: boolean }): Promise<Channel[]> {
+    const query = options?.onlyPublic
+      ? "SELECT * FROM channels WHERE visibility = 'PUBLIC' OR visibility IS NULL"
+      : 'SELECT * FROM channels';
+    const [rows] = await this.pool.query<RowDataPacket[]>(query);
     const channels = rows.map(mapChannelRow);
     return Promise.all(
       channels.map(async (c) => ({
@@ -918,11 +1112,13 @@ class Database {
       ...channel,
       channelType: channel.channelType || 'ON_DEMAND',
       scheduleStartTime: channel.scheduleStartTime || new Date().toISOString(),
-      videoIds: channel.videoIds || []
+      videoIds: channel.videoIds || [],
+      visibility: channel.visibility || 'PUBLIC',
+      createdAt: channel.createdAt || new Date().toISOString()
     };
     await this.pool.query(
-      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, ownerId, visibility, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         normalized.id,
         normalized.name,
@@ -933,7 +1129,10 @@ class Database {
         normalized.isVerified ? 1 : 0,
         normalized.channelType,
         normalized.scheduleStartTime || null,
-        JSON.stringify(normalized.videoIds || [])
+        JSON.stringify(normalized.videoIds || []),
+        normalized.ownerId || null,
+        normalized.visibility || 'PUBLIC',
+        normalized.createdAt || null
       ]
     );
     return normalized;
@@ -945,7 +1144,7 @@ class Database {
 
     const merged: Channel = { ...existing, ...updates, id };
     await this.pool.query(
-      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?, visibility = ?
        WHERE id = ?`,
       [
         merged.name,
@@ -957,6 +1156,7 @@ class Database {
         merged.channelType,
         merged.scheduleStartTime || null,
         JSON.stringify(merged.videoIds || []),
+        merged.visibility || 'PUBLIC',
         id
       ]
     );
@@ -964,6 +1164,10 @@ class Database {
   }
 
   public async deleteChannel(id: string): Promise<boolean> {
+    await this.pool.query('DELETE FROM channel_invites WHERE channelId = ?', [id]);
+    await this.pool.query('DELETE FROM channel_members WHERE channelId = ?', [id]);
+    await this.pool.query('DELETE FROM channel_suggestions WHERE channelId = ?', [id]);
+    await this.pool.query('DELETE FROM channel_video_comments WHERE channelId = ?', [id]);
     const [result] = await this.pool.query<mysql.ResultSetHeader>('DELETE FROM channels WHERE id = ?', [id]);
     return result.affectedRows > 0;
   }
@@ -1168,13 +1372,16 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, isVerified, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, ageRating, isVerified, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
         user.name.trim(),
         user.passwordHash,
+        user.role || 'PARENT',
+        user.parentId || null,
+        user.ageRating || null,
         user.isVerified ? 1 : 0,
         user.verificationToken || null,
         user.verificationExpiresAt || null,
@@ -1182,6 +1389,44 @@ class Database {
       ]
     );
     return user;
+  }
+
+  public async getChildrenByParentId(parentId: string): Promise<User[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      "SELECT * FROM users WHERE parentId = ? AND role = 'CHILD' ORDER BY createdAt DESC",
+      [parentId]
+    );
+    return rows.map(mapUserRow);
+  }
+
+  public async updateChildAccount(
+    parentId: string,
+    childId: string,
+    updates: { name?: string; ageRating?: AgeRating; passwordHash?: string }
+  ): Promise<User | null> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      "SELECT * FROM users WHERE id = ? AND parentId = ? AND role = 'CHILD'",
+      [childId, parentId]
+    );
+    if (rows.length === 0) return null;
+    const existing = mapUserRow(rows[0]);
+    const name = updates.name ? updates.name.trim() : existing.name;
+    const ageRating = updates.ageRating !== undefined ? updates.ageRating : existing.ageRating;
+    const passwordHash = updates.passwordHash || existing.passwordHash;
+
+    await this.pool.query(
+      'UPDATE users SET name = ?, ageRating = ?, passwordHash = ? WHERE id = ? AND parentId = ?',
+      [name, ageRating || null, passwordHash, childId, parentId]
+    );
+    return (await this.getUserById(childId)) || null;
+  }
+
+  public async deleteChildAccount(parentId: string, childId: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      "DELETE FROM users WHERE id = ? AND parentId = ? AND role = 'CHILD'",
+      [childId, parentId]
+    );
+    return result.affectedRows > 0;
   }
 
   public async markUserVerified(id: string): Promise<void> {
@@ -1200,6 +1445,365 @@ class Database {
       'UPDATE users SET verificationToken = ?, verificationExpiresAt = ? WHERE id = ?',
       [token, expiresAt, id]
     );
+  }
+
+  // --- Channel Access & Collaboration ---
+  public async getChannelAccess(
+    channelId: string,
+    userId?: string
+  ): Promise<{
+    channel: Channel;
+    isOwner: boolean;
+    member?: ChannelMember;
+    canView: boolean;
+    permissions: ChannelPermissions & { isOwner: boolean };
+  } | null> {
+    const channel = await this.getChannelById(channelId);
+    if (!channel) return null;
+
+    const isOwner = Boolean(userId && channel.ownerId && channel.ownerId === userId);
+    if (isOwner) {
+      return {
+        channel,
+        isOwner: true,
+        canView: true,
+        permissions: { isOwner: true, canAddVideo: true, canSuggestVideo: true, canComment: true }
+      };
+    }
+
+    const member = userId ? await this.getChannelMember(channelId, userId) : undefined;
+    if (member) {
+      return {
+        channel,
+        isOwner: false,
+        member,
+        canView: true,
+        permissions: { isOwner: false, ...member.permissions }
+      };
+    }
+
+    const isPublic = (channel.visibility || 'PUBLIC') === 'PUBLIC';
+    return {
+      channel,
+      isOwner: false,
+      canView: isPublic,
+      permissions: { isOwner: false, canAddVideo: false, canSuggestVideo: false, canComment: false }
+    };
+  }
+
+  public async getChannelsForUser(userId: string): Promise<ChannelWithAccess[]> {
+    const allChannels = await this.getChannels({ onlyPublic: false });
+    const [memberRows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM channel_members WHERE userId = ?',
+      [userId]
+    );
+    const memberMap = new Map<string, ChannelMember>();
+    for (const row of memberRows) {
+      const m = mapMemberRow(row);
+      memberMap.set(m.channelId, m);
+    }
+
+    const [pendingRows] = await this.pool.query<RowDataPacket[]>(
+      "SELECT channelId, COUNT(*) AS cnt FROM channel_suggestions WHERE status = 'PENDING' GROUP BY channelId"
+    );
+    const pendingMap = new Map<string, number>();
+    for (const r of pendingRows) {
+      pendingMap.set(r.channelId, Number(r.cnt) || 0);
+    }
+
+    const result: ChannelWithAccess[] = [];
+    for (const ch of allChannels) {
+      const isOwner = Boolean(ch.ownerId && ch.ownerId === userId);
+      const member = memberMap.get(ch.id);
+      const isPublic = (ch.visibility || 'PUBLIC') === 'PUBLIC';
+
+      if (isOwner) {
+        result.push({
+          ...ch,
+          role: 'OWNER',
+          permissions: { isOwner: true, canAddVideo: true, canSuggestVideo: true, canComment: true },
+          pendingSuggestionsCount: pendingMap.get(ch.id) || 0
+        });
+      } else if (member) {
+        result.push({
+          ...ch,
+          role: 'MEMBER',
+          preset: member.preset,
+          permissions: { isOwner: false, ...member.permissions }
+        });
+      } else if (isPublic) {
+        result.push({
+          ...ch,
+          role: 'PUBLIC',
+          permissions: { isOwner: false, canAddVideo: false, canSuggestVideo: false, canComment: false }
+        });
+      }
+    }
+    return result;
+  }
+
+  // --- Channel Invites ---
+  public async createChannelInvite(invite: ChannelInvite): Promise<ChannelInvite> {
+    await this.pool.query(
+      `INSERT INTO channel_invites (id, channelId, token, createdBy, label, preset, permissions, maxUses, useCount, expiresAt, isRevoked, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        invite.id,
+        invite.channelId,
+        invite.token,
+        invite.createdBy,
+        invite.label || null,
+        invite.preset,
+        JSON.stringify(invite.permissions),
+        invite.maxUses ?? null,
+        invite.useCount || 0,
+        invite.expiresAt || null,
+        invite.isRevoked ? 1 : 0,
+        invite.createdAt
+      ]
+    );
+    return invite;
+  }
+
+  public async getChannelInvites(channelId: string): Promise<ChannelInvite[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM channel_invites WHERE channelId = ? ORDER BY createdAt DESC',
+      [channelId]
+    );
+    return rows.map(mapInviteRow);
+  }
+
+  public async getInviteByToken(token: string): Promise<ChannelInvite | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM channel_invites WHERE token = ?',
+      [token]
+    );
+    if (rows.length === 0) return undefined;
+    return mapInviteRow(rows[0]);
+  }
+
+  public async revokeChannelInvite(channelId: string, inviteId: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      'UPDATE channel_invites SET isRevoked = 1 WHERE id = ? AND channelId = ?',
+      [inviteId, channelId]
+    );
+    return result.affectedRows > 0;
+  }
+
+  public async incrementInviteUseCount(inviteId: string): Promise<void> {
+    await this.pool.query('UPDATE channel_invites SET useCount = useCount + 1 WHERE id = ?', [
+      inviteId
+    ]);
+  }
+
+  // --- Channel Members ---
+  public async getChannelMembers(channelId: string): Promise<ChannelMember[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT m.*, u.name AS userName, u.email AS userEmail
+       FROM channel_members m
+       LEFT JOIN users u ON u.id = m.userId
+       WHERE m.channelId = ?
+       ORDER BY m.joinedAt DESC`,
+      [channelId]
+    );
+    return rows.map(mapMemberRow);
+  }
+
+  public async getChannelMember(
+    channelId: string,
+    userId: string
+  ): Promise<ChannelMember | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT m.*, u.name AS userName, u.email AS userEmail
+       FROM channel_members m
+       LEFT JOIN users u ON u.id = m.userId
+       WHERE m.channelId = ? AND m.userId = ?`,
+      [channelId, userId]
+    );
+    if (rows.length === 0) return undefined;
+    return mapMemberRow(rows[0]);
+  }
+
+  public async upsertChannelMember(member: ChannelMember): Promise<ChannelMember> {
+    const existing = await this.getChannelMember(member.channelId, member.userId);
+    if (existing) {
+      await this.pool.query(
+        'UPDATE channel_members SET inviteId = ?, preset = ?, permissions = ? WHERE id = ?',
+        [
+          member.inviteId ?? existing.inviteId ?? null,
+          member.preset,
+          JSON.stringify(member.permissions),
+          existing.id
+        ]
+      );
+      return (await this.getChannelMember(member.channelId, member.userId))!;
+    }
+    await this.pool.query(
+      `INSERT INTO channel_members (id, channelId, userId, inviteId, preset, permissions, joinedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        member.id,
+        member.channelId,
+        member.userId,
+        member.inviteId || null,
+        member.preset,
+        JSON.stringify(member.permissions),
+        member.joinedAt
+      ]
+    );
+    return (await this.getChannelMember(member.channelId, member.userId))!;
+  }
+
+  public async updateChannelMemberPermissions(
+    channelId: string,
+    userId: string,
+    preset: PermissionPreset,
+    permissions: ChannelPermissions
+  ): Promise<ChannelMember | null> {
+    const existing = await this.getChannelMember(channelId, userId);
+    if (!existing) return null;
+    await this.pool.query(
+      'UPDATE channel_members SET preset = ?, permissions = ? WHERE channelId = ? AND userId = ?',
+      [preset, JSON.stringify(permissions), channelId, userId]
+    );
+    return (await this.getChannelMember(channelId, userId)) || null;
+  }
+
+  public async removeChannelMember(channelId: string, userId: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      'DELETE FROM channel_members WHERE channelId = ? AND userId = ?',
+      [channelId, userId]
+    );
+    return result.affectedRows > 0;
+  }
+
+  // --- Video Suggestions ---
+  public async createSuggestion(suggestion: ChannelSuggestion): Promise<ChannelSuggestion> {
+    await this.pool.query(
+      `INSERT INTO channel_suggestions
+       (id, channelId, suggestedBy, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, category, ageRating, note, status, reviewedBy, reviewedAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        suggestion.id,
+        suggestion.channelId,
+        suggestion.suggestedBy,
+        suggestion.title,
+        suggestion.description || '',
+        suggestion.sourceType,
+        suggestion.sourceUrl,
+        suggestion.youtubeVideoId || null,
+        suggestion.thumbnailUrl,
+        suggestion.duration || 180,
+        suggestion.category,
+        suggestion.ageRating || 'ALL',
+        suggestion.note || null,
+        suggestion.status || 'PENDING',
+        suggestion.reviewedBy || null,
+        suggestion.reviewedAt || null,
+        suggestion.createdAt
+      ]
+    );
+    return (await this.getSuggestionById(suggestion.id))!;
+  }
+
+  public async getChannelSuggestions(
+    channelId: string,
+    options?: { suggestedBy?: string; status?: SuggestionStatus }
+  ): Promise<ChannelSuggestion[]> {
+    let sql = `SELECT s.*, u.name AS suggesterName
+               FROM channel_suggestions s
+               LEFT JOIN users u ON u.id = s.suggestedBy
+               WHERE s.channelId = ?`;
+    const params: unknown[] = [channelId];
+    if (options?.suggestedBy) {
+      sql += ' AND s.suggestedBy = ?';
+      params.push(options.suggestedBy);
+    }
+    if (options?.status) {
+      sql += ' AND s.status = ?';
+      params.push(options.status);
+    }
+    sql += ' ORDER BY s.createdAt DESC';
+    const [rows] = await this.pool.query<RowDataPacket[]>(sql, params);
+    return rows.map(mapSuggestionRow);
+  }
+
+  public async getSuggestionById(id: string): Promise<ChannelSuggestion | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT s.*, u.name AS suggesterName
+       FROM channel_suggestions s
+       LEFT JOIN users u ON u.id = s.suggestedBy
+       WHERE s.id = ?`,
+      [id]
+    );
+    if (rows.length === 0) return undefined;
+    return mapSuggestionRow(rows[0]);
+  }
+
+  public async updateSuggestionStatus(
+    id: string,
+    status: SuggestionStatus,
+    reviewedBy: string
+  ): Promise<ChannelSuggestion | null> {
+    const reviewedAt = new Date().toISOString();
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      'UPDATE channel_suggestions SET status = ?, reviewedBy = ?, reviewedAt = ? WHERE id = ?',
+      [status, reviewedBy, reviewedAt, id]
+    );
+    if (result.affectedRows === 0) return null;
+    return (await this.getSuggestionById(id)) || null;
+  }
+
+  // --- Channel Video Comments ---
+  public async getChannelVideoComments(
+    channelId: string,
+    videoId: string
+  ): Promise<ChannelVideoComment[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT c.*, u.name AS authorName
+       FROM channel_video_comments c
+       LEFT JOIN users u ON u.id = c.authorId
+       WHERE c.channelId = ? AND c.videoId = ?
+       ORDER BY c.createdAt ASC`,
+      [channelId, videoId]
+    );
+    return rows.map(mapCommentRow);
+  }
+
+  public async getChannelVideoCommentById(id: string): Promise<ChannelVideoComment | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT c.*, u.name AS authorName
+       FROM channel_video_comments c
+       LEFT JOIN users u ON u.id = c.authorId
+       WHERE c.id = ?`,
+      [id]
+    );
+    if (rows.length === 0) return undefined;
+    return mapCommentRow(rows[0]);
+  }
+
+  public async addChannelVideoComment(comment: ChannelVideoComment): Promise<ChannelVideoComment> {
+    await this.pool.query(
+      `INSERT INTO channel_video_comments (id, channelId, videoId, authorId, content, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        comment.id,
+        comment.channelId,
+        comment.videoId,
+        comment.authorId,
+        comment.content,
+        comment.createdAt
+      ]
+    );
+    return (await this.getChannelVideoCommentById(comment.id))!;
+  }
+
+  public async deleteChannelVideoComment(id: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      'DELETE FROM channel_video_comments WHERE id = ?',
+      [id]
+    );
+    return result.affectedRows > 0;
   }
 }
 

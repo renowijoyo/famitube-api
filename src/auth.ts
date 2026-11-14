@@ -3,11 +3,14 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import { db } from './db.js';
+import { UserRole } from './types.js';
 
 export interface AuthPayload {
   sub: string;
   email: string;
   name: string;
+  role?: UserRole;
+  parentId?: string;
 }
 
 export interface AuthenticatedRequest extends Request {
@@ -75,12 +78,56 @@ export async function requireAuth(
     req.user = {
       sub: user.id,
       email: user.email,
-      name: user.name
+      name: user.name,
+      role: user.role || 'PARENT',
+      parentId: user.parentId
     };
     next();
   } catch {
     res.status(401).json({ success: false, message: 'Invalid or expired token' });
   }
+}
+
+export function requireParent(
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction
+): void {
+  if (!req.user || req.user.role !== 'PARENT') {
+    res.status(403).json({
+      success: false,
+      message: 'Parent account required for this action'
+    });
+    return;
+  }
+  next();
+}
+
+export async function optionalAuth(
+  req: AuthenticatedRequest,
+  _res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const header = req.headers.authorization;
+    if (header && header.startsWith('Bearer ')) {
+      const token = header.slice('Bearer '.length).trim();
+      const decoded = verifyAuthToken(token);
+      const user = await db.getUserById(decoded.sub);
+      if (user && user.isVerified) {
+        req.user = {
+          sub: user.id,
+          email: user.email,
+          name: user.name,
+          role: user.role || 'PARENT',
+          parentId: user.parentId
+        };
+      }
+    }
+  } catch {
+    // Ignore invalid/expired token for optional auth
+  }
+  next();
 }
 
 export async function sendVerificationEmail(
