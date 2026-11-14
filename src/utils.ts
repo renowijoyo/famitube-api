@@ -41,3 +41,54 @@ export async function fetchYouTubeOEmbed(urlOrId: string): Promise<{
     return null;
   }
 }
+
+export interface YouTubeSearchResult {
+  youtubeVideoId: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+}
+
+export async function searchYouTubeVideos(query: string, limit = 12): Promise<YouTubeSearchResult[]> {
+  const cleanQuery = String(query || '').trim();
+  if (!cleanQuery) return [];
+  try {
+    const res = await fetch(
+      `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQuery)}&sp=EgIQAQ%253D%253D`,
+      {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+      }
+    );
+    if (!res.ok) return [];
+    const html = await res.text();
+    const ids = [...new Set([...html.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)].map((m) => m[1]))].slice(
+      0,
+      limit
+    );
+    const verified = await Promise.all(
+      ids.map(async (id) => {
+        try {
+          const r = await fetch(
+            `https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}&format=json`
+          );
+          if (!r.ok) return null;
+          const j = await r.json();
+          return {
+            youtubeVideoId: id,
+            title: String(j.title || `YouTube Video (${id})`),
+            channelTitle: String(j.author_name || 'YouTube'),
+            thumbnailUrl: getYouTubeThumbnail(id)
+          } as YouTubeSearchResult;
+        } catch {
+          return null;
+        }
+      })
+    );
+    return verified.filter((x): x is YouTubeSearchResult => Boolean(x));
+  } catch (err) {
+    console.warn('YouTube search failed:', err);
+    return [];
+  }
+}

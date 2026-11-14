@@ -26,7 +26,15 @@ import {
   LockoutAction,
   ChannelQuizRule,
   QuizQuestion,
-  KidChannelQuizState
+  KidChannelQuizState,
+  KidVideoRequest,
+  KidVideoRequestStatus,
+  KidHistoryItem,
+  KidPlaylist,
+  KidPlaylistItem,
+  ParentSafetyRating,
+  VideoParentReview,
+  AdvisoryVideoEntry
 } from './types.js';
 
 import { INITIAL_CATEGORIES, INITIAL_CHANNELS, INITIAL_VIDEOS } from './catalog-seed.js';
@@ -221,6 +229,13 @@ function mapUserRow(row: RowDataPacket): User {
     parentId: row.parentId || undefined,
     ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
+    youtubeSearchEnabled: Boolean(row.youtubeSearchEnabled),
+    searchViewLimit: row.searchViewLimit !== undefined && row.searchViewLimit !== null ? Number(row.searchViewLimit) : 5,
+    searchViewsUsed: row.searchViewsUsed !== undefined && row.searchViewsUsed !== null ? Number(row.searchViewsUsed) : 0,
+    searchRequireApproval:
+      row.searchRequireApproval !== undefined && row.searchRequireApproval !== null
+        ? Boolean(row.searchRequireApproval)
+        : true,
     verificationToken: row.verificationToken || undefined,
     verificationExpiresAt: row.verificationExpiresAt || undefined,
     createdAt: row.createdAt
@@ -382,6 +397,10 @@ class Database {
     await this.ensureColumnExists('users', 'role', "VARCHAR(16) NOT NULL DEFAULT 'PARENT'");
     await this.ensureColumnExists('users', 'parentId', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('users', 'ageRating', 'VARCHAR(32) NULL');
+    await this.ensureColumnExists('users', 'youtubeSearchEnabled', 'TINYINT(1) NOT NULL DEFAULT 0');
+    await this.ensureColumnExists('users', 'searchViewLimit', 'INT NOT NULL DEFAULT 5');
+    await this.ensureColumnExists('users', 'searchViewsUsed', 'INT NOT NULL DEFAULT 0');
+    await this.ensureColumnExists('users', 'searchRequireApproval', 'TINYINT(1) NOT NULL DEFAULT 1');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -480,6 +499,77 @@ class Database {
         activeQuestionJson TEXT NULL,
         updatedAt VARCHAR(64) NOT NULL,
         UNIQUE KEY uq_kid_channel (kidId, channelId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_video_requests (
+        id VARCHAR(64) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        parentId VARCHAR(64) NOT NULL,
+        youtubeVideoId VARCHAR(32) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        channelTitle VARCHAR(255) NOT NULL,
+        thumbnailUrl TEXT NOT NULL,
+        status VARCHAR(16) NOT NULL DEFAULT 'PENDING',
+        createdAt VARCHAR(64) NOT NULL,
+        decidedAt VARCHAR(64) NULL,
+        UNIQUE KEY uniq_kid_yt_req (kidId, youtubeVideoId),
+        INDEX idx_req_parent (parentId, status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_watch_history (
+        id VARCHAR(64) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        itemKey VARCHAR(128) NOT NULL,
+        youtubeVideoId VARCHAR(32) NULL,
+        videoId VARCHAR(64) NULL,
+        title VARCHAR(255) NOT NULL,
+        channelTitle VARCHAR(255) NOT NULL,
+        thumbnailUrl TEXT NOT NULL,
+        sourceType VARCHAR(16) NOT NULL DEFAULT 'YOUTUBE',
+        sourceUrl TEXT NOT NULL,
+        isApprovedSearch TINYINT(1) NOT NULL DEFAULT 0,
+        watchedAt VARCHAR(64) NOT NULL,
+        UNIQUE KEY uniq_kid_hist_item (kidId, itemKey),
+        INDEX idx_hist_kid (kidId, watchedAt)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_playlists (
+        id VARCHAR(64) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        items JSON NOT NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        updatedAt VARCHAR(64) NOT NULL,
+        INDEX idx_kid_pl (kidId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS video_parent_reviews (
+        id VARCHAR(64) PRIMARY KEY,
+        videoKey VARCHAR(128) NOT NULL,
+        videoId VARCHAR(64) NULL,
+        youtubeVideoId VARCHAR(32) NULL,
+        videoTitle VARCHAR(255) NOT NULL,
+        channelTitle VARCHAR(255) NOT NULL,
+        thumbnailUrl TEXT NOT NULL,
+        sourceType VARCHAR(16) NOT NULL DEFAULT 'YOUTUBE',
+        sourceUrl TEXT NOT NULL,
+        parentId VARCHAR(64) NOT NULL,
+        parentName VARCHAR(255) NOT NULL,
+        rating VARCHAR(16) NOT NULL,
+        comment TEXT NOT NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        updatedAt VARCHAR(64) NOT NULL,
+        UNIQUE KEY uniq_parent_video_review (parentId, videoKey),
+        INDEX idx_vpr_video (videoKey),
+        INDEX idx_vpr_rating (rating)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
   }
@@ -1180,8 +1270,8 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, role, parentId, ageRating, isVerified, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
@@ -1191,6 +1281,10 @@ class Database {
         user.parentId || null,
         user.ageRating || null,
         user.isVerified ? 1 : 0,
+        user.youtubeSearchEnabled ? 1 : 0,
+        user.searchViewLimit ?? 5,
+        user.searchViewsUsed ?? 0,
+        user.searchRequireApproval !== false ? 1 : 0,
         user.verificationToken || null,
         user.verificationExpiresAt || null,
         user.createdAt
@@ -1210,7 +1304,15 @@ class Database {
   public async updateChildAccount(
     parentId: string,
     childId: string,
-    updates: { name?: string; ageRating?: AgeRating; passwordHash?: string }
+    updates: {
+      name?: string;
+      ageRating?: AgeRating;
+      passwordHash?: string;
+      youtubeSearchEnabled?: boolean;
+      searchViewLimit?: number;
+      searchRequireApproval?: boolean;
+      resetSearchViewsUsed?: boolean;
+    }
   ): Promise<User | null> {
     const [rows] = await this.pool.query<RowDataPacket[]>(
       "SELECT * FROM users WHERE id = ? AND parentId = ? AND role = 'CHILD'",
@@ -1221,10 +1323,35 @@ class Database {
     const name = updates.name ? updates.name.trim() : existing.name;
     const ageRating = updates.ageRating !== undefined ? updates.ageRating : existing.ageRating;
     const passwordHash = updates.passwordHash || existing.passwordHash;
+    const youtubeSearchEnabled =
+      updates.youtubeSearchEnabled !== undefined
+        ? updates.youtubeSearchEnabled
+        : Boolean(existing.youtubeSearchEnabled);
+    const searchViewLimit =
+      updates.searchViewLimit !== undefined
+        ? Math.max(0, Number(updates.searchViewLimit))
+        : (existing.searchViewLimit ?? 5);
+    const searchRequireApproval =
+      updates.searchRequireApproval !== undefined
+        ? updates.searchRequireApproval
+        : (existing.searchRequireApproval !== false);
+    const searchViewsUsed = updates.resetSearchViewsUsed ? 0 : (existing.searchViewsUsed ?? 0);
 
     await this.pool.query(
-      'UPDATE users SET name = ?, ageRating = ?, passwordHash = ? WHERE id = ? AND parentId = ?',
-      [name, ageRating || null, passwordHash, childId, parentId]
+      `UPDATE users
+       SET name = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?
+       WHERE id = ? AND parentId = ?`,
+      [
+        name,
+        ageRating || null,
+        passwordHash,
+        youtubeSearchEnabled ? 1 : 0,
+        searchViewLimit,
+        searchViewsUsed,
+        searchRequireApproval ? 1 : 0,
+        childId,
+        parentId
+      ]
     );
     return (await this.getUserById(childId)) || null;
   }
@@ -1731,6 +1858,450 @@ class Database {
       ]
     );
     return (await this.getKidChannelQuizState(state.kidId, state.channelId))!;
+  }
+
+  // --- Kid YouTube Search, Approval Requests, History & Playlists ---
+
+  public async incrementKidSearchViewsUsed(kidId: string): Promise<void> {
+    await this.pool.query('UPDATE users SET searchViewsUsed = searchViewsUsed + 1 WHERE id = ?', [kidId]);
+  }
+
+  public async getVideoByYouTubeId(youtubeVideoId: string): Promise<Video | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM videos WHERE youtubeVideoId = ? LIMIT 1',
+      [youtubeVideoId]
+    );
+    if (rows.length === 0) return undefined;
+    return mapVideoRow(rows[0]);
+  }
+
+  public async getKidVideoRequest(kidId: string, youtubeVideoId: string): Promise<KidVideoRequest | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT r.*, u.name AS kidName
+       FROM kid_video_requests r
+       LEFT JOIN users u ON u.id = r.kidId
+       WHERE r.kidId = ? AND r.youtubeVideoId = ? LIMIT 1`,
+      [kidId, youtubeVideoId]
+    );
+    if (rows.length === 0) return undefined;
+    const row = rows[0];
+    return {
+      id: row.id,
+      kidId: row.kidId,
+      kidName: row.kidName || undefined,
+      parentId: row.parentId,
+      youtubeVideoId: row.youtubeVideoId,
+      title: row.title,
+      channelTitle: row.channelTitle,
+      thumbnailUrl: row.thumbnailUrl,
+      status: row.status as KidVideoRequestStatus,
+      createdAt: row.createdAt,
+      decidedAt: row.decidedAt || null
+    };
+  }
+
+  public async getKidVideoRequestsForKid(kidId: string): Promise<KidVideoRequest[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT * FROM kid_video_requests WHERE kidId = ? ORDER BY createdAt DESC`,
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      parentId: row.parentId,
+      youtubeVideoId: row.youtubeVideoId,
+      title: row.title,
+      channelTitle: row.channelTitle,
+      thumbnailUrl: row.thumbnailUrl,
+      status: row.status as KidVideoRequestStatus,
+      createdAt: row.createdAt,
+      decidedAt: row.decidedAt || null
+    }));
+  }
+
+  public async getKidVideoRequestsForParent(parentId: string): Promise<KidVideoRequest[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT r.*, u.name AS kidName
+       FROM kid_video_requests r
+       LEFT JOIN users u ON u.id = r.kidId
+       WHERE r.parentId = ?
+       ORDER BY CASE WHEN r.status = 'PENDING' THEN 0 ELSE 1 END, r.createdAt DESC`,
+      [parentId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      kidName: row.kidName || 'Child',
+      parentId: row.parentId,
+      youtubeVideoId: row.youtubeVideoId,
+      title: row.title,
+      channelTitle: row.channelTitle,
+      thumbnailUrl: row.thumbnailUrl,
+      status: row.status as KidVideoRequestStatus,
+      createdAt: row.createdAt,
+      decidedAt: row.decidedAt || null
+    }));
+  }
+
+  public async upsertKidVideoRequest(req: KidVideoRequest): Promise<KidVideoRequest> {
+    await this.pool.query(
+      `INSERT INTO kid_video_requests (id, kidId, parentId, youtubeVideoId, title, channelTitle, thumbnailUrl, status, createdAt, decidedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON DUPLICATE KEY UPDATE
+         title = VALUES(title),
+         channelTitle = VALUES(channelTitle),
+         thumbnailUrl = VALUES(thumbnailUrl),
+         status = CASE WHEN status = 'APPROVED' THEN 'APPROVED' ELSE VALUES(status) END,
+         createdAt = CASE WHEN status = 'APPROVED' THEN createdAt ELSE VALUES(createdAt) END,
+         decidedAt = CASE WHEN status = 'APPROVED' THEN decidedAt ELSE VALUES(decidedAt) END`,
+      [
+        req.id,
+        req.kidId,
+        req.parentId,
+        req.youtubeVideoId,
+        req.title,
+        req.channelTitle,
+        req.thumbnailUrl,
+        req.status,
+        req.createdAt,
+        req.decidedAt || null
+      ]
+    );
+    return (await this.getKidVideoRequest(req.kidId, req.youtubeVideoId))!;
+  }
+
+  public async decideKidVideoRequest(
+    parentId: string,
+    requestId: string,
+    decision: 'APPROVED' | 'REJECTED'
+  ): Promise<KidVideoRequest | null> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_video_requests WHERE id = ? AND parentId = ? LIMIT 1',
+      [requestId, parentId]
+    );
+    if (rows.length === 0) return null;
+    const row = rows[0];
+    const nowIso = new Date().toISOString();
+    const wasApproved = row.status === 'APPROVED';
+
+    await this.pool.query(
+      'UPDATE kid_video_requests SET status = ?, decidedAt = ? WHERE id = ? AND parentId = ?',
+      [decision, nowIso, requestId, parentId]
+    );
+
+    if (decision === 'APPROVED') {
+      if (!wasApproved) {
+        await this.incrementKidSearchViewsUsed(row.kidId);
+      }
+      await this.upsertKidHistory({
+        id: `hist-${row.kidId}-${row.youtubeVideoId}`,
+        kidId: row.kidId,
+        itemKey: row.youtubeVideoId,
+        youtubeVideoId: row.youtubeVideoId,
+        title: row.title,
+        channelTitle: row.channelTitle,
+        thumbnailUrl: row.thumbnailUrl,
+        sourceType: 'YOUTUBE',
+        sourceUrl: `https://www.youtube.com/watch?v=${row.youtubeVideoId}`,
+        isApprovedSearch: true,
+        watchedAt: nowIso
+      });
+    }
+
+    return (await this.getKidVideoRequest(row.kidId, row.youtubeVideoId)) || null;
+  }
+
+  public async getKidHistory(kidId: string): Promise<KidHistoryItem[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_watch_history WHERE kidId = ? ORDER BY watchedAt DESC',
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      itemKey: row.itemKey,
+      youtubeVideoId: row.youtubeVideoId || undefined,
+      videoId: row.videoId || undefined,
+      title: row.title,
+      channelTitle: row.channelTitle,
+      thumbnailUrl: row.thumbnailUrl,
+      sourceType: (row.sourceType as 'YOUTUBE' | 'DIRECT') || 'YOUTUBE',
+      sourceUrl: row.sourceUrl,
+      isApprovedSearch: Boolean(row.isApprovedSearch),
+      watchedAt: row.watchedAt
+    }));
+  }
+
+  public async upsertKidHistory(item: KidHistoryItem): Promise<KidHistoryItem> {
+    await this.pool.query(
+      `INSERT INTO kid_watch_history
+        (id, kidId, itemKey, youtubeVideoId, videoId, title, channelTitle, thumbnailUrl, sourceType, sourceUrl, isApprovedSearch, watchedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON DUPLICATE KEY UPDATE
+         title = VALUES(title),
+         channelTitle = VALUES(channelTitle),
+         thumbnailUrl = VALUES(thumbnailUrl),
+         isApprovedSearch = GREATEST(isApprovedSearch, VALUES(isApprovedSearch)),
+         watchedAt = VALUES(watchedAt)`,
+      [
+        item.id,
+        item.kidId,
+        item.itemKey,
+        item.youtubeVideoId || null,
+        item.videoId || null,
+        item.title,
+        item.channelTitle,
+        item.thumbnailUrl,
+        item.sourceType,
+        item.sourceUrl,
+        item.isApprovedSearch ? 1 : 0,
+        item.watchedAt
+      ]
+    );
+    return item;
+  }
+
+  public async getKidPlaylists(kidId: string): Promise<KidPlaylist[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_playlists WHERE kidId = ? ORDER BY updatedAt DESC',
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      title: row.title,
+      items: parseJson<KidPlaylistItem[]>(row.items, []),
+      createdAt: row.createdAt,
+      updatedAt: row.updatedAt
+    }));
+  }
+
+  public async createKidPlaylist(kidId: string, title: string): Promise<KidPlaylist> {
+    const nowIso = new Date().toISOString();
+    const pl: KidPlaylist = {
+      id: `kpl-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      kidId,
+      title: title.trim(),
+      items: [],
+      createdAt: nowIso,
+      updatedAt: nowIso
+    };
+    await this.pool.query(
+      'INSERT INTO kid_playlists (id, kidId, title, items, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?)',
+      [pl.id, pl.kidId, pl.title, JSON.stringify(pl.items), pl.createdAt, pl.updatedAt]
+    );
+    return pl;
+  }
+
+  public async addItemToKidPlaylist(
+    kidId: string,
+    playlistId: string,
+    item: KidPlaylistItem
+  ): Promise<KidPlaylist | null> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_playlists WHERE id = ? AND kidId = ? LIMIT 1',
+      [playlistId, kidId]
+    );
+    if (rows.length === 0) return null;
+    const row = rows[0];
+    const items = parseJson<KidPlaylistItem[]>(row.items, []);
+    if (!items.some((x) => x.key === item.key)) {
+      items.push(item);
+    }
+    const updatedAt = new Date().toISOString();
+    await this.pool.query('UPDATE kid_playlists SET items = ?, updatedAt = ? WHERE id = ? AND kidId = ?', [
+      JSON.stringify(items),
+      updatedAt,
+      playlistId,
+      kidId
+    ]);
+    return {
+      id: row.id,
+      kidId: row.kidId,
+      title: row.title,
+      items,
+      createdAt: row.createdAt,
+      updatedAt
+    };
+  }
+
+  public async removeItemFromKidPlaylist(
+    kidId: string,
+    playlistId: string,
+    itemKey: string
+  ): Promise<KidPlaylist | null> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_playlists WHERE id = ? AND kidId = ? LIMIT 1',
+      [playlistId, kidId]
+    );
+    if (rows.length === 0) return null;
+    const row = rows[0];
+    const items = parseJson<KidPlaylistItem[]>(row.items, []).filter((x) => x.key !== itemKey);
+    const updatedAt = new Date().toISOString();
+    await this.pool.query('UPDATE kid_playlists SET items = ?, updatedAt = ? WHERE id = ? AND kidId = ?', [
+      JSON.stringify(items),
+      updatedAt,
+      playlistId,
+      kidId
+    ]);
+    return {
+      id: row.id,
+      kidId: row.kidId,
+      title: row.title,
+      items,
+      createdAt: row.createdAt,
+      updatedAt
+    };
+  }
+
+  public async deleteKidPlaylist(kidId: string, playlistId: string): Promise<boolean> {
+    const [result] = await this.pool.query<mysql.ResultSetHeader>(
+      'DELETE FROM kid_playlists WHERE id = ? AND kidId = ?',
+      [playlistId, kidId]
+    );
+    return result.affectedRows > 0;
+  }
+
+  // --- Parent Video Appropriateness Reviews & Recommended/Caution Lists ---
+
+  public async upsertVideoParentReview(review: VideoParentReview): Promise<VideoParentReview> {
+    await this.pool.query(
+      `INSERT INTO video_parent_reviews
+        (id, videoKey, videoId, youtubeVideoId, videoTitle, channelTitle, thumbnailUrl, sourceType, sourceUrl, parentId, parentName, rating, comment, createdAt, updatedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+       ON DUPLICATE KEY UPDATE
+         videoTitle = VALUES(videoTitle),
+         channelTitle = VALUES(channelTitle),
+         thumbnailUrl = VALUES(thumbnailUrl),
+         parentName = VALUES(parentName),
+         rating = VALUES(rating),
+         comment = VALUES(comment),
+         updatedAt = VALUES(updatedAt)`,
+      [
+        review.id,
+        review.videoKey,
+        review.videoId || null,
+        review.youtubeVideoId || null,
+        review.videoTitle,
+        review.channelTitle,
+        review.thumbnailUrl,
+        review.sourceType,
+        review.sourceUrl,
+        review.parentId,
+        review.parentName,
+        review.rating,
+        review.comment,
+        review.createdAt,
+        review.updatedAt
+      ]
+    );
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM video_parent_reviews WHERE parentId = ? AND videoKey = ? LIMIT 1',
+      [review.parentId, review.videoKey]
+    );
+    const r = rows[0];
+    return {
+      id: r.id,
+      videoKey: r.videoKey,
+      videoId: r.videoId || undefined,
+      youtubeVideoId: r.youtubeVideoId || undefined,
+      videoTitle: r.videoTitle,
+      channelTitle: r.channelTitle,
+      thumbnailUrl: r.thumbnailUrl,
+      sourceType: (r.sourceType as 'YOUTUBE' | 'DIRECT') || 'YOUTUBE',
+      sourceUrl: r.sourceUrl,
+      parentId: r.parentId,
+      parentName: r.parentName,
+      rating: r.rating as ParentSafetyRating,
+      comment: r.comment,
+      createdAt: r.createdAt,
+      updatedAt: r.updatedAt
+    };
+  }
+
+  public async getVideoParentReviews(videoKey: string): Promise<VideoParentReview[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM video_parent_reviews WHERE videoKey = ? ORDER BY updatedAt DESC',
+      [videoKey]
+    );
+    return rows.map((r) => ({
+      id: r.id,
+      videoKey: r.videoKey,
+      videoId: r.videoId || undefined,
+      youtubeVideoId: r.youtubeVideoId || undefined,
+      videoTitle: r.videoTitle,
+      channelTitle: r.channelTitle,
+      thumbnailUrl: r.thumbnailUrl,
+      sourceType: (r.sourceType as 'YOUTUBE' | 'DIRECT') || 'YOUTUBE',
+      sourceUrl: r.sourceUrl,
+      parentId: r.parentId,
+      parentName: r.parentName,
+      rating: r.rating as ParentSafetyRating,
+      comment: r.comment,
+      createdAt: r.createdAt,
+      updatedAt: r.updatedAt
+    }));
+  }
+
+  public async getParentCuratorAdvisoryLists(): Promise<{
+    recommended: AdvisoryVideoEntry[];
+    caution: AdvisoryVideoEntry[];
+  }> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM video_parent_reviews ORDER BY updatedAt DESC'
+    );
+    const byKey = new Map<string, AdvisoryVideoEntry>();
+    for (const r of rows) {
+      const review: VideoParentReview = {
+        id: r.id,
+        videoKey: r.videoKey,
+        videoId: r.videoId || undefined,
+        youtubeVideoId: r.youtubeVideoId || undefined,
+        videoTitle: r.videoTitle,
+        channelTitle: r.channelTitle,
+        thumbnailUrl: r.thumbnailUrl,
+        sourceType: (r.sourceType as 'YOUTUBE' | 'DIRECT') || 'YOUTUBE',
+        sourceUrl: r.sourceUrl,
+        parentId: r.parentId,
+        parentName: r.parentName,
+        rating: r.rating as ParentSafetyRating,
+        comment: r.comment,
+        createdAt: r.createdAt,
+        updatedAt: r.updatedAt
+      };
+      let entry = byKey.get(review.videoKey);
+      if (!entry) {
+        entry = {
+          videoKey: review.videoKey,
+          videoId: review.videoId,
+          youtubeVideoId: review.youtubeVideoId,
+          videoTitle: review.videoTitle,
+          channelTitle: review.channelTitle,
+          thumbnailUrl: review.thumbnailUrl,
+          sourceType: review.sourceType,
+          sourceUrl: review.sourceUrl,
+          recommendedCount: 0,
+          cautionCount: 0,
+          reviews: [],
+          updatedAt: review.updatedAt
+        };
+        byKey.set(review.videoKey, entry);
+      }
+      if (review.rating === 'RECOMMENDED') entry.recommendedCount += 1;
+      if (review.rating === 'CAUTION') entry.cautionCount += 1;
+      entry.reviews.push(review);
+      if (review.updatedAt > entry.updatedAt) entry.updatedAt = review.updatedAt;
+    }
+
+    const all = Array.from(byKey.values());
+    const recommended = all
+      .filter((e) => e.recommendedCount > 0 && e.recommendedCount >= e.cautionCount)
+      .sort((a, b) => b.recommendedCount - a.recommendedCount || b.updatedAt.localeCompare(a.updatedAt));
+    const caution = all
+      .filter((e) => e.cautionCount > 0)
+      .sort((a, b) => b.cautionCount - a.cautionCount || b.updatedAt.localeCompare(a.updatedAt));
+
+    return { recommended, caution };
   }
 }
 

@@ -12,7 +12,7 @@ import {
   signAuthToken,
   verifyPassword
 } from './auth.js';
-import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail } from './utils.js';
+import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail, searchYouTubeVideos } from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
 import {
   Video,
@@ -444,7 +444,11 @@ apiRouter.post(
         role: userRole,
         parentId: user.parentId,
         ageRating: user.ageRating,
-        isVerified: user.isVerified
+        isVerified: user.isVerified,
+        youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
+        searchViewLimit: user.searchViewLimit ?? 5,
+        searchViewsUsed: user.searchViewsUsed ?? 0,
+        searchRequireApproval: user.searchRequireApproval !== false
       }
     });
   })
@@ -459,7 +463,11 @@ apiRouter.get(
       success: true,
       user: {
         ...req.user,
-        ageRating: dbUser?.ageRating
+        ageRating: dbUser?.ageRating,
+        youtubeSearchEnabled: Boolean(dbUser?.youtubeSearchEnabled),
+        searchViewLimit: dbUser?.searchViewLimit ?? 5,
+        searchViewsUsed: dbUser?.searchViewsUsed ?? 0,
+        searchRequireApproval: dbUser?.searchRequireApproval !== false
       }
     });
   })
@@ -1505,6 +1513,10 @@ apiRouter.get(
         name: c.name,
         role: c.role,
         ageRating: c.ageRating || 'ALL',
+        youtubeSearchEnabled: Boolean(c.youtubeSearchEnabled),
+        searchViewLimit: c.searchViewLimit ?? 5,
+        searchViewsUsed: c.searchViewsUsed ?? 0,
+        searchRequireApproval: c.searchRequireApproval !== false,
         createdAt: c.createdAt
       }))
     });
@@ -1517,7 +1529,15 @@ apiRouter.post(
   requireAuth,
   requireParent,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const { email, name, password, ageRating = 'ALL' } = req.body;
+    const {
+      email,
+      name,
+      password,
+      ageRating = 'ALL',
+      youtubeSearchEnabled = false,
+      searchViewLimit = 5,
+      searchRequireApproval = true
+    } = req.body;
     const cleanEmail = String(email || '').trim().toLowerCase();
     const cleanName = String(name || '').trim();
 
@@ -1550,6 +1570,10 @@ apiRouter.post(
       parentId: req.user!.sub,
       ageRating: resolvedRating,
       isVerified: true,
+      youtubeSearchEnabled: Boolean(youtubeSearchEnabled),
+      searchViewLimit: Math.max(0, Number(searchViewLimit) || 5),
+      searchViewsUsed: 0,
+      searchRequireApproval: searchRequireApproval !== false,
       createdAt: new Date().toISOString()
     });
 
@@ -1561,6 +1585,10 @@ apiRouter.post(
         name: child.name,
         role: child.role,
         ageRating: child.ageRating,
+        youtubeSearchEnabled: Boolean(child.youtubeSearchEnabled),
+        searchViewLimit: child.searchViewLimit ?? 5,
+        searchViewsUsed: child.searchViewsUsed ?? 0,
+        searchRequireApproval: child.searchRequireApproval !== false,
         createdAt: child.createdAt
       }
     });
@@ -1574,14 +1602,26 @@ apiRouter.put(
   requireParent,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const childId = String(req.params.childId);
-    const { name, ageRating, password } = req.body;
+    const {
+      name,
+      ageRating,
+      password,
+      youtubeSearchEnabled,
+      searchViewLimit,
+      searchRequireApproval,
+      resetSearchViewsUsed
+    } = req.body;
     if (password && String(password).length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
     }
     const updated = await db.updateChildAccount(req.user!.sub, childId, {
       name: name ? String(name) : undefined,
       ageRating: ageRating as AgeRating | undefined,
-      passwordHash: password ? hashPassword(String(password)) : undefined
+      passwordHash: password ? hashPassword(String(password)) : undefined,
+      youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
+      searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
+      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined,
+      resetSearchViewsUsed: Boolean(resetSearchViewsUsed)
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Child account not found' });
@@ -1594,6 +1634,10 @@ apiRouter.put(
         name: updated.name,
         role: updated.role,
         ageRating: updated.ageRating || 'ALL',
+        youtubeSearchEnabled: Boolean(updated.youtubeSearchEnabled),
+        searchViewLimit: updated.searchViewLimit ?? 5,
+        searchViewsUsed: updated.searchViewsUsed ?? 0,
+        searchRequireApproval: updated.searchRequireApproval !== false,
         createdAt: updated.createdAt
       }
     });
@@ -2030,5 +2074,443 @@ apiRouter.post(
         message: `Not quite! Wait ${rule.retryWaitSeconds}s for the next quiz (${nextWrongAttempts}/${rule.maxAttempts} attempts used).`
       }
     });
+  })
+);
+
+// ==========================================
+// KID YOUTUBE SEARCH, APPROVAL REQUESTS, HISTORY & PLAYLISTS
+// ==========================================
+
+// Parent: list kid video approval requests (pending & recent)
+apiRouter.get(
+  '/parent/video-requests',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const requests = await db.getKidVideoRequestsForParent(req.user!.sub);
+    res.json({ success: true, data: requests });
+  })
+);
+
+// Parent: approve or reject a kid's searched video request
+apiRouter.post(
+  '/parent/video-requests/:requestId/decide',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const requestId = String(req.params.requestId);
+    const decision = String(req.body?.decision || '').toUpperCase();
+    if (decision !== 'APPROVED' && decision !== 'REJECTED') {
+      return res.status(400).json({ success: false, message: 'decision must be APPROVED or REJECTED' });
+    }
+    const updated = await db.decideKidVideoRequest(req.user!.sub, requestId, decision);
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'Video approval request not found' });
+    }
+    res.json({
+      success: true,
+      data: updated,
+      message:
+        decision === 'APPROVED'
+          ? 'Video approved and added to your child’s history.'
+          : 'Video request declined.'
+    });
+  })
+);
+
+// Kid: search YouTube (only when enabled by parent)
+apiRouter.get(
+  '/kids/youtube-search',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    if (user.role === 'CHILD' && !user.youtubeSearchEnabled) {
+      return res.status(403).json({
+        success: false,
+        message: 'YouTube search is currently disabled by your parent.'
+      });
+    }
+    const q = String(req.query.q || '').trim();
+    if (!q) {
+      return res.status(400).json({ success: false, message: 'Search query (q) is required' });
+    }
+
+    const rawResults = await searchYouTubeVideos(q, 12);
+    const [existingRequests, history] = await Promise.all([
+      db.getKidVideoRequestsForKid(user.id),
+      db.getKidHistory(user.id)
+    ]);
+    const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
+    const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
+
+    const results = await Promise.all(
+      rawResults.map(async (item) => {
+        const curated = await db.getVideoByYouTubeId(item.youtubeVideoId);
+        const reqItem = reqMap.get(item.youtubeVideoId);
+        const inHistory = histSet.has(item.youtubeVideoId);
+        return {
+          ...item,
+          sourceType: 'YOUTUBE' as const,
+          sourceUrl: `https://www.youtube.com/watch?v=${item.youtubeVideoId}`,
+          isCurated: Boolean(curated),
+          curatedVideoId: curated?.id || null,
+          approvalStatus: reqItem?.status || (inHistory ? 'APPROVED' : null),
+          inHistory
+        };
+      })
+    );
+
+    res.json({
+      success: true,
+      data: {
+        results,
+        searchSettings: {
+          youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
+          searchViewLimit: user.searchViewLimit ?? 5,
+          searchViewsUsed: user.searchViewsUsed ?? 0,
+          searchRequireApproval: user.searchRequireApproval !== false
+        }
+      }
+    });
+  })
+);
+
+// Kid: request or start watching a searched YouTube video
+apiRouter.post(
+  '/kids/youtube-search/watch',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    if (user.role === 'CHILD' && !user.youtubeSearchEnabled) {
+      return res.status(403).json({
+        success: false,
+        message: 'YouTube search is currently disabled by your parent.'
+      });
+    }
+
+    const youtubeVideoId = extractYouTubeId(String(req.body?.youtubeVideoId || ''));
+    if (!youtubeVideoId) {
+      return res.status(400).json({ success: false, message: 'Valid youtubeVideoId is required' });
+    }
+    const title = String(req.body?.title || `YouTube Video (${youtubeVideoId})`).trim();
+    const channelTitle = String(req.body?.channelTitle || 'YouTube').trim();
+    const thumbnailUrl = String(req.body?.thumbnailUrl || getYouTubeThumbnail(youtubeVideoId)).trim();
+
+    const curated = await db.getVideoByYouTubeId(youtubeVideoId);
+    const existingReq = await db.getKidVideoRequest(user.id, youtubeVideoId);
+    const history = await db.getKidHistory(user.id);
+    const inHistory = history.some((h) => h.youtubeVideoId === youtubeVideoId || h.itemKey === youtubeVideoId);
+
+    const searchSettings = {
+      youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
+      searchViewLimit: user.searchViewLimit ?? 5,
+      searchViewsUsed: user.searchViewsUsed ?? 0,
+      searchRequireApproval: user.searchRequireApproval !== false
+    };
+
+    // Curated or already approved/in-history videos play anytime without approval or quota
+    if (curated || existingReq?.status === 'APPROVED' || inHistory) {
+      await db.upsertKidHistory({
+        id: `hist-${user.id}-${youtubeVideoId}`,
+        kidId: user.id,
+        itemKey: youtubeVideoId,
+        youtubeVideoId,
+        videoId: curated?.id,
+        title: curated?.title || title,
+        channelTitle: curated?.channelTitle || channelTitle,
+        thumbnailUrl: curated?.thumbnailUrl || thumbnailUrl,
+        sourceType: 'YOUTUBE',
+        sourceUrl: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
+        isApprovedSearch: !curated,
+        watchedAt: new Date().toISOString()
+      });
+      return res.json({
+        success: true,
+        data: {
+          allowed: true,
+          reason: curated ? 'CURATED' : 'ALREADY_APPROVED',
+          searchSettings
+        }
+      });
+    }
+
+    // Check view limit for non-curated searched videos (0 = unlimited)
+    const limit = user.searchViewLimit ?? 5;
+    const used = user.searchViewsUsed ?? 0;
+    if (user.role === 'CHILD' && limit > 0 && used >= limit) {
+      return res.json({
+        success: true,
+        data: {
+          allowed: false,
+          reason: 'VIEW_LIMIT_REACHED',
+          message: `You have reached your parent's limit of ${limit} searched videos. Ask your parent to increase or reset the limit!`,
+          searchSettings
+        }
+      });
+    }
+
+    // Check if parent approval is required before watching
+    if (user.role === 'CHILD' && user.searchRequireApproval !== false) {
+      const savedReq = await db.upsertKidVideoRequest({
+        id: existingReq?.id || `kvr-${uuidv4().slice(0, 8)}`,
+        kidId: user.id,
+        parentId: user.parentId || user.id,
+        youtubeVideoId,
+        title,
+        channelTitle,
+        thumbnailUrl,
+        status: existingReq?.status === 'REJECTED' ? 'PENDING' : (existingReq?.status || 'PENDING'),
+        createdAt: new Date().toISOString(),
+        decidedAt: null
+      });
+      return res.json({
+        success: true,
+        data: {
+          allowed: false,
+          reason: 'APPROVAL_REQUIRED',
+          request: savedReq,
+          message: 'Permission request sent to your parent! Once approved, this video will appear in your History.',
+          searchSettings
+        }
+      });
+    }
+
+    // Approval not required -> increment count and add to history
+    if (user.role === 'CHILD') {
+      await db.incrementKidSearchViewsUsed(user.id);
+    }
+    await db.upsertKidHistory({
+      id: `hist-${user.id}-${youtubeVideoId}`,
+      kidId: user.id,
+      itemKey: youtubeVideoId,
+      youtubeVideoId,
+      title,
+      channelTitle,
+      thumbnailUrl,
+      sourceType: 'YOUTUBE',
+      sourceUrl: `https://www.youtube.com/watch?v=${youtubeVideoId}`,
+      isApprovedSearch: true,
+      watchedAt: new Date().toISOString()
+    });
+
+    const refreshed = await db.getUserById(user.id);
+    return res.json({
+      success: true,
+      data: {
+        allowed: true,
+        reason: 'AUTO_APPROVED',
+        searchSettings: {
+          youtubeSearchEnabled: Boolean(refreshed?.youtubeSearchEnabled),
+          searchViewLimit: refreshed?.searchViewLimit ?? 5,
+          searchViewsUsed: refreshed?.searchViewsUsed ?? 0,
+          searchRequireApproval: refreshed?.searchRequireApproval !== false
+        }
+      }
+    });
+  })
+);
+
+// Kid: watch history (includes all approved searched videos)
+apiRouter.get(
+  '/kids/history',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const history = await db.getKidHistory(req.user!.sub);
+    res.json({ success: true, data: history });
+  })
+);
+
+apiRouter.post(
+  '/kids/history',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const { itemKey, youtubeVideoId, videoId, title, channelTitle, thumbnailUrl, sourceType, sourceUrl } = req.body || {};
+    const key = String(itemKey || youtubeVideoId || videoId || '').trim();
+    if (!key || !title || !sourceUrl) {
+      return res.status(400).json({ success: false, message: 'itemKey, title, and sourceUrl are required' });
+    }
+    const saved = await db.upsertKidHistory({
+      id: `hist-${req.user!.sub}-${key}`,
+      kidId: req.user!.sub,
+      itemKey: key,
+      youtubeVideoId: youtubeVideoId ? String(youtubeVideoId) : undefined,
+      videoId: videoId ? String(videoId) : undefined,
+      title: String(title),
+      channelTitle: String(channelTitle || 'FamiTube'),
+      thumbnailUrl: String(thumbnailUrl || ''),
+      sourceType: sourceType === 'DIRECT' ? 'DIRECT' : 'YOUTUBE',
+      sourceUrl: String(sourceUrl),
+      isApprovedSearch: false,
+      watchedAt: new Date().toISOString()
+    });
+    res.json({ success: true, data: saved });
+  })
+);
+
+// Kid: personal playlists
+apiRouter.get(
+  '/kids/playlists',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const playlists = await db.getKidPlaylists(req.user!.sub);
+    res.json({ success: true, data: playlists });
+  })
+);
+
+apiRouter.post(
+  '/kids/playlists',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const title = String(req.body?.title || '').trim();
+    if (!title) {
+      return res.status(400).json({ success: false, message: 'Playlist title is required' });
+    }
+    const pl = await db.createKidPlaylist(req.user!.sub, title);
+    res.status(201).json({ success: true, data: pl });
+  })
+);
+
+apiRouter.post(
+  '/kids/playlists/:playlistId/items',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const playlistId = String(req.params.playlistId);
+    const { key, youtubeVideoId, videoId, title, channelTitle, thumbnailUrl, sourceType, sourceUrl } = req.body || {};
+    const resolvedKey = String(key || youtubeVideoId || videoId || '').trim();
+    if (!resolvedKey || !title || !sourceUrl) {
+      return res.status(400).json({ success: false, message: 'key, title, and sourceUrl are required' });
+    }
+    const updated = await db.addItemToKidPlaylist(req.user!.sub, playlistId, {
+      key: resolvedKey,
+      youtubeVideoId: youtubeVideoId ? String(youtubeVideoId) : undefined,
+      videoId: videoId ? String(videoId) : undefined,
+      title: String(title),
+      channelTitle: String(channelTitle || 'YouTube'),
+      thumbnailUrl: String(thumbnailUrl || ''),
+      sourceType: sourceType === 'DIRECT' ? 'DIRECT' : 'YOUTUBE',
+      sourceUrl: String(sourceUrl),
+      addedAt: new Date().toISOString()
+    });
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'Playlist not found' });
+    }
+    res.json({ success: true, data: updated });
+  })
+);
+
+apiRouter.delete(
+  '/kids/playlists/:playlistId/items/:itemKey',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const updated = await db.removeItemFromKidPlaylist(
+      req.user!.sub,
+      String(req.params.playlistId),
+      String(req.params.itemKey)
+    );
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'Playlist not found' });
+    }
+    res.json({ success: true, data: updated });
+  })
+);
+
+apiRouter.delete(
+  '/kids/playlists/:playlistId',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const ok = await db.deleteKidPlaylist(req.user!.sub, String(req.params.playlistId));
+    if (!ok) {
+      return res.status(404).json({ success: false, message: 'Playlist not found' });
+    }
+    res.json({ success: true, message: 'Playlist deleted' });
+  })
+);
+
+// ==========================================
+// PARENT VIDEO APPROPRIATENESS REVIEWS & ADVISORY LISTS
+// ==========================================
+
+// Public/Parent: get parent reviews and summary for a video
+apiRouter.get(
+  '/videos/:videoKey/reviews',
+  asyncHandler(async (req, res) => {
+    const videoKey = String(req.params.videoKey);
+    const reviews = await db.getVideoParentReviews(videoKey);
+    const recommendedCount = reviews.filter((r) => r.rating === 'RECOMMENDED').length;
+    const cautionCount = reviews.filter((r) => r.rating === 'CAUTION').length;
+    res.json({
+      success: true,
+      data: {
+        reviews,
+        summary: { recommendedCount, cautionCount }
+      }
+    });
+  })
+);
+
+// Parent: comment and rate whether a video is appropriate (RECOMMENDED) or not (CAUTION)
+apiRouter.post(
+  '/parent/videos/:videoKey/reviews',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const videoKey = String(req.params.videoKey).trim();
+    const rating = String(req.body?.rating || '').toUpperCase();
+    const comment = String(req.body?.comment || '').trim();
+    const {
+      videoId,
+      youtubeVideoId,
+      videoTitle,
+      channelTitle,
+      thumbnailUrl,
+      sourceType,
+      sourceUrl
+    } = req.body || {};
+
+    if (rating !== 'RECOMMENDED' && rating !== 'CAUTION') {
+      return res.status(400).json({ success: false, message: 'rating must be RECOMMENDED or CAUTION' });
+    }
+    if (!comment) {
+      return res.status(400).json({ success: false, message: 'Please include a comment explaining your rating' });
+    }
+
+    const parent = await db.getUserById(req.user!.sub);
+    const nowIso = new Date().toISOString();
+    const saved = await db.upsertVideoParentReview({
+      id: `vpr-${uuidv4().slice(0, 8)}`,
+      videoKey,
+      videoId: videoId ? String(videoId) : undefined,
+      youtubeVideoId: youtubeVideoId ? String(youtubeVideoId) : undefined,
+      videoTitle: String(videoTitle || 'Video'),
+      channelTitle: String(channelTitle || 'FamiTube'),
+      thumbnailUrl: String(thumbnailUrl || (youtubeVideoId ? getYouTubeThumbnail(String(youtubeVideoId)) : '')),
+      sourceType: sourceType === 'DIRECT' ? 'DIRECT' : 'YOUTUBE',
+      sourceUrl: String(sourceUrl || (youtubeVideoId ? `https://www.youtube.com/watch?v=${youtubeVideoId}` : '')),
+      parentId: req.user!.sub,
+      parentName: parent?.name || req.user!.name || req.user!.email,
+      rating,
+      comment,
+      createdAt: nowIso,
+      updatedAt: nowIso
+    });
+
+    res.status(201).json({ success: true, data: saved });
+  })
+);
+
+// Parent: list Recommended & Caution video lists to help other parents curating channels
+apiRouter.get(
+  '/parent/advisory-lists',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (_req: AuthenticatedRequest, res) => {
+    const lists = await db.getParentCuratorAdvisoryLists();
+    res.json({ success: true, data: lists });
   })
 );

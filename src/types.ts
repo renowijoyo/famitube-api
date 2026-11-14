@@ -215,6 +215,10 @@ export interface User {
   parentId?: string;
   ageRating?: AgeRating;
   isVerified: boolean;
+  youtubeSearchEnabled?: boolean;
+  searchViewLimit?: number;
+  searchViewsUsed?: number;
+  searchRequireApproval?: boolean;
   verificationToken?: string;
   verificationExpiresAt?: string;
   createdAt: string;
@@ -255,5 +259,92 @@ export interface KidChannelQuizState {
   postLockoutGrant: boolean;
   unlockedUntil?: string | null;
   activeQuestion?: QuizQuestion | null;
+  updatedAt: string;
+}
+
+export type KidVideoRequestStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
+
+export interface KidVideoRequest {
+  id: string;
+  kidId: string;
+  kidName?: string;
+  parentId: string;
+  youtubeVideoId: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  status: KidVideoRequestStatus;
+  createdAt: string;
+  decidedAt?: string | null;
+}
+
+export interface KidHistoryItem {
+  id: string;
+  kidId: string;
+  itemKey: string;
+  youtubeVideoId?: string;
+  videoId?: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  sourceType: SourceType;
+  sourceUrl: string;
+  isApprovedSearch: boolean;
+  watchedAt: string;
+}
+
+export interface KidPlaylistItem {
+  key: string;
+  youtubeVideoId?: string;
+  videoId?: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  sourceType: SourceType;
+  sourceUrl: string;
+  addedAt: string;
+}
+
+export interface KidPlaylist {
+  id: string;
+  kidId: string;
+  title: string;
+  items: KidPlaylistItem[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type ParentSafetyRating = 'RECOMMENDED' | 'CAUTION';
+
+export interface VideoParentReview {
+  id: string;
+  videoKey: string;
+  videoId?: string;
+  youtubeVideoId?: string;
+  videoTitle: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  sourceType: SourceType;
+  sourceUrl: string;
+  parentId: string;
+  parentName: string;
+  rating: ParentSafetyRating;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AdvisoryVideoEntry {
+  videoKey: string;
+  videoId?: string;
+  youtubeVideoId?: string;
+  videoTitle: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  sourceType: SourceType;
+  sourceUrl: string;
+  recommendedCount: number;
+  cautionCount: number;
+  reviews: VideoParentReview[];
   updatedAt: string;
 }
