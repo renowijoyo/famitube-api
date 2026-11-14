@@ -29,397 +29,7 @@ import {
   KidChannelQuizState
 } from './types.js';
 
-const INITIAL_CATEGORIES: Category[] = [
-  { id: 'cat-all', name: 'All Videos', icon: 'auto_awesome', color: '#FF4D6D' },
-  { id: 'cat-science', name: 'Science & Space', icon: 'rocket_launch', color: '#4361EE' },
-  { id: 'cat-cartoons', name: 'Cartoons & Fun', icon: 'theater_comedy', color: '#7209B7' },
-  { id: 'cat-learning', name: 'Learning & ABCs', icon: 'school', color: '#4CC9F0' },
-  { id: 'cat-music', name: 'Music & Rhymes', icon: 'music_note', color: '#F72585' },
-  { id: 'cat-animals', name: 'Animals & Nature', icon: 'pets', color: '#06D6A0' },
-  { id: 'cat-crafts', name: 'Art & Crafts', icon: 'palette', color: '#FFB703' }
-];
-
-const INITIAL_CHANNELS: Channel[] = [
-  {
-    id: 'chan-livetv',
-    name: 'FamiTube Live TV',
-    description: '24/7 scheduled kids TV broadcast! Always playing curated cartoons & science.',
-    avatarUrl: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop',
-    category: 'Cartoons & Fun',
-    isVerified: true,
-    channelType: 'LIVE_TV',
-    scheduleStartTime: new Date('2026-01-01T00:00:00.000Z').toISOString(),
-    videoIds: ['vid-1', 'vid-2', 'vid-4', 'vid-6']
-  },
-  {
-    id: 'chan-natgeo',
-    name: 'Nat Geo Kids',
-    description: 'Awesome videos about animals, ocean adventures, science, and fun wildlife!',
-    avatarUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1000&h=300&fit=crop',
-    category: 'Animals & Nature',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-3', 'vid-7', 'vid-8', 'vid-9']
-  },
-  {
-    id: 'chan-scishow',
-    name: 'SciShow Kids',
-    description: 'Explore the fascinating science behind planets, volcanoes, and everyday mysteries.',
-    avatarUrl: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&h=300&fit=crop',
-    category: 'Science & Space',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-2', 'vid-6', 'vid-10', 'vid-11', 'vid-12']
-  },
-  {
-    id: 'chan-crashcourse',
-    name: 'Crash Course Kids',
-    description: 'Fun, bite-sized science lessons on ecosystems, food chains, and Earth science.',
-    avatarUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1000&h=300&fit=crop',
-    category: 'Science & Space',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-13', 'vid-2']
-  },
-  {
-    id: 'chan-abclearn',
-    name: 'Little Learners ABC',
-    description: 'Early childhood phonics, ABC songs, counting, and interactive sing-alongs.',
-    avatarUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1000&h=300&fit=crop',
-    category: 'Learning & ABCs',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-14', 'vid-15']
-  },
-  {
-    id: 'chan-blender',
-    name: 'Blender Open Animation',
-    description: 'Award-winning open source 3D animated shorts suitable for all ages.',
-    avatarUrl: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop',
-    category: 'Cartoons & Fun',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-1', 'vid-5']
-  },
-  {
-    id: 'chan-supersimple',
-    name: 'Simple Songs & Fun',
-    description: 'Catchy songs, nursery rhymes, and upbeat learning tunes for young kids.',
-    avatarUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop',
-    bannerUrl: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1000&h=300&fit=crop',
-    category: 'Music & Rhymes',
-    isVerified: true,
-    channelType: 'ON_DEMAND',
-    videoIds: ['vid-4']
-  }
-];
-
-const INITIAL_VIDEOS: Video[] = [
-  {
-    id: 'vid-1',
-    title: 'Big Buck Bunny - An Animated Spring Adventure',
-    description: 'A giant rabbit with a heart bigger than himself meets bullying forest creatures who ruin his day. A heartwarming open-movie classic.',
-    sourceType: 'DIRECT',
-    sourceUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=800&h=450&fit=crop',
-    duration: 596,
-    channelId: 'chan-blender',
-    channelTitle: 'Blender Open Animation',
-    channelAvatar: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop',
-    category: 'Cartoons & Fun',
-    ageRating: 'ALL',
-    isFeatured: true,
-    isApproved: true,
-    views: 12450,
-    tags: ['rabbit', 'cartoon', 'nature', 'spring', 'animals'],
-    createdAt: new Date(Date.now() - 86400000 * 2).toISOString()
-  },
-  {
-    id: 'vid-2',
-    title: 'Why Do We Have Seasons? Earth Tilt Explained!',
-    description: 'Ever wonder why summer is hot and winter is cold? Join us on a journey through space to see how our tilted Earth creates summer, fall, winter, and spring!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=b25g4nZTHvM',
-    youtubeVideoId: 'b25g4nZTHvM',
-    thumbnailUrl: 'https://img.youtube.com/vi/b25g4nZTHvM/hqdefault.jpg',
-    duration: 254,
-    channelId: 'chan-scishow',
-    channelTitle: 'SciShow Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: true,
-    isApproved: true,
-    views: 8930,
-    tags: ['earth', 'seasons', 'space', 'science', 'sun'],
-    createdAt: new Date(Date.now() - 86400000 * 4).toISOString()
-  },
-  {
-    id: 'vid-3',
-    title: 'Elephants 101 - Gentle Giants of the Savanna',
-    description: 'Learn incredible facts about elephant trunks, family herds, and how these smart giants communicate over miles!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=Aw6GkiCvcWs',
-    youtubeVideoId: 'Aw6GkiCvcWs',
-    thumbnailUrl: 'https://img.youtube.com/vi/Aw6GkiCvcWs/hqdefault.jpg',
-    duration: 215,
-    channelId: 'chan-natgeo',
-    channelTitle: 'Nat Geo Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
-    category: 'Animals & Nature',
-    ageRating: 'ALL',
-    isFeatured: false,
-    isApproved: true,
-    views: 15400,
-    tags: ['elephants', 'safari', 'wildlife', 'nature'],
-    createdAt: new Date(Date.now() - 86400000 * 5).toISOString()
-  },
-  {
-    id: 'vid-4',
-    title: 'Twinkle Twinkle Little Star - Nursery Rhymes for Kids',
-    description: 'Sing along to the classic bedtime nursery rhyme with gentle animations from Super Simple Songs!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=yCjJyiqpAuU',
-    youtubeVideoId: 'yCjJyiqpAuU',
-    thumbnailUrl: 'https://img.youtube.com/vi/yCjJyiqpAuU/hqdefault.jpg',
-    duration: 155,
-    channelId: 'chan-supersimple',
-    channelTitle: 'Simple Songs & Fun',
-    channelAvatar: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop',
-    category: 'Music & Rhymes',
-    ageRating: 'TODDLER',
-    isFeatured: true,
-    isApproved: true,
-    views: 28310,
-    tags: ['twinkle', 'nursery rhyme', 'song', 'singalong', 'bedtime'],
-    createdAt: new Date(Date.now() - 86400000 * 7).toISOString()
-  },
-  {
-    id: 'vid-5',
-    title: 'For the Birds - Pixar Style Cartoon Comedy',
-    description: 'A flock of small birds sitting on a telephone wire get an unexpected visit from a quirky large bird.',
-    sourceType: 'DIRECT',
-    sourceUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1522858547550-3405742f160d?w=800&h=450&fit=crop',
-    duration: 15,
-    channelId: 'chan-blender',
-    channelTitle: 'Blender Open Animation',
-    channelAvatar: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop',
-    category: 'Cartoons & Fun',
-    ageRating: 'ALL',
-    isFeatured: false,
-    isApproved: true,
-    views: 4520,
-    tags: ['birds', 'comedy', 'animation', 'short'],
-    createdAt: new Date(Date.now() - 86400000 * 10).toISOString()
-  },
-  {
-    id: 'vid-6',
-    title: 'How Do Airplanes Fly? Bernoulli & Lift for Kids',
-    description: 'Discover how wings create lift, engines provide thrust, and how pilots steer huge planes through the sky!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=Gg0TXNXgz-w',
-    youtubeVideoId: 'Gg0TXNXgz-w',
-    thumbnailUrl: 'https://img.youtube.com/vi/Gg0TXNXgz-w/hqdefault.jpg',
-    duration: 310,
-    channelId: 'chan-scishow',
-    channelTitle: 'SciShow Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: false,
-    isApproved: true,
-    views: 19800,
-    tags: ['airplane', 'flight', 'physics', 'invention'],
-    createdAt: new Date(Date.now() - 86400000 * 12).toISOString()
-  },
-  {
-    id: 'vid-7',
-    title: 'All About Penguins - Nat Geo Kids',
-    description: 'Waddle into Antarctica and discover fun facts about how penguins swim, huddle, and raise their chicks!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=kp-qauWF_GU',
-    youtubeVideoId: 'kp-qauWF_GU',
-    thumbnailUrl: 'https://img.youtube.com/vi/kp-qauWF_GU/hqdefault.jpg',
-    duration: 240,
-    channelId: 'chan-natgeo',
-    channelTitle: 'Nat Geo Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
-    category: 'Animals & Nature',
-    ageRating: 'ALL',
-    isFeatured: true,
-    isApproved: true,
-    views: 11200,
-    tags: ['penguins', 'antarctica', 'birds', 'wildlife'],
-    createdAt: new Date(Date.now() - 86400000 * 3).toISOString()
-  },
-  {
-    id: 'vid-8',
-    title: 'All About Dolphins - Nat Geo Kids',
-    description: 'Meet the smartest swimmers in the ocean! Learn how dolphins use echolocation and live in pods.',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=ZZJzv_B5K9Q',
-    youtubeVideoId: 'ZZJzv_B5K9Q',
-    thumbnailUrl: 'https://img.youtube.com/vi/ZZJzv_B5K9Q/hqdefault.jpg',
-    duration: 210,
-    channelId: 'chan-natgeo',
-    channelTitle: 'Nat Geo Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
-    category: 'Animals & Nature',
-    ageRating: 'ALL',
-    isFeatured: false,
-    isApproved: true,
-    views: 9850,
-    tags: ['dolphins', 'ocean', 'marine', 'animals'],
-    createdAt: new Date(Date.now() - 86400000 * 3).toISOString()
-  },
-  {
-    id: 'vid-9',
-    title: 'World Ocean Adventures! Sharks & Coral Reefs',
-    description: 'Dive beneath the waves with Nat Geo Kids to explore coral reefs, sharks, and amazing sea creatures.',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=-Qd4-YxTfZI',
-    youtubeVideoId: '-Qd4-YxTfZI',
-    thumbnailUrl: 'https://img.youtube.com/vi/-Qd4-YxTfZI/hqdefault.jpg',
-    duration: 360,
-    channelId: 'chan-natgeo',
-    channelTitle: 'Nat Geo Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
-    category: 'Animals & Nature',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: false,
-    isApproved: true,
-    views: 7420,
-    tags: ['sharks', 'ocean', 'coral reef', 'adventure'],
-    createdAt: new Date(Date.now() - 86400000 * 6).toISOString()
-  },
-  {
-    id: 'vid-10',
-    title: 'Explore the Solar System: The Rocky Planets',
-    description: 'Blast off with SciShow Kids to visit Mercury, Venus, Earth, and Mars — the rocky inner planets!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=joq-IUFNkrw',
-    youtubeVideoId: 'joq-IUFNkrw',
-    thumbnailUrl: 'https://img.youtube.com/vi/joq-IUFNkrw/hqdefault.jpg',
-    duration: 280,
-    channelId: 'chan-scishow',
-    channelTitle: 'SciShow Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: true,
-    isApproved: true,
-    views: 14300,
-    tags: ['solar system', 'planets', 'mars', 'space'],
-    createdAt: new Date(Date.now() - 86400000 * 2).toISOString()
-  },
-  {
-    id: 'vid-11',
-    title: 'Every Kind of Volcano - SciShow Kids',
-    description: 'Why do volcanoes erupt? Learn about shield volcanoes, cinder cones, and bubbling magma!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=0jKoOUZ1GBM',
-    youtubeVideoId: '0jKoOUZ1GBM',
-    thumbnailUrl: 'https://img.youtube.com/vi/0jKoOUZ1GBM/hqdefault.jpg',
-    duration: 225,
-    channelId: 'chan-scishow',
-    channelTitle: 'SciShow Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: false,
-    isApproved: true,
-    views: 9100,
-    tags: ['volcano', 'geology', 'lava', 'science'],
-    createdAt: new Date(Date.now() - 86400000 * 4).toISOString()
-  },
-  {
-    id: 'vid-12',
-    title: 'Hawaiʻi: Land of Volcanoes - SciShow Kids',
-    description: 'Discover how volcanic islands form in the middle of the Pacific Ocean!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=YR4wtGWK7eE',
-    youtubeVideoId: 'YR4wtGWK7eE',
-    thumbnailUrl: 'https://img.youtube.com/vi/YR4wtGWK7eE/hqdefault.jpg',
-    duration: 230,
-    channelId: 'chan-scishow',
-    channelTitle: 'SciShow Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'YOUNG_KIDS',
-    isFeatured: false,
-    isApproved: true,
-    views: 6800,
-    tags: ['hawaii', 'volcanoes', 'islands', 'earth'],
-    createdAt: new Date(Date.now() - 86400000 * 5).toISOString()
-  },
-  {
-    id: 'vid-13',
-    title: 'Fabulous Food Chains: Crash Course Kids #7.1',
-    description: 'How does energy move from the sun to plants and animals? Explore ecosystems and food chains!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=MuKs9o1s8h8',
-    youtubeVideoId: 'MuKs9o1s8h8',
-    thumbnailUrl: 'https://img.youtube.com/vi/MuKs9o1s8h8/hqdefault.jpg',
-    duration: 205,
-    channelId: 'chan-crashcourse',
-    channelTitle: 'Crash Course Kids',
-    channelAvatar: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200&h=200&fit=crop',
-    category: 'Science & Space',
-    ageRating: 'OLDER_KIDS',
-    isFeatured: true,
-    isApproved: true,
-    views: 13400,
-    tags: ['food chains', 'ecosystems', 'biology', 'science'],
-    createdAt: new Date(Date.now() - 86400000 * 3).toISOString()
-  },
-  {
-    id: 'vid-14',
-    title: 'The ABC Song - Phonics & Alphabet Learning',
-    description: 'Sing along and learn all 26 letters of the alphabet with clear phonics and cheerful music.',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=75p-N9YKqNo',
-    youtubeVideoId: '75p-N9YKqNo',
-    thumbnailUrl: 'https://img.youtube.com/vi/75p-N9YKqNo/hqdefault.jpg',
-    duration: 140,
-    channelId: 'chan-abclearn',
-    channelTitle: 'Little Learners ABC',
-    channelAvatar: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=200&fit=crop',
-    category: 'Learning & ABCs',
-    ageRating: 'TODDLER',
-    isFeatured: true,
-    isApproved: true,
-    views: 31200,
-    tags: ['abc', 'alphabet', 'phonics', 'toddler'],
-    createdAt: new Date(Date.now() - 86400000 * 1).toISOString()
-  },
-  {
-    id: 'vid-15',
-    title: 'Finger Family Song - Nursery Rhymes with Lyrics',
-    description: 'Fun interactive finger family song for toddlers and preschoolers to sing and count along!',
-    sourceType: 'YOUTUBE',
-    sourceUrl: 'https://www.youtube.com/watch?v=G6k7dChBaJ8',
-    youtubeVideoId: 'G6k7dChBaJ8',
-    thumbnailUrl: 'https://img.youtube.com/vi/G6k7dChBaJ8/hqdefault.jpg',
-    duration: 130,
-    channelId: 'chan-abclearn',
-    channelTitle: 'Little Learners ABC',
-    channelAvatar: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=200&fit=crop',
-    category: 'Learning & ABCs',
-    ageRating: 'TODDLER',
-    isFeatured: false,
-    isApproved: true,
-    views: 18900,
-    tags: ['finger family', 'counting', 'nursery rhyme', 'preschool'],
-    createdAt: new Date(Date.now() - 86400000 * 2).toISOString()
-  }
-];
+import { INITIAL_CATEGORIES, INITIAL_CHANNELS, INITIAL_VIDEOS } from './catalog-seed.js';
 
 const INITIAL_PLAYLISTS: Playlist[] = [
   {
@@ -886,66 +496,63 @@ class Database {
   }
 
   private async seedIfEmpty(): Promise<void> {
-    const [catRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM categories');
-    if (catRows[0].cnt === 0) {
-      for (const c of INITIAL_CATEGORIES) {
-        await this.pool.query(
-          'INSERT INTO categories (id, name, icon, color) VALUES (?, ?, ?, ?)',
-          [c.id, c.name, c.icon, c.color]
-        );
-      }
+    for (const c of INITIAL_CATEGORIES) {
+      await this.pool.query(
+        'INSERT IGNORE INTO categories (id, name, icon, color) VALUES (?, ?, ?, ?)',
+        [c.id, c.name, c.icon, c.color]
+      );
     }
 
-    const [chanRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM channels');
-    if (chanRows[0].cnt === 0) {
-      for (const ch of INITIAL_CHANNELS) {
-        await this.pool.query(
-          `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            ch.id,
-            ch.name,
-            ch.description,
-            ch.avatarUrl,
-            ch.bannerUrl || null,
-            ch.category,
-            ch.isVerified ? 1 : 0,
-            ch.channelType,
-            ch.scheduleStartTime || null,
-            JSON.stringify(ch.videoIds || [])
-          ]
-        );
-      }
+    for (const ch of INITIAL_CHANNELS) {
+      await this.pool.query(
+        `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, liveSchedules)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           category = VALUES(category),
+           channelType = VALUES(channelType),
+           videoIds = VALUES(videoIds),
+           liveSchedules = COALESCE(liveSchedules, VALUES(liveSchedules))`,
+        [
+          ch.id,
+          ch.name,
+          ch.description,
+          ch.avatarUrl,
+          ch.bannerUrl || null,
+          ch.category,
+          ch.isVerified ? 1 : 0,
+          ch.channelType,
+          ch.scheduleStartTime || null,
+          JSON.stringify(ch.videoIds || []),
+          ch.liveSchedules ? JSON.stringify(ch.liveSchedules) : null
+        ]
+      );
     }
 
-    const [vidRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM videos');
-    if (vidRows[0].cnt === 0) {
-      for (const v of INITIAL_VIDEOS) {
-        await this.pool.query(
-          `INSERT INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            v.id,
-            v.title,
-            v.description,
-            v.sourceType,
-            v.sourceUrl,
-            v.youtubeVideoId || null,
-            v.thumbnailUrl,
-            v.duration,
-            v.channelId,
-            v.channelTitle,
-            v.channelAvatar,
-            v.category,
-            v.ageRating,
-            v.isFeatured ? 1 : 0,
-            v.isApproved ? 1 : 0,
-            v.views,
-            JSON.stringify(v.tags || []),
-            v.createdAt
-          ]
-        );
-      }
+    for (const v of INITIAL_VIDEOS) {
+      await this.pool.query(
+        `INSERT IGNORE INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          v.id,
+          v.title,
+          v.description,
+          v.sourceType,
+          v.sourceUrl,
+          v.youtubeVideoId || null,
+          v.thumbnailUrl,
+          v.duration,
+          v.channelId,
+          v.channelTitle,
+          v.channelAvatar,
+          v.category,
+          v.ageRating,
+          v.isFeatured ? 1 : 0,
+          v.isApproved ? 1 : 0,
+          v.views,
+          JSON.stringify(v.tags || []),
+          v.createdAt
+        ]
+      );
     }
 
     const [plRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM playlists');
