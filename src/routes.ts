@@ -394,7 +394,7 @@ apiRouter.post(
     if (loginType === 'PARENT' && userRole !== 'PARENT') {
       return res.status(403).json({
         success: false,
-        message: 'This is a Child account. Please switch to Kids / Child Login.'
+        message: 'Curator Studio is only accessible by parent accounts. Kids must sign in on the Kids Login page.'
       });
     }
 
