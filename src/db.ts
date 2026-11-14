@@ -3,6 +3,7 @@ import {
   Video,
   AgeRating,
   Channel,
+  LiveTimelineItem,
   ChannelVisibility,
   PermissionPreset,
   ChannelPermissions,
@@ -497,6 +498,7 @@ function mapChannelRow(row: RowDataPacket): Channel {
     channelType: row.channelType || 'ON_DEMAND',
     scheduleStartTime: row.scheduleStartTime || undefined,
     videoIds: parseJson<string[]>(row.videoIds, []),
+    liveTimeline: parseJson<LiveTimelineItem[] | undefined>(row.liveTimeline, undefined),
     ownerId: row.ownerId || undefined,
     visibility: (row.visibility as ChannelVisibility) || 'PUBLIC',
     createdAt: row.createdAt || undefined
@@ -700,6 +702,7 @@ class Database {
     await this.ensureColumnExists('channels', 'ownerId', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('channels', 'visibility', "VARCHAR(16) NOT NULL DEFAULT 'PUBLIC'");
     await this.ensureColumnExists('channels', 'createdAt', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('channels', 'liveTimeline', 'JSON NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS videos (
@@ -1146,17 +1149,22 @@ class Database {
   }
 
   public async addChannel(channel: Channel): Promise<Channel> {
+    const timeline = Array.isArray(channel.liveTimeline) ? channel.liveTimeline : undefined;
+    const derivedVideoIds = timeline?.length
+      ? Array.from(new Set(timeline.map(item => item.videoId)))
+      : (channel.videoIds || []);
     const normalized: Channel = {
       ...channel,
       channelType: channel.channelType || 'ON_DEMAND',
       scheduleStartTime: channel.scheduleStartTime || new Date().toISOString(),
-      videoIds: channel.videoIds || [],
+      videoIds: derivedVideoIds,
+      liveTimeline: timeline,
       visibility: channel.visibility || 'PUBLIC',
       createdAt: channel.createdAt || new Date().toISOString()
     };
     await this.pool.query(
-      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, ownerId, visibility, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, liveTimeline, ownerId, visibility, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         normalized.id,
         normalized.name,
@@ -1168,6 +1176,7 @@ class Database {
         normalized.channelType,
         normalized.scheduleStartTime || null,
         JSON.stringify(normalized.videoIds || []),
+        normalized.liveTimeline ? JSON.stringify(normalized.liveTimeline) : null,
         normalized.ownerId || null,
         normalized.visibility || 'PUBLIC',
         normalized.createdAt || null
@@ -1181,8 +1190,11 @@ class Database {
     if (!existing) return null;
 
     const merged: Channel = { ...existing, ...updates, id };
+    if (Array.isArray(updates.liveTimeline) && updates.liveTimeline.length > 0 && !updates.videoIds) {
+      merged.videoIds = Array.from(new Set(updates.liveTimeline.map(item => item.videoId)));
+    }
     await this.pool.query(
-      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?, visibility = ?
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?, liveTimeline = ?, visibility = ?
        WHERE id = ?`,
       [
         merged.name,
@@ -1194,6 +1206,7 @@ class Database {
         merged.channelType,
         merged.scheduleStartTime || null,
         JSON.stringify(merged.videoIds || []),
+        merged.liveTimeline ? JSON.stringify(merged.liveTimeline) : null,
         merged.visibility || 'PUBLIC',
         id
       ]
@@ -1257,7 +1270,40 @@ class Database {
       };
     }
 
-    const totalCycleSeconds = videos.reduce((sum, v) => sum + Math.max(10, v.duration || 180), 0);
+    const videoById = new Map(videos.map(v => [v.id, v]));
+    const timelineSlots = (channel.liveTimeline && channel.liveTimeline.length > 0)
+      ? channel.liveTimeline
+          .map(item => {
+            const video = videoById.get(item.videoId);
+            if (!video) return null;
+            const fullDur = Math.max(10, video.duration || 180);
+            const clipStart = item.playMode === 'CLIP'
+              ? Math.max(0, Math.min(Number(item.startSeconds) || 0, fullDur - 1))
+              : 0;
+            const rawEnd = item.playMode === 'CLIP' && item.endSeconds != null ? Number(item.endSeconds) : fullDur;
+            const clipEnd = rawEnd > clipStart ? Math.min(rawEnd, fullDur) : fullDur;
+            const slotDuration = Math.max(10, clipEnd - clipStart);
+            return { video, clipStart, slotDuration };
+          })
+          .filter((s): s is { video: Video; clipStart: number; slotDuration: number } => Boolean(s))
+      : videos.map(video => ({
+          video,
+          clipStart: 0,
+          slotDuration: Math.max(10, video.duration || 180)
+        }));
+
+    if (timelineSlots.length === 0) {
+      return {
+        channel,
+        serverTime: new Date().toISOString(),
+        currentVideo: null,
+        offsetSeconds: 0,
+        remainingSeconds: 0,
+        upNext: []
+      };
+    }
+
+    const totalCycleSeconds = timelineSlots.reduce((sum, s) => sum + s.slotDuration, 0);
     const anchorMs = channel.scheduleStartTime ? new Date(channel.scheduleStartTime).getTime() : 0;
     const nowMs = Date.now();
     const elapsedSinceAnchorSec = Math.max(0, Math.floor((nowMs - anchorMs) / 1000));
@@ -1268,33 +1314,34 @@ class Database {
     let offsetSeconds = 0;
     let remainingSeconds = 0;
 
-    for (let i = 0; i < videos.length; i++) {
-      const dur = Math.max(10, videos[i].duration || 180);
-      if (cyclePos < accumulated + dur) {
+    for (let i = 0; i < timelineSlots.length; i++) {
+      const slot = timelineSlots[i];
+      if (cyclePos < accumulated + slot.slotDuration) {
         currentIdx = i;
-        offsetSeconds = cyclePos - accumulated;
-        remainingSeconds = dur - offsetSeconds;
+        const posInSlot = cyclePos - accumulated;
+        offsetSeconds = slot.clipStart + posInSlot;
+        remainingSeconds = slot.slotDuration - posInSlot;
         break;
       }
-      accumulated += dur;
+      accumulated += slot.slotDuration;
     }
 
     const upNext: UpNextItem[] = [];
     let nextStartIn = remainingSeconds;
-    const maxUpNext = Math.min(videos.length - 1, 4);
+    const maxUpNext = Math.min(timelineSlots.length - 1, 4);
     for (let j = 1; j <= maxUpNext; j++) {
-      const nextVideo = videos[(currentIdx + j) % videos.length];
+      const nextSlot = timelineSlots[(currentIdx + j) % timelineSlots.length];
       upNext.push({
-        video: nextVideo,
+        video: nextSlot.video,
         startsInSeconds: nextStartIn
       });
-      nextStartIn += Math.max(10, nextVideo.duration || 180);
+      nextStartIn += nextSlot.slotDuration;
     }
 
     return {
       channel,
       serverTime: new Date(nowMs).toISOString(),
-      currentVideo: videos[currentIdx],
+      currentVideo: timelineSlots[currentIdx].video,
       offsetSeconds,
       remainingSeconds,
       upNext

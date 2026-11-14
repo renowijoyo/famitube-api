@@ -820,7 +820,8 @@ apiRouter.post(
       category = 'Cartoons & Fun',
       channelType = 'ON_DEMAND',
       visibility = 'PUBLIC',
-      videoIds = []
+      videoIds = [],
+      liveTimeline
     } = req.body;
 
     if (!name || !String(name).trim()) {
@@ -843,6 +844,7 @@ apiRouter.post(
       channelType: validType,
       scheduleStartTime: new Date().toISOString(),
       videoIds: Array.isArray(videoIds) ? videoIds : [],
+      liveTimeline: Array.isArray(liveTimeline) ? liveTimeline : undefined,
       ownerId: req.user!.sub,
       visibility: validVisibility,
       createdAt: new Date().toISOString()

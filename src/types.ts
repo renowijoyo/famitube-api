@@ -44,6 +44,13 @@ export interface Video {
   createdAt: string;
 }
 
+export interface LiveTimelineItem {
+  videoId: string;
+  playMode: 'WHOLE' | 'CLIP';
+  startSeconds?: number;
+  endSeconds?: number | null;
+}
+
 export interface Channel {
   id: string;
   name: string;
@@ -55,6 +62,7 @@ export interface Channel {
   channelType: ChannelType;
   scheduleStartTime?: string; // ISO timestamp anchor for LIVE_TV schedule
   videoIds?: string[]; // Ordered list of videos in this channel
+  liveTimeline?: LiveTimelineItem[]; // Ordered timeline slots for LIVE_TV channels
   videoCount?: number;
   ownerId?: string;
   visibility?: ChannelVisibility;
