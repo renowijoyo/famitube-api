@@ -13,6 +13,7 @@ import {
   verifyPassword
 } from './auth.js';
 import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail } from './utils.js';
+import { generateQuizQuestion } from './quiz.js';
 import {
   Video,
   AgeRating,
@@ -25,7 +26,10 @@ import {
   ChannelSuggestion,
   ChannelVideoComment,
   Playlist,
-  ChannelType
+  ChannelType,
+  QuizType,
+  LockoutAction,
+  KidChannelQuizState
 } from './types.js';
 
 function resolvePermissionsInput(
@@ -159,6 +163,22 @@ apiRouter.get(
 
     if (!access.canView) {
       return res.status(403).json({ success: false, message: 'This channel is private' });
+    }
+
+    if (req.user?.role === 'CHILD' && req.user.parentId) {
+      const rule = await db.getChannelQuizRule(req.user.parentId, id);
+      if (rule && rule.quizEnabled) {
+        const state = await db.getKidChannelQuizState(req.user.sub, id);
+        const now = Date.now();
+        const isUnlocked = Boolean(state?.unlockedUntil && Date.parse(state.unlockedUntil) > now);
+        if (!isUnlocked) {
+          return res.status(403).json({
+            success: false,
+            quizRequired: true,
+            message: 'Complete the parent quiz wall to view this channel.'
+          });
+        }
+      }
     }
 
     const videos = await db.getChannelVideos(id);
@@ -1608,6 +1628,399 @@ apiRouter.get(
       data: {
         channels: accessibleChannels,
         videos
+      }
+    });
+  })
+);
+
+// ==========================================
+// PARENT CHANNEL QUIZ WALL CONTROLS & KID QUIZ ACCESS
+// ==========================================
+
+const VALID_QUIZ_TYPES: QuizType[] = ['MATH', 'SCIENCE', 'ENGLISH', 'LOGIC', 'MIXED'];
+const VALID_LOCKOUT_ACTIONS: LockoutAction[] = ['LOCKOUT', 'ALLOW_AFTER_WAIT'];
+
+// List channels and their quiz wall rules for the logged-in parent
+apiRouter.get(
+  '/parent/channel-controls',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const parentId = req.user!.sub;
+    const channels = await db.getChannelsForUser(parentId);
+    const rules = await db.getChannelQuizRulesByParent(parentId);
+    const ruleMap = new Map(rules.map((r) => [r.channelId, r]));
+
+    res.json({
+      success: true,
+      data: channels.map((ch) => {
+        const r = ruleMap.get(ch.id);
+        return {
+          channelId: ch.id,
+          channelName: ch.name,
+          channelAvatar: ch.avatarUrl,
+          category: ch.category,
+          quizEnabled: r ? r.quizEnabled : false,
+          quizType: r ? r.quizType : 'MATH',
+          retryWaitSeconds: r ? r.retryWaitSeconds : 10,
+          maxAttempts: r ? r.maxAttempts : 3,
+          lockoutAction: r ? r.lockoutAction : 'LOCKOUT',
+          lockoutDurationSeconds: r ? r.lockoutDurationSeconds : 60,
+          updatedAt: r?.updatedAt || null
+        };
+      })
+    });
+  })
+);
+
+// Update quiz wall rule for a channel (Parent only)
+apiRouter.put(
+  '/parent/channel-controls/:channelId',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const parentId = req.user!.sub;
+    const channelId = String(req.params.channelId);
+    const channel = await db.getChannelById(channelId);
+    if (!channel) {
+      return res.status(404).json({ success: false, message: 'Channel not found' });
+    }
+
+    const quizEnabled = Boolean(req.body.quizEnabled);
+    const rawQuizType = String(req.body.quizType || 'MATH').toUpperCase() as QuizType;
+    const quizType: QuizType = VALID_QUIZ_TYPES.includes(rawQuizType) ? rawQuizType : 'MATH';
+    const rawAction = String(req.body.lockoutAction || 'LOCKOUT').toUpperCase() as LockoutAction;
+    const lockoutAction: LockoutAction = VALID_LOCKOUT_ACTIONS.includes(rawAction) ? rawAction : 'LOCKOUT';
+    const retryWaitSeconds = Math.max(1, Math.min(3600, Math.round(Number(req.body.retryWaitSeconds) || 10)));
+    const lockoutDurationSeconds = Math.max(1, Math.min(86400, Math.round(Number(req.body.lockoutDurationSeconds) || 60)));
+
+    const saved = await db.upsertChannelQuizRule({
+      id: `${parentId}:${channelId}`,
+      parentId,
+      channelId,
+      quizEnabled,
+      quizType,
+      retryWaitSeconds,
+      maxAttempts: 3,
+      lockoutAction,
+      lockoutDurationSeconds,
+      updatedAt: new Date().toISOString()
+    });
+
+    res.json({ success: true, data: saved });
+  })
+);
+
+// Check or start quiz wall for a kid accessing a channel
+apiRouter.get(
+  '/kids/channels/:channelId/access',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const channelId = String(req.params.channelId);
+    const user = req.user!;
+
+    if (user.role !== 'CHILD' || !user.parentId) {
+      return res.json({
+        success: true,
+        data: { unlocked: true, quizRequired: false }
+      });
+    }
+
+    const rule = await db.getChannelQuizRule(user.parentId, channelId);
+    if (!rule || !rule.quizEnabled) {
+      return res.json({
+        success: true,
+        data: { unlocked: true, quizRequired: false }
+      });
+    }
+
+    const now = Date.now();
+    let state: KidChannelQuizState = (await db.getKidChannelQuizState(user.sub, channelId)) || {
+      id: `${user.sub}:${channelId}`,
+      kidId: user.sub,
+      channelId,
+      wrongAttempts: 0,
+      nextQuizAt: null,
+      lockedUntil: null,
+      postLockoutGrant: false,
+      unlockedUntil: null,
+      activeQuestion: null,
+      updatedAt: new Date(now).toISOString()
+    };
+
+    if (state.unlockedUntil && Date.parse(state.unlockedUntil) > now) {
+      return res.json({
+        success: true,
+        data: {
+          unlocked: true,
+          quizRequired: false,
+          unlockedUntil: state.unlockedUntil
+        }
+      });
+    }
+
+    if (state.lockedUntil) {
+      const lockedMs = Date.parse(state.lockedUntil);
+      if (lockedMs > now) {
+        return res.json({
+          success: true,
+          data: {
+            unlocked: false,
+            status: 'LOCKED',
+            lockoutAction: rule.lockoutAction,
+            lockedUntil: state.lockedUntil,
+            remainingSeconds: Math.ceil((lockedMs - now) / 1000),
+            wrongAttempts: state.wrongAttempts,
+            maxAttempts: rule.maxAttempts
+          }
+        });
+      }
+
+      // Lockout / wait period has expired
+      if (state.postLockoutGrant) {
+        const unlockedUntil = new Date(now + 30 * 60 * 1000).toISOString();
+        state = await db.upsertKidChannelQuizState({
+          ...state,
+          wrongAttempts: 0,
+          nextQuizAt: null,
+          lockedUntil: null,
+          postLockoutGrant: false,
+          unlockedUntil,
+          activeQuestion: null,
+          updatedAt: new Date(now).toISOString()
+        });
+        return res.json({
+          success: true,
+          data: {
+            unlocked: true,
+            quizRequired: false,
+            grantedAfterWait: true,
+            unlockedUntil
+          }
+        });
+      }
+
+      // Standard lockout expired -> reset attempts so kid can try again
+      state = await db.upsertKidChannelQuizState({
+        ...state,
+        wrongAttempts: 0,
+        nextQuizAt: null,
+        lockedUntil: null,
+        postLockoutGrant: false,
+        activeQuestion: null,
+        updatedAt: new Date(now).toISOString()
+      });
+    }
+
+    if (state.nextQuizAt) {
+      const nextMs = Date.parse(state.nextQuizAt);
+      if (nextMs > now) {
+        return res.json({
+          success: true,
+          data: {
+            unlocked: false,
+            status: 'COOLDOWN',
+            quizType: rule.quizType,
+            nextQuizAt: state.nextQuizAt,
+            remainingSeconds: Math.ceil((nextMs - now) / 1000),
+            wrongAttempts: state.wrongAttempts,
+            maxAttempts: rule.maxAttempts
+          }
+        });
+      }
+    }
+
+    // Generate a question if none active
+    let question = state.activeQuestion;
+    if (!question) {
+      question = generateQuizQuestion(rule.quizType);
+      state = await db.upsertKidChannelQuizState({
+        ...state,
+        nextQuizAt: null,
+        activeQuestion: question,
+        updatedAt: new Date(now).toISOString()
+      });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        unlocked: false,
+        status: 'QUIZ_REQUIRED',
+        quizType: rule.quizType,
+        wrongAttempts: state.wrongAttempts,
+        maxAttempts: rule.maxAttempts,
+        retryWaitSeconds: rule.retryWaitSeconds,
+        lockoutAction: rule.lockoutAction,
+        lockoutDurationSeconds: rule.lockoutDurationSeconds,
+        question: {
+          id: question.id,
+          type: question.type,
+          prompt: question.prompt,
+          options: question.options
+        }
+      }
+    });
+  })
+);
+
+// Submit an answer to the channel quiz wall
+apiRouter.post(
+  '/kids/channels/:channelId/quiz-answer',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const channelId = String(req.params.channelId);
+    const user = req.user!;
+
+    if (user.role !== 'CHILD' || !user.parentId) {
+      return res.json({
+        success: true,
+        data: { correct: true, unlocked: true }
+      });
+    }
+
+    const rule = await db.getChannelQuizRule(user.parentId, channelId);
+    if (!rule || !rule.quizEnabled) {
+      return res.json({
+        success: true,
+        data: { correct: true, unlocked: true }
+      });
+    }
+
+    const state = await db.getKidChannelQuizState(user.sub, channelId);
+    const now = Date.now();
+
+    if (state?.lockedUntil && Date.parse(state.lockedUntil) > now) {
+      const remainingSeconds = Math.ceil((Date.parse(state.lockedUntil) - now) / 1000);
+      return res.status(423).json({
+        success: false,
+        message: `Channel is locked. Please wait ${remainingSeconds}s.`,
+        data: {
+          unlocked: false,
+          status: 'LOCKED',
+          lockoutAction: rule.lockoutAction,
+          lockedUntil: state.lockedUntil,
+          remainingSeconds,
+          wrongAttempts: state.wrongAttempts,
+          maxAttempts: rule.maxAttempts
+        }
+      });
+    }
+
+    if (state?.nextQuizAt && Date.parse(state.nextQuizAt) > now) {
+      const remainingSeconds = Math.ceil((Date.parse(state.nextQuizAt) - now) / 1000);
+      return res.status(429).json({
+        success: false,
+        message: `Please wait ${remainingSeconds}s before the next quiz.`,
+        data: {
+          unlocked: false,
+          status: 'COOLDOWN',
+          nextQuizAt: state.nextQuizAt,
+          remainingSeconds,
+          wrongAttempts: state.wrongAttempts,
+          maxAttempts: rule.maxAttempts
+        }
+      });
+    }
+
+    const activeQuestion = state?.activeQuestion;
+    const questionId = String(req.body.questionId || '');
+    const selectedIndex = Number(req.body.selectedIndex);
+
+    if (!activeQuestion || activeQuestion.id !== questionId || Number.isNaN(selectedIndex)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Quiz question expired or invalid. Please request a new question.'
+      });
+    }
+
+    if (selectedIndex === activeQuestion.correctIndex) {
+      const unlockedUntil = new Date(now + 30 * 60 * 1000).toISOString();
+      await db.upsertKidChannelQuizState({
+        id: `${user.sub}:${channelId}`,
+        kidId: user.sub,
+        channelId,
+        wrongAttempts: 0,
+        nextQuizAt: null,
+        lockedUntil: null,
+        postLockoutGrant: false,
+        unlockedUntil,
+        activeQuestion: null,
+        updatedAt: new Date(now).toISOString()
+      });
+
+      return res.json({
+        success: true,
+        data: {
+          correct: true,
+          unlocked: true,
+          unlockedUntil,
+          message: 'Correct! Channel unlocked.'
+        }
+      });
+    }
+
+    // Wrong answer
+    const nextWrongAttempts = (state?.wrongAttempts || 0) + 1;
+    if (nextWrongAttempts >= rule.maxAttempts) {
+      const lockedUntil = new Date(now + rule.lockoutDurationSeconds * 1000).toISOString();
+      const postLockoutGrant = rule.lockoutAction === 'ALLOW_AFTER_WAIT';
+      await db.upsertKidChannelQuizState({
+        id: `${user.sub}:${channelId}`,
+        kidId: user.sub,
+        channelId,
+        wrongAttempts: nextWrongAttempts,
+        nextQuizAt: null,
+        lockedUntil,
+        postLockoutGrant,
+        unlockedUntil: null,
+        activeQuestion: null,
+        updatedAt: new Date(now).toISOString()
+      });
+
+      return res.json({
+        success: true,
+        data: {
+          correct: false,
+          unlocked: false,
+          status: 'LOCKED',
+          lockoutAction: rule.lockoutAction,
+          lockedUntil,
+          remainingSeconds: rule.lockoutDurationSeconds,
+          wrongAttempts: nextWrongAttempts,
+          maxAttempts: rule.maxAttempts,
+          message: postLockoutGrant
+            ? `3 wrong answers. Please wait ${rule.lockoutDurationSeconds}s and you will be let through.`
+            : `3 wrong answers. Channel is locked for ${rule.lockoutDurationSeconds}s.`
+        }
+      });
+    }
+
+    const nextQuizAt = new Date(now + rule.retryWaitSeconds * 1000).toISOString();
+    await db.upsertKidChannelQuizState({
+      id: `${user.sub}:${channelId}`,
+      kidId: user.sub,
+      channelId,
+      wrongAttempts: nextWrongAttempts,
+      nextQuizAt,
+      lockedUntil: null,
+      postLockoutGrant: false,
+      unlockedUntil: null,
+      activeQuestion: null,
+      updatedAt: new Date(now).toISOString()
+    });
+
+    return res.json({
+      success: true,
+      data: {
+        correct: false,
+        unlocked: false,
+        status: 'COOLDOWN',
+        nextQuizAt,
+        remainingSeconds: rule.retryWaitSeconds,
+        wrongAttempts: nextWrongAttempts,
+        maxAttempts: rule.maxAttempts,
+        message: `Not quite! Wait ${rule.retryWaitSeconds}s for the next quiz (${nextWrongAttempts}/${rule.maxAttempts} attempts used).`
       }
     });
   })

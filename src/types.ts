@@ -191,3 +191,41 @@ export interface User {
   verificationExpiresAt?: string;
   createdAt: string;
 }
+
+export type QuizType = 'MATH' | 'SCIENCE' | 'ENGLISH' | 'LOGIC' | 'MIXED';
+
+export type LockoutAction = 'LOCKOUT' | 'ALLOW_AFTER_WAIT';
+
+export interface ChannelQuizRule {
+  id: string;
+  parentId: string;
+  channelId: string;
+  quizEnabled: boolean;
+  quizType: QuizType;
+  retryWaitSeconds: number;
+  maxAttempts: number;
+  lockoutAction: LockoutAction;
+  lockoutDurationSeconds: number;
+  updatedAt: string;
+}
+
+export interface QuizQuestion {
+  id: string;
+  type: Exclude<QuizType, 'MIXED'>;
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+}
+
+export interface KidChannelQuizState {
+  id: string;
+  kidId: string;
+  channelId: string;
+  wrongAttempts: number;
+  nextQuizAt?: string | null;
+  lockedUntil?: string | null;
+  postLockoutGrant: boolean;
+  unlockedUntil?: string | null;
+  activeQuestion?: QuizQuestion | null;
+  updatedAt: string;
+}
