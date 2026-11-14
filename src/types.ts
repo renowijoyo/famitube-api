@@ -51,6 +51,24 @@ export interface LiveTimelineItem {
   endSeconds?: number | null;
 }
 
+export type LiveScheduleRuleType = 'DEFAULT' | 'WEEKDAY' | 'DATE';
+
+export interface LiveTimelineSlot {
+  videoId: string;
+  startOfDaySeconds: number; // 0..86399
+  playMode: 'WHOLE' | 'CLIP';
+  clipStartSeconds?: number;
+  clipEndSeconds?: number | null;
+}
+
+export interface LiveDaySchedule {
+  id: string;
+  ruleType: LiveScheduleRuleType;
+  date?: string; // YYYY-MM-DD when ruleType === 'DATE'
+  weekday?: number; // 0..6 (Sun..Sat) when ruleType === 'WEEKDAY'
+  slots: LiveTimelineSlot[];
+}
+
 export interface Channel {
   id: string;
   name: string;
@@ -61,8 +79,10 @@ export interface Channel {
   isVerified: boolean;
   channelType: ChannelType;
   scheduleStartTime?: string; // ISO timestamp anchor for LIVE_TV schedule
+  scheduleTimezoneOffsetMinutes?: number; // Minutes east of UTC (e.g. +420 for UTC+7)
   videoIds?: string[]; // Ordered list of videos in this channel
-  liveTimeline?: LiveTimelineItem[]; // Ordered timeline slots for LIVE_TV channels
+  liveTimeline?: LiveTimelineItem[]; // Legacy ordered timeline slots for LIVE_TV channels
+  liveSchedules?: LiveDaySchedule[]; // 24H real-time-of-day schedules (DATE / WEEKDAY / DEFAULT)
   videoCount?: number;
   ownerId?: string;
   visibility?: ChannelVisibility;

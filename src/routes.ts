@@ -821,7 +821,9 @@ apiRouter.post(
       channelType = 'ON_DEMAND',
       visibility = 'PUBLIC',
       videoIds = [],
-      liveTimeline
+      liveTimeline,
+      liveSchedules,
+      scheduleTimezoneOffsetMinutes
     } = req.body;
 
     if (!name || !String(name).trim()) {
@@ -843,8 +845,11 @@ apiRouter.post(
       isVerified: true,
       channelType: validType,
       scheduleStartTime: new Date().toISOString(),
+      scheduleTimezoneOffsetMinutes:
+        typeof scheduleTimezoneOffsetMinutes === 'number' ? scheduleTimezoneOffsetMinutes : 0,
       videoIds: Array.isArray(videoIds) ? videoIds : [],
       liveTimeline: Array.isArray(liveTimeline) ? liveTimeline : undefined,
+      liveSchedules: Array.isArray(liveSchedules) ? liveSchedules : undefined,
       ownerId: req.user!.sub,
       visibility: validVisibility,
       createdAt: new Date().toISOString()

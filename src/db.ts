@@ -4,6 +4,7 @@ import {
   AgeRating,
   Channel,
   LiveTimelineItem,
+  LiveDaySchedule,
   ChannelVisibility,
   PermissionPreset,
   ChannelPermissions,
@@ -497,8 +498,11 @@ function mapChannelRow(row: RowDataPacket): Channel {
     isVerified: Boolean(row.isVerified),
     channelType: row.channelType || 'ON_DEMAND',
     scheduleStartTime: row.scheduleStartTime || undefined,
+    scheduleTimezoneOffsetMinutes:
+      row.scheduleTimezoneOffsetMinutes != null ? Number(row.scheduleTimezoneOffsetMinutes) : undefined,
     videoIds: parseJson<string[]>(row.videoIds, []),
     liveTimeline: parseJson<LiveTimelineItem[] | undefined>(row.liveTimeline, undefined),
+    liveSchedules: parseJson<LiveDaySchedule[] | undefined>(row.liveSchedules, undefined),
     ownerId: row.ownerId || undefined,
     visibility: (row.visibility as ChannelVisibility) || 'PUBLIC',
     createdAt: row.createdAt || undefined
@@ -703,6 +707,8 @@ class Database {
     await this.ensureColumnExists('channels', 'visibility', "VARCHAR(16) NOT NULL DEFAULT 'PUBLIC'");
     await this.ensureColumnExists('channels', 'createdAt', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('channels', 'liveTimeline', 'JSON NULL');
+    await this.ensureColumnExists('channels', 'liveSchedules', 'JSON NULL');
+    await this.ensureColumnExists('channels', 'scheduleTimezoneOffsetMinutes', 'INT NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS videos (
@@ -1150,21 +1156,32 @@ class Database {
 
   public async addChannel(channel: Channel): Promise<Channel> {
     const timeline = Array.isArray(channel.liveTimeline) ? channel.liveTimeline : undefined;
-    const derivedVideoIds = timeline?.length
-      ? Array.from(new Set(timeline.map(item => item.videoId)))
-      : (channel.videoIds || []);
+    const schedules = Array.isArray(channel.liveSchedules) ? channel.liveSchedules : undefined;
+    const scheduleVideoIds = schedules?.length
+      ? schedules.flatMap(s => (s.slots || []).map(slot => slot.videoId))
+      : [];
+    const derivedVideoIds = scheduleVideoIds.length
+      ? Array.from(new Set(scheduleVideoIds))
+      : timeline?.length
+        ? Array.from(new Set(timeline.map(item => item.videoId)))
+        : (channel.videoIds || []);
     const normalized: Channel = {
       ...channel,
       channelType: channel.channelType || 'ON_DEMAND',
       scheduleStartTime: channel.scheduleStartTime || new Date().toISOString(),
+      scheduleTimezoneOffsetMinutes:
+        typeof channel.scheduleTimezoneOffsetMinutes === 'number'
+          ? channel.scheduleTimezoneOffsetMinutes
+          : 0,
       videoIds: derivedVideoIds,
       liveTimeline: timeline,
+      liveSchedules: schedules,
       visibility: channel.visibility || 'PUBLIC',
       createdAt: channel.createdAt || new Date().toISOString()
     };
     await this.pool.query(
-      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, liveTimeline, ownerId, visibility, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, scheduleTimezoneOffsetMinutes, videoIds, liveTimeline, liveSchedules, ownerId, visibility, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         normalized.id,
         normalized.name,
@@ -1175,8 +1192,10 @@ class Database {
         normalized.isVerified ? 1 : 0,
         normalized.channelType,
         normalized.scheduleStartTime || null,
+        normalized.scheduleTimezoneOffsetMinutes ?? 0,
         JSON.stringify(normalized.videoIds || []),
         normalized.liveTimeline ? JSON.stringify(normalized.liveTimeline) : null,
+        normalized.liveSchedules ? JSON.stringify(normalized.liveSchedules) : null,
         normalized.ownerId || null,
         normalized.visibility || 'PUBLIC',
         normalized.createdAt || null
@@ -1190,11 +1209,15 @@ class Database {
     if (!existing) return null;
 
     const merged: Channel = { ...existing, ...updates, id };
-    if (Array.isArray(updates.liveTimeline) && updates.liveTimeline.length > 0 && !updates.videoIds) {
+    if (Array.isArray(updates.liveSchedules) && updates.liveSchedules.length > 0 && !updates.videoIds) {
+      merged.videoIds = Array.from(
+        new Set(updates.liveSchedules.flatMap(s => (s.slots || []).map(slot => slot.videoId)))
+      );
+    } else if (Array.isArray(updates.liveTimeline) && updates.liveTimeline.length > 0 && !updates.videoIds) {
       merged.videoIds = Array.from(new Set(updates.liveTimeline.map(item => item.videoId)));
     }
     await this.pool.query(
-      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, videoIds = ?, liveTimeline = ?, visibility = ?
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, scheduleTimezoneOffsetMinutes = ?, videoIds = ?, liveTimeline = ?, liveSchedules = ?, visibility = ?
        WHERE id = ?`,
       [
         merged.name,
@@ -1205,8 +1228,10 @@ class Database {
         merged.isVerified ? 1 : 0,
         merged.channelType,
         merged.scheduleStartTime || null,
+        merged.scheduleTimezoneOffsetMinutes ?? 0,
         JSON.stringify(merged.videoIds || []),
         merged.liveTimeline ? JSON.stringify(merged.liveTimeline) : null,
+        merged.liveSchedules ? JSON.stringify(merged.liveSchedules) : null,
         merged.visibility || 'PUBLIC',
         id
       ]
@@ -1271,6 +1296,98 @@ class Database {
     }
 
     const videoById = new Map(videos.map(v => [v.id, v]));
+    const nowMs = Date.now();
+
+    if (channel.liveSchedules && channel.liveSchedules.length > 0) {
+      const tzOffsetMin = typeof channel.scheduleTimezoneOffsetMinutes === 'number'
+        ? channel.scheduleTimezoneOffsetMinutes
+        : 0;
+      const localDate = new Date(nowMs + tzOffsetMin * 60000);
+      const yyyy = localDate.getUTCFullYear();
+      const mm = String(localDate.getUTCMonth() + 1).padStart(2, '0');
+      const dd = String(localDate.getUTCDate()).padStart(2, '0');
+      const dateStr = `${yyyy}-${mm}-${dd}`;
+      const weekday = localDate.getUTCDay();
+      const nowSecOfDay =
+        localDate.getUTCHours() * 3600 +
+        localDate.getUTCMinutes() * 60 +
+        localDate.getUTCSeconds();
+
+      const activeSchedule =
+        channel.liveSchedules.find(s => s.ruleType === 'DATE' && s.date === dateStr) ||
+        channel.liveSchedules.find(s => s.ruleType === 'WEEKDAY' && s.weekday === weekday) ||
+        channel.liveSchedules.find(s => s.ruleType === 'DEFAULT');
+
+      const sortedRawSlots = [...(activeSchedule?.slots || [])]
+        .filter(s => s.startOfDaySeconds >= 0 && s.startOfDaySeconds < 86400)
+        .sort((a, b) => a.startOfDaySeconds - b.startOfDaySeconds);
+
+      const resolvedSlots = sortedRawSlots
+        .map((slot, idx) => {
+          const video = videoById.get(slot.videoId);
+          if (!video) return null;
+          const fullDur = Math.max(10, video.duration || 180);
+          const clipStart = slot.playMode === 'CLIP'
+            ? Math.max(0, Math.min(Number(slot.clipStartSeconds) || 0, fullDur - 1))
+            : 0;
+          const rawEnd = slot.playMode === 'CLIP' && slot.clipEndSeconds != null ? Number(slot.clipEndSeconds) : fullDur;
+          const clipEnd = rawEnd > clipStart ? Math.min(rawEnd, fullDur) : fullDur;
+          const slotDuration = Math.max(1, clipEnd - clipStart);
+          const nextStart = idx + 1 < sortedRawSlots.length ? sortedRawSlots[idx + 1].startOfDaySeconds : 86400;
+          // Videos crossing midnight (86400s) or the next scheduled slot are cut off in favor of the next slot/day
+          const effectiveEndOfDay = Math.min(86400, nextStart, slot.startOfDaySeconds + slotDuration);
+          if (effectiveEndOfDay <= slot.startOfDaySeconds) return null;
+          return {
+            video,
+            startOfDaySeconds: slot.startOfDaySeconds,
+            effectiveEndOfDay,
+            clipStart
+          };
+        })
+        .filter((s): s is { video: Video; startOfDaySeconds: number; effectiveEndOfDay: number; clipStart: number } => Boolean(s));
+
+      const currentIdx = resolvedSlots.findIndex(
+        s => nowSecOfDay >= s.startOfDaySeconds && nowSecOfDay < s.effectiveEndOfDay
+      );
+
+      if (currentIdx === -1) {
+        const upNext: UpNextItem[] = resolvedSlots
+          .filter(s => s.startOfDaySeconds > nowSecOfDay)
+          .slice(0, 4)
+          .map(s => ({
+            video: s.video,
+            startsInSeconds: s.startOfDaySeconds - nowSecOfDay
+          }));
+        return {
+          channel,
+          serverTime: new Date(nowMs).toISOString(),
+          currentVideo: null,
+          offsetSeconds: 0,
+          remainingSeconds: 0,
+          upNext
+        };
+      }
+
+      const activeSlot = resolvedSlots[currentIdx];
+      const offsetSeconds = activeSlot.clipStart + (nowSecOfDay - activeSlot.startOfDaySeconds);
+      const remainingSeconds = activeSlot.effectiveEndOfDay - nowSecOfDay;
+      const upNext: UpNextItem[] = resolvedSlots
+        .slice(currentIdx + 1, currentIdx + 5)
+        .map(s => ({
+          video: s.video,
+          startsInSeconds: s.startOfDaySeconds - nowSecOfDay
+        }));
+
+      return {
+        channel,
+        serverTime: new Date(nowMs).toISOString(),
+        currentVideo: activeSlot.video,
+        offsetSeconds,
+        remainingSeconds,
+        upNext
+      };
+    }
+
     const timelineSlots = (channel.liveTimeline && channel.liveTimeline.length > 0)
       ? channel.liveTimeline
           .map(item => {
@@ -1305,7 +1422,6 @@ class Database {
 
     const totalCycleSeconds = timelineSlots.reduce((sum, s) => sum + s.slotDuration, 0);
     const anchorMs = channel.scheduleStartTime ? new Date(channel.scheduleStartTime).getTime() : 0;
-    const nowMs = Date.now();
     const elapsedSinceAnchorSec = Math.max(0, Math.floor((nowMs - anchorMs) / 1000));
     const cyclePos = elapsedSinceAnchorSec % totalCycleSeconds;
 
