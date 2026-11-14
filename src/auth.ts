@@ -159,11 +159,11 @@ export async function sendVerificationEmail(
   await transporter.sendMail({
     from,
     to: toEmail,
-    subject: 'Verify your KidsTube Studio account',
-    text: `Hi ${name},\n\nPlease verify your email address to access KidsTube Studio:\n${verifyUrl}\n\nThis link expires in 24 hours.\n`,
+    subject: 'Verify your FamiTube Studio account',
+    text: `Hi ${name},\n\nPlease verify your email address to access FamiTube Studio:\n${verifyUrl}\n\nThis link expires in 24 hours.\n`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; background: #0f172a; color: #f8fafc; border-radius: 12px;">
-        <h2 style="color: #ff3366; margin-top: 0;">Verify your KidsTube Studio account</h2>
+        <h2 style="color: #ff3366; margin-top: 0;">Verify your FamiTube Studio account</h2>
         <p>Hi ${name},</p>
         <p>Thanks for registering. Click the button below to verify your email address before signing in:</p>
         <p style="margin: 24px 0;">

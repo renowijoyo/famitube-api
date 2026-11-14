@@ -317,11 +317,11 @@ apiRouter.get(
       if (wantsHtml) {
         return res.status(status).send(`<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>KidsTube Email Verification</title>
+<head><meta charset="UTF-8"><title>FamiTube Email Verification</title>
 <style>body{font-family:Arial,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}
 .card{background:#1e293b;padding:32px;border-radius:16px;max-width:440px;text-align:center;border:1px solid #334155;}
 a.btn{display:inline-block;margin-top:16px;padding:10px 20px;background:#ff3366;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;}</style>
-</head><body><div class="card"><h2>${ok ? 'Email Verified!' : 'Verification Failed'}</h2><p>${message}</p><a class="btn" href="${webUrl}">Go to KidsTube Studio</a></div></body></html>`);
+</head><body><div class="card"><h2>${ok ? 'Email Verified!' : 'Verification Failed'}</h2><p>${message}</p><a class="btn" href="${webUrl}">Go to FamiTube Studio</a></div></body></html>`);
       }
       return res.status(status).json({ success: ok, message });
     };
@@ -340,7 +340,7 @@ a.btn{display:inline-block;margin-top:16px;padding:10px 20px;background:#ff3366;
     }
 
     await db.markUserVerified(user.id);
-    return sendResult(true, 200, 'Your email has been verified. You can now sign in to KidsTube Studio.');
+    return sendResult(true, 200, 'Your email has been verified. You can now sign in to FamiTube Studio.');
   })
 );
 
@@ -388,7 +388,7 @@ apiRouter.post(
       if (loginType === 'CHILD') {
         return res.status(401).json({
           success: false,
-          message: 'This email is not registered. Ask your parent or guardian to register your email in KidsTube Studio first.'
+          message: 'This email is not registered. Ask your parent or guardian to register your email in FamiTube Studio first.'
         });
       }
       return res.status(401).json({ success: false, message: 'Invalid email or password' });
@@ -514,7 +514,7 @@ apiRouter.post(
         sourceType: 'DIRECT',
         thumbnailUrl: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=800&h=450&fit=crop',
         title: 'Direct Video Stream',
-        channelTitle: 'KidsTube Media'
+        channelTitle: 'FamiTube Media'
       });
     }
 
@@ -582,7 +582,7 @@ apiRouter.post(
       thumbnailUrl: finalThumb,
       duration: Number(duration) || 180,
       channelId: resolvedChannel?.id || channelId || 'chan-kidstube',
-      channelTitle: resolvedChannel?.name || channelTitle || 'KidsTube Curators',
+      channelTitle: resolvedChannel?.name || channelTitle || 'FamiTube Curators',
       channelAvatar:
         resolvedChannel?.avatarUrl ||
         channelAvatar ||

@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Root Health / API Info
 app.get('/', (_req, res) => {
   res.json({
-    name: 'KidsTube API',
+    name: 'FamiTube API',
     status: 'ok',
     apiBase: '/api',
   });
@@ -39,7 +39,7 @@ async function start() {
   await db.init();
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`=======================================================`);
-    console.log(`🚀 KidsTube API (MySQL) running at:`);
+    console.log(`🚀 FamiTube API (MySQL) running at:`);
     console.log(`   Local API Base URL:         http://localhost:${PORT}/api`);
     console.log(`   Android API Base URL:       http://10.0.2.2:${PORT}/api (Android Emulator)`);
     console.log(`   LAN API Base URL:           http://<Your-IP>:${PORT}/api (Physical Device)`);
@@ -48,6 +48,6 @@ async function start() {
 }
 
 start().catch((err) => {
-  console.error('Failed to start KidsTube API:', err);
+  console.error('Failed to start FamiTube API:', err);
   process.exit(1);
 });

@@ -41,7 +41,7 @@ const INITIAL_CATEGORIES: Category[] = [
 const INITIAL_CHANNELS: Channel[] = [
   {
     id: 'chan-livetv',
-    name: 'KidsTube Live TV',
+    name: 'FamiTube Live TV',
     description: '24/7 scheduled kids TV broadcast! Always playing curated cartoons & science.',
     avatarUrl: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=200&h=200&fit=crop',
     bannerUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop',
@@ -442,9 +442,9 @@ const INITIAL_PLAYLISTS: Playlist[] = [
 ];
 
 const INITIAL_CONFIG: AppConfig = {
-  appName: 'KidsTube Safe Video Player',
+  appName: 'FamiTube Safe Video Player',
   version: '1.0.0',
-  welcomeMessage: 'Welcome to KidsTube! Enjoy safe, curated videos chosen with care.',
+  welcomeMessage: 'Welcome to FamiTube! Enjoy safe, curated videos chosen with care.',
   parentalDefaults: {
     defaultWatchLimitMinutes: 45,
     enforcePin: true
