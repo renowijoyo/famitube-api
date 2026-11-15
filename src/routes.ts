@@ -2432,6 +2432,153 @@ apiRouter.delete(
   })
 );
 
+// Kid: gamification stats & achievements
+apiRouter.get(
+  '/kids/achievements',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const kidId = req.user!.sub;
+    const [history, playlists, quizStates] = await Promise.all([
+      db.getKidHistory(kidId),
+      db.getKidPlaylists(kidId),
+      db.getKidAllChannelQuizStates(kidId)
+    ]);
+
+    const videosWatched = history.length;
+    const approvedSearches = history.filter((h) => h.isApprovedSearch).length;
+    const playlistsCreated = playlists.length;
+    const playlistItemsCount = playlists.reduce((sum, pl) => sum + (pl.items?.length || 0), 0);
+    const quizzesPassed = quizStates.filter((s) => Boolean(s.unlockedUntil)).length;
+
+    const definitions = [
+      {
+        id: 'first_watch',
+        title: 'First Watch',
+        description: 'Watch your very first video on FamiTube',
+        icon: '🎬',
+        progress: Math.min(videosWatched, 1),
+        target: 1,
+        rewardStars: 20
+      },
+      {
+        id: 'video_explorer',
+        title: 'Video Explorer',
+        description: 'Watch 5 different videos',
+        icon: '🚀',
+        progress: Math.min(videosWatched, 5),
+        target: 5,
+        rewardStars: 50
+      },
+      {
+        id: 'super_viewer',
+        title: 'Super Viewer',
+        description: 'Watch 15 videos in your library',
+        icon: '🌟',
+        progress: Math.min(videosWatched, 15),
+        target: 15,
+        rewardStars: 120
+      },
+      {
+        id: 'playlist_maker',
+        title: 'Playlist Maker',
+        description: 'Create your first personal playlist',
+        icon: '🎵',
+        progress: Math.min(playlistsCreated, 1),
+        target: 1,
+        rewardStars: 25
+      },
+      {
+        id: 'curator_junior',
+        title: 'Junior Curator',
+        description: 'Save 5 videos into your playlists',
+        icon: '📚',
+        progress: Math.min(playlistItemsCount, 5),
+        target: 5,
+        rewardStars: 60
+      },
+      {
+        id: 'quiz_starter',
+        title: 'Quiz Starter',
+        description: 'Unlock a channel by passing a quiz',
+        icon: '🧠',
+        progress: Math.min(quizzesPassed, 1),
+        target: 1,
+        rewardStars: 35
+      },
+      {
+        id: 'quiz_master',
+        title: 'Quiz Master',
+        description: 'Pass 3 channel quizzes',
+        icon: '🏆',
+        progress: Math.min(quizzesPassed, 3),
+        target: 3,
+        rewardStars: 100
+      },
+      {
+        id: 'safe_searcher',
+        title: 'Safe Searcher',
+        description: 'Watch a parent-approved YouTube search video',
+        icon: '🔍',
+        progress: Math.min(approvedSearches, 1),
+        target: 1,
+        rewardStars: 30
+      }
+    ];
+
+    const achievements = definitions.map((a) => ({
+      ...a,
+      unlocked: a.progress >= a.target
+    }));
+
+    const activityStars =
+      videosWatched * 15 +
+      quizzesPassed * 25 +
+      playlistsCreated * 10 +
+      playlistItemsCount * 5;
+    const bonusStars = achievements
+      .filter((a) => a.unlocked)
+      .reduce((sum, a) => sum + a.rewardStars, 0);
+    const stars = activityStars + bonusStars;
+
+    const levels = [
+      { level: 1, title: 'Curious Explorer', min: 0, next: 100 },
+      { level: 2, title: 'Science Sprout', min: 100, next: 250 },
+      { level: 3, title: 'Quiz Whiz', min: 250, next: 500 },
+      { level: 4, title: 'Super Learner', min: 500, next: 1000 },
+      { level: 5, title: 'FamiTube Legend', min: 1000, next: 1000 }
+    ];
+    const currentLevel = [...levels].reverse().find((l) => stars >= l.min) || levels[0];
+    const progressPercent =
+      currentLevel.level === 5
+        ? 100
+        : Math.min(
+            100,
+            Math.round(((stars - currentLevel.min) / (currentLevel.next - currentLevel.min)) * 100)
+          );
+
+    res.json({
+      success: true,
+      data: {
+        stars,
+        level: currentLevel.level,
+        levelTitle: currentLevel.title,
+        nextLevelStars: currentLevel.next,
+        progressPercent,
+        unlockedCount: achievements.filter((a) => a.unlocked).length,
+        totalCount: achievements.length,
+        stats: {
+          videosWatched,
+          approvedSearches,
+          playlistsCreated,
+          playlistItemsCount,
+          quizzesPassed
+        },
+        achievements
+      }
+    });
+  })
+);
+
 // ==========================================
 // PARENT VIDEO APPROPRIATENESS REVIEWS & ADVISORY LISTS
 // ==========================================

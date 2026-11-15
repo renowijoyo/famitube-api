@@ -1,7 +1,7 @@
 {
-  "name": "kidstube-api",
+  "name": "famitube-api",
   "version": "1.0.0",
-  "description": "Backend API for KidsTube",
+  "description": "Backend API for FamiTube",
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -10,7 +10,7 @@
     "seed": "tsx src/seed.ts"
   },
   "keywords": [
-    "kidstube",
+    "famitube",
     "video-curation",
     "android-backend"
   ],

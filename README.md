@@ -1,6 +1,6 @@
-# KidsTube API
+# FamiTube API
 
-Backend REST API and MySQL data store for KidsTube (used by `kidstube-web` and `kidstube-android`).
+Backend REST API and MySQL data store for FamiTube (used by `famitube-web` and `famitube-android`).
 
 ## Setup
 

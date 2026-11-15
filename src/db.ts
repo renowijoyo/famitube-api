@@ -1831,6 +1831,25 @@ class Database {
     };
   }
 
+  public async getKidAllChannelQuizStates(kidId: string): Promise<KidChannelQuizState[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_channel_quiz_state WHERE kidId = ?',
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      channelId: row.channelId,
+      wrongAttempts: Number(row.wrongAttempts) || 0,
+      nextQuizAt: row.nextQuizAt || null,
+      lockedUntil: row.lockedUntil || null,
+      postLockoutGrant: Boolean(row.postLockoutGrant),
+      unlockedUntil: row.unlockedUntil || null,
+      activeQuestion: row.activeQuestionJson ? parseJson<QuizQuestion | null>(row.activeQuestionJson, null) : null,
+      updatedAt: row.updatedAt
+    }));
+  }
+
   public async upsertKidChannelQuizState(state: KidChannelQuizState): Promise<KidChannelQuizState> {
     await this.pool.query(
       `INSERT INTO kid_channel_quiz_state
