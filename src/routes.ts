@@ -10,16 +10,11 @@ import {
   requireParent,
   sendParentVideoRequestEmail,
   sendVerificationEmail,
-  sendVideoRequestEmailToParent,
   signAuthToken,
-<<<<<<< HEAD
   signVideoRequestActionToken,
   verifyPassword,
-  verifyVideoRequestActionToken
-=======
-  verifyPassword,
+  verifyVideoRequestActionToken,
   verifyVideoRequestDecisionToken
->>>>>>> 635af89 (Add birthday age-group categorization, tag-based filtering, parent review email stats, and larger YouTube search batch)
 } from './auth.js';
 import {
   extractYouTubeId,

@@ -202,6 +202,21 @@ export function verifyVideoRequestActionToken(token: string): VideoRequestAction
   return decoded;
 }
 
+export interface VideoRequestDecisionPayload {
+  type: 'VIDEO_REQUEST_DECISION';
+  requestId: string;
+  parentId: string;
+  decision: 'APPROVED' | 'REJECTED';
+}
+
+export function verifyVideoRequestDecisionToken(token: string): VideoRequestDecisionPayload {
+  const decoded = jwt.verify(token, getJwtSecret()) as VideoRequestDecisionPayload;
+  if (!decoded || decoded.type !== 'VIDEO_REQUEST_DECISION' || !decoded.requestId || !decoded.parentId) {
+    throw new Error('Invalid video request decision token');
+  }
+  return decoded;
+}
+
 function escapeHtml(text: string): string {
   return String(text || '')
     .replace(/&/g, '&amp;')
