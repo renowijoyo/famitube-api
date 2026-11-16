@@ -8,9 +8,12 @@ import {
   optionalAuth,
   requireAuth,
   requireParent,
+  sendParentVideoRequestEmail,
   sendVerificationEmail,
   signAuthToken,
-  verifyPassword
+  signVideoRequestActionToken,
+  verifyPassword,
+  verifyVideoRequestActionToken
 } from './auth.js';
 import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail, searchYouTubeVideos } from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
@@ -2118,6 +2121,101 @@ apiRouter.post(
   })
 );
 
+// Parent: one-click approve or reject a kid's video request directly from email link
+apiRouter.get(
+  '/parent/video-requests/:requestId/email-decision',
+  asyncHandler(async (req, res) => {
+    const requestId = String(req.params.requestId || '').trim();
+    const decision = String(req.query.decision || '').trim().toUpperCase();
+    const token = String(req.query.token || '').trim();
+    const webUrl = (process.env.WEB_APP_URL || 'http://localhost:3000').replace(/\/+$/, '');
+    const wantsJson =
+      (req.headers.accept || '').includes('application/json') &&
+      !(req.headers.accept || '').includes('text/html');
+
+    const renderPage = (
+      ok: boolean,
+      statusCode: number,
+      heading: string,
+      message: string,
+      videoTitle?: string,
+      thumbnailUrl?: string
+    ) => {
+      if (wantsJson) {
+        return res.status(statusCode).json({ success: ok, heading, message, videoTitle });
+      }
+      const badgeColor = !ok ? '#ef4444' : decision === 'APPROVED' ? '#10b981' : '#f59e0b';
+      return res.status(statusCode).send(`<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FamiTube Video Permission</title>
+<style>body{font-family:Arial,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:16px;}
+.card{background:#1e293b;padding:32px;border-radius:16px;max-width:460px;width:100%;text-align:center;border:1px solid #334155;box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:bold;background:${badgeColor};color:#fff;margin-bottom:12px;}
+img.thumb{width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin:14px 0;border:1px solid #334155;}
+a.btn{display:inline-block;margin-top:18px;padding:12px 22px;background:#ff3366;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;}</style>
+</head><body><div class="card">
+<div class="badge">${ok ? (decision === 'APPROVED' ? 'Approved' : 'Declined') : 'Error'}</div>
+<h2 style="margin:6px 0 12px;">${heading}</h2>
+${thumbnailUrl ? `<img class="thumb" src="${thumbnailUrl}" alt="">` : ''}
+${videoTitle ? `<p style="font-weight:bold;color:#e2e8f0;margin:8px 0;">${videoTitle}</p>` : ''}
+<p style="color:#94a3b8;line-height:1.5;">${message}</p>
+<a class="btn" href="${webUrl}">Open FamiTube Parent Studio</a>
+</div></body></html>`);
+    };
+
+    if (!requestId || !token || (decision !== 'APPROVED' && decision !== 'REJECTED')) {
+      return renderPage(
+        false,
+        400,
+        'Invalid Link',
+        'This approval link is missing required parameters.'
+      );
+    }
+
+    let decoded;
+    try {
+      decoded = verifyVideoRequestActionToken(token);
+    } catch {
+      return renderPage(
+        false,
+        400,
+        'Expired or Invalid Link',
+        'This email approval link has expired or is invalid. Please sign in to FamiTube Parent Studio to review the request.'
+      );
+    }
+
+    if (decoded.requestId !== requestId) {
+      return renderPage(
+        false,
+        400,
+        'Request Mismatch',
+        'This token does not match the video request.'
+      );
+    }
+
+    const updated = await db.decideKidVideoRequest(decoded.parentId, requestId, decision);
+    if (!updated) {
+      return renderPage(
+        false,
+        404,
+        'Request Not Found',
+        'We could not find this video permission request.'
+      );
+    }
+
+    return renderPage(
+      true,
+      200,
+      decision === 'APPROVED' ? 'Video Approved!' : 'Request Declined',
+      decision === 'APPROVED'
+        ? 'This video has been approved and added to your child’s FamiTube Watch History so they can watch it anytime.'
+        : 'This video permission request has been declined.',
+      updated.title,
+      updated.thumbnailUrl
+    );
+  })
+);
+
 // Kid: search YouTube (only when enabled by parent)
 apiRouter.get(
   '/kids/youtube-search',
@@ -2257,10 +2355,11 @@ apiRouter.post(
 
     // Check if parent approval is required before watching
     if (user.role === 'CHILD' && user.searchRequireApproval !== false) {
+      const parentId = user.parentId || user.id;
       const savedReq = await db.upsertKidVideoRequest({
         id: existingReq?.id || `kvr-${uuidv4().slice(0, 8)}`,
         kidId: user.id,
-        parentId: user.parentId || user.id,
+        parentId,
         youtubeVideoId,
         title,
         channelTitle,
@@ -2269,13 +2368,45 @@ apiRouter.post(
         createdAt: new Date().toISOString(),
         decidedAt: null
       });
+
+      let emailSent = false;
+      const parentUser = user.parentId ? await db.getUserById(user.parentId) : undefined;
+      if (parentUser?.email) {
+        try {
+          const actionToken = signVideoRequestActionToken({
+            requestId: savedReq.id,
+            parentId: parentUser.id,
+            kidId: user.id,
+            youtubeVideoId
+          });
+          await sendParentVideoRequestEmail({
+            toEmail: parentUser.email,
+            parentName: parentUser.name || 'Parent',
+            kidName: user.name || 'Your child',
+            kidEmail: user.email,
+            requestId: savedReq.id,
+            youtubeVideoId,
+            title,
+            channelTitle,
+            thumbnailUrl,
+            actionToken
+          });
+          emailSent = true;
+        } catch (err) {
+          console.error('Failed to send parent video request notification email:', err);
+        }
+      }
+
       return res.json({
         success: true,
         data: {
           allowed: false,
           reason: 'APPROVAL_REQUIRED',
           request: savedReq,
-          message: 'Permission request sent to your parent! Once approved, this video will appear in your History.',
+          emailSent,
+          message: emailSent
+            ? `Permission request emailed to your parent (${parentUser?.email})! Once approved, this video will appear in your History.`
+            : 'Permission request sent to your parent! Once approved, this video will appear in your History.',
           searchSettings
         }
       });

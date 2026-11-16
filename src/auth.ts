@@ -177,3 +177,138 @@ export async function sendVerificationEmail(
     `
   });
 }
+
+export interface VideoRequestActionPayload {
+  purpose: 'video_request_decision';
+  requestId: string;
+  parentId: string;
+  kidId: string;
+  youtubeVideoId: string;
+}
+
+export function signVideoRequestActionToken(payload: Omit<VideoRequestActionPayload, 'purpose'>): string {
+  return jwt.sign(
+    { ...payload, purpose: 'video_request_decision' },
+    getJwtSecret(),
+    { expiresIn: '7d' }
+  );
+}
+
+export function verifyVideoRequestActionToken(token: string): VideoRequestActionPayload {
+  const decoded = jwt.verify(token, getJwtSecret()) as VideoRequestActionPayload;
+  if (!decoded || decoded.purpose !== 'video_request_decision') {
+    throw new Error('Invalid video request action token');
+  }
+  return decoded;
+}
+
+function escapeHtml(text: string): string {
+  return String(text || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+export interface ParentVideoRequestEmailParams {
+  toEmail: string;
+  parentName: string;
+  kidName: string;
+  kidEmail: string;
+  requestId: string;
+  youtubeVideoId: string;
+  title: string;
+  channelTitle: string;
+  thumbnailUrl: string;
+  actionToken: string;
+}
+
+export async function sendParentVideoRequestEmail(
+  params: ParentVideoRequestEmailParams
+): Promise<void> {
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const port = Number(process.env.SMTP_PORT) || 587;
+  const secure = process.env.SMTP_SECURE === 'true';
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const from = process.env.SMTP_FROM || user || 'no-reply@kidstube.local';
+
+  if (!user || !pass) {
+    throw new Error('SMTP credentials are not configured in environment variables');
+  }
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass }
+  });
+
+  const apiBase = (process.env.APP_BASE_URL || 'http://localhost:4000').replace(/\/+$/, '');
+  const webUrl = (process.env.WEB_APP_URL || 'http://localhost:3000').replace(/\/+$/, '');
+  const youtubeUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(params.youtubeVideoId)}`;
+  const approveUrl = `${apiBase}/api/parent/video-requests/${encodeURIComponent(params.requestId)}/email-decision?decision=APPROVED&token=${encodeURIComponent(params.actionToken)}`;
+  const rejectUrl = `${apiBase}/api/parent/video-requests/${encodeURIComponent(params.requestId)}/email-decision?decision=REJECTED&token=${encodeURIComponent(params.actionToken)}`;
+
+  const safeParentName = escapeHtml(params.parentName || 'Parent');
+  const safeKidName = escapeHtml(params.kidName || 'Your child');
+  const safeKidEmail = escapeHtml(params.kidEmail || '');
+  const safeTitle = escapeHtml(params.title || 'YouTube Video');
+  const safeChannelTitle = escapeHtml(params.channelTitle || 'YouTube');
+  const safeThumbnailUrl = escapeHtml(params.thumbnailUrl || '');
+
+  await transporter.sendMail({
+    from,
+    to: params.toEmail,
+    subject: `FamiTube: ${params.kidName || 'Your child'} asked permission to watch "${params.title}"`,
+    text: [
+      `Hi ${params.parentName || 'Parent'},`,
+      '',
+      `${params.kidName || 'Your child'}${params.kidEmail ? ` (${params.kidEmail})` : ''} is asking for your permission to watch a YouTube video on FamiTube:`,
+      '',
+      `Title: ${params.title}`,
+      `Channel: ${params.channelTitle}`,
+      `Preview on YouTube: ${youtubeUrl}`,
+      '',
+      `Approve Video: ${approveUrl}`,
+      `Decline Request: ${rejectUrl}`,
+      '',
+      `Or manage all requests in FamiTube Parent Studio: ${webUrl}`
+    ].join('\n'),
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; background: #0f172a; color: #f8fafc; border-radius: 14px; border: 1px solid #1e293b;">
+        <h2 style="color: #ff3366; margin-top: 0; margin-bottom: 12px;">Video Permission Request</h2>
+        <p style="margin: 0 0 16px; color: #e2e8f0; line-height: 1.5;">
+          Hi <strong>${safeParentName}</strong>,<br>
+          <strong>${safeKidName}</strong>${safeKidEmail ? ` <span style="color: #94a3b8;">(${safeKidEmail})</span>` : ''} asked for your permission to watch a searched YouTube video on FamiTube.
+        </p>
+
+        <div style="background: #1e293b; border: 1px solid #334155; border-radius: 12px; overflow: hidden; margin: 20px 0;">
+          ${safeThumbnailUrl ? `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" style="display: block;"><img src="${safeThumbnailUrl}" alt="${safeTitle}" style="width: 100%; max-height: 260px; object-fit: cover; display: block;"></a>` : ''}
+          <div style="padding: 16px;">
+            <div style="font-size: 16px; font-weight: bold; color: #f8fafc; margin-bottom: 6px;">${safeTitle}</div>
+            <div style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">Channel: <strong style="color: #cbd5e1;">${safeChannelTitle}</strong></div>
+            <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-size: 13px; text-decoration: none; font-weight: bold;">
+              &#9654; Preview Video on YouTube &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div style="margin: 24px 0; text-align: center;">
+          <a href="${approveUrl}" style="background: #10b981; color: #ffffff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin: 4px 6px;">
+            &#10003; Approve Video
+          </a>
+          <a href="${rejectUrl}" style="background: #ef4444; color: #ffffff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin: 4px 6px;">
+            &#10005; Decline Request
+          </a>
+        </div>
+
+        <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; text-align: center; margin-top: 20px;">
+          You can also review and manage all video requests anytime in
+          <a href="${webUrl}" style="color: #ff3366; text-decoration: none; font-weight: bold;">FamiTube Parent Studio</a>.
+        </p>
+      </div>
+    `
+  });
+}
