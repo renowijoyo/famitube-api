@@ -15,10 +15,12 @@ import {
   sendVerificationEmail,
   signAuthToken,
   signGoogleOAuthState,
+  signMobileOAuthState,
   signVideoRequestActionToken,
   verifyGoogleAccessToken,
   verifyGoogleIdToken,
   verifyGoogleOAuthState,
+  verifyMobileOAuthState,
   verifyPassword,
   verifyVideoRequestActionToken,
   verifyVideoRequestDecisionToken
@@ -740,6 +742,106 @@ apiRouter.get(
         searchRequireApproval: dbUser?.searchRequireApproval !== false
       }
     });
+  })
+);
+
+apiRouter.get(
+  '/auth/google/mobile/start',
+  asyncHandler(async (req, res) => {
+    const clientId = (process.env.GOOGLE_CLIENT_ID || '').trim();
+    const clientSecret = (process.env.GOOGLE_CLIENT_SECRET || '').trim();
+    if (!clientId || !clientSecret) {
+      return res.status(503).send(
+        '<html><body style="font-family:sans-serif;padding:24px;"><h2>Google OAuth Not Configured</h2><p>Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET on the FamiTube backend server.</p></body></html>'
+      );
+    }
+
+    const baseUrl = (process.env.APP_BASE_URL || `${req.protocol}://${req.get('host')}`).replace(/\/+$/, '');
+    const redirectUri = `${baseUrl}/api/auth/google/mobile/callback`;
+    const state = signMobileOAuthState();
+
+    const params = new URLSearchParams({
+      client_id: clientId,
+      redirect_uri: redirectUri,
+      response_type: 'code',
+      scope: 'openid email profile',
+      prompt: 'select_account',
+      state
+    });
+
+    return res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+  })
+);
+
+apiRouter.get(
+  '/auth/google/mobile/callback',
+  asyncHandler(async (req, res) => {
+    const callbackScheme = 'famitube://auth-callback';
+    const failRedirect = (message: string) =>
+      res.redirect(`${callbackScheme}?error=${encodeURIComponent(message)}`);
+
+    const errorParam = String(req.query.error || '').trim();
+    if (errorParam) {
+      return failRedirect('Google sign-in was cancelled or denied.');
+    }
+
+    const code = String(req.query.code || '').trim();
+    const state = String(req.query.state || '').trim();
+    if (!code || !state || !verifyMobileOAuthState(state)) {
+      return failRedirect('Invalid or expired Google OAuth session.');
+    }
+
+    const clientId = (process.env.GOOGLE_CLIENT_ID || '').trim();
+    const clientSecret = (process.env.GOOGLE_CLIENT_SECRET || '').trim();
+    if (!clientId || !clientSecret) {
+      return failRedirect('Google OAuth is not configured on the server.');
+    }
+
+    const baseUrl = (process.env.APP_BASE_URL || `${req.protocol}://${req.get('host')}`).replace(/\/+$/, '');
+    const redirectUri = `${baseUrl}/api/auth/google/mobile/callback`;
+
+    const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        code,
+        client_id: clientId,
+        client_secret: clientSecret,
+        redirect_uri: redirectUri,
+        grant_type: 'authorization_code'
+      }).toString()
+    });
+    const tokenJson = (await tokenRes.json()) as { access_token?: string };
+    if (!tokenRes.ok || !tokenJson.access_token) {
+      return failRedirect('Failed to exchange Google authorization code.');
+    }
+
+    const userInfoRes = await fetch('https://openidconnect.googleapis.com/v1/userinfo', {
+      headers: { Authorization: `Bearer ${tokenJson.access_token}` }
+    });
+    const profile = (await userInfoRes.json()) as { email?: string; email_verified?: boolean; name?: string };
+    const cleanEmail = String(profile.email || '').trim().toLowerCase();
+    if (!userInfoRes.ok || !cleanEmail || profile.email_verified === false) {
+      return failRedirect('Google account email could not be verified.');
+    }
+
+    const user = await db.getUserByEmail(cleanEmail);
+    if (!user) {
+      return failRedirect('This Gmail account is not registered by a parent or guardian.');
+    }
+    if (!user.isVerified) {
+      return failRedirect('Please verify your email address before signing in.');
+    }
+
+    const token = signAuthToken({
+      sub: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.role || 'PARENT',
+      parentId: user.parentId
+    });
+
+    return res.redirect(`${callbackScheme}?token=${encodeURIComponent(token)}`);
   })
 );
 

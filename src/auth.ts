@@ -217,6 +217,19 @@ export function verifyVideoRequestDecisionToken(token: string): VideoRequestDeci
   return decoded;
 }
 
+export function signMobileOAuthState(): string {
+  return jwt.sign({ purpose: 'mobile_google_oauth' }, getJwtSecret(), { expiresIn: '10m' });
+}
+
+export function verifyMobileOAuthState(state: string): boolean {
+  try {
+    const decoded = jwt.verify(state, getJwtSecret()) as { purpose?: string };
+    return decoded?.purpose === 'mobile_google_oauth';
+  } catch {
+    return false;
+  }
+}
+
 function escapeHtml(text: string): string {
   return String(text || '')
     .replace(/&/g, '&amp;')
