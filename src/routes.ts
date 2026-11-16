@@ -456,7 +456,7 @@ apiRouter.post(
         ageRating: user.ageRating,
         isVerified: user.isVerified,
         youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
-        searchViewLimit: user.searchViewLimit ?? 5,
+        searchViewLimit: user.searchViewLimit ?? 0,
         searchViewsUsed: user.searchViewsUsed ?? 0,
         searchRequireApproval: user.searchRequireApproval !== false
       }
@@ -475,7 +475,7 @@ apiRouter.get(
         ...req.user,
         ageRating: dbUser?.ageRating,
         youtubeSearchEnabled: Boolean(dbUser?.youtubeSearchEnabled),
-        searchViewLimit: dbUser?.searchViewLimit ?? 5,
+        searchViewLimit: dbUser?.searchViewLimit ?? 0,
         searchViewsUsed: dbUser?.searchViewsUsed ?? 0,
         searchRequireApproval: dbUser?.searchRequireApproval !== false
       }
@@ -1525,7 +1525,7 @@ apiRouter.get(
         birthday: c.birthday || null,
         ageRating: c.ageRating || 'ALL',
         youtubeSearchEnabled: Boolean(c.youtubeSearchEnabled),
-        searchViewLimit: c.searchViewLimit ?? 5,
+        searchViewLimit: c.searchViewLimit ?? 0,
         searchViewsUsed: c.searchViewsUsed ?? 0,
         searchRequireApproval: c.searchRequireApproval !== false,
         createdAt: c.createdAt
@@ -1547,7 +1547,7 @@ apiRouter.post(
       birthday,
       ageRating,
       youtubeSearchEnabled = true,
-      searchViewLimit = 5,
+      searchViewLimit = 0,
       searchRequireApproval = true
     } = req.body;
     const cleanEmail = String(email || '').trim().toLowerCase();
@@ -1590,7 +1590,7 @@ apiRouter.post(
       ageRating: resolvedRating,
       isVerified: true,
       youtubeSearchEnabled: Boolean(youtubeSearchEnabled),
-      searchViewLimit: Math.max(0, Number(searchViewLimit) || 5),
+      searchViewLimit: Math.max(0, Number(searchViewLimit) || 0),
       searchViewsUsed: 0,
       searchRequireApproval: searchRequireApproval !== false,
       createdAt: new Date().toISOString()
@@ -1606,7 +1606,7 @@ apiRouter.post(
         birthday: child.birthday || null,
         ageRating: child.ageRating,
         youtubeSearchEnabled: Boolean(child.youtubeSearchEnabled),
-        searchViewLimit: child.searchViewLimit ?? 5,
+        searchViewLimit: child.searchViewLimit ?? 0,
         searchViewsUsed: child.searchViewsUsed ?? 0,
         searchRequireApproval: child.searchRequireApproval !== false,
         createdAt: child.createdAt
@@ -1669,7 +1669,7 @@ apiRouter.put(
         birthday: updated.birthday || null,
         ageRating: updated.ageRating || 'ALL',
         youtubeSearchEnabled: Boolean(updated.youtubeSearchEnabled),
-        searchViewLimit: updated.searchViewLimit ?? 5,
+        searchViewLimit: updated.searchViewLimit ?? 0,
         searchViewsUsed: updated.searchViewsUsed ?? 0,
         searchRequireApproval: updated.searchRequireApproval !== false,
         createdAt: updated.createdAt
@@ -2352,7 +2352,7 @@ apiRouter.get(
         results,
         searchSettings: {
           youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
-          searchViewLimit: user.searchViewLimit ?? 5,
+          searchViewLimit: user.searchViewLimit ?? 0,
           searchViewsUsed: user.searchViewsUsed ?? 0,
           searchRequireApproval: user.searchRequireApproval !== false
         }
@@ -2392,7 +2392,7 @@ apiRouter.post(
 
     const searchSettings = {
       youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
-      searchViewLimit: user.searchViewLimit ?? 5,
+      searchViewLimit: user.searchViewLimit ?? 0,
       searchViewsUsed: user.searchViewsUsed ?? 0,
       searchRequireApproval: user.searchRequireApproval !== false
     };
@@ -2424,7 +2424,7 @@ apiRouter.post(
     }
 
     // Check view limit for non-curated searched videos (0 = unlimited)
-    const limit = user.searchViewLimit ?? 5;
+    const limit = user.searchViewLimit ?? 0;
     const used = user.searchViewsUsed ?? 0;
     if (user.role === 'CHILD' && limit > 0 && used >= limit) {
       return res.json({
@@ -2526,7 +2526,7 @@ apiRouter.post(
         reason: 'AUTO_APPROVED',
         searchSettings: {
           youtubeSearchEnabled: Boolean(refreshed?.youtubeSearchEnabled),
-          searchViewLimit: refreshed?.searchViewLimit ?? 5,
+          searchViewLimit: refreshed?.searchViewLimit ?? 0,
           searchViewsUsed: refreshed?.searchViewsUsed ?? 0,
           searchRequireApproval: refreshed?.searchRequireApproval !== false
         }

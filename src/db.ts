@@ -233,7 +233,7 @@ function mapUserRow(row: RowDataPacket): User {
     ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
     youtubeSearchEnabled: Boolean(row.youtubeSearchEnabled),
-    searchViewLimit: row.searchViewLimit !== undefined && row.searchViewLimit !== null ? Number(row.searchViewLimit) : 5,
+    searchViewLimit: row.searchViewLimit !== undefined && row.searchViewLimit !== null ? Number(row.searchViewLimit) : 0,
     searchViewsUsed: row.searchViewsUsed !== undefined && row.searchViewsUsed !== null ? Number(row.searchViewsUsed) : 0,
     searchRequireApproval:
       row.searchRequireApproval !== undefined && row.searchRequireApproval !== null
@@ -402,7 +402,7 @@ class Database {
     await this.ensureColumnExists('users', 'birthday', 'VARCHAR(32) NULL');
     await this.ensureColumnExists('users', 'ageRating', 'VARCHAR(32) NULL');
     await this.ensureColumnExists('users', 'youtubeSearchEnabled', 'TINYINT(1) NOT NULL DEFAULT 1');
-    await this.ensureColumnExists('users', 'searchViewLimit', 'INT NOT NULL DEFAULT 5');
+    await this.ensureColumnExists('users', 'searchViewLimit', 'INT NOT NULL DEFAULT 0');
     await this.ensureColumnExists('users', 'searchViewsUsed', 'INT NOT NULL DEFAULT 0');
     await this.ensureColumnExists('users', 'searchRequireApproval', 'TINYINT(1) NOT NULL DEFAULT 1');
 
@@ -1290,7 +1290,7 @@ class Database {
         user.ageRating || null,
         user.isVerified ? 1 : 0,
         user.youtubeSearchEnabled ? 1 : 0,
-        user.searchViewLimit ?? 5,
+        user.searchViewLimit ?? 0,
         user.searchViewsUsed ?? 0,
         user.searchRequireApproval !== false ? 1 : 0,
         user.verificationToken || null,
@@ -1340,7 +1340,7 @@ class Database {
     const searchViewLimit =
       updates.searchViewLimit !== undefined
         ? Math.max(0, Number(updates.searchViewLimit))
-        : (existing.searchViewLimit ?? 5);
+        : (existing.searchViewLimit ?? 0);
     const searchRequireApproval =
       updates.searchRequireApproval !== undefined
         ? updates.searchRequireApproval
