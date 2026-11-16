@@ -1,3 +1,5 @@
+import { AgeRating } from './types.js';
+
 export function extractYouTubeId(url: string): string | null {
   if (!url) return null;
   // Match youtube.com/watch?v=..., youtu.be/..., youtube.com/shorts/...
@@ -91,4 +93,83 @@ export async function searchYouTubeVideos(query: string, limit = 12): Promise<Yo
     console.warn('YouTube search failed:', err);
     return [];
   }
+}
+
+export function deriveAgeRatingFromBirthday(birthday: string): AgeRating | null {
+  const clean = String(birthday || '').trim();
+  const match = clean.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return null;
+
+  const birthYear = Number(match[1]);
+  const birthMonth = Number(match[2]);
+  const birthDay = Number(match[3]);
+  const birthDate = new Date(Date.UTC(birthYear, birthMonth - 1, birthDay));
+  if (Number.isNaN(birthDate.getTime())) return null;
+
+  const now = new Date();
+  let age = now.getUTCFullYear() - birthYear;
+  const monthDiff = now.getUTCMonth() + 1 - birthMonth;
+  if (monthDiff < 0 || (monthDiff === 0 && now.getUTCDate() < birthDay)) {
+    age--;
+  }
+  if (age < 0) return null;
+  if (age <= 4) return 'TODDLER';
+  if (age <= 7) return 'YOUNG_KIDS';
+  if (age <= 11) return 'OLDER_KIDS';
+  return 'ALL';
+}
+
+export function normalizeVideoTags(
+  tags: string[] = [],
+  ageRating?: AgeRating,
+  category?: string
+): string[] {
+  const cleaned = (tags || [])
+    .map((t) => String(t).trim())
+    .filter((t) => t.length > 0);
+
+  const filtered = cleaned.filter((t) => {
+    const lower = t.toLowerCase();
+    if (ageRating && lower.startsWith('age:')) return false;
+    if (category && lower.startsWith('category:')) return false;
+    return true;
+  });
+
+  if (ageRating) {
+    filtered.push(`age:${ageRating.toLowerCase()}`);
+  }
+  if (category && category.trim() && category.trim() !== 'All Videos') {
+    filtered.push(`category:${category.trim().toLowerCase()}`);
+  }
+
+  // Deduplicate case-insensitively while preserving order
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const tag of filtered) {
+    const key = tag.toLowerCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(tag);
+    }
+  }
+  return result;
+}
+
+export function videoMatchesAgeTag(videoTags: string[], targetRating: string): boolean {
+  const target = targetRating.trim().toLowerCase();
+  if (!target || target === 'all') return true;
+  const normalized = videoTags.map((t) => t.trim().toLowerCase());
+  return (
+    normalized.includes(`age:${target}`) ||
+    normalized.includes('age:all') ||
+    normalized.includes(target) ||
+    normalized.includes('all')
+  );
+}
+
+export function videoMatchesCategoryTag(videoTags: string[], category: string): boolean {
+  const target = category.trim().toLowerCase();
+  if (!target || target === 'all videos' || target === 'cat-all') return true;
+  const normalized = videoTags.map((t) => t.trim().toLowerCase());
+  return normalized.includes(`category:${target}`) || normalized.includes(target);
 }

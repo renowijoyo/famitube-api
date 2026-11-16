@@ -1,4 +1,5 @@
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
+import { normalizeVideoTags, videoMatchesAgeTag, videoMatchesCategoryTag } from './utils.js';
 import {
   Video,
   AgeRating,
@@ -83,6 +84,7 @@ function parseJson<T>(val: unknown, fallback: T): T {
 }
 
 function mapVideoRow(row: RowDataPacket): Video {
+  const rawTags = parseJson<string[]>(row.tags, []);
   return {
     id: row.id,
     title: row.title,
@@ -100,7 +102,7 @@ function mapVideoRow(row: RowDataPacket): Video {
     isFeatured: Boolean(row.isFeatured),
     isApproved: Boolean(row.isApproved),
     views: Number(row.views) || 0,
-    tags: parseJson<string[]>(row.tags, []),
+    tags: normalizeVideoTags(rawTags, row.ageRating, row.category),
     createdAt: row.createdAt
   };
 }
@@ -227,6 +229,7 @@ function mapUserRow(row: RowDataPacket): User {
     passwordHash: row.passwordHash,
     role: (row.role as UserRole) || 'PARENT',
     parentId: row.parentId || undefined,
+    birthday: row.birthday || undefined,
     ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
     youtubeSearchEnabled: Boolean(row.youtubeSearchEnabled),
@@ -396,8 +399,9 @@ class Database {
 
     await this.ensureColumnExists('users', 'role', "VARCHAR(16) NOT NULL DEFAULT 'PARENT'");
     await this.ensureColumnExists('users', 'parentId', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('users', 'birthday', 'VARCHAR(32) NULL');
     await this.ensureColumnExists('users', 'ageRating', 'VARCHAR(32) NULL');
-    await this.ensureColumnExists('users', 'youtubeSearchEnabled', 'TINYINT(1) NOT NULL DEFAULT 0');
+    await this.ensureColumnExists('users', 'youtubeSearchEnabled', 'TINYINT(1) NOT NULL DEFAULT 1');
     await this.ensureColumnExists('users', 'searchViewLimit', 'INT NOT NULL DEFAULT 5');
     await this.ensureColumnExists('users', 'searchViewsUsed', 'INT NOT NULL DEFAULT 0');
     await this.ensureColumnExists('users', 'searchRequireApproval', 'TINYINT(1) NOT NULL DEFAULT 1');
@@ -683,7 +687,7 @@ class Database {
       list = list.filter((v) => v.isApproved);
     }
     if (filter?.category && filter.category !== 'All Videos' && filter.category !== 'cat-all') {
-      list = list.filter((v) => v.category.toLowerCase() === filter.category!.toLowerCase());
+      list = list.filter((v) => videoMatchesCategoryTag(v.tags, filter.category!));
     }
     if (filter?.channelId) {
       const ch = await this.getChannelById(filter.channelId);
@@ -697,7 +701,7 @@ class Database {
       }
     }
     if (filter?.ageRating && filter.ageRating !== 'ALL') {
-      list = list.filter((v) => v.ageRating === filter.ageRating || v.ageRating === 'ALL');
+      list = list.filter((v) => videoMatchesAgeTag(v.tags, filter.ageRating!));
     }
     if (filter?.featured !== undefined) {
       list = list.filter((v) => v.isFeatured === filter.featured);
@@ -723,28 +727,30 @@ class Database {
   }
 
   public async addVideo(video: Video): Promise<Video> {
+    const normalizedTags = normalizeVideoTags(video.tags || [], video.ageRating, video.category);
+    const savedVideo: Video = { ...video, tags: normalizedTags };
     await this.pool.query(
       `INSERT INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        video.id,
-        video.title,
-        video.description,
-        video.sourceType,
-        video.sourceUrl,
-        video.youtubeVideoId || null,
-        video.thumbnailUrl,
-        video.duration,
-        video.channelId,
-        video.channelTitle,
-        video.channelAvatar,
-        video.category,
-        video.ageRating,
-        video.isFeatured ? 1 : 0,
-        video.isApproved ? 1 : 0,
-        video.views,
-        JSON.stringify(video.tags || []),
-        video.createdAt
+        savedVideo.id,
+        savedVideo.title,
+        savedVideo.description,
+        savedVideo.sourceType,
+        savedVideo.sourceUrl,
+        savedVideo.youtubeVideoId || null,
+        savedVideo.thumbnailUrl,
+        savedVideo.duration,
+        savedVideo.channelId,
+        savedVideo.channelTitle,
+        savedVideo.channelAvatar,
+        savedVideo.category,
+        savedVideo.ageRating,
+        savedVideo.isFeatured ? 1 : 0,
+        savedVideo.isApproved ? 1 : 0,
+        savedVideo.views,
+        JSON.stringify(savedVideo.tags),
+        savedVideo.createdAt
       ]
     );
 
@@ -768,6 +774,7 @@ class Database {
     if (!existing) return null;
 
     const merged: Video = { ...existing, ...updates, id };
+    merged.tags = normalizeVideoTags(merged.tags || [], merged.ageRating, merged.category);
     await this.pool.query(
       `UPDATE videos SET title = ?, description = ?, sourceType = ?, sourceUrl = ?, youtubeVideoId = ?, thumbnailUrl = ?, duration = ?, channelId = ?, channelTitle = ?, channelAvatar = ?, category = ?, ageRating = ?, isFeatured = ?, isApproved = ?, views = ?, tags = ?, createdAt = ?
        WHERE id = ?`,
@@ -1270,8 +1277,8 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, role, parentId, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
@@ -1279,6 +1286,7 @@ class Database {
         user.passwordHash,
         user.role || 'PARENT',
         user.parentId || null,
+        user.birthday || null,
         user.ageRating || null,
         user.isVerified ? 1 : 0,
         user.youtubeSearchEnabled ? 1 : 0,
@@ -1306,6 +1314,7 @@ class Database {
     childId: string,
     updates: {
       name?: string;
+      birthday?: string;
       ageRating?: AgeRating;
       passwordHash?: string;
       youtubeSearchEnabled?: boolean;
@@ -1321,6 +1330,7 @@ class Database {
     if (rows.length === 0) return null;
     const existing = mapUserRow(rows[0]);
     const name = updates.name ? updates.name.trim() : existing.name;
+    const birthday = updates.birthday !== undefined ? updates.birthday : existing.birthday;
     const ageRating = updates.ageRating !== undefined ? updates.ageRating : existing.ageRating;
     const passwordHash = updates.passwordHash || existing.passwordHash;
     const youtubeSearchEnabled =
@@ -1339,10 +1349,11 @@ class Database {
 
     await this.pool.query(
       `UPDATE users
-       SET name = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?
+       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?
        WHERE id = ? AND parentId = ?`,
       [
         name,
+        birthday || null,
         ageRating || null,
         passwordHash,
         youtubeSearchEnabled ? 1 : 0,
@@ -1987,6 +1998,26 @@ class Database {
       ]
     );
     return (await this.getKidVideoRequest(req.kidId, req.youtubeVideoId))!;
+  }
+
+  public async getYouTubeVideoParentStats(youtubeVideoId: string): Promise<{
+    approvedCount: number;
+    declinedCount: number;
+  }> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT status, COUNT(DISTINCT parentId) AS cnt
+       FROM kid_video_requests
+       WHERE youtubeVideoId = ? AND status IN ('APPROVED', 'REJECTED')
+       GROUP BY status`,
+      [youtubeVideoId]
+    );
+    let approvedCount = 0;
+    let declinedCount = 0;
+    for (const r of rows) {
+      if (r.status === 'APPROVED') approvedCount = Number(r.cnt) || 0;
+      else if (r.status === 'REJECTED') declinedCount = Number(r.cnt) || 0;
+    }
+    return { approvedCount, declinedCount };
   }
 
   public async decideKidVideoRequest(

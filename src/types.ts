@@ -213,6 +213,7 @@ export interface User {
   passwordHash: string;
   role: UserRole;
   parentId?: string;
+  birthday?: string; // YYYY-MM-DD
   ageRating?: AgeRating;
   isVerified: boolean;
   youtubeSearchEnabled?: boolean;

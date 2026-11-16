@@ -222,6 +222,8 @@ export interface ParentVideoRequestEmailParams {
   channelTitle: string;
   thumbnailUrl: string;
   actionToken: string;
+  approvedCount?: number;
+  declinedCount?: number;
 }
 
 export async function sendParentVideoRequestEmail(
@@ -257,6 +259,8 @@ export async function sendParentVideoRequestEmail(
   const safeTitle = escapeHtml(params.title || 'YouTube Video');
   const safeChannelTitle = escapeHtml(params.channelTitle || 'YouTube');
   const safeThumbnailUrl = escapeHtml(params.thumbnailUrl || '');
+  const approvedCount = Math.max(0, Number(params.approvedCount) || 0);
+  const declinedCount = Math.max(0, Number(params.declinedCount) || 0);
 
   await transporter.sendMail({
     from,
@@ -269,6 +273,7 @@ export async function sendParentVideoRequestEmail(
       '',
       `Title: ${params.title}`,
       `Channel: ${params.channelTitle}`,
+      `Parent Decisions: 😊 ${approvedCount} approved | 😡 ${declinedCount} declined`,
       `Preview on YouTube: ${youtubeUrl}`,
       '',
       `Approve Video: ${approveUrl}`,
@@ -288,7 +293,15 @@ export async function sendParentVideoRequestEmail(
           ${safeThumbnailUrl ? `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" style="display: block;"><img src="${safeThumbnailUrl}" alt="${safeTitle}" style="width: 100%; max-height: 260px; object-fit: cover; display: block;"></a>` : ''}
           <div style="padding: 16px;">
             <div style="font-size: 16px; font-weight: bold; color: #f8fafc; margin-bottom: 6px;">${safeTitle}</div>
-            <div style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">Channel: <strong style="color: #cbd5e1;">${safeChannelTitle}</strong></div>
+            <div style="font-size: 13px; color: #94a3b8; margin-bottom: 10px;">Channel: <strong style="color: #cbd5e1;">${safeChannelTitle}</strong></div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+              <span style="display: inline-block; background: rgba(34, 197, 94, 0.18); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.45); padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; margin-right: 8px;">
+                <span style="color: #22c55e;">😊</span> ${approvedCount} Approved
+              </span>
+              <span style="display: inline-block; background: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45); padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 700;">
+                <span style="color: #ef4444;">😡</span> ${declinedCount} Declined
+              </span>
+            </div>
             <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-size: 13px; text-decoration: none; font-weight: bold;">
               &#9654; Preview Video on YouTube &rarr;
             </a>

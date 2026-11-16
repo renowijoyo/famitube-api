@@ -10,12 +10,24 @@ import {
   requireParent,
   sendParentVideoRequestEmail,
   sendVerificationEmail,
+  sendVideoRequestEmailToParent,
   signAuthToken,
+<<<<<<< HEAD
   signVideoRequestActionToken,
   verifyPassword,
   verifyVideoRequestActionToken
+=======
+  verifyPassword,
+  verifyVideoRequestDecisionToken
+>>>>>>> 635af89 (Add birthday age-group categorization, tag-based filtering, parent review email stats, and larger YouTube search batch)
 } from './auth.js';
-import { extractYouTubeId, fetchYouTubeOEmbed, getYouTubeThumbnail, searchYouTubeVideos } from './utils.js';
+import {
+  extractYouTubeId,
+  fetchYouTubeOEmbed,
+  getYouTubeThumbnail,
+  searchYouTubeVideos,
+  deriveAgeRatingFromBirthday
+} from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
 import {
   Video,
@@ -1515,6 +1527,7 @@ apiRouter.get(
         email: c.email,
         name: c.name,
         role: c.role,
+        birthday: c.birthday || null,
         ageRating: c.ageRating || 'ALL',
         youtubeSearchEnabled: Boolean(c.youtubeSearchEnabled),
         searchViewLimit: c.searchViewLimit ?? 5,
@@ -1536,13 +1549,15 @@ apiRouter.post(
       email,
       name,
       password,
-      ageRating = 'ALL',
-      youtubeSearchEnabled = false,
+      birthday,
+      ageRating,
+      youtubeSearchEnabled = true,
       searchViewLimit = 5,
       searchRequireApproval = true
     } = req.body;
     const cleanEmail = String(email || '').trim().toLowerCase();
     const cleanName = String(name || '').trim();
+    const cleanBirthday = birthday ? String(birthday).trim() : undefined;
 
     if (!cleanEmail || !cleanEmail.includes('@')) {
       return res.status(400).json({ success: false, message: 'Valid child email address is required' });
@@ -1553,6 +1568,9 @@ apiRouter.post(
     if (!password || String(password).length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
     }
+    if (cleanBirthday && !deriveAgeRatingFromBirthday(cleanBirthday)) {
+      return res.status(400).json({ success: false, message: 'Birthday must be a valid YYYY-MM-DD date' });
+    }
 
     const existing = await db.getUserByEmail(cleanEmail);
     if (existing) {
@@ -1560,9 +1578,11 @@ apiRouter.post(
     }
 
     const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
-    const resolvedRating: AgeRating = validRatings.includes(ageRating as AgeRating)
-      ? (ageRating as AgeRating)
-      : 'ALL';
+    const derivedFromBirthday = cleanBirthday ? deriveAgeRatingFromBirthday(cleanBirthday) : null;
+    const resolvedRating: AgeRating =
+      ageRating && validRatings.includes(ageRating as AgeRating)
+        ? (ageRating as AgeRating)
+        : (derivedFromBirthday || 'ALL');
 
     const child = await db.createUser({
       id: `chd-${uuidv4().slice(0, 8)}`,
@@ -1571,6 +1591,7 @@ apiRouter.post(
       passwordHash: hashPassword(String(password)),
       role: 'CHILD',
       parentId: req.user!.sub,
+      birthday: cleanBirthday,
       ageRating: resolvedRating,
       isVerified: true,
       youtubeSearchEnabled: Boolean(youtubeSearchEnabled),
@@ -1587,6 +1608,7 @@ apiRouter.post(
         email: child.email,
         name: child.name,
         role: child.role,
+        birthday: child.birthday || null,
         ageRating: child.ageRating,
         youtubeSearchEnabled: Boolean(child.youtubeSearchEnabled),
         searchViewLimit: child.searchViewLimit ?? 5,
@@ -1607,6 +1629,7 @@ apiRouter.put(
     const childId = String(req.params.childId);
     const {
       name,
+      birthday,
       ageRating,
       password,
       youtubeSearchEnabled,
@@ -1614,12 +1637,24 @@ apiRouter.put(
       searchRequireApproval,
       resetSearchViewsUsed
     } = req.body;
+    const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
+    if (cleanBirthday && !deriveAgeRatingFromBirthday(cleanBirthday)) {
+      return res.status(400).json({ success: false, message: 'Birthday must be a valid YYYY-MM-DD date' });
+    }
     if (password && String(password).length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
     }
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const resolvedRating =
+      ageRating && validRatings.includes(ageRating as AgeRating)
+        ? (ageRating as AgeRating)
+        : cleanBirthday
+          ? (deriveAgeRatingFromBirthday(cleanBirthday) || undefined)
+          : undefined;
     const updated = await db.updateChildAccount(req.user!.sub, childId, {
       name: name ? String(name) : undefined,
-      ageRating: ageRating as AgeRating | undefined,
+      birthday: cleanBirthday,
+      ageRating: resolvedRating,
       passwordHash: password ? hashPassword(String(password)) : undefined,
       youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
       searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
@@ -1636,6 +1671,7 @@ apiRouter.put(
         email: updated.email,
         name: updated.name,
         role: updated.role,
+        birthday: updated.birthday || null,
         ageRating: updated.ageRating || 'ALL',
         youtubeSearchEnabled: Boolean(updated.youtubeSearchEnabled),
         searchViewLimit: updated.searchViewLimit ?? 5,
@@ -2095,6 +2131,60 @@ apiRouter.get(
   })
 );
 
+// Parent: one-click approve or deny from email link
+apiRouter.get(
+  '/parent/video-requests/email-decide',
+  asyncHandler(async (req, res) => {
+    const token = String(req.query.token || '').trim();
+    const renderPage = (title: string, message: string, color: string, thumbUrl?: string, videoTitle?: string) => `
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>${title} - FamiTube</title>
+        </head>
+        <body style="margin:0; font-family: Arial, sans-serif; background:#0b1120; color:#f8fafc; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px;">
+          <div style="max-width:460px; width:100%; background:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; text-align:center;">
+            <div style="font-size:13px; font-weight:700; color:#ff2e93; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;">FamiTube Parent Control</div>
+            <h2 style="margin:0 0 12px 0; color:${color};">${title}</h2>
+            ${thumbUrl ? `<img src="${thumbUrl}" alt="" style="width:100%; border-radius:10px; margin-bottom:12px; max-height:220px; object-fit:cover;" />` : ''}
+            ${videoTitle ? `<div style="font-weight:700; font-size:16px; margin-bottom:10px;">${videoTitle}</div>` : ''}
+            <p style="color:#cbd5e1; font-size:14px; line-height:1.5; margin:0 0 18px 0;">${message}</p>
+            <a href="/" style="display:inline-block; background:#ff2e93; color:#ffffff; text-decoration:none; font-weight:700; padding:10px 18px; border-radius:10px;">Open FamiTube</a>
+          </div>
+        </body>
+      </html>
+    `;
+
+    if (!token) {
+      return res.status(400).send(renderPage('Invalid Link', 'Missing decision token.', '#ff3366'));
+    }
+
+    try {
+      const payload = verifyVideoRequestDecisionToken(token);
+      const updated = await db.decideKidVideoRequest(payload.parentId, payload.requestId, payload.decision);
+      if (!updated) {
+        return res.status(404).send(renderPage('Request Not Found', 'This video permission request could not be found.', '#ff3366'));
+      }
+      const isApproved = payload.decision === 'APPROVED';
+      return res.send(
+        renderPage(
+          isApproved ? 'Permission Granted' : 'Permission Denied',
+          isApproved
+            ? 'This video has been approved and added to your child’s Watch History.'
+            : 'This video request has been declined.',
+          isApproved ? '#06d6a0' : '#ff3366',
+          updated.thumbnailUrl,
+          updated.title
+        )
+      );
+    } catch {
+      return res.status(400).send(renderPage('Link Expired or Invalid', 'This permission link is invalid or has expired.', '#ff3366'));
+    }
+  })
+);
+
 // Parent: approve or reject a kid's searched video request
 apiRouter.post(
   '/parent/video-requests/:requestId/decide',
@@ -2236,7 +2326,7 @@ apiRouter.get(
       return res.status(400).json({ success: false, message: 'Search query (q) is required' });
     }
 
-    const rawResults = await searchYouTubeVideos(q, 12);
+    const rawResults = await searchYouTubeVideos(q, 25);
     const [existingRequests, history] = await Promise.all([
       db.getKidVideoRequestsForKid(user.id),
       db.getKidHistory(user.id)
@@ -2379,6 +2469,7 @@ apiRouter.post(
             kidId: user.id,
             youtubeVideoId
           });
+          const stats = await db.getYouTubeVideoParentStats(youtubeVideoId);
           await sendParentVideoRequestEmail({
             toEmail: parentUser.email,
             parentName: parentUser.name || 'Parent',
@@ -2389,7 +2480,9 @@ apiRouter.post(
             title,
             channelTitle,
             thumbnailUrl,
-            actionToken
+            actionToken,
+            approvedCount: stats.approvedCount,
+            declinedCount: stats.declinedCount
           });
           emailSent = true;
         } catch (err) {
