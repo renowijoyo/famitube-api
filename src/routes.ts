@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { db } from './db.js';
 import {
   AuthenticatedRequest,
+  GoogleUserProfile,
+  exchangeGoogleAuthCode,
+  getGoogleClientId,
   hashPassword,
   optionalAuth,
   requireAuth,
@@ -11,7 +14,11 @@ import {
   sendParentVideoRequestEmail,
   sendVerificationEmail,
   signAuthToken,
+  signGoogleOAuthState,
   signVideoRequestActionToken,
+  verifyGoogleAccessToken,
+  verifyGoogleIdToken,
+  verifyGoogleOAuthState,
   verifyPassword,
   verifyVideoRequestActionToken,
   verifyVideoRequestDecisionToken
@@ -263,7 +270,13 @@ apiRouter.get(
   '/config',
   asyncHandler(async (_req, res) => {
     const config = await db.getConfig();
-    res.json({ success: true, data: config });
+    res.json({
+      success: true,
+      data: {
+        ...config,
+        googleClientId: getGoogleClientId()
+      }
+    });
   })
 );
 
@@ -461,6 +474,253 @@ apiRouter.post(
         searchRequireApproval: user.searchRequireApproval !== false
       }
     });
+  })
+);
+
+async function authenticateGoogleAccount(
+  googleProfile: GoogleUserProfile,
+  loginType?: string
+): Promise<
+  | {
+      ok: true;
+      status: number;
+      token: string;
+      user: Record<string, unknown>;
+    }
+  | {
+      ok: false;
+      status: number;
+      message: string;
+    }
+> {
+  const requestedRole = String(loginType || 'PARENT').toUpperCase() === 'CHILD' ? 'CHILD' : 'PARENT';
+  const cleanEmail = googleProfile.email.trim().toLowerCase();
+  let user = await db.getUserByEmail(cleanEmail);
+
+  if (requestedRole === 'CHILD') {
+    if (!user) {
+      return {
+        ok: false,
+        status: 401,
+        message:
+          'This email is not registered. Ask your parent or guardian to register your email in FamiTube Studio first.'
+      };
+    }
+    const userRole = user.role || 'PARENT';
+    if (userRole !== 'CHILD') {
+      return {
+        ok: false,
+        status: 403,
+        message: 'This is a Parent account. Please switch to Parent Login.'
+      };
+    }
+    if (!user.parentId) {
+      return {
+        ok: false,
+        status: 403,
+        message: 'This child account is not linked to a parent or guardian.'
+      };
+    }
+    if (!user.isVerified) {
+      await db.markUserVerified(user.id);
+      user.isVerified = true;
+    }
+  } else {
+    if (!user) {
+      const randomPassword = crypto.randomBytes(32).toString('hex');
+      user = await db.createUser({
+        id: `usr-${uuidv4().slice(0, 8)}`,
+        email: cleanEmail,
+        name: googleProfile.name || cleanEmail.split('@')[0] || 'Parent',
+        passwordHash: hashPassword(randomPassword),
+        role: 'PARENT',
+        isVerified: true,
+        createdAt: new Date().toISOString()
+      });
+    } else {
+      const userRole = user.role || 'PARENT';
+      if (userRole !== 'PARENT') {
+        return {
+          ok: false,
+          status: 403,
+          message:
+            'Curator Studio is only accessible by parent accounts. Kids must sign in on the Kids Login page.'
+        };
+      }
+      if (!user.isVerified) {
+        await db.markUserVerified(user.id);
+        user.isVerified = true;
+      }
+    }
+  }
+
+  const userRole = user.role || 'PARENT';
+  const token = signAuthToken({
+    sub: user.id,
+    email: user.email,
+    name: user.name,
+    role: userRole,
+    parentId: user.parentId
+  });
+
+  return {
+    ok: true,
+    status: 200,
+    token,
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      role: userRole,
+      parentId: user.parentId,
+      ageRating: user.ageRating,
+      isVerified: user.isVerified,
+      youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
+      searchViewLimit: user.searchViewLimit ?? 0,
+      searchViewsUsed: user.searchViewsUsed ?? 0,
+      searchRequireApproval: user.searchRequireApproval !== false
+    }
+  };
+}
+
+apiRouter.get('/auth/google/config', (_req, res) => {
+  res.json({
+    success: true,
+    clientId: getGoogleClientId()
+  });
+});
+
+apiRouter.post(
+  '/auth/google',
+  asyncHandler(async (req, res) => {
+    const { credential, idToken, accessToken, code, redirectUri, loginType } = req.body || {};
+
+    let profile: GoogleUserProfile;
+    try {
+      if (credential || idToken) {
+        profile = await verifyGoogleIdToken(String(credential || idToken));
+      } else if (accessToken) {
+        profile = await verifyGoogleAccessToken(String(accessToken));
+      } else if (code) {
+        const apiBase = (process.env.APP_BASE_URL || 'https://famitube-api.gamantha.my.id').replace(
+          /\/+$/,
+          ''
+        );
+        const resolvedRedirect = redirectUri
+          ? String(redirectUri)
+          : `${apiBase}/api/auth/google/callback`;
+        profile = await exchangeGoogleAuthCode(String(code), resolvedRedirect);
+      } else {
+        return res.status(400).json({
+          success: false,
+          message: 'Google credential, accessToken, or authorization code is required'
+        });
+      }
+    } catch (err) {
+      return res.status(401).json({
+        success: false,
+        message: err instanceof Error ? err.message : 'Google authentication failed'
+      });
+    }
+
+    const result = await authenticateGoogleAccount(profile, loginType);
+    if (!result.ok) {
+      return res.status(result.status).json({
+        success: false,
+        message: result.message
+      });
+    }
+
+    res.json({
+      success: true,
+      token: result.token,
+      user: result.user
+    });
+  })
+);
+
+apiRouter.get('/auth/google', (req, res) => {
+  const loginType =
+    String(req.query.loginType || 'PARENT').toUpperCase() === 'CHILD' ? 'CHILD' : 'PARENT';
+  const redirectOrigin = req.query.redirectOrigin ? String(req.query.redirectOrigin) : undefined;
+  const apiBase = (process.env.APP_BASE_URL || 'https://famitube-api.gamantha.my.id').replace(
+    /\/+$/,
+    ''
+  );
+  const callbackUrl = `${apiBase}/api/auth/google/callback`;
+  const state = signGoogleOAuthState({ loginType, redirectOrigin });
+
+  const params = new URLSearchParams({
+    client_id: getGoogleClientId(),
+    redirect_uri: callbackUrl,
+    response_type: 'code',
+    scope: 'openid email profile',
+    prompt: 'select_account',
+    state
+  });
+
+  res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+});
+
+apiRouter.get(
+  '/auth/google/callback',
+  asyncHandler(async (req, res) => {
+    const code = String(req.query.code || '').trim();
+    const stateRaw = String(req.query.state || '').trim();
+    const errorParam = String(req.query.error || '').trim();
+
+    let loginType: 'PARENT' | 'CHILD' = 'PARENT';
+    let webBase = (process.env.WEB_APP_URL || 'https://famitube.gamantha.my.id').replace(/\/+$/, '');
+
+    if (stateRaw) {
+      try {
+        const stateDecoded = verifyGoogleOAuthState(stateRaw);
+        loginType = stateDecoded.loginType === 'CHILD' ? 'CHILD' : 'PARENT';
+        if (
+          stateDecoded.redirectOrigin &&
+          /^https?:\/\//i.test(stateDecoded.redirectOrigin)
+        ) {
+          webBase = stateDecoded.redirectOrigin.replace(/\/+$/, '');
+        }
+      } catch {
+        // fallback to default webBase and PARENT role
+      }
+    }
+
+    const redirectWithError = (message: string) => {
+      const url = new URL(webBase);
+      url.searchParams.set('google_auth_error', message);
+      url.searchParams.set('login_role', loginType);
+      return res.redirect(url.toString());
+    };
+
+    if (errorParam) {
+      return redirectWithError(`Google sign-in was cancelled or denied (${errorParam}).`);
+    }
+    if (!code) {
+      return redirectWithError('Missing authorization code from Google.');
+    }
+
+    try {
+      const apiBase = (process.env.APP_BASE_URL || 'https://famitube-api.gamantha.my.id').replace(
+        /\/+$/,
+        ''
+      );
+      const callbackUrl = `${apiBase}/api/auth/google/callback`;
+      const profile = await exchangeGoogleAuthCode(code, callbackUrl);
+      const result = await authenticateGoogleAccount(profile, loginType);
+      if (!result.ok) {
+        return redirectWithError(result.message);
+      }
+
+      const url = new URL(webBase);
+      url.searchParams.set('google_auth_token', result.token);
+      return res.redirect(url.toString());
+    } catch (err) {
+      return redirectWithError(
+        err instanceof Error ? err.message : 'Google authentication failed'
+      );
+    }
   })
 );
 

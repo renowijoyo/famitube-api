@@ -340,3 +340,153 @@ export async function sendParentVideoRequestEmail(
     `
   });
 }
+
+const DEFAULT_GOOGLE_CLIENT_ID =
+  '69894868320-jis5bocnh9mul5g053so02op5evl2rfd.apps.googleusercontent.com';
+
+export function getGoogleClientId(): string {
+  return (process.env.GOOGLE_CLIENT_ID || DEFAULT_GOOGLE_CLIENT_ID).trim();
+}
+
+export function getGoogleClientSecret(): string {
+  return (process.env.GOOGLE_CLIENT_SECRET || '').trim();
+}
+
+export interface GoogleUserProfile {
+  sub: string;
+  email: string;
+  name: string;
+  picture?: string;
+  emailVerified: boolean;
+}
+
+export interface GoogleOAuthStatePayload {
+  purpose: 'google_oauth_state';
+  loginType: UserRole;
+  redirectOrigin?: string;
+}
+
+export function signGoogleOAuthState(payload: Omit<GoogleOAuthStatePayload, 'purpose'>): string {
+  return jwt.sign({ ...payload, purpose: 'google_oauth_state' }, getJwtSecret(), {
+    expiresIn: '15m'
+  });
+}
+
+export function verifyGoogleOAuthState(stateToken: string): GoogleOAuthStatePayload {
+  const decoded = jwt.verify(stateToken, getJwtSecret()) as GoogleOAuthStatePayload;
+  if (!decoded || decoded.purpose !== 'google_oauth_state') {
+    throw new Error('Invalid OAuth state token');
+  }
+  return decoded;
+}
+
+export async function verifyGoogleIdToken(idToken: string): Promise<GoogleUserProfile> {
+  const res = await fetch(
+    `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`
+  );
+  if (!res.ok) {
+    throw new Error('Invalid Google ID token');
+  }
+  const data = (await res.json()) as Record<string, unknown>;
+  const expectedClientId = getGoogleClientId();
+  if (expectedClientId && data.aud !== expectedClientId) {
+    throw new Error('Google ID token client ID mismatch');
+  }
+  const email = String(data.email || '').trim().toLowerCase();
+  const emailVerified = data.email_verified === true || data.email_verified === 'true';
+  if (!email || !emailVerified) {
+    throw new Error('Google account email is not verified');
+  }
+  return {
+    sub: String(data.sub || ''),
+    email,
+    name: String(data.name || email.split('@')[0] || 'User').trim(),
+    picture: data.picture ? String(data.picture) : undefined,
+    emailVerified
+  };
+}
+
+export async function verifyGoogleAccessToken(accessToken: string): Promise<GoogleUserProfile> {
+  const tokenInfoRes = await fetch(
+    `https://oauth2.googleapis.com/tokeninfo?access_token=${encodeURIComponent(accessToken)}`
+  );
+  if (!tokenInfoRes.ok) {
+    throw new Error('Invalid Google access token');
+  }
+  const tokenInfo = (await tokenInfoRes.json()) as Record<string, unknown>;
+  const expectedClientId = getGoogleClientId();
+  if (
+    expectedClientId &&
+    tokenInfo.aud !== expectedClientId &&
+    tokenInfo.azp !== expectedClientId
+  ) {
+    throw new Error('Google access token client ID mismatch');
+  }
+
+  const userRes = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+    headers: { Authorization: `Bearer ${accessToken}` }
+  });
+  if (!userRes.ok) {
+    throw new Error('Unable to fetch Google user profile');
+  }
+  const userData = (await userRes.json()) as Record<string, unknown>;
+  const email = String(userData.email || tokenInfo.email || '').trim().toLowerCase();
+  const emailVerified =
+    userData.email_verified === true ||
+    userData.email_verified === 'true' ||
+    tokenInfo.email_verified === true ||
+    tokenInfo.email_verified === 'true';
+  if (!email || !emailVerified) {
+    throw new Error('Google account email is not verified');
+  }
+  return {
+    sub: String(userData.sub || tokenInfo.sub || ''),
+    email,
+    name: String(userData.name || email.split('@')[0] || 'User').trim(),
+    picture: userData.picture ? String(userData.picture) : undefined,
+    emailVerified
+  };
+}
+
+export async function exchangeGoogleAuthCode(
+  code: string,
+  redirectUri: string
+): Promise<GoogleUserProfile> {
+  const clientId = getGoogleClientId();
+  const clientSecret = getGoogleClientSecret();
+  if (!clientId || !clientSecret) {
+    throw new Error('Google OAuth client credentials are not configured');
+  }
+
+  const params = new URLSearchParams({
+    code,
+    client_id: clientId,
+    client_secret: clientSecret,
+    redirect_uri: redirectUri,
+    grant_type: 'authorization_code'
+  });
+
+  const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: params.toString()
+  });
+
+  if (!tokenRes.ok) {
+    const errText = await tokenRes.text();
+    throw new Error(`Google token exchange failed: ${errText}`);
+  }
+
+  const tokenData = (await tokenRes.json()) as {
+    id_token?: string;
+    access_token?: string;
+  };
+
+  if (tokenData.id_token) {
+    return verifyGoogleIdToken(tokenData.id_token);
+  }
+  if (tokenData.access_token) {
+    return verifyGoogleAccessToken(tokenData.access_token);
+  }
+  throw new Error('No token returned from Google OAuth exchange');
+}
