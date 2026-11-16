@@ -1890,6 +1890,11 @@ apiRouter.get(
         searchViewLimit: c.searchViewLimit ?? 0,
         searchViewsUsed: c.searchViewsUsed ?? 0,
         searchRequireApproval: c.searchRequireApproval !== false,
+        parentPin: c.parentPin || '1234',
+        dailyLimitMinutes: c.dailyLimitMinutes ?? 45,
+        attentionTrackingEnabled: c.attentionTrackingEnabled !== false,
+        attentionPauseSeconds: c.attentionPauseSeconds ?? 30,
+        attentionMinWatchPercent: c.attentionMinWatchPercent ?? 70,
         createdAt: c.createdAt
       }))
     });
@@ -1992,7 +1997,12 @@ apiRouter.put(
       youtubeSearchEnabled,
       searchViewLimit,
       searchRequireApproval,
-      resetSearchViewsUsed
+      resetSearchViewsUsed,
+      parentPin,
+      dailyLimitMinutes,
+      attentionTrackingEnabled,
+      attentionPauseSeconds,
+      attentionMinWatchPercent
     } = req.body;
     const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
     if (cleanBirthday && !deriveAgeRatingFromBirthday(cleanBirthday)) {
@@ -2000,6 +2010,10 @@ apiRouter.put(
     }
     if (password && String(password).length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
+    }
+    const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
+    if (cleanPin !== undefined && !/^\d{4}$/.test(cleanPin)) {
+      return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
     }
     const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
     const resolvedRating =
@@ -2016,7 +2030,15 @@ apiRouter.put(
       youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
       searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
       searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined,
-      resetSearchViewsUsed: Boolean(resetSearchViewsUsed)
+      resetSearchViewsUsed: Boolean(resetSearchViewsUsed),
+      parentPin: cleanPin,
+      dailyLimitMinutes: dailyLimitMinutes !== undefined ? Number(dailyLimitMinutes) : undefined,
+      attentionTrackingEnabled:
+        attentionTrackingEnabled !== undefined ? Boolean(attentionTrackingEnabled) : undefined,
+      attentionPauseSeconds:
+        attentionPauseSeconds !== undefined ? Number(attentionPauseSeconds) : undefined,
+      attentionMinWatchPercent:
+        attentionMinWatchPercent !== undefined ? Number(attentionMinWatchPercent) : undefined
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Child account not found' });
@@ -2034,6 +2056,11 @@ apiRouter.put(
         searchViewLimit: updated.searchViewLimit ?? 0,
         searchViewsUsed: updated.searchViewsUsed ?? 0,
         searchRequireApproval: updated.searchRequireApproval !== false,
+        parentPin: updated.parentPin || '1234',
+        dailyLimitMinutes: updated.dailyLimitMinutes ?? 45,
+        attentionTrackingEnabled: updated.attentionTrackingEnabled !== false,
+        attentionPauseSeconds: updated.attentionPauseSeconds ?? 30,
+        attentionMinWatchPercent: updated.attentionMinWatchPercent ?? 70,
         createdAt: updated.createdAt
       }
     });
@@ -2074,7 +2101,15 @@ apiRouter.get(
       success: true,
       data: {
         channels: accessibleChannels,
-        videos
+        videos,
+        parentalSettings: {
+          parentPin: user.parentPin || '1234',
+          dailyLimitMinutes: user.dailyLimitMinutes ?? 45,
+          ageRating: user.ageRating || 'ALL',
+          attentionTrackingEnabled: user.attentionTrackingEnabled !== false,
+          attentionPauseSeconds: user.attentionPauseSeconds ?? 30,
+          attentionMinWatchPercent: user.attentionMinWatchPercent ?? 70
+        }
       }
     });
   })
@@ -3019,7 +3054,8 @@ apiRouter.get(
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const kidId = req.user!.sub;
-    const [history, playlists, quizStates] = await Promise.all([
+    const [user, history, playlists, quizStates] = await Promise.all([
+      db.getUserById(kidId),
       db.getKidHistory(kidId),
       db.getKidPlaylists(kidId),
       db.getKidAllChannelQuizStates(kidId)
@@ -3119,7 +3155,7 @@ apiRouter.get(
     const bonusStars = achievements
       .filter((a) => a.unlocked)
       .reduce((sum, a) => sum + a.rewardStars, 0);
-    const stars = activityStars + bonusStars;
+    const stars = activityStars + bonusStars + (user?.bonusStars || 0);
 
     const levels = [
       { level: 1, title: 'Curious Explorer', min: 0, next: 100 },

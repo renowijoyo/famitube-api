@@ -220,6 +220,12 @@ export interface User {
   searchViewLimit?: number;
   searchViewsUsed?: number;
   searchRequireApproval?: boolean;
+  bonusStars?: number;
+  parentPin?: string;
+  dailyLimitMinutes?: number;
+  attentionTrackingEnabled?: boolean;
+  attentionPauseSeconds?: number;
+  attentionMinWatchPercent?: number;
   verificationToken?: string;
   verificationExpiresAt?: string;
   createdAt: string;

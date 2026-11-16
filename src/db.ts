@@ -239,6 +239,24 @@ function mapUserRow(row: RowDataPacket): User {
       row.searchRequireApproval !== undefined && row.searchRequireApproval !== null
         ? Boolean(row.searchRequireApproval)
         : true,
+    bonusStars: row.bonusStars !== undefined && row.bonusStars !== null ? Number(row.bonusStars) : 0,
+    parentPin: row.parentPin || '1234',
+    dailyLimitMinutes:
+      row.dailyLimitMinutes !== undefined && row.dailyLimitMinutes !== null
+        ? Number(row.dailyLimitMinutes)
+        : 45,
+    attentionTrackingEnabled:
+      row.attentionTrackingEnabled !== undefined && row.attentionTrackingEnabled !== null
+        ? Boolean(row.attentionTrackingEnabled)
+        : true,
+    attentionPauseSeconds:
+      row.attentionPauseSeconds !== undefined && row.attentionPauseSeconds !== null
+        ? Number(row.attentionPauseSeconds)
+        : 30,
+    attentionMinWatchPercent:
+      row.attentionMinWatchPercent !== undefined && row.attentionMinWatchPercent !== null
+        ? Number(row.attentionMinWatchPercent)
+        : 70,
     verificationToken: row.verificationToken || undefined,
     verificationExpiresAt: row.verificationExpiresAt || undefined,
     createdAt: row.createdAt
@@ -405,6 +423,12 @@ class Database {
     await this.ensureColumnExists('users', 'searchViewLimit', 'INT NOT NULL DEFAULT 0');
     await this.ensureColumnExists('users', 'searchViewsUsed', 'INT NOT NULL DEFAULT 0');
     await this.ensureColumnExists('users', 'searchRequireApproval', 'TINYINT(1) NOT NULL DEFAULT 1');
+    await this.ensureColumnExists('users', 'bonusStars', 'INT NOT NULL DEFAULT 0');
+    await this.ensureColumnExists('users', 'parentPin', "VARCHAR(8) NOT NULL DEFAULT '1234'");
+    await this.ensureColumnExists('users', 'dailyLimitMinutes', 'INT NOT NULL DEFAULT 45');
+    await this.ensureColumnExists('users', 'attentionTrackingEnabled', 'TINYINT(1) NOT NULL DEFAULT 1');
+    await this.ensureColumnExists('users', 'attentionPauseSeconds', 'INT NOT NULL DEFAULT 30');
+    await this.ensureColumnExists('users', 'attentionMinWatchPercent', 'INT NOT NULL DEFAULT 70');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -1321,6 +1345,11 @@ class Database {
       searchViewLimit?: number;
       searchRequireApproval?: boolean;
       resetSearchViewsUsed?: boolean;
+      parentPin?: string;
+      dailyLimitMinutes?: number;
+      attentionTrackingEnabled?: boolean;
+      attentionPauseSeconds?: number;
+      attentionMinWatchPercent?: number;
     }
   ): Promise<User | null> {
     const [rows] = await this.pool.query<RowDataPacket[]>(
@@ -1346,10 +1375,27 @@ class Database {
         ? updates.searchRequireApproval
         : (existing.searchRequireApproval !== false);
     const searchViewsUsed = updates.resetSearchViewsUsed ? 0 : (existing.searchViewsUsed ?? 0);
+    const parentPin = updates.parentPin !== undefined ? updates.parentPin : (existing.parentPin || '1234');
+    const dailyLimitMinutes =
+      updates.dailyLimitMinutes !== undefined
+        ? Math.max(5, Math.min(480, Number(updates.dailyLimitMinutes)))
+        : (existing.dailyLimitMinutes ?? 45);
+    const attentionTrackingEnabled =
+      updates.attentionTrackingEnabled !== undefined
+        ? updates.attentionTrackingEnabled
+        : (existing.attentionTrackingEnabled !== false);
+    const attentionPauseSeconds =
+      updates.attentionPauseSeconds !== undefined
+        ? Math.max(5, Math.min(300, Number(updates.attentionPauseSeconds)))
+        : (existing.attentionPauseSeconds ?? 30);
+    const attentionMinWatchPercent =
+      updates.attentionMinWatchPercent !== undefined
+        ? Math.max(10, Math.min(100, Number(updates.attentionMinWatchPercent)))
+        : (existing.attentionMinWatchPercent ?? 70);
 
     await this.pool.query(
       `UPDATE users
-       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?
+       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?
        WHERE id = ? AND parentId = ?`,
       [
         name,
@@ -1360,6 +1406,11 @@ class Database {
         searchViewLimit,
         searchViewsUsed,
         searchRequireApproval ? 1 : 0,
+        parentPin,
+        dailyLimitMinutes,
+        attentionTrackingEnabled ? 1 : 0,
+        attentionPauseSeconds,
+        attentionMinWatchPercent,
         childId,
         parentId
       ]
