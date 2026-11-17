@@ -76,6 +76,7 @@ export interface Channel {
   avatarUrl: string;
   bannerUrl?: string;
   category: string;
+  ageRating?: AgeRating;
   isVerified: boolean;
   channelType: ChannelType;
   scheduleStartTime?: string; // ISO timestamp anchor for LIVE_TV schedule

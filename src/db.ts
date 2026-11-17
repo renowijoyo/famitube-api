@@ -1,5 +1,10 @@
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
-import { normalizeVideoTags, videoMatchesAgeTag, videoMatchesCategoryTag } from './utils.js';
+import {
+  channelMatchesAgeRating,
+  normalizeVideoTags,
+  videoMatchesAgeTag,
+  videoMatchesCategoryTag
+} from './utils.js';
 import { matchesTagFilter, parseTagList, resolveEffectiveVideoTags } from './tags.js';
 import { getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
 import {
@@ -119,6 +124,7 @@ function mapChannelRow(row: RowDataPacket): Channel {
     avatarUrl: row.avatarUrl,
     bannerUrl: row.bannerUrl || undefined,
     category: row.category,
+    ageRating: (row.ageRating as AgeRating) || 'ALL',
     isVerified: Boolean(row.isVerified),
     channelType: row.channelType || 'ON_DEMAND',
     scheduleStartTime: row.scheduleStartTime || undefined,
@@ -363,6 +369,7 @@ class Database {
     await this.ensureColumnExists('channels', 'liveSchedules', 'JSON NULL');
     await this.ensureColumnExists('channels', 'scheduleTimezoneOffsetMinutes', 'INT NULL');
     await this.ensureColumnExists('channels', 'defaultTags', 'JSON NULL');
+    await this.ensureColumnExists('channels', 'ageRating', "VARCHAR(32) NOT NULL DEFAULT 'ALL'");
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS videos (
@@ -633,11 +640,14 @@ class Database {
 
     for (const ch of INITIAL_CHANNELS) {
       await this.pool.query(
-        `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, videoIds, liveSchedules)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, ageRating, isVerified, channelType, scheduleStartTime, videoIds, liveSchedules)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON DUPLICATE KEY UPDATE
+           name = VALUES(name),
+           description = VALUES(description),
            category = VALUES(category),
            channelType = VALUES(channelType),
+           ageRating = VALUES(ageRating),
            videoIds = VALUES(videoIds),
            liveSchedules = COALESCE(liveSchedules, VALUES(liveSchedules))`,
         [
@@ -647,6 +657,7 @@ class Database {
           ch.avatarUrl,
           ch.bannerUrl || null,
           ch.category,
+          ch.ageRating || 'ALL',
           ch.isVerified ? 1 : 0,
           ch.channelType,
           ch.scheduleStartTime || null,
@@ -657,9 +668,18 @@ class Database {
     }
 
     for (const v of INITIAL_VIDEOS) {
+      const normalizedTags = normalizeVideoTags(v.tags || [], v.ageRating, v.category);
       await this.pool.query(
-        `INSERT IGNORE INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           title = VALUES(title),
+           description = VALUES(description),
+           channelId = VALUES(channelId),
+           channelTitle = VALUES(channelTitle),
+           category = VALUES(category),
+           ageRating = VALUES(ageRating),
+           tags = VALUES(tags)`,
         [
           v.id,
           v.title,
@@ -677,7 +697,7 @@ class Database {
           v.isFeatured ? 1 : 0,
           v.isApproved ? 1 : 0,
           v.views,
-          JSON.stringify(v.tags || []),
+          JSON.stringify(normalizedTags),
           v.createdAt
         ]
       );
@@ -1019,20 +1039,23 @@ class Database {
   }
 
   // --- Channels ---
-  public async getChannelVideos(channelId: string): Promise<Video[]> {
-    return this.getVideos({ channelId, onlyApproved: true });
+  public async getChannelVideos(channelId: string, ageRating?: string): Promise<Video[]> {
+    return this.getVideos({ channelId, ageRating, onlyApproved: true });
   }
 
-  public async getChannels(options?: { onlyPublic?: boolean }): Promise<Channel[]> {
+  public async getChannels(options?: { onlyPublic?: boolean; ageRating?: string }): Promise<Channel[]> {
     const query = options?.onlyPublic
       ? "SELECT * FROM channels WHERE visibility = 'PUBLIC' OR visibility IS NULL"
       : 'SELECT * FROM channels';
     const [rows] = await this.pool.query<RowDataPacket[]>(query);
-    const channels = rows.map(mapChannelRow);
+    let channels = rows.map(mapChannelRow);
+    if (options?.ageRating && options.ageRating !== 'ALL') {
+      channels = channels.filter((c) => channelMatchesAgeRating(c.ageRating, options.ageRating));
+    }
     return Promise.all(
       channels.map(async (c) => ({
         ...c,
-        videoCount: (await this.getChannelVideos(c.id)).length
+        videoCount: (await this.getChannelVideos(c.id, options?.ageRating)).length
       }))
     );
   }
@@ -1065,6 +1088,7 @@ class Database {
         : (channel.videoIds || []);
     const normalized: Channel = {
       ...channel,
+      ageRating: channel.ageRating || 'ALL',
       channelType: channel.channelType || 'ON_DEMAND',
       scheduleStartTime: channel.scheduleStartTime || new Date().toISOString(),
       scheduleTimezoneOffsetMinutes:
@@ -1079,8 +1103,8 @@ class Database {
       createdAt: channel.createdAt || new Date().toISOString()
     };
     await this.pool.query(
-      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, scheduleTimezoneOffsetMinutes, videoIds, liveTimeline, liveSchedules, ownerId, visibility, defaultTags, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, ageRating, isVerified, channelType, scheduleStartTime, scheduleTimezoneOffsetMinutes, videoIds, liveTimeline, liveSchedules, ownerId, visibility, defaultTags, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         normalized.id,
         normalized.name,
@@ -1088,6 +1112,7 @@ class Database {
         normalized.avatarUrl,
         normalized.bannerUrl || null,
         normalized.category,
+        normalized.ageRating || 'ALL',
         normalized.isVerified ? 1 : 0,
         normalized.channelType,
         normalized.scheduleStartTime || null,
@@ -1112,6 +1137,7 @@ class Database {
       ...existing,
       ...updates,
       id,
+      ageRating: updates.ageRating || existing.ageRating || 'ALL',
       defaultTags:
         updates.defaultTags !== undefined
           ? parseTagList(updates.defaultTags)
@@ -1125,7 +1151,7 @@ class Database {
       merged.videoIds = Array.from(new Set(updates.liveTimeline.map(item => item.videoId)));
     }
     await this.pool.query(
-      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, scheduleTimezoneOffsetMinutes = ?, videoIds = ?, liveTimeline = ?, liveSchedules = ?, visibility = ?, defaultTags = ?
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, ageRating = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, scheduleTimezoneOffsetMinutes = ?, videoIds = ?, liveTimeline = ?, liveSchedules = ?, visibility = ?, defaultTags = ?
        WHERE id = ?`,
       [
         merged.name,
@@ -1133,6 +1159,7 @@ class Database {
         merged.avatarUrl,
         merged.bannerUrl || null,
         merged.category,
+        merged.ageRating || 'ALL',
         merged.isVerified ? 1 : 0,
         merged.channelType,
         merged.scheduleStartTime || null,
@@ -1694,8 +1721,8 @@ class Database {
     };
   }
 
-  public async getChannelsForUser(userId: string): Promise<ChannelWithAccess[]> {
-    const allChannels = await this.getChannels({ onlyPublic: false });
+  public async getChannelsForUser(userId: string, ageRating?: string): Promise<ChannelWithAccess[]> {
+    const allChannels = await this.getChannels({ onlyPublic: false, ageRating });
     const [memberRows] = await this.pool.query<RowDataPacket[]>(
       'SELECT * FROM channel_members WHERE userId = ?',
       [userId]

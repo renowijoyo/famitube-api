@@ -115,8 +115,15 @@ export function deriveAgeRatingFromBirthday(birthday: string): AgeRating | null 
   if (age < 0) return null;
   if (age <= 4) return 'TODDLER';
   if (age <= 7) return 'YOUNG_KIDS';
-  if (age <= 11) return 'OLDER_KIDS';
-  return 'ALL';
+  return 'OLDER_KIDS';
+}
+
+export function channelMatchesAgeRating(channelAgeRating: string | undefined, targetRating?: string): boolean {
+  if (!targetRating) return true;
+  const target = targetRating.trim().toUpperCase();
+  if (!target || target === 'ALL') return true;
+  const chAge = (channelAgeRating || 'ALL').trim().toUpperCase();
+  return chAge === target || chAge === 'ALL';
 }
 
 export function normalizeVideoTags(

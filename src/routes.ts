@@ -197,8 +197,9 @@ apiRouter.get(
 // Get Channels (public channels for client app)
 apiRouter.get(
   '/channels',
-  asyncHandler(async (_req, res) => {
-    const channels = await db.getChannels({ onlyPublic: true });
+  asyncHandler(async (req, res) => {
+    const ageRating = req.query.ageRating ? String(req.query.ageRating) : undefined;
+    const channels = await db.getChannels({ onlyPublic: true, ageRating });
     res.json({ success: true, data: channels });
   })
 );
@@ -235,7 +236,15 @@ apiRouter.get(
       }
     }
 
-    const videos = await db.getChannelVideos(id);
+    const queryAgeRating = req.query.ageRating ? String(req.query.ageRating) : undefined;
+    let effectiveAgeRating = queryAgeRating && queryAgeRating !== 'ALL' ? queryAgeRating : undefined;
+    if (!effectiveAgeRating && req.user?.role === 'CHILD') {
+      const childUser = await db.getUserById(req.user.sub);
+      effectiveAgeRating =
+        !childUser?.ageRating || childUser.ageRating === 'ALL' ? 'OLDER_KIDS' : childUser.ageRating;
+    }
+
+    const videos = await db.getChannelVideos(id, effectiveAgeRating);
     const liveState =
       access.channel.channelType === 'LIVE_TV' ? await db.getLiveChannelState(id) : null;
 
@@ -1102,6 +1111,7 @@ apiRouter.post(
       avatarUrl,
       bannerUrl,
       category,
+      ageRating = 'ALL',
       channelType = 'ON_DEMAND',
       visibility = 'PUBLIC',
       videoIds = []
@@ -1113,6 +1123,10 @@ apiRouter.post(
 
     const validType: ChannelType = channelType === 'LIVE_TV' ? 'LIVE_TV' : 'ON_DEMAND';
     const validVisibility: ChannelVisibility = visibility === 'PRIVATE' ? 'PRIVATE' : 'PUBLIC';
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const resolvedAgeRating: AgeRating = validRatings.includes(String(ageRating).toUpperCase() as AgeRating)
+      ? (String(ageRating).toUpperCase() as AgeRating)
+      : 'ALL';
 
     const newChannel: Channel = {
       id: `chan-${uuidv4().slice(0, 8)}`,
@@ -1123,6 +1137,7 @@ apiRouter.post(
         'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
       bannerUrl: bannerUrl || '',
       category: category || 'Cartoons & Fun',
+      ageRating: resolvedAgeRating,
       isVerified: true,
       channelType: validType,
       scheduleStartTime: new Date().toISOString(),
@@ -1280,6 +1295,7 @@ apiRouter.post(
       avatarUrl,
       bannerUrl = '',
       category = 'Cartoons & Fun',
+      ageRating = 'ALL',
       channelType = 'ON_DEMAND',
       visibility = 'PUBLIC',
       videoIds = [],
@@ -1295,6 +1311,10 @@ apiRouter.post(
 
     const validType: ChannelType = channelType === 'LIVE_TV' ? 'LIVE_TV' : 'ON_DEMAND';
     const validVisibility: ChannelVisibility = visibility === 'PRIVATE' ? 'PRIVATE' : 'PUBLIC';
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const resolvedAgeRating: AgeRating = validRatings.includes(String(ageRating).toUpperCase() as AgeRating)
+      ? (String(ageRating).toUpperCase() as AgeRating)
+      : 'ALL';
 
     if (validVisibility === 'PRIVATE') {
       const parentUser = await db.getUserById(req.user!.sub);
@@ -1320,6 +1340,7 @@ apiRouter.post(
         'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop',
       bannerUrl,
       category,
+      ageRating: resolvedAgeRating,
       isVerified: true,
       channelType: validType,
       scheduleStartTime: new Date().toISOString(),
@@ -2210,9 +2231,21 @@ apiRouter.get(
 
     const parentOrSelfId = user.role === 'CHILD' && user.parentId ? user.parentId : user.id;
     const entitlements = await db.getEffectiveEntitlements(user);
-    const accessibleChannels = await db.getChannelsForUser(parentOrSelfId);
-    const ageRating = user.ageRating && user.ageRating !== 'ALL' ? user.ageRating : undefined;
-    const { includeTags, anyTags, excludeTags, preset, presets } = req.query;
+    const { includeTags, anyTags, excludeTags, preset, presets, ageRating: queryAgeRaw } = req.query;
+    const queryAgeRating = queryAgeRaw ? String(queryAgeRaw) : undefined;
+    const effectiveAgeRating =
+      user.role === 'CHILD'
+        ? queryAgeRating && queryAgeRating !== 'ALL'
+          ? queryAgeRating
+          : !user.ageRating || user.ageRating === 'ALL'
+            ? 'OLDER_KIDS'
+            : user.ageRating
+        : queryAgeRating && queryAgeRating !== 'ALL'
+          ? queryAgeRating
+          : user.ageRating && user.ageRating !== 'ALL'
+            ? user.ageRating
+            : undefined;
+    const accessibleChannels = await db.getChannelsForUser(parentOrSelfId, effectiveAgeRating);
     const resolvedIncludeTags = parseTagList(includeTags);
     const resolvedAnyTags = parseTagList(anyTags);
     const resolvedExcludeTags = parseTagList(excludeTags);
@@ -2241,7 +2274,7 @@ apiRouter.get(
     }
 
     const videos = await db.getVideos({
-      ageRating,
+      ageRating: effectiveAgeRating,
       onlyApproved: true,
       includeTags: resolvedIncludeTags.length > 0 ? resolvedIncludeTags : undefined,
       anyTags: resolvedAnyTags.length > 0 ? resolvedAnyTags : undefined,
