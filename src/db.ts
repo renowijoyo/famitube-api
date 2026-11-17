@@ -1559,7 +1559,7 @@ class Database {
     const parentPin = updates.parentPin !== undefined ? updates.parentPin : (existing.parentPin || '1234');
     const dailyLimitMinutes =
       updates.dailyLimitMinutes !== undefined
-        ? Math.max(5, Math.min(480, Number(updates.dailyLimitMinutes)))
+        ? Math.max(0, Math.min(720, Number(updates.dailyLimitMinutes)))
         : (existing.dailyLimitMinutes ?? 45);
     const attentionTrackingEnabled =
       updates.attentionTrackingEnabled !== undefined
