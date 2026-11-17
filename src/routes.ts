@@ -34,6 +34,7 @@ import {
 } from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
+import { buildPremiumRequiredPayload } from './entitlements.js';
 import {
   Video,
   AgeRating,
@@ -49,7 +50,8 @@ import {
   ChannelType,
   QuizType,
   LockoutAction,
-  KidChannelQuizState
+  KidChannelQuizState,
+  PlanTier
 } from './types.js';
 
 function resolvePermissionsInput(
@@ -764,6 +766,7 @@ apiRouter.get(
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const dbUser = await db.getUserById(req.user!.sub);
+    const entitlements = dbUser ? await db.getEffectiveEntitlements(dbUser) : null;
     res.json({
       success: true,
       user: {
@@ -772,8 +775,54 @@ apiRouter.get(
         youtubeSearchEnabled: Boolean(dbUser?.youtubeSearchEnabled),
         searchViewLimit: dbUser?.searchViewLimit ?? 0,
         searchViewsUsed: dbUser?.searchViewsUsed ?? 0,
-        searchRequireApproval: dbUser?.searchRequireApproval !== false
+        searchRequireApproval: dbUser?.searchRequireApproval !== false,
+        plan: entitlements?.plan ?? 'FREE',
+        entitlements
       }
+    });
+  })
+);
+
+apiRouter.get(
+  '/subscription/entitlements',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const dbUser = await db.getUserById(req.user!.sub);
+    if (!dbUser) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    const entitlements = await db.getEffectiveEntitlements(dbUser);
+    res.json({
+      success: true,
+      data: entitlements
+    });
+  })
+);
+
+apiRouter.post(
+  '/subscription/plan',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const rawPlan = String(req.body?.plan || '').toUpperCase();
+    if (rawPlan !== 'FREE' && rawPlan !== 'PREMIUM') {
+      return res.status(400).json({ success: false, message: 'plan must be FREE or PREMIUM' });
+    }
+    const plan = rawPlan as PlanTier;
+    const durationDays = req.body?.durationDays !== undefined ? Number(req.body.durationDays) : null;
+    const planExpiresAt =
+      plan === 'PREMIUM' && durationDays && Number.isFinite(durationDays) && durationDays > 0
+        ? new Date(Date.now() + durationDays * 86400 * 1000).toISOString()
+        : null;
+
+    const updated = await db.updateUserPlan(req.user!.sub, plan, planExpiresAt);
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    const entitlements = await db.getEffectiveEntitlements(updated);
+    res.json({
+      success: true,
+      data: entitlements
     });
   })
 );
@@ -1246,6 +1295,21 @@ apiRouter.post(
 
     const validType: ChannelType = channelType === 'LIVE_TV' ? 'LIVE_TV' : 'ON_DEMAND';
     const validVisibility: ChannelVisibility = visibility === 'PRIVATE' ? 'PRIVATE' : 'PUBLIC';
+
+    if (validVisibility === 'PRIVATE') {
+      const parentUser = await db.getUserById(req.user!.sub);
+      if (parentUser) {
+        const entitlements = await db.getEffectiveEntitlements(parentUser);
+        if (!entitlements.allowPrivateChannels) {
+          return res.status(403).json(
+            buildPremiumRequiredPayload(
+              'private_channels',
+              'Private family channels require FamiTube Family Pass (Premium).'
+            )
+          );
+        }
+      }
+    }
 
     const newChannel: Channel = {
       id: `chan-${uuidv4().slice(0, 8)}`,
@@ -1974,6 +2038,23 @@ apiRouter.post(
       return res.status(409).json({ success: false, message: 'Email is already registered' });
     }
 
+    const parentUser = await db.getUserById(req.user!.sub);
+    if (parentUser) {
+      const entitlements = await db.getEffectiveEntitlements(parentUser);
+      if (entitlements.maxChildren !== null) {
+        const currentChildren = await db.getChildrenByParentId(req.user!.sub);
+        if (currentChildren.length >= entitlements.maxChildren) {
+          return res.status(403).json(
+            buildPremiumRequiredPayload(
+              'multiple_children',
+              `Free plan supports up to ${entitlements.maxChildren} child profile. Upgrade to Family Pass for unlimited child profiles.`,
+              entitlements.maxChildren
+            )
+          );
+        }
+      }
+    }
+
     const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
     const derivedFromBirthday = cleanBirthday ? deriveAgeRatingFromBirthday(cleanBirthday) : null;
     const resolvedRating: AgeRating =
@@ -2128,6 +2209,7 @@ apiRouter.get(
     }
 
     const parentOrSelfId = user.role === 'CHILD' && user.parentId ? user.parentId : user.id;
+    const entitlements = await db.getEffectiveEntitlements(user);
     const accessibleChannels = await db.getChannelsForUser(parentOrSelfId);
     const ageRating = user.ageRating && user.ageRating !== 'ALL' ? user.ageRating : undefined;
     const { includeTags, anyTags, excludeTags, preset, presets } = req.query;
@@ -2135,6 +2217,28 @@ apiRouter.get(
     const resolvedAnyTags = parseTagList(anyTags);
     const resolvedExcludeTags = parseTagList(excludeTags);
     const resolvedPresetIds = parseTagList(presets ?? preset).map((p) => p.toLowerCase());
+
+    if (
+      !entitlements.allowCustomTagRules &&
+      (resolvedIncludeTags.length > 0 || resolvedAnyTags.length > 0 || resolvedExcludeTags.length > 0)
+    ) {
+      return res.status(403).json(
+        buildPremiumRequiredPayload(
+          'custom_tag_rules',
+          'Custom tag include/exclude rules require FamiTube Family Pass (Premium).'
+        )
+      );
+    }
+
+    if (entitlements.maxActivePresets !== null && resolvedPresetIds.length > entitlements.maxActivePresets) {
+      return res.status(403).json(
+        buildPremiumRequiredPayload(
+          'multiple_presets',
+          `Free plan supports up to ${entitlements.maxActivePresets} active filter preset. Upgrade to Family Pass to stack multiple presets.`,
+          entitlements.maxActivePresets
+        )
+      );
+    }
 
     const videos = await db.getVideos({
       ageRating,
@@ -2150,6 +2254,7 @@ apiRouter.get(
       data: {
         channels: accessibleChannels,
         videos,
+        entitlements,
         parentalSettings: {
           parentPin: user.parentPin || '1234',
           dailyLimitMinutes: user.dailyLimitMinutes ?? 45,
@@ -2217,6 +2322,28 @@ apiRouter.put(
     }
 
     const quizEnabled = Boolean(req.body.quizEnabled);
+    if (quizEnabled) {
+      const parentUser = await db.getUserById(parentId);
+      if (parentUser) {
+        const entitlements = await db.getEffectiveEntitlements(parentUser);
+        if (entitlements.maxQuizChannels !== null) {
+          const existingRules = await db.getChannelQuizRulesByParent(parentId);
+          const alreadyEnabledForThisChannel = existingRules.some(
+            (r) => r.channelId === channelId && r.quizEnabled
+          );
+          const enabledCount = existingRules.filter((r) => r.quizEnabled).length;
+          if (!alreadyEnabledForThisChannel && enabledCount >= entitlements.maxQuizChannels) {
+            return res.status(403).json(
+              buildPremiumRequiredPayload(
+                'unlimited_quiz_walls',
+                `Free plan supports up to ${entitlements.maxQuizChannels} channel Quiz Wall. Upgrade to Family Pass for unlimited Quiz Walls.`,
+                entitlements.maxQuizChannels
+              )
+            );
+          }
+        }
+      }
+    }
     const rawQuizType = String(req.body.quizType || 'MATH').toUpperCase() as QuizType;
     const quizType: QuizType = VALID_QUIZ_TYPES.includes(rawQuizType) ? rawQuizType : 'MATH';
     const rawAction = String(req.body.lockoutAction || 'LOCKOUT').toUpperCase() as LockoutAction;
@@ -3034,6 +3161,22 @@ apiRouter.post(
     const title = String(req.body?.title || '').trim();
     if (!title) {
       return res.status(400).json({ success: false, message: 'Playlist title is required' });
+    }
+    const dbUser = await db.getUserById(req.user!.sub);
+    if (dbUser) {
+      const entitlements = await db.getEffectiveEntitlements(dbUser);
+      if (entitlements.maxPlaylists !== null) {
+        const currentPlaylists = await db.getKidPlaylists(req.user!.sub);
+        if (currentPlaylists.length >= entitlements.maxPlaylists) {
+          return res.status(403).json(
+            buildPremiumRequiredPayload(
+              'unlimited_playlists',
+              `Free plan supports up to ${entitlements.maxPlaylists} custom playlist. Upgrade to Family Pass for unlimited playlists.`,
+              entitlements.maxPlaylists
+            )
+          );
+        }
+      }
     }
     const pl = await db.createKidPlaylist(req.user!.sub, title);
     res.status(201).json({ success: true, data: pl });

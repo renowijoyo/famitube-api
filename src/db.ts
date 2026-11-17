@@ -1,6 +1,7 @@
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 import { normalizeVideoTags, videoMatchesAgeTag, videoMatchesCategoryTag } from './utils.js';
 import { matchesTagFilter, parseTagList, resolveEffectiveVideoTags } from './tags.js';
+import { getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
 import {
   Video,
   AgeRating,
@@ -24,6 +25,8 @@ import {
   UpNextItem,
   User,
   UserRole,
+  PlanTier,
+  PlanEntitlements,
   QuizType,
   LockoutAction,
   ChannelQuizRule,
@@ -231,6 +234,8 @@ function mapUserRow(row: RowDataPacket): User {
     passwordHash: row.passwordHash,
     role: (row.role as UserRole) || 'PARENT',
     parentId: row.parentId || undefined,
+    plan: (row.plan as PlanTier) || 'FREE',
+    planExpiresAt: row.planExpiresAt || null,
     birthday: row.birthday || undefined,
     ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
@@ -432,6 +437,8 @@ class Database {
     await this.ensureColumnExists('users', 'attentionTrackingEnabled', 'TINYINT(1) NOT NULL DEFAULT 1');
     await this.ensureColumnExists('users', 'attentionPauseSeconds', 'INT NOT NULL DEFAULT 30');
     await this.ensureColumnExists('users', 'attentionMinWatchPercent', 'INT NOT NULL DEFAULT 70');
+    await this.ensureColumnExists('users', 'plan', "VARCHAR(16) NOT NULL DEFAULT 'FREE'");
+    await this.ensureColumnExists('users', 'planExpiresAt', 'VARCHAR(64) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -1598,6 +1605,31 @@ class Database {
       [childId, parentId]
     );
     return result.affectedRows > 0;
+  }
+
+  public async updateUserPlan(
+    userId: string,
+    plan: PlanTier,
+    planExpiresAt?: string | null
+  ): Promise<User | null> {
+    await this.pool.query('UPDATE users SET plan = ?, planExpiresAt = ? WHERE id = ?', [
+      plan,
+      planExpiresAt ?? null,
+      userId
+    ]);
+    return (await this.getUserById(userId)) || null;
+  }
+
+  public async getEffectiveEntitlements(user: User): Promise<PlanEntitlements> {
+    let planSource: User = user;
+    if (user.role === 'CHILD' && user.parentId) {
+      const parent = await this.getUserById(user.parentId);
+      if (parent) {
+        planSource = parent;
+      }
+    }
+    const resolvedPlan = resolveUserPlan(planSource);
+    return getEntitlementsForPlan(resolvedPlan, planSource.planExpiresAt);
   }
 
   public async markUserVerified(id: string): Promise<void> {

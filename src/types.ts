@@ -207,6 +207,23 @@ export interface DatabaseSchema {
 
 export type UserRole = 'PARENT' | 'CHILD';
 
+export type PlanTier = 'FREE' | 'PREMIUM';
+
+export interface PlanEntitlements {
+  plan: PlanTier;
+  isPremium: boolean;
+  planExpiresAt?: string | null;
+  maxChildren: number | null;
+  maxQuizChannels: number | null;
+  maxPlaylists: number | null;
+  maxActivePresets: number | null;
+  allowCustomTagRules: boolean;
+  allowPrivateChannels: boolean;
+  allowAttentionTracking: boolean;
+  allowWeeklyInsights: boolean;
+  dailySearchRequestLimit: number | null;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -214,6 +231,8 @@ export interface User {
   passwordHash: string;
   role: UserRole;
   parentId?: string;
+  plan?: PlanTier;
+  planExpiresAt?: string | null;
   birthday?: string; // YYYY-MM-DD
   ageRating?: AgeRating;
   isVerified: boolean;
