@@ -1,5 +1,6 @@
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 import { normalizeVideoTags, videoMatchesAgeTag, videoMatchesCategoryTag } from './utils.js';
+import { matchesTagFilter, parseTagList, resolveEffectiveVideoTags } from './tags.js';
 import {
   Video,
   AgeRating,
@@ -125,6 +126,7 @@ function mapChannelRow(row: RowDataPacket): Channel {
     liveSchedules: parseJson<LiveDaySchedule[] | undefined>(row.liveSchedules, undefined),
     ownerId: row.ownerId || undefined,
     visibility: (row.visibility as ChannelVisibility) || 'PUBLIC',
+    defaultTags: parseJson<string[]>(row.defaultTags, []),
     createdAt: row.createdAt || undefined
   };
 }
@@ -355,6 +357,7 @@ class Database {
     await this.ensureColumnExists('channels', 'liveTimeline', 'JSON NULL');
     await this.ensureColumnExists('channels', 'liveSchedules', 'JSON NULL');
     await this.ensureColumnExists('channels', 'scheduleTimezoneOffsetMinutes', 'INT NULL');
+    await this.ensureColumnExists('channels', 'defaultTags', 'JSON NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS videos (
@@ -691,6 +694,125 @@ class Database {
         JSON.stringify(INITIAL_CONFIG)
       ]);
     }
+
+    const nowIso = new Date().toISOString();
+    const scaryVideoId = 'vid-scary-01';
+    const scaryChannel = INITIAL_CHANNELS[0]?.id || 'ch-science';
+    await this.pool.query(
+      `INSERT IGNORE INTO videos (id, title, description, sourceType, sourceUrl, youtubeVideoId, thumbnailUrl, duration, channelId, channelTitle, channelAvatar, category, ageRating, isFeatured, isApproved, views, tags, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        scaryVideoId,
+        'scary video',
+        'Spooky mystery story that may be too intense for younger viewers.',
+        'YOUTUBE',
+        'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        'dQw4w9WgXcQ',
+        'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+        210,
+        scaryChannel,
+        'Mystery Storytime',
+        'https://api.dicebear.com/7.x/shapes/svg?seed=scary',
+        'Stories & Reading',
+        'OLDER_KIDS',
+        0,
+        1,
+        42,
+        JSON.stringify(['age:older_kids', 'category:stories & reading', 'spooky']),
+        nowIso
+      ]
+    );
+
+    const [vprRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM video_parent_reviews');
+    if (Number(vprRows[0]?.cnt || 0) === 0) {
+      const sampleParents = [
+        { id: 'seed-parent-1', name: 'Maya Lin' },
+        { id: 'seed-parent-2', name: 'Daniel Carter' },
+        { id: 'seed-parent-3', name: 'Sarah Jenkins' },
+        { id: 'seed-parent-4', name: 'Rina Kusuma' },
+        { id: 'seed-parent-5', name: 'Alex Rivera' }
+      ];
+      const positiveComments = [
+        'Great educational pacing and super clear explanations!',
+        'My kids loved this and kept talking about what they learned.',
+        'Calm, engaging, and completely age-appropriate.',
+        'Wonderful visuals and positive message for the whole family.',
+        'Highly recommended — one of our favorite safe picks!'
+      ];
+
+      const [vidRows] = await this.pool.query<RowDataPacket[]>(
+        'SELECT * FROM videos WHERE isApproved = 1 AND id != ? ORDER BY createdAt DESC LIMIT 10',
+        [scaryVideoId]
+      );
+
+      for (const vRow of vidRows) {
+        const v = mapVideoRow(vRow);
+        for (let i = 0; i < sampleParents.length; i++) {
+          const p = sampleParents[i];
+          await this.pool.query(
+            `INSERT IGNORE INTO video_parent_reviews
+              (id, videoKey, videoId, youtubeVideoId, videoTitle, channelTitle, thumbnailUrl, sourceType, sourceUrl, parentId, parentName, rating, comment, createdAt, updatedAt)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+              `vpr-${v.id}-${p.id}`,
+              v.id,
+              v.id,
+              v.youtubeVideoId || null,
+              v.title,
+              v.channelTitle,
+              v.thumbnailUrl,
+              v.sourceType,
+              v.sourceUrl,
+              p.id,
+              p.name,
+              'RECOMMENDED',
+              positiveComments[i % positiveComments.length],
+              nowIso,
+              nowIso
+            ]
+          );
+        }
+      }
+
+      const [scaryRows] = await this.pool.query<RowDataPacket[]>(
+        'SELECT * FROM videos WHERE id = ? LIMIT 1',
+        [scaryVideoId]
+      );
+      if (scaryRows.length > 0) {
+        const sv = mapVideoRow(scaryRows[0]);
+        const scaryReviews = [
+          { parent: sampleParents[0], rating: 'CAUTION', comment: 'Too spooky for younger kids — definitely preview before showing.' },
+          { parent: sampleParents[1], rating: 'CAUTION', comment: 'Has sudden loud sound effects and dark scenes.' },
+          { parent: sampleParents[2], rating: 'CAUTION', comment: 'Scared my 6-year-old; better for older kids only.' },
+          { parent: sampleParents[3], rating: 'CAUTION', comment: 'Intense suspenseful music; recommend parental supervision.' },
+          { parent: sampleParents[4], rating: 'RECOMMENDED', comment: 'Fine for older kids who enjoy mild spooky stories.' }
+        ];
+        for (const sr of scaryReviews) {
+          await this.pool.query(
+            `INSERT IGNORE INTO video_parent_reviews
+              (id, videoKey, videoId, youtubeVideoId, videoTitle, channelTitle, thumbnailUrl, sourceType, sourceUrl, parentId, parentName, rating, comment, createdAt, updatedAt)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+              `vpr-${sv.id}-${sr.parent.id}`,
+              sv.id,
+              sv.id,
+              sv.youtubeVideoId || null,
+              sv.title,
+              sv.channelTitle,
+              sv.thumbnailUrl,
+              sv.sourceType,
+              sv.sourceUrl,
+              sr.parent.id,
+              sr.parent.name,
+              sr.rating,
+              sr.comment,
+              nowIso,
+              nowIso
+            ]
+          );
+        }
+      }
+    }
   }
 
   // --- Videos ---
@@ -701,11 +823,36 @@ class Database {
     search?: string;
     onlyApproved?: boolean;
     featured?: boolean;
+    includeTags?: string[];
+    anyTags?: string[];
+    excludeTags?: string[];
+    presetIds?: string[];
   }): Promise<Video[]> {
     const [rows] = await this.pool.query<RowDataPacket[]>(
       'SELECT * FROM videos ORDER BY createdAt DESC'
     );
-    let list = rows.map(mapVideoRow);
+    const [channelRows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT id, defaultTags FROM channels'
+    );
+    const channelTagsMap = new Map<string, string[]>();
+    for (const chRow of channelRows) {
+      const chTags = parseJson<string[]>(chRow.defaultTags, []);
+      if (chTags.length > 0) {
+        channelTagsMap.set(chRow.id, chTags);
+      }
+    }
+
+    let list = rows.map((row) => {
+      const video = mapVideoRow(row);
+      const chTags = channelTagsMap.get(video.channelId);
+      if (chTags && chTags.length > 0) {
+        return {
+          ...video,
+          tags: resolveEffectiveVideoTags(video.tags, chTags, video.ageRating, video.category)
+        };
+      }
+      return video;
+    });
 
     if (filter?.onlyApproved ?? true) {
       list = list.filter((v) => v.isApproved);
@@ -738,6 +885,22 @@ class Database {
           v.description.toLowerCase().includes(q) ||
           v.tags.some((t) => t.toLowerCase().includes(q)) ||
           v.channelTitle.toLowerCase().includes(q)
+      );
+    }
+
+    if (
+      (filter?.includeTags && filter.includeTags.length > 0) ||
+      (filter?.anyTags && filter.anyTags.length > 0) ||
+      (filter?.excludeTags && filter.excludeTags.length > 0) ||
+      (filter?.presetIds && filter.presetIds.length > 0)
+    ) {
+      list = list.filter((v) =>
+        matchesTagFilter(v.tags, {
+          includeTags: filter?.includeTags,
+          anyTags: filter?.anyTags,
+          excludeTags: filter?.excludeTags,
+          presetIds: filter?.presetIds
+        })
       );
     }
 
@@ -905,11 +1068,12 @@ class Database {
       liveTimeline: timeline,
       liveSchedules: schedules,
       visibility: channel.visibility || 'PUBLIC',
+      defaultTags: parseTagList(channel.defaultTags),
       createdAt: channel.createdAt || new Date().toISOString()
     };
     await this.pool.query(
-      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, scheduleTimezoneOffsetMinutes, videoIds, liveTimeline, liveSchedules, ownerId, visibility, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, isVerified, channelType, scheduleStartTime, scheduleTimezoneOffsetMinutes, videoIds, liveTimeline, liveSchedules, ownerId, visibility, defaultTags, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         normalized.id,
         normalized.name,
@@ -926,6 +1090,7 @@ class Database {
         normalized.liveSchedules ? JSON.stringify(normalized.liveSchedules) : null,
         normalized.ownerId || null,
         normalized.visibility || 'PUBLIC',
+        JSON.stringify(normalized.defaultTags || []),
         normalized.createdAt || null
       ]
     );
@@ -936,7 +1101,15 @@ class Database {
     const existing = await this.getChannelById(id);
     if (!existing) return null;
 
-    const merged: Channel = { ...existing, ...updates, id };
+    const merged: Channel = {
+      ...existing,
+      ...updates,
+      id,
+      defaultTags:
+        updates.defaultTags !== undefined
+          ? parseTagList(updates.defaultTags)
+          : existing.defaultTags || []
+    };
     if (Array.isArray(updates.liveSchedules) && updates.liveSchedules.length > 0 && !updates.videoIds) {
       merged.videoIds = Array.from(
         new Set(updates.liveSchedules.flatMap(s => (s.slots || []).map(slot => slot.videoId)))
@@ -945,7 +1118,7 @@ class Database {
       merged.videoIds = Array.from(new Set(updates.liveTimeline.map(item => item.videoId)));
     }
     await this.pool.query(
-      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, scheduleTimezoneOffsetMinutes = ?, videoIds = ?, liveTimeline = ?, liveSchedules = ?, visibility = ?
+      `UPDATE channels SET name = ?, description = ?, avatarUrl = ?, bannerUrl = ?, category = ?, isVerified = ?, channelType = ?, scheduleStartTime = ?, scheduleTimezoneOffsetMinutes = ?, videoIds = ?, liveTimeline = ?, liveSchedules = ?, visibility = ?, defaultTags = ?
        WHERE id = ?`,
       [
         merged.name,
@@ -961,6 +1134,7 @@ class Database {
         merged.liveTimeline ? JSON.stringify(merged.liveTimeline) : null,
         merged.liveSchedules ? JSON.stringify(merged.liveSchedules) : null,
         merged.visibility || 'PUBLIC',
+        JSON.stringify(merged.defaultTags || []),
         id
       ]
     );

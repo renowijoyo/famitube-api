@@ -86,6 +86,7 @@ export interface Channel {
   videoCount?: number;
   ownerId?: string;
   visibility?: ChannelVisibility;
+  defaultTags?: string[];
   createdAt?: string;
 }
 

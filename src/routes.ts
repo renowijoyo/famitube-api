@@ -33,6 +33,7 @@ import {
   deriveAgeRatingFromBirthday
 } from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
+import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import {
   Video,
   AgeRating,
@@ -99,11 +100,39 @@ const asyncHandler =
 // CLIENT APP APIS (Android App Consumption)
 // ==========================================
 
+// Get canonical tag taxonomy and parent filter presets
+apiRouter.get('/tags/taxonomy', (_req, res) => {
+  res.json({
+    success: true,
+    data: {
+      categories: TAG_TAXONOMY,
+      presets: PARENT_FILTER_PRESETS
+    }
+  });
+});
+
 // Get list of approved videos with optional filters
 apiRouter.get(
   '/videos',
   asyncHandler(async (req, res) => {
-    const { category, channelId, ageRating, search, featured } = req.query;
+    const {
+      category,
+      channelId,
+      ageRating,
+      search,
+      featured,
+      tags,
+      includeTags,
+      anyTags,
+      excludeTags,
+      preset,
+      presets
+    } = req.query;
+
+    const resolvedIncludeTags = parseTagList(includeTags ?? tags);
+    const resolvedAnyTags = parseTagList(anyTags);
+    const resolvedExcludeTags = parseTagList(excludeTags);
+    const resolvedPresetIds = parseTagList(presets ?? preset).map((p) => p.toLowerCase());
 
     const videos = await db.getVideos({
       category: category ? String(category) : undefined,
@@ -111,7 +140,11 @@ apiRouter.get(
       ageRating: ageRating ? String(ageRating) : undefined,
       search: search ? String(search) : undefined,
       featured: featured !== undefined ? featured === 'true' : undefined,
-      onlyApproved: true
+      onlyApproved: true,
+      includeTags: resolvedIncludeTags.length > 0 ? resolvedIncludeTags : undefined,
+      anyTags: resolvedAnyTags.length > 0 ? resolvedAnyTags : undefined,
+      excludeTags: resolvedExcludeTags.length > 0 ? resolvedExcludeTags : undefined,
+      presetIds: resolvedPresetIds.length > 0 ? resolvedPresetIds : undefined
     });
 
     res.json({
@@ -1201,6 +1234,7 @@ apiRouter.post(
       channelType = 'ON_DEMAND',
       visibility = 'PUBLIC',
       videoIds = [],
+      defaultTags = [],
       liveTimeline,
       liveSchedules,
       scheduleTimezoneOffsetMinutes
@@ -1232,6 +1266,7 @@ apiRouter.post(
       liveSchedules: Array.isArray(liveSchedules) ? liveSchedules : undefined,
       ownerId: req.user!.sub,
       visibility: validVisibility,
+      defaultTags: parseTagList(defaultTags),
       createdAt: new Date().toISOString()
     };
 
@@ -2095,7 +2130,20 @@ apiRouter.get(
     const parentOrSelfId = user.role === 'CHILD' && user.parentId ? user.parentId : user.id;
     const accessibleChannels = await db.getChannelsForUser(parentOrSelfId);
     const ageRating = user.ageRating && user.ageRating !== 'ALL' ? user.ageRating : undefined;
-    const videos = await db.getVideos({ ageRating, onlyApproved: true });
+    const { includeTags, anyTags, excludeTags, preset, presets } = req.query;
+    const resolvedIncludeTags = parseTagList(includeTags);
+    const resolvedAnyTags = parseTagList(anyTags);
+    const resolvedExcludeTags = parseTagList(excludeTags);
+    const resolvedPresetIds = parseTagList(presets ?? preset).map((p) => p.toLowerCase());
+
+    const videos = await db.getVideos({
+      ageRating,
+      onlyApproved: true,
+      includeTags: resolvedIncludeTags.length > 0 ? resolvedIncludeTags : undefined,
+      anyTags: resolvedAnyTags.length > 0 ? resolvedAnyTags : undefined,
+      excludeTags: resolvedExcludeTags.length > 0 ? resolvedExcludeTags : undefined,
+      presetIds: resolvedPresetIds.length > 0 ? resolvedPresetIds : undefined
+    });
 
     res.json({
       success: true,
