@@ -51,15 +51,126 @@ export interface YouTubeSearchResult {
   thumbnailUrl: string;
 }
 
-export async function searchYouTubeVideos(query: string, limit = 12): Promise<YouTubeSearchResult[]> {
-  const cleanQuery = String(query || '').trim();
-  if (!cleanQuery) return [];
+export interface YouTubeSearchOptions {
+  regionCode?: string;
+  languageCode?: string;
+}
+
+const geoCoordCache = new Map<string, string>();
+
+export async function resolveRegionFromCoords(lat: number, lon: number): Promise<string | null> {
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  const key = `${lat.toFixed(2)},${lon.toFixed(2)}`;
+  const cached = geoCoordCache.get(key);
+  if (cached) return cached;
+
   try {
     const res = await fetch(
-      `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQuery)}&sp=EgIQAQ%253D%253D`,
+      `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${encodeURIComponent(String(lat))}&lon=${encodeURIComponent(String(lon))}&zoom=3`,
+      {
+        headers: { 'User-Agent': 'FamiTube/1.0 (https://famitube-api.gamantha.my.id)' },
+        signal: AbortSignal.timeout(2500)
+      }
+    );
+    if (!res.ok) return null;
+    const data = (await res.json()) as { address?: { country_code?: string } };
+    const code = String(data?.address?.country_code || '').trim().toUpperCase();
+    if (code.length === 2 && /^[A-Z]+$/.test(code)) {
+      geoCoordCache.set(key, code);
+      return code;
+    }
+  } catch {
+    // Fall back to header/default geo resolution on timeout or network error
+  }
+  return null;
+}
+
+export async function resolveGeoForSearch(
+  headers: Record<string, string | string[] | undefined>,
+  params: { region?: string; lang?: string; lat?: unknown; lon?: unknown }
+): Promise<{ regionCode: string; languageCode: string }> {
+  const latNum = params.lat !== undefined ? Number(params.lat) : NaN;
+  const lonNum = params.lon !== undefined ? Number(params.lon) : NaN;
+  const gpsRegion =
+    Number.isFinite(latNum) && Number.isFinite(lonNum)
+      ? await resolveRegionFromCoords(latNum, lonNum)
+      : null;
+
+  return resolveGeoFromHeaders(
+    headers,
+    gpsRegion || params.region,
+    params.lang || (gpsRegion === 'ID' ? 'id' : undefined)
+  );
+}
+
+export function resolveGeoFromHeaders(
+  headers: Record<string, string | string[] | undefined>,
+  queryRegion?: string,
+  queryLang?: string
+): { regionCode: string; languageCode: string } {
+  const cleanCode = (val: unknown, len = 2) => {
+    const s = String(val || '').trim();
+    return s.length === len && /^[a-zA-Z]+$/.test(s) ? s : '';
+  };
+
+  let region = cleanCode(queryRegion, 2).toUpperCase();
+  let lang = cleanCode(queryLang, 2).toLowerCase();
+
+  // Check common CDN / reverse-proxy country headers
+  if (!region) {
+    const geoHeaders = ['cf-ipcountry', 'x-vercel-ip-country', 'x-country-code', 'cloudfront-viewer-country'];
+    for (const h of geoHeaders) {
+      const val = Array.isArray(headers[h]) ? headers[h][0] : headers[h];
+      const code = cleanCode(val, 2).toUpperCase();
+      if (code && code !== 'XX') {
+        region = code;
+        break;
+      }
+    }
+  }
+
+  // Parse Accept-Language header (e.g. "id-ID,id;q=0.9,en-US;q=0.8")
+  const acceptLangRaw = Array.isArray(headers['accept-language'])
+    ? headers['accept-language'][0]
+    : headers['accept-language'];
+  if (acceptLangRaw) {
+    const firstTag = String(acceptLangRaw).split(',')[0]?.split(';')[0]?.trim() || '';
+    const parts = firstTag.split(/[-_]/);
+    if (!lang && parts[0]) {
+      lang = cleanCode(parts[0], 2).toLowerCase();
+    }
+    if (!region && parts[1]) {
+      region = cleanCode(parts[1], 2).toUpperCase();
+    }
+  }
+
+  if (!region) {
+    region = cleanCode(process.env.YOUTUBE_DEFAULT_REGION, 2).toUpperCase() || 'ID';
+  }
+  if (!lang) {
+    lang = cleanCode(process.env.YOUTUBE_DEFAULT_LANG, 2).toLowerCase() || (region === 'ID' ? 'id' : 'en');
+  }
+
+  return { regionCode: region, languageCode: lang };
+}
+
+export async function searchYouTubeVideos(
+  query: string,
+  limit = 12,
+  options?: YouTubeSearchOptions
+): Promise<YouTubeSearchResult[]> {
+  const cleanQuery = String(query || '').trim();
+  if (!cleanQuery) return [];
+  const region = (options?.regionCode || 'ID').toUpperCase();
+  const lang = (options?.languageCode || 'en').toLowerCase();
+  try {
+    const res = await fetch(
+      `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQuery)}&sp=EgIQAQ%253D%253D&gl=${encodeURIComponent(region)}&hl=${encodeURIComponent(lang)}`,
       {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          'Accept-Language': `${lang}-${region},${lang};q=0.9,en;q=0.8`
         }
       }
     );

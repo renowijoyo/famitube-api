@@ -30,6 +30,7 @@ import {
   fetchYouTubeOEmbed,
   getYouTubeThumbnail,
   searchYouTubeVideos,
+  resolveGeoForSearch,
   deriveAgeRatingFromBirthday
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
@@ -2803,7 +2804,13 @@ apiRouter.get(
       return res.status(400).json({ success: false, message: 'Search query (q) is required' });
     }
 
-    const rawResults = await searchYouTubeVideos(q, 25);
+    const { regionCode, languageCode } = await resolveGeoForSearch(req.headers, {
+      region: req.query.region ? String(req.query.region) : req.query.gl ? String(req.query.gl) : undefined,
+      lang: req.query.lang ? String(req.query.lang) : req.query.hl ? String(req.query.hl) : undefined,
+      lat: req.query.lat,
+      lon: req.query.lon
+    });
+    const rawResults = await searchYouTubeVideos(q, 25, { regionCode, languageCode });
     const [existingRequests, history] = await Promise.all([
       db.getKidVideoRequestsForKid(user.id),
       db.getKidHistory(user.id)
@@ -2832,6 +2839,8 @@ apiRouter.get(
       success: true,
       data: {
         results,
+        regionCode,
+        languageCode,
         searchSettings: {
           youtubeSearchEnabled: effective.youtubeSearchEnabled,
           searchViewLimit: effective.searchViewLimit,
