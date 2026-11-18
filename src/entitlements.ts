@@ -2,7 +2,6 @@ import { PlanEntitlements, PlanTier, User } from './types.js';
 
 export const FREE_ENTITLEMENTS: Omit<PlanEntitlements, 'plan' | 'isPremium' | 'planExpiresAt'> = {
   maxChildren: 1,
-  maxQuizChannels: 1,
   maxPlaylists: 1,
   maxActivePresets: 1,
   allowCustomTagRules: false,
@@ -14,7 +13,6 @@ export const FREE_ENTITLEMENTS: Omit<PlanEntitlements, 'plan' | 'isPremium' | 'p
 
 export const PREMIUM_ENTITLEMENTS: Omit<PlanEntitlements, 'plan' | 'isPremium' | 'planExpiresAt'> = {
   maxChildren: null,
-  maxQuizChannels: null,
   maxPlaylists: null,
   maxActivePresets: null,
   allowCustomTagRules: true,

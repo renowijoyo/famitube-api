@@ -32,7 +32,6 @@ import {
   searchYouTubeVideos,
   deriveAgeRatingFromBirthday
 } from './utils.js';
-import { generateQuizQuestion } from './quiz.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
 import {
@@ -48,9 +47,6 @@ import {
   ChannelVideoComment,
   Playlist,
   ChannelType,
-  QuizType,
-  LockoutAction,
-  KidChannelQuizState,
   PlanTier,
   User
 } from './types.js';
@@ -221,22 +217,6 @@ apiRouter.get(
       return res.status(403).json({ success: false, message: 'This channel is private' });
     }
 
-    if (req.user?.role === 'CHILD' && req.user.parentId) {
-      const rule = await db.getChannelQuizRule(req.user.parentId, id);
-      if (rule && rule.quizEnabled) {
-        const state = await db.getKidChannelQuizState(req.user.sub, id);
-        const now = Date.now();
-        const isUnlocked = Boolean(state?.unlockedUntil && Date.parse(state.unlockedUntil) > now);
-        if (!isUnlocked) {
-          return res.status(403).json({
-            success: false,
-            quizRequired: true,
-            message: 'Complete the parent quiz wall to view this channel.'
-          });
-        }
-      }
-    }
-
     const queryAgeRating = req.query.ageRating ? String(req.query.ageRating) : undefined;
     let effectiveAgeRating = queryAgeRating && queryAgeRating !== 'ALL' ? queryAgeRating : undefined;
     if (!effectiveAgeRating && req.user?.role === 'CHILD') {
@@ -394,7 +374,7 @@ apiRouter.post(
         referralCodeUsed: referrerUser.referralCode,
         referrerUserId: referrerUser.id,
         status: 'AVAILABLE',
-        expiresAt: null, // No expiration — usable anytime
+        expiresAt: null, // No expiration â€” usable anytime
         redeemedAt: null,
         createdAt: nowIso
       });
@@ -2390,421 +2370,6 @@ apiRouter.get(
 );
 
 // ==========================================
-// PARENT CHANNEL QUIZ WALL CONTROLS & KID QUIZ ACCESS
-// ==========================================
-
-const VALID_QUIZ_TYPES: QuizType[] = ['MATH', 'SCIENCE', 'ENGLISH', 'LOGIC', 'MIXED'];
-const VALID_LOCKOUT_ACTIONS: LockoutAction[] = ['LOCKOUT', 'ALLOW_AFTER_WAIT'];
-
-// List channels and their quiz wall rules for the logged-in parent
-apiRouter.get(
-  '/parent/channel-controls',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const parentId = req.user!.sub;
-    const channels = await db.getChannelsForUser(parentId);
-    const rules = await db.getChannelQuizRulesByParent(parentId);
-    const ruleMap = new Map(rules.map((r) => [r.channelId, r]));
-
-    res.json({
-      success: true,
-      data: channels.map((ch) => {
-        const r = ruleMap.get(ch.id);
-        return {
-          channelId: ch.id,
-          channelName: ch.name,
-          channelAvatar: ch.avatarUrl,
-          category: ch.category,
-          quizEnabled: r ? r.quizEnabled : false,
-          quizType: r ? r.quizType : 'MATH',
-          retryWaitSeconds: r ? r.retryWaitSeconds : 10,
-          maxAttempts: r ? r.maxAttempts : 3,
-          lockoutAction: r ? r.lockoutAction : 'LOCKOUT',
-          lockoutDurationSeconds: r ? r.lockoutDurationSeconds : 60,
-          updatedAt: r?.updatedAt || null
-        };
-      })
-    });
-  })
-);
-
-// Update quiz wall rule for a channel (Parent only)
-apiRouter.put(
-  '/parent/channel-controls/:channelId',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const parentId = req.user!.sub;
-    const channelId = String(req.params.channelId);
-    const channel = await db.getChannelById(channelId);
-    if (!channel) {
-      return res.status(404).json({ success: false, message: 'Channel not found' });
-    }
-
-    const quizEnabled = Boolean(req.body.quizEnabled);
-    if (quizEnabled) {
-      const parentUser = await db.getUserById(parentId);
-      if (parentUser) {
-        const entitlements = await db.getEffectiveEntitlements(parentUser);
-        if (entitlements.maxQuizChannels !== null) {
-          const existingRules = await db.getChannelQuizRulesByParent(parentId);
-          const alreadyEnabledForThisChannel = existingRules.some(
-            (r) => r.channelId === channelId && r.quizEnabled
-          );
-          const enabledCount = existingRules.filter((r) => r.quizEnabled).length;
-          if (!alreadyEnabledForThisChannel && enabledCount >= entitlements.maxQuizChannels) {
-            return res.status(403).json(
-              buildPremiumRequiredPayload(
-                'unlimited_quiz_walls',
-                `Free plan supports up to ${entitlements.maxQuizChannels} channel Quiz Wall. Upgrade to Family Pass for unlimited Quiz Walls.`,
-                entitlements.maxQuizChannels
-              )
-            );
-          }
-        }
-      }
-    }
-    const rawQuizType = String(req.body.quizType || 'MATH').toUpperCase() as QuizType;
-    const quizType: QuizType = VALID_QUIZ_TYPES.includes(rawQuizType) ? rawQuizType : 'MATH';
-    const rawAction = String(req.body.lockoutAction || 'LOCKOUT').toUpperCase() as LockoutAction;
-    const lockoutAction: LockoutAction = VALID_LOCKOUT_ACTIONS.includes(rawAction) ? rawAction : 'LOCKOUT';
-    const retryWaitSeconds = Math.max(1, Math.min(3600, Math.round(Number(req.body.retryWaitSeconds) || 10)));
-    const lockoutDurationSeconds = Math.max(1, Math.min(86400, Math.round(Number(req.body.lockoutDurationSeconds) || 60)));
-
-    const saved = await db.upsertChannelQuizRule({
-      id: `${parentId}:${channelId}`,
-      parentId,
-      channelId,
-      quizEnabled,
-      quizType,
-      retryWaitSeconds,
-      maxAttempts: 3,
-      lockoutAction,
-      lockoutDurationSeconds,
-      updatedAt: new Date().toISOString()
-    });
-
-    res.json({ success: true, data: saved });
-  })
-);
-
-// Check or start quiz wall for a kid accessing a channel
-apiRouter.get(
-  '/kids/channels/:channelId/access',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const channelId = String(req.params.channelId);
-    const user = req.user!;
-
-    if (user.role !== 'CHILD' || !user.parentId) {
-      return res.json({
-        success: true,
-        data: { unlocked: true, quizRequired: false }
-      });
-    }
-
-    const rule = await db.getChannelQuizRule(user.parentId, channelId);
-    if (!rule || !rule.quizEnabled) {
-      return res.json({
-        success: true,
-        data: { unlocked: true, quizRequired: false }
-      });
-    }
-
-    const now = Date.now();
-    let state: KidChannelQuizState = (await db.getKidChannelQuizState(user.sub, channelId)) || {
-      id: `${user.sub}:${channelId}`,
-      kidId: user.sub,
-      channelId,
-      wrongAttempts: 0,
-      nextQuizAt: null,
-      lockedUntil: null,
-      postLockoutGrant: false,
-      unlockedUntil: null,
-      activeQuestion: null,
-      updatedAt: new Date(now).toISOString()
-    };
-
-    if (state.unlockedUntil && Date.parse(state.unlockedUntil) > now) {
-      return res.json({
-        success: true,
-        data: {
-          unlocked: true,
-          quizRequired: false,
-          unlockedUntil: state.unlockedUntil
-        }
-      });
-    }
-
-    if (state.lockedUntil) {
-      const lockedMs = Date.parse(state.lockedUntil);
-      if (lockedMs > now) {
-        return res.json({
-          success: true,
-          data: {
-            unlocked: false,
-            status: 'LOCKED',
-            lockoutAction: rule.lockoutAction,
-            lockedUntil: state.lockedUntil,
-            remainingSeconds: Math.ceil((lockedMs - now) / 1000),
-            wrongAttempts: state.wrongAttempts,
-            maxAttempts: rule.maxAttempts
-          }
-        });
-      }
-
-      // Lockout / wait period has expired
-      if (state.postLockoutGrant) {
-        const unlockedUntil = new Date(now + 30 * 60 * 1000).toISOString();
-        state = await db.upsertKidChannelQuizState({
-          ...state,
-          wrongAttempts: 0,
-          nextQuizAt: null,
-          lockedUntil: null,
-          postLockoutGrant: false,
-          unlockedUntil,
-          activeQuestion: null,
-          updatedAt: new Date(now).toISOString()
-        });
-        return res.json({
-          success: true,
-          data: {
-            unlocked: true,
-            quizRequired: false,
-            grantedAfterWait: true,
-            unlockedUntil
-          }
-        });
-      }
-
-      // Standard lockout expired -> reset attempts so kid can try again
-      state = await db.upsertKidChannelQuizState({
-        ...state,
-        wrongAttempts: 0,
-        nextQuizAt: null,
-        lockedUntil: null,
-        postLockoutGrant: false,
-        activeQuestion: null,
-        updatedAt: new Date(now).toISOString()
-      });
-    }
-
-    if (state.nextQuizAt) {
-      const nextMs = Date.parse(state.nextQuizAt);
-      if (nextMs > now) {
-        return res.json({
-          success: true,
-          data: {
-            unlocked: false,
-            status: 'COOLDOWN',
-            quizType: rule.quizType,
-            nextQuizAt: state.nextQuizAt,
-            remainingSeconds: Math.ceil((nextMs - now) / 1000),
-            wrongAttempts: state.wrongAttempts,
-            maxAttempts: rule.maxAttempts
-          }
-        });
-      }
-    }
-
-    // Generate a question if none active
-    let question = state.activeQuestion;
-    if (!question) {
-      question = generateQuizQuestion(rule.quizType);
-      state = await db.upsertKidChannelQuizState({
-        ...state,
-        nextQuizAt: null,
-        activeQuestion: question,
-        updatedAt: new Date(now).toISOString()
-      });
-    }
-
-    res.json({
-      success: true,
-      data: {
-        unlocked: false,
-        status: 'QUIZ_REQUIRED',
-        quizType: rule.quizType,
-        wrongAttempts: state.wrongAttempts,
-        maxAttempts: rule.maxAttempts,
-        retryWaitSeconds: rule.retryWaitSeconds,
-        lockoutAction: rule.lockoutAction,
-        lockoutDurationSeconds: rule.lockoutDurationSeconds,
-        question: {
-          id: question.id,
-          type: question.type,
-          prompt: question.prompt,
-          options: question.options
-        }
-      }
-    });
-  })
-);
-
-// Submit an answer to the channel quiz wall
-apiRouter.post(
-  '/kids/channels/:channelId/quiz-answer',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const channelId = String(req.params.channelId);
-    const user = req.user!;
-
-    if (user.role !== 'CHILD' || !user.parentId) {
-      return res.json({
-        success: true,
-        data: { correct: true, unlocked: true }
-      });
-    }
-
-    const rule = await db.getChannelQuizRule(user.parentId, channelId);
-    if (!rule || !rule.quizEnabled) {
-      return res.json({
-        success: true,
-        data: { correct: true, unlocked: true }
-      });
-    }
-
-    const state = await db.getKidChannelQuizState(user.sub, channelId);
-    const now = Date.now();
-
-    if (state?.lockedUntil && Date.parse(state.lockedUntil) > now) {
-      const remainingSeconds = Math.ceil((Date.parse(state.lockedUntil) - now) / 1000);
-      return res.status(423).json({
-        success: false,
-        message: `Channel is locked. Please wait ${remainingSeconds}s.`,
-        data: {
-          unlocked: false,
-          status: 'LOCKED',
-          lockoutAction: rule.lockoutAction,
-          lockedUntil: state.lockedUntil,
-          remainingSeconds,
-          wrongAttempts: state.wrongAttempts,
-          maxAttempts: rule.maxAttempts
-        }
-      });
-    }
-
-    if (state?.nextQuizAt && Date.parse(state.nextQuizAt) > now) {
-      const remainingSeconds = Math.ceil((Date.parse(state.nextQuizAt) - now) / 1000);
-      return res.status(429).json({
-        success: false,
-        message: `Please wait ${remainingSeconds}s before the next quiz.`,
-        data: {
-          unlocked: false,
-          status: 'COOLDOWN',
-          nextQuizAt: state.nextQuizAt,
-          remainingSeconds,
-          wrongAttempts: state.wrongAttempts,
-          maxAttempts: rule.maxAttempts
-        }
-      });
-    }
-
-    const activeQuestion = state?.activeQuestion;
-    const questionId = String(req.body.questionId || '');
-    const selectedIndex = Number(req.body.selectedIndex);
-
-    if (!activeQuestion || activeQuestion.id !== questionId || Number.isNaN(selectedIndex)) {
-      return res.status(400).json({
-        success: false,
-        message: 'Quiz question expired or invalid. Please request a new question.'
-      });
-    }
-
-    if (selectedIndex === activeQuestion.correctIndex) {
-      const unlockedUntil = new Date(now + 30 * 60 * 1000).toISOString();
-      await db.upsertKidChannelQuizState({
-        id: `${user.sub}:${channelId}`,
-        kidId: user.sub,
-        channelId,
-        wrongAttempts: 0,
-        nextQuizAt: null,
-        lockedUntil: null,
-        postLockoutGrant: false,
-        unlockedUntil,
-        activeQuestion: null,
-        updatedAt: new Date(now).toISOString()
-      });
-
-      return res.json({
-        success: true,
-        data: {
-          correct: true,
-          unlocked: true,
-          unlockedUntil,
-          message: 'Correct! Channel unlocked.'
-        }
-      });
-    }
-
-    // Wrong answer
-    const nextWrongAttempts = (state?.wrongAttempts || 0) + 1;
-    if (nextWrongAttempts >= rule.maxAttempts) {
-      const lockedUntil = new Date(now + rule.lockoutDurationSeconds * 1000).toISOString();
-      const postLockoutGrant = rule.lockoutAction === 'ALLOW_AFTER_WAIT';
-      await db.upsertKidChannelQuizState({
-        id: `${user.sub}:${channelId}`,
-        kidId: user.sub,
-        channelId,
-        wrongAttempts: nextWrongAttempts,
-        nextQuizAt: null,
-        lockedUntil,
-        postLockoutGrant,
-        unlockedUntil: null,
-        activeQuestion: null,
-        updatedAt: new Date(now).toISOString()
-      });
-
-      return res.json({
-        success: true,
-        data: {
-          correct: false,
-          unlocked: false,
-          status: 'LOCKED',
-          lockoutAction: rule.lockoutAction,
-          lockedUntil,
-          remainingSeconds: rule.lockoutDurationSeconds,
-          wrongAttempts: nextWrongAttempts,
-          maxAttempts: rule.maxAttempts,
-          message: postLockoutGrant
-            ? `3 wrong answers. Please wait ${rule.lockoutDurationSeconds}s and you will be let through.`
-            : `3 wrong answers. Channel is locked for ${rule.lockoutDurationSeconds}s.`
-        }
-      });
-    }
-
-    const nextQuizAt = new Date(now + rule.retryWaitSeconds * 1000).toISOString();
-    await db.upsertKidChannelQuizState({
-      id: `${user.sub}:${channelId}`,
-      kidId: user.sub,
-      channelId,
-      wrongAttempts: nextWrongAttempts,
-      nextQuizAt,
-      lockedUntil: null,
-      postLockoutGrant: false,
-      unlockedUntil: null,
-      activeQuestion: null,
-      updatedAt: new Date(now).toISOString()
-    });
-
-    return res.json({
-      success: true,
-      data: {
-        correct: false,
-        unlocked: false,
-        status: 'COOLDOWN',
-        nextQuizAt,
-        remainingSeconds: rule.retryWaitSeconds,
-        wrongAttempts: nextWrongAttempts,
-        maxAttempts: rule.maxAttempts,
-        message: `Not quite! Wait ${rule.retryWaitSeconds}s for the next quiz (${nextWrongAttempts}/${rule.maxAttempts} attempts used).`
-      }
-    });
-  })
-);
-
-// ==========================================
 // KID YOUTUBE SEARCH, APPROVAL REQUESTS, HISTORY & PLAYLISTS
 // ==========================================
 
@@ -2860,7 +2425,7 @@ apiRouter.get(
         renderPage(
           isApproved ? 'Permission Granted' : 'Permission Denied',
           isApproved
-            ? 'This video has been approved and added to your child’s Watch History.'
+            ? 'This video has been approved and added to your childâ€™s Watch History.'
             : 'This video request has been declined.',
           isApproved ? '#06d6a0' : '#ff3366',
           updated.thumbnailUrl,
@@ -2893,7 +2458,7 @@ apiRouter.post(
       data: updated,
       message:
         decision === 'APPROVED'
-          ? 'Video approved and added to your child’s history.'
+          ? 'Video approved and added to your childâ€™s history.'
           : 'Video request declined.'
     });
   })
@@ -2986,7 +2551,7 @@ ${videoTitle ? `<p style="font-weight:bold;color:#e2e8f0;margin:8px 0;">${videoT
       200,
       decision === 'APPROVED' ? 'Video Approved!' : 'Request Declined',
       decision === 'APPROVED'
-        ? 'This video has been approved and added to your child’s FamiTube Watch History so they can watch it anytime.'
+        ? 'This video has been approved and added to your childâ€™s FamiTube Watch History so they can watch it anytime.'
         : 'This video permission request has been declined.',
       updated.title,
       updated.thumbnailUrl
@@ -3366,25 +2931,23 @@ apiRouter.get(
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const kidId = req.user!.sub;
-    const [user, history, playlists, quizStates] = await Promise.all([
+    const [user, history, playlists] = await Promise.all([
       db.getUserById(kidId),
       db.getKidHistory(kidId),
-      db.getKidPlaylists(kidId),
-      db.getKidAllChannelQuizStates(kidId)
+      db.getKidPlaylists(kidId)
     ]);
 
     const videosWatched = history.length;
     const approvedSearches = history.filter((h) => h.isApprovedSearch).length;
     const playlistsCreated = playlists.length;
     const playlistItemsCount = playlists.reduce((sum, pl) => sum + (pl.items?.length || 0), 0);
-    const quizzesPassed = quizStates.filter((s) => Boolean(s.unlockedUntil)).length;
 
     const definitions = [
       {
         id: 'first_watch',
         title: 'First Watch',
         description: 'Watch your very first video on FamiTube',
-        icon: '🎬',
+        icon: 'ðŸŽ¬',
         progress: Math.min(videosWatched, 1),
         target: 1,
         rewardStars: 20
@@ -3393,7 +2956,7 @@ apiRouter.get(
         id: 'video_explorer',
         title: 'Video Explorer',
         description: 'Watch 5 different videos',
-        icon: '🚀',
+        icon: 'ðŸš€',
         progress: Math.min(videosWatched, 5),
         target: 5,
         rewardStars: 50
@@ -3402,7 +2965,7 @@ apiRouter.get(
         id: 'super_viewer',
         title: 'Super Viewer',
         description: 'Watch 15 videos in your library',
-        icon: '🌟',
+        icon: 'ðŸŒŸ',
         progress: Math.min(videosWatched, 15),
         target: 15,
         rewardStars: 120
@@ -3411,7 +2974,7 @@ apiRouter.get(
         id: 'playlist_maker',
         title: 'Playlist Maker',
         description: 'Create your first personal playlist',
-        icon: '🎵',
+        icon: 'ðŸŽµ',
         progress: Math.min(playlistsCreated, 1),
         target: 1,
         rewardStars: 25
@@ -3420,34 +2983,16 @@ apiRouter.get(
         id: 'curator_junior',
         title: 'Junior Curator',
         description: 'Save 5 videos into your playlists',
-        icon: '📚',
+        icon: 'ðŸ“š',
         progress: Math.min(playlistItemsCount, 5),
         target: 5,
         rewardStars: 60
       },
       {
-        id: 'quiz_starter',
-        title: 'Quiz Starter',
-        description: 'Unlock a channel by passing a quiz',
-        icon: '🧠',
-        progress: Math.min(quizzesPassed, 1),
-        target: 1,
-        rewardStars: 35
-      },
-      {
-        id: 'quiz_master',
-        title: 'Quiz Master',
-        description: 'Pass 3 channel quizzes',
-        icon: '🏆',
-        progress: Math.min(quizzesPassed, 3),
-        target: 3,
-        rewardStars: 100
-      },
-      {
         id: 'safe_searcher',
         title: 'Safe Searcher',
         description: 'Watch a parent-approved YouTube search video',
-        icon: '🔍',
+        icon: 'ðŸ”',
         progress: Math.min(approvedSearches, 1),
         target: 1,
         rewardStars: 30
@@ -3461,7 +3006,6 @@ apiRouter.get(
 
     const activityStars =
       videosWatched * 15 +
-      quizzesPassed * 25 +
       playlistsCreated * 10 +
       playlistItemsCount * 5;
     const bonusStars = achievements
@@ -3472,7 +3016,7 @@ apiRouter.get(
     const levels = [
       { level: 1, title: 'Curious Explorer', min: 0, next: 100 },
       { level: 2, title: 'Science Sprout', min: 100, next: 250 },
-      { level: 3, title: 'Quiz Whiz', min: 250, next: 500 },
+      { level: 3, title: 'Knowledge Seeker', min: 250, next: 500 },
       { level: 4, title: 'Super Learner', min: 500, next: 1000 },
       { level: 5, title: 'FamiTube Legend', min: 1000, next: 1000 }
     ];
@@ -3499,8 +3043,7 @@ apiRouter.get(
           videosWatched,
           approvedSearches,
           playlistsCreated,
-          playlistItemsCount,
-          quizzesPassed
+          playlistItemsCount
         },
         achievements
       }

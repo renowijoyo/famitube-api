@@ -33,11 +33,6 @@ import {
   UserRole,
   PlanTier,
   PlanEntitlements,
-  QuizType,
-  LockoutAction,
-  ChannelQuizRule,
-  QuizQuestion,
-  KidChannelQuizState,
   KidVideoRequest,
   KidVideoRequestStatus,
   KidHistoryItem,
@@ -523,39 +518,6 @@ class Database {
         content TEXT NOT NULL,
         createdAt VARCHAR(64) NOT NULL,
         INDEX idx_comments_channel_video (channelId, videoId)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-    `);
-
-    await this.pool.query(`
-      CREATE TABLE IF NOT EXISTS channel_quiz_rules (
-        id VARCHAR(128) PRIMARY KEY,
-        parentId VARCHAR(64) NOT NULL,
-        channelId VARCHAR(64) NOT NULL,
-        quizEnabled TINYINT(1) NOT NULL DEFAULT 0,
-        quizType VARCHAR(32) NOT NULL DEFAULT 'MATH',
-        retryWaitSeconds INT NOT NULL DEFAULT 10,
-        maxAttempts INT NOT NULL DEFAULT 3,
-        lockoutAction VARCHAR(32) NOT NULL DEFAULT 'LOCKOUT',
-        lockoutDurationSeconds INT NOT NULL DEFAULT 60,
-        updatedAt VARCHAR(64) NOT NULL,
-        UNIQUE KEY uq_parent_channel (parentId, channelId),
-        INDEX idx_quiz_rules_parent (parentId)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-    `);
-
-    await this.pool.query(`
-      CREATE TABLE IF NOT EXISTS kid_channel_quiz_state (
-        id VARCHAR(128) PRIMARY KEY,
-        kidId VARCHAR(64) NOT NULL,
-        channelId VARCHAR(64) NOT NULL,
-        wrongAttempts INT NOT NULL DEFAULT 0,
-        nextQuizAt VARCHAR(64) NULL,
-        lockedUntil VARCHAR(64) NULL,
-        postLockoutGrant TINYINT(1) NOT NULL DEFAULT 0,
-        unlockedUntil VARCHAR(64) NULL,
-        activeQuestionJson TEXT NULL,
-        updatedAt VARCHAR(64) NOT NULL,
-        UNIQUE KEY uq_kid_channel (kidId, channelId)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
@@ -2091,144 +2053,6 @@ class Database {
       [id]
     );
     return result.affectedRows > 0;
-  }
-
-  public async getChannelQuizRule(parentId: string, channelId: string): Promise<ChannelQuizRule | null> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM channel_quiz_rules WHERE parentId = ? AND channelId = ?',
-      [parentId, channelId]
-    );
-    if (rows.length === 0) return null;
-    const row = rows[0];
-    return {
-      id: row.id,
-      parentId: row.parentId,
-      channelId: row.channelId,
-      quizEnabled: Boolean(row.quizEnabled),
-      quizType: (row.quizType as QuizType) || 'MATH',
-      retryWaitSeconds: Number(row.retryWaitSeconds) || 10,
-      maxAttempts: Number(row.maxAttempts) || 3,
-      lockoutAction: (row.lockoutAction as LockoutAction) || 'LOCKOUT',
-      lockoutDurationSeconds: Number(row.lockoutDurationSeconds) || 60,
-      updatedAt: row.updatedAt
-    };
-  }
-
-  public async getChannelQuizRulesByParent(parentId: string): Promise<ChannelQuizRule[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM channel_quiz_rules WHERE parentId = ?',
-      [parentId]
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      parentId: row.parentId,
-      channelId: row.channelId,
-      quizEnabled: Boolean(row.quizEnabled),
-      quizType: (row.quizType as QuizType) || 'MATH',
-      retryWaitSeconds: Number(row.retryWaitSeconds) || 10,
-      maxAttempts: Number(row.maxAttempts) || 3,
-      lockoutAction: (row.lockoutAction as LockoutAction) || 'LOCKOUT',
-      lockoutDurationSeconds: Number(row.lockoutDurationSeconds) || 60,
-      updatedAt: row.updatedAt
-    }));
-  }
-
-  public async upsertChannelQuizRule(rule: ChannelQuizRule): Promise<ChannelQuizRule> {
-    await this.pool.query(
-      `INSERT INTO channel_quiz_rules
-        (id, parentId, channelId, quizEnabled, quizType, retryWaitSeconds, maxAttempts, lockoutAction, lockoutDurationSeconds, updatedAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-       ON DUPLICATE KEY UPDATE
-        quizEnabled = VALUES(quizEnabled),
-        quizType = VALUES(quizType),
-        retryWaitSeconds = VALUES(retryWaitSeconds),
-        maxAttempts = VALUES(maxAttempts),
-        lockoutAction = VALUES(lockoutAction),
-        lockoutDurationSeconds = VALUES(lockoutDurationSeconds),
-        updatedAt = VALUES(updatedAt)`,
-      [
-        rule.id,
-        rule.parentId,
-        rule.channelId,
-        rule.quizEnabled ? 1 : 0,
-        rule.quizType,
-        rule.retryWaitSeconds,
-        rule.maxAttempts,
-        rule.lockoutAction,
-        rule.lockoutDurationSeconds,
-        rule.updatedAt
-      ]
-    );
-    return (await this.getChannelQuizRule(rule.parentId, rule.channelId))!;
-  }
-
-  public async getKidChannelQuizState(kidId: string, channelId: string): Promise<KidChannelQuizState | null> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_channel_quiz_state WHERE kidId = ? AND channelId = ?',
-      [kidId, channelId]
-    );
-    if (rows.length === 0) return null;
-    const row = rows[0];
-    return {
-      id: row.id,
-      kidId: row.kidId,
-      channelId: row.channelId,
-      wrongAttempts: Number(row.wrongAttempts) || 0,
-      nextQuizAt: row.nextQuizAt || null,
-      lockedUntil: row.lockedUntil || null,
-      postLockoutGrant: Boolean(row.postLockoutGrant),
-      unlockedUntil: row.unlockedUntil || null,
-      activeQuestion: row.activeQuestionJson ? parseJson<QuizQuestion | null>(row.activeQuestionJson, null) : null,
-      updatedAt: row.updatedAt
-    };
-  }
-
-  public async getKidAllChannelQuizStates(kidId: string): Promise<KidChannelQuizState[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_channel_quiz_state WHERE kidId = ?',
-      [kidId]
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      kidId: row.kidId,
-      channelId: row.channelId,
-      wrongAttempts: Number(row.wrongAttempts) || 0,
-      nextQuizAt: row.nextQuizAt || null,
-      lockedUntil: row.lockedUntil || null,
-      postLockoutGrant: Boolean(row.postLockoutGrant),
-      unlockedUntil: row.unlockedUntil || null,
-      activeQuestion: row.activeQuestionJson ? parseJson<QuizQuestion | null>(row.activeQuestionJson, null) : null,
-      updatedAt: row.updatedAt
-    }));
-  }
-
-  public async upsertKidChannelQuizState(state: KidChannelQuizState): Promise<KidChannelQuizState> {
-    await this.pool.query(
-      `INSERT INTO kid_channel_quiz_state
-        (id, kidId, channelId, wrongAttempts, nextQuizAt, lockedUntil, postLockoutGrant, unlockedUntil, activeQuestionJson, updatedAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-       ON DUPLICATE KEY UPDATE
-        wrongAttempts = VALUES(wrongAttempts),
-        nextQuizAt = VALUES(nextQuizAt),
-        lockedUntil = VALUES(lockedUntil),
-        postLockoutGrant = VALUES(postLockoutGrant),
-        unlockedUntil = VALUES(unlockedUntil),
-        activeQuestionJson = VALUES(activeQuestionJson),
-        updatedAt = VALUES(updatedAt)`,
-      [
-        state.id,
-        state.kidId,
-        state.channelId,
-        state.wrongAttempts,
-        state.nextQuizAt || null,
-        state.lockedUntil || null,
-        state.postLockoutGrant ? 1 : 0,
-        state.unlockedUntil || null,
-        state.activeQuestion ? JSON.stringify(state.activeQuestion) : null,
-        state.updatedAt
-      ]
-    );
-    return (await this.getKidChannelQuizState(state.kidId, state.channelId))!;
   }
 
   // --- Kid YouTube Search, Approval Requests, History & Playlists ---
