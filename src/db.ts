@@ -33,6 +33,8 @@ import {
   UserRole,
   PlanTier,
   PlanEntitlements,
+  ParentalControls,
+  ParentalControlsOverride,
   KidVideoRequest,
   KidVideoRequestStatus,
   KidHistoryItem,
@@ -274,6 +276,9 @@ function mapUserRow(row: RowDataPacket): User {
       row.attentionMinWatchPercent !== undefined && row.attentionMinWatchPercent !== null
         ? Number(row.attentionMinWatchPercent)
         : 70,
+    parentalOverride: row.parentalOverrideJson
+      ? parseJson<ParentalControlsOverride | null>(row.parentalOverrideJson, null)
+      : null,
     verificationToken: row.verificationToken || undefined,
     verificationExpiresAt: row.verificationExpiresAt || undefined,
     createdAt: row.createdAt
@@ -448,6 +453,7 @@ class Database {
     await this.ensureColumnExists('users', 'attentionTrackingEnabled', 'TINYINT(1) NOT NULL DEFAULT 1');
     await this.ensureColumnExists('users', 'attentionPauseSeconds', 'INT NOT NULL DEFAULT 30');
     await this.ensureColumnExists('users', 'attentionMinWatchPercent', 'INT NOT NULL DEFAULT 70');
+    await this.ensureColumnExists('users', 'parentalOverrideJson', 'TEXT NULL');
     await this.ensureColumnExists('users', 'plan', "VARCHAR(16) NOT NULL DEFAULT 'FREE'");
     await this.ensureColumnExists('users', 'planExpiresAt', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('users', 'referralCode', 'VARCHAR(32) NULL');
@@ -554,6 +560,17 @@ class Database {
         watchedAt VARCHAR(64) NOT NULL,
         UNIQUE KEY uniq_kid_hist_item (kidId, itemKey),
         INDEX idx_hist_kid (kidId, watchedAt)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_saved_channels (
+        id VARCHAR(128) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        channelId VARCHAR(64) NOT NULL,
+        addedAt VARCHAR(64) NOT NULL,
+        UNIQUE KEY uq_kid_saved_channel (kidId, channelId),
+        INDEX idx_kid_saved_channels_kid (kidId, addedAt)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
@@ -1525,8 +1542,8 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, role, parentId, referralCode, referredByUserId, referredByCode, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, referralCode, referredByUserId, referredByCode, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, parentalOverrideJson, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
@@ -1544,12 +1561,71 @@ class Database {
         user.searchViewLimit ?? 0,
         user.searchViewsUsed ?? 0,
         user.searchRequireApproval !== false ? 1 : 0,
+        user.parentalOverride ? JSON.stringify(user.parentalOverride) : null,
         user.verificationToken || null,
         user.verificationExpiresAt || null,
         user.createdAt
       ]
     );
     return user;
+  }
+
+  public async updateParentGlobalControls(
+    parentId: string,
+    updates: Partial<ParentalControls>
+  ): Promise<User | null> {
+    const existing = await this.getUserById(parentId);
+    if (!existing || existing.role !== 'PARENT') return null;
+
+    const parentPin = updates.parentPin !== undefined ? updates.parentPin : (existing.parentPin || '1234');
+    const dailyLimitMinutes =
+      updates.dailyLimitMinutes !== undefined
+        ? Math.max(0, Math.min(720, Number(updates.dailyLimitMinutes)))
+        : (existing.dailyLimitMinutes ?? 45);
+    const ageRating = updates.ageRating !== undefined ? updates.ageRating : (existing.ageRating || 'ALL');
+    const attentionTrackingEnabled =
+      updates.attentionTrackingEnabled !== undefined
+        ? updates.attentionTrackingEnabled
+        : (existing.attentionTrackingEnabled !== false);
+    const attentionPauseSeconds =
+      updates.attentionPauseSeconds !== undefined
+        ? Math.max(5, Math.min(300, Number(updates.attentionPauseSeconds)))
+        : (existing.attentionPauseSeconds ?? 30);
+    const attentionMinWatchPercent =
+      updates.attentionMinWatchPercent !== undefined
+        ? Math.max(10, Math.min(100, Number(updates.attentionMinWatchPercent)))
+        : (existing.attentionMinWatchPercent ?? 70);
+    const youtubeSearchEnabled =
+      updates.youtubeSearchEnabled !== undefined
+        ? updates.youtubeSearchEnabled
+        : (existing.youtubeSearchEnabled !== false);
+    const searchViewLimit =
+      updates.searchViewLimit !== undefined
+        ? Math.max(0, Number(updates.searchViewLimit))
+        : (existing.searchViewLimit ?? 0);
+    const searchRequireApproval =
+      updates.searchRequireApproval !== undefined
+        ? updates.searchRequireApproval
+        : (existing.searchRequireApproval !== false);
+
+    await this.pool.query(
+      `UPDATE users
+       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?
+       WHERE id = ? AND role = 'PARENT'`,
+      [
+        parentPin,
+        dailyLimitMinutes,
+        ageRating,
+        attentionTrackingEnabled ? 1 : 0,
+        attentionPauseSeconds,
+        attentionMinWatchPercent,
+        youtubeSearchEnabled ? 1 : 0,
+        searchViewLimit,
+        searchRequireApproval ? 1 : 0,
+        parentId
+      ]
+    );
+    return (await this.getUserById(parentId)) || null;
   }
 
   public async getChildrenByParentId(parentId: string): Promise<User[]> {
@@ -1577,6 +1653,7 @@ class Database {
       attentionTrackingEnabled?: boolean;
       attentionPauseSeconds?: number;
       attentionMinWatchPercent?: number;
+      parentalOverride?: ParentalControlsOverride | null;
     }
   ): Promise<User | null> {
     const [rows] = await this.pool.query<RowDataPacket[]>(
@@ -1619,10 +1696,12 @@ class Database {
       updates.attentionMinWatchPercent !== undefined
         ? Math.max(10, Math.min(100, Number(updates.attentionMinWatchPercent)))
         : (existing.attentionMinWatchPercent ?? 70);
+    const parentalOverride =
+      updates.parentalOverride !== undefined ? updates.parentalOverride : (existing.parentalOverride ?? null);
 
     await this.pool.query(
       `UPDATE users
-       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?
+       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, parentalOverrideJson = ?
        WHERE id = ? AND parentId = ?`,
       [
         name,
@@ -1638,6 +1717,7 @@ class Database {
         attentionTrackingEnabled ? 1 : 0,
         attentionPauseSeconds,
         attentionMinWatchPercent,
+        parentalOverride && Object.keys(parentalOverride).length > 0 ? JSON.stringify(parentalOverride) : null,
         childId,
         parentId
       ]
@@ -2056,6 +2136,30 @@ class Database {
   }
 
   // --- Kid YouTube Search, Approval Requests, History & Playlists ---
+
+  public async getKidSavedChannelIds(kidId: string): Promise<string[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT channelId FROM kid_saved_channels WHERE kidId = ? ORDER BY addedAt DESC',
+      [kidId]
+    );
+    return rows.map((r) => String(r.channelId));
+  }
+
+  public async addKidSavedChannel(kidId: string, channelId: string): Promise<void> {
+    await this.pool.query(
+      `INSERT INTO kid_saved_channels (id, kidId, channelId, addedAt)
+       VALUES (?, ?, ?, ?)
+       ON DUPLICATE KEY UPDATE addedAt = VALUES(addedAt)`,
+      [`ksc-${kidId}-${channelId}`, kidId, channelId, new Date().toISOString()]
+    );
+  }
+
+  public async removeKidSavedChannel(kidId: string, channelId: string): Promise<void> {
+    await this.pool.query(
+      'DELETE FROM kid_saved_channels WHERE kidId = ? AND channelId = ?',
+      [kidId, channelId]
+    );
+  }
 
   public async incrementKidSearchViewsUsed(kidId: string): Promise<void> {
     await this.pool.query('UPDATE users SET searchViewsUsed = searchViewsUsed + 1 WHERE id = ?', [kidId]);

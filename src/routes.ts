@@ -48,8 +48,63 @@ import {
   Playlist,
   ChannelType,
   PlanTier,
+  ParentalControls,
+  ParentalControlsOverride,
   User
 } from './types.js';
+
+function getGlobalParentalControls(parent?: User): ParentalControls {
+  return {
+    parentPin: parent?.parentPin || '1234',
+    dailyLimitMinutes: parent?.dailyLimitMinutes ?? 45,
+    ageRating: parent?.ageRating || 'ALL',
+    attentionTrackingEnabled: parent?.attentionTrackingEnabled !== false,
+    attentionPauseSeconds: parent?.attentionPauseSeconds ?? 30,
+    attentionMinWatchPercent: parent?.attentionMinWatchPercent ?? 70,
+    youtubeSearchEnabled: parent?.youtubeSearchEnabled !== false,
+    searchViewLimit: parent?.searchViewLimit ?? 0,
+    searchRequireApproval: parent?.searchRequireApproval !== false
+  };
+}
+
+function resolveEffectiveParentalControls(parent: User | undefined, child: User): ParentalControls {
+  const global = getGlobalParentalControls(parent);
+  const ov = child.parentalOverride || {};
+  return {
+    parentPin: ov.parentPin ?? global.parentPin,
+    dailyLimitMinutes: ov.dailyLimitMinutes ?? global.dailyLimitMinutes,
+    ageRating: ov.ageRating ?? global.ageRating,
+    attentionTrackingEnabled: ov.attentionTrackingEnabled ?? global.attentionTrackingEnabled,
+    attentionPauseSeconds: ov.attentionPauseSeconds ?? global.attentionPauseSeconds,
+    attentionMinWatchPercent: ov.attentionMinWatchPercent ?? global.attentionMinWatchPercent,
+    youtubeSearchEnabled: ov.youtubeSearchEnabled ?? global.youtubeSearchEnabled,
+    searchViewLimit: ov.searchViewLimit ?? global.searchViewLimit,
+    searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval
+  };
+}
+
+function formatChildResponse(parent: User | undefined, child: User) {
+  const effective = resolveEffectiveParentalControls(parent, child);
+  return {
+    id: child.id,
+    email: child.email,
+    name: child.name,
+    role: child.role,
+    birthday: child.birthday || null,
+    ageRating: effective.ageRating,
+    youtubeSearchEnabled: effective.youtubeSearchEnabled,
+    searchViewLimit: effective.searchViewLimit,
+    searchViewsUsed: child.searchViewsUsed ?? 0,
+    searchRequireApproval: effective.searchRequireApproval,
+    parentPin: effective.parentPin,
+    dailyLimitMinutes: effective.dailyLimitMinutes,
+    attentionTrackingEnabled: effective.attentionTrackingEnabled,
+    attentionPauseSeconds: effective.attentionPauseSeconds,
+    attentionMinWatchPercent: effective.attentionMinWatchPercent,
+    overrides: child.parentalOverride || {},
+    createdAt: child.createdAt
+  };
+}
 
 function resolvePermissionsInput(
   presetInput?: unknown,
@@ -2058,33 +2113,88 @@ apiRouter.post(
   })
 );
 
+// Global Parental Controls (for all kids, unless overridden per kid)
+apiRouter.get(
+  '/parent/controls',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const parent = await db.getUserById(req.user!.sub);
+    if (!parent) {
+      return res.status(404).json({ success: false, message: 'Parent account not found' });
+    }
+    res.json({
+      success: true,
+      data: getGlobalParentalControls(parent)
+    });
+  })
+);
+
+apiRouter.put(
+  '/parent/controls',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const {
+      parentPin,
+      dailyLimitMinutes,
+      ageRating,
+      attentionTrackingEnabled,
+      attentionPauseSeconds,
+      attentionMinWatchPercent,
+      youtubeSearchEnabled,
+      searchViewLimit,
+      searchRequireApproval
+    } = req.body || {};
+
+    const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
+    if (cleanPin !== undefined && !/^\d{4}$/.test(cleanPin)) {
+      return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
+    }
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const resolvedRating =
+      ageRating !== undefined && validRatings.includes(String(ageRating) as AgeRating)
+        ? (String(ageRating) as AgeRating)
+        : undefined;
+
+    const updated = await db.updateParentGlobalControls(req.user!.sub, {
+      parentPin: cleanPin,
+      dailyLimitMinutes: dailyLimitMinutes !== undefined ? Number(dailyLimitMinutes) : undefined,
+      ageRating: resolvedRating,
+      attentionTrackingEnabled:
+        attentionTrackingEnabled !== undefined ? Boolean(attentionTrackingEnabled) : undefined,
+      attentionPauseSeconds:
+        attentionPauseSeconds !== undefined ? Number(attentionPauseSeconds) : undefined,
+      attentionMinWatchPercent:
+        attentionMinWatchPercent !== undefined ? Number(attentionMinWatchPercent) : undefined,
+      youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
+      searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
+      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined
+    });
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'Parent account not found' });
+    }
+    res.json({
+      success: true,
+      data: getGlobalParentalControls(updated),
+      message: 'Global parental controls updated for all kids.'
+    });
+  })
+);
+
 // List child accounts registered by this parent
 apiRouter.get(
   '/parent/children',
   requireAuth,
   requireParent,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const children = await db.getChildrenByParentId(req.user!.sub);
+    const [parent, children] = await Promise.all([
+      db.getUserById(req.user!.sub),
+      db.getChildrenByParentId(req.user!.sub)
+    ]);
     res.json({
       success: true,
-      data: children.map((c) => ({
-        id: c.id,
-        email: c.email,
-        name: c.name,
-        role: c.role,
-        birthday: c.birthday || null,
-        ageRating: c.ageRating || 'ALL',
-        youtubeSearchEnabled: Boolean(c.youtubeSearchEnabled),
-        searchViewLimit: c.searchViewLimit ?? 0,
-        searchViewsUsed: c.searchViewsUsed ?? 0,
-        searchRequireApproval: c.searchRequireApproval !== false,
-        parentPin: c.parentPin || '1234',
-        dailyLimitMinutes: c.dailyLimitMinutes ?? 45,
-        attentionTrackingEnabled: c.attentionTrackingEnabled !== false,
-        attentionPauseSeconds: c.attentionPauseSeconds ?? 30,
-        attentionMinWatchPercent: c.attentionMinWatchPercent ?? 70,
-        createdAt: c.createdAt
-      }))
+      data: children.map((c) => formatChildResponse(parent, c))
     });
   })
 );
@@ -2207,7 +2317,8 @@ apiRouter.put(
       dailyLimitMinutes,
       attentionTrackingEnabled,
       attentionPauseSeconds,
-      attentionMinWatchPercent
+      attentionMinWatchPercent,
+      overrides: overridesBody
     } = req.body;
     const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
     if (cleanBirthday && !deriveAgeRatingFromBirthday(cleanBirthday)) {
@@ -2216,7 +2327,8 @@ apiRouter.put(
     if (password && String(password).length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
     }
-    const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
+    const cleanPin =
+      parentPin !== undefined && parentPin !== null ? String(parentPin).trim() : undefined;
     if (cleanPin !== undefined && !/^\d{4}$/.test(cleanPin)) {
       return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
     }
@@ -2227,47 +2339,86 @@ apiRouter.put(
         : cleanBirthday
           ? (deriveAgeRatingFromBirthday(cleanBirthday) || undefined)
           : undefined;
+
+    const [parentUser, existingChildren] = await Promise.all([
+      db.getUserById(req.user!.sub),
+      db.getChildrenByParentId(req.user!.sub)
+    ]);
+    const existingChild = existingChildren.find((c) => c.id === childId);
+    if (!existingChild) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+
+    // Build per-kid overrides: null clears an override back to Global; non-null sets it
+    const nextOverrides: ParentalControlsOverride = { ...(existingChild.parentalOverride || {}) };
+    const applyOverride = <K extends keyof ParentalControls>(
+      key: K,
+      rawVal: unknown,
+      transform: (v: unknown) => ParentalControls[K]
+    ) => {
+      if (rawVal === null) {
+        delete nextOverrides[key];
+      } else if (rawVal !== undefined) {
+        nextOverrides[key] = transform(rawVal);
+      }
+    };
+
+    if (overridesBody && typeof overridesBody === 'object') {
+      const ob = overridesBody as Record<string, unknown>;
+      if (ob.parentPin !== undefined && ob.parentPin !== null && !/^\d{4}$/.test(String(ob.parentPin).trim())) {
+        return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
+      }
+      applyOverride('parentPin', ob.parentPin, (v) => String(v).trim());
+      applyOverride('dailyLimitMinutes', ob.dailyLimitMinutes, (v) => Math.max(0, Math.min(720, Number(v))));
+      applyOverride('ageRating', ob.ageRating, (v) =>
+        validRatings.includes(String(v) as AgeRating) ? (String(v) as AgeRating) : 'ALL'
+      );
+      applyOverride('attentionTrackingEnabled', ob.attentionTrackingEnabled, (v) => Boolean(v));
+      applyOverride('attentionPauseSeconds', ob.attentionPauseSeconds, (v) => Math.max(5, Math.min(300, Number(v))));
+      applyOverride('attentionMinWatchPercent', ob.attentionMinWatchPercent, (v) => Math.max(10, Math.min(100, Number(v))));
+      applyOverride('youtubeSearchEnabled', ob.youtubeSearchEnabled, (v) => Boolean(v));
+      applyOverride('searchViewLimit', ob.searchViewLimit, (v) => Math.max(0, Number(v)));
+      applyOverride('searchRequireApproval', ob.searchRequireApproval, (v) => Boolean(v));
+    }
+
+    // Also support flat fields on PUT body for direct per-kid override updates
+    applyOverride('parentPin', parentPin === null ? null : cleanPin, (v) => String(v));
+    applyOverride('dailyLimitMinutes', dailyLimitMinutes, (v) => Math.max(0, Math.min(720, Number(v))));
+    applyOverride('ageRating', ageRating === null ? null : resolvedRating, (v) => v as AgeRating);
+    applyOverride('attentionTrackingEnabled', attentionTrackingEnabled, (v) => Boolean(v));
+    applyOverride('attentionPauseSeconds', attentionPauseSeconds, (v) => Math.max(5, Math.min(300, Number(v))));
+    applyOverride('attentionMinWatchPercent', attentionMinWatchPercent, (v) => Math.max(10, Math.min(100, Number(v))));
+    applyOverride('youtubeSearchEnabled', youtubeSearchEnabled, (v) => Boolean(v));
+    applyOverride('searchViewLimit', searchViewLimit, (v) => Math.max(0, Number(v)));
+    applyOverride('searchRequireApproval', searchRequireApproval, (v) => Boolean(v));
+
+    const effective = resolveEffectiveParentalControls(parentUser, {
+      ...existingChild,
+      parentalOverride: nextOverrides
+    });
+
     const updated = await db.updateChildAccount(req.user!.sub, childId, {
       name: name ? String(name) : undefined,
       birthday: cleanBirthday,
-      ageRating: resolvedRating,
+      ageRating: effective.ageRating,
       passwordHash: password ? hashPassword(String(password)) : undefined,
-      youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
-      searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
-      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined,
+      youtubeSearchEnabled: effective.youtubeSearchEnabled,
+      searchViewLimit: effective.searchViewLimit,
+      searchRequireApproval: effective.searchRequireApproval,
       resetSearchViewsUsed: Boolean(resetSearchViewsUsed),
-      parentPin: cleanPin,
-      dailyLimitMinutes: dailyLimitMinutes !== undefined ? Number(dailyLimitMinutes) : undefined,
-      attentionTrackingEnabled:
-        attentionTrackingEnabled !== undefined ? Boolean(attentionTrackingEnabled) : undefined,
-      attentionPauseSeconds:
-        attentionPauseSeconds !== undefined ? Number(attentionPauseSeconds) : undefined,
-      attentionMinWatchPercent:
-        attentionMinWatchPercent !== undefined ? Number(attentionMinWatchPercent) : undefined
+      parentPin: effective.parentPin,
+      dailyLimitMinutes: effective.dailyLimitMinutes,
+      attentionTrackingEnabled: effective.attentionTrackingEnabled,
+      attentionPauseSeconds: effective.attentionPauseSeconds,
+      attentionMinWatchPercent: effective.attentionMinWatchPercent,
+      parentalOverride: Object.keys(nextOverrides).length > 0 ? nextOverrides : null
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Child account not found' });
     }
     res.json({
       success: true,
-      data: {
-        id: updated.id,
-        email: updated.email,
-        name: updated.name,
-        role: updated.role,
-        birthday: updated.birthday || null,
-        ageRating: updated.ageRating || 'ALL',
-        youtubeSearchEnabled: Boolean(updated.youtubeSearchEnabled),
-        searchViewLimit: updated.searchViewLimit ?? 0,
-        searchViewsUsed: updated.searchViewsUsed ?? 0,
-        searchRequireApproval: updated.searchRequireApproval !== false,
-        parentPin: updated.parentPin || '1234',
-        dailyLimitMinutes: updated.dailyLimitMinutes ?? 45,
-        attentionTrackingEnabled: updated.attentionTrackingEnabled !== false,
-        attentionPauseSeconds: updated.attentionPauseSeconds ?? 30,
-        attentionMinWatchPercent: updated.attentionMinWatchPercent ?? 70,
-        createdAt: updated.createdAt
-      }
+      data: formatChildResponse(parentUser, updated)
     });
   })
 );
@@ -2298,6 +2449,12 @@ apiRouter.get(
     }
 
     const parentOrSelfId = user.role === 'CHILD' && user.parentId ? user.parentId : user.id;
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : user;
+    const effectiveControls =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
     const entitlements = await db.getEffectiveEntitlements(user);
     const { includeTags, anyTags, excludeTags, preset, presets, ageRating: queryAgeRaw } = req.query;
     const queryAgeRating = queryAgeRaw ? String(queryAgeRaw) : undefined;
@@ -2305,13 +2462,13 @@ apiRouter.get(
       user.role === 'CHILD'
         ? queryAgeRating && queryAgeRating !== 'ALL'
           ? queryAgeRating
-          : !user.ageRating || user.ageRating === 'ALL'
+          : !effectiveControls.ageRating || effectiveControls.ageRating === 'ALL'
             ? 'OLDER_KIDS'
-            : user.ageRating
+            : effectiveControls.ageRating
         : queryAgeRating && queryAgeRating !== 'ALL'
           ? queryAgeRating
-          : user.ageRating && user.ageRating !== 'ALL'
-            ? user.ageRating
+          : effectiveControls.ageRating && effectiveControls.ageRating !== 'ALL'
+            ? effectiveControls.ageRating
             : undefined;
     const accessibleChannels = await db.getChannelsForUser(parentOrSelfId, effectiveAgeRating);
     const resolvedIncludeTags = parseTagList(includeTags);
@@ -2357,15 +2514,76 @@ apiRouter.get(
         videos,
         entitlements,
         parentalSettings: {
-          parentPin: user.parentPin || '1234',
-          dailyLimitMinutes: user.dailyLimitMinutes ?? 45,
-          ageRating: user.ageRating || 'ALL',
-          attentionTrackingEnabled: user.attentionTrackingEnabled !== false,
-          attentionPauseSeconds: user.attentionPauseSeconds ?? 30,
-          attentionMinWatchPercent: user.attentionMinWatchPercent ?? 70
+          parentPin: effectiveControls.parentPin,
+          dailyLimitMinutes: effectiveControls.dailyLimitMinutes,
+          ageRating: effectiveControls.ageRating,
+          attentionTrackingEnabled: effectiveControls.attentionTrackingEnabled,
+          attentionPauseSeconds: effectiveControls.attentionPauseSeconds,
+          attentionMinWatchPercent: effectiveControls.attentionMinWatchPercent
         }
       }
     });
+  })
+);
+
+// Kid saved channels list (channels added by the child to their channel list)
+apiRouter.get(
+  '/kids/channels',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    const parentOrSelfId = user.role === 'CHILD' && user.parentId ? user.parentId : user.id;
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const effective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+    const effectiveAge =
+      user.role === 'CHILD'
+        ? !effective.ageRating || effective.ageRating === 'ALL'
+          ? 'OLDER_KIDS'
+          : effective.ageRating
+        : effective.ageRating && effective.ageRating !== 'ALL'
+          ? effective.ageRating
+          : undefined;
+
+    const [savedIds, accessible] = await Promise.all([
+      db.getKidSavedChannelIds(user.id),
+      db.getChannelsForUser(parentOrSelfId, effectiveAge)
+    ]);
+    const channelMap = new Map(accessible.map((c) => [c.id, c]));
+    const savedChannels = savedIds.map((id) => channelMap.get(id)).filter(Boolean);
+    res.json({ success: true, data: savedChannels });
+  })
+);
+
+apiRouter.post(
+  '/kids/channels/:channelId',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const channelId = String(req.params.channelId);
+    const ch = await db.getChannelById(channelId);
+    if (!ch) {
+      return res.status(404).json({ success: false, message: 'Channel not found' });
+    }
+    await db.addKidSavedChannel(req.user!.sub, channelId);
+    const savedIds = await db.getKidSavedChannelIds(req.user!.sub);
+    res.json({ success: true, data: { channelId, savedIds } });
+  })
+);
+
+apiRouter.delete(
+  '/kids/channels/:channelId',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const channelId = String(req.params.channelId);
+    await db.removeKidSavedChannel(req.user!.sub, channelId);
+    const savedIds = await db.getKidSavedChannelIds(req.user!.sub);
+    res.json({ success: true, data: { channelId, savedIds } });
   })
 );
 
@@ -2568,7 +2786,13 @@ apiRouter.get(
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
-    if (user.role === 'CHILD' && !user.youtubeSearchEnabled) {
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const effective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+    if (user.role === 'CHILD' && !effective.youtubeSearchEnabled) {
       return res.status(403).json({
         success: false,
         message: 'YouTube search is currently disabled by your parent.'
@@ -2609,10 +2833,10 @@ apiRouter.get(
       data: {
         results,
         searchSettings: {
-          youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
-          searchViewLimit: user.searchViewLimit ?? 0,
+          youtubeSearchEnabled: effective.youtubeSearchEnabled,
+          searchViewLimit: effective.searchViewLimit,
           searchViewsUsed: user.searchViewsUsed ?? 0,
-          searchRequireApproval: user.searchRequireApproval !== false
+          searchRequireApproval: effective.searchRequireApproval
         }
       }
     });
@@ -2628,7 +2852,13 @@ apiRouter.post(
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
-    if (user.role === 'CHILD' && !user.youtubeSearchEnabled) {
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const effective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+    if (user.role === 'CHILD' && !effective.youtubeSearchEnabled) {
       return res.status(403).json({
         success: false,
         message: 'YouTube search is currently disabled by your parent.'
@@ -2649,10 +2879,10 @@ apiRouter.post(
     const inHistory = history.some((h) => h.youtubeVideoId === youtubeVideoId || h.itemKey === youtubeVideoId);
 
     const searchSettings = {
-      youtubeSearchEnabled: Boolean(user.youtubeSearchEnabled),
-      searchViewLimit: user.searchViewLimit ?? 0,
+      youtubeSearchEnabled: effective.youtubeSearchEnabled,
+      searchViewLimit: effective.searchViewLimit,
       searchViewsUsed: user.searchViewsUsed ?? 0,
-      searchRequireApproval: user.searchRequireApproval !== false
+      searchRequireApproval: effective.searchRequireApproval
     };
 
     // Curated or already approved/in-history videos play anytime without approval or quota

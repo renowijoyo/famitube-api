@@ -225,6 +225,20 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
+export interface ParentalControls {
+  parentPin: string;
+  dailyLimitMinutes: number;
+  ageRating: AgeRating;
+  attentionTrackingEnabled: boolean;
+  attentionPauseSeconds: number;
+  attentionMinWatchPercent: number;
+  youtubeSearchEnabled: boolean;
+  searchViewLimit: number;
+  searchRequireApproval: boolean;
+}
+
+export type ParentalControlsOverride = Partial<ParentalControls>;
+
 export interface User {
   id: string;
   email: string;
@@ -250,6 +264,7 @@ export interface User {
   attentionTrackingEnabled?: boolean;
   attentionPauseSeconds?: number;
   attentionMinWatchPercent?: number;
+  parentalOverride?: ParentalControlsOverride | null;
   verificationToken?: string;
   verificationExpiresAt?: string;
   createdAt: string;
