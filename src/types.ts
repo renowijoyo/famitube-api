@@ -86,6 +86,7 @@ export interface Channel {
   liveSchedules?: LiveDaySchedule[]; // 24H real-time-of-day schedules (DATE / WEEKDAY / DEFAULT)
   videoCount?: number;
   ownerId?: string;
+  ownerName?: string;
   visibility?: ChannelVisibility;
   defaultTags?: string[];
   createdAt?: string;
@@ -234,6 +235,9 @@ export interface User {
   parentId?: string;
   plan?: PlanTier;
   planExpiresAt?: string | null;
+  referralCode?: string;
+  referredByUserId?: string;
+  referredByCode?: string;
   birthday?: string; // YYYY-MM-DD
   ageRating?: AgeRating;
   isVerified: boolean;
@@ -375,4 +379,18 @@ export interface AdvisoryVideoEntry {
   cautionCount: number;
   reviews: VideoParentReview[];
   updatedAt: string;
+}
+
+export interface FamilyPassVoucher {
+  id: string;
+  userId: string;
+  code: string;
+  durationMonths: number;
+  source: 'REFERRAL' | 'PROMO';
+  referralCodeUsed?: string;
+  referrerUserId?: string;
+  status: 'AVAILABLE' | 'REDEEMED';
+  expiresAt?: string | null;
+  redeemedAt?: string | null;
+  createdAt: string;
 }

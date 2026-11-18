@@ -150,7 +150,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-blender",
@@ -174,7 +176,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-124",
       "vid-5"
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-toons-live",
@@ -268,7 +272,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-blocks-tv",
@@ -291,7 +297,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-176",
       "vid-177"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-natgeo",
@@ -310,7 +318,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-7",
       "vid-8"
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-ocean-live",
@@ -404,7 +414,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-wild-babies",
@@ -429,7 +441,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-180",
       "vid-182"
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-dino-world",
@@ -453,7 +467,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-149",
       "vid-147"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-scishow",
@@ -478,7 +494,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-13",
       "vid-192"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-crashcourse",
@@ -501,7 +519,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-10",
       "vid-11"
     ],
-    "ageRating": "OLDER_KIDS"
+    "ageRating": "OLDER_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-space-live",
@@ -577,7 +597,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "OLDER_KIDS"
+    "ageRating": "OLDER_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-drbinocs",
@@ -602,7 +624,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-206",
       "vid-207"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-abclearn",
@@ -625,7 +649,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-66",
       "vid-185"
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-alphablocks",
@@ -649,7 +675,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-63",
       "vid-65"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-sesame",
@@ -672,7 +700,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-14",
       "vid-15"
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-preschool-tv",
@@ -754,7 +784,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-supersimple",
@@ -778,7 +810,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-59",
       "vid-60"
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-lullaby-tv",
@@ -872,7 +906,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-nursery-club",
@@ -895,7 +931,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-59",
       "vid-60"
     ],
-    "ageRating": "TODDLER"
+    "ageRating": "TODDLER",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-artforkids",
@@ -919,7 +957,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-159",
       "vid-16"
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-pokemon-draw",
@@ -944,7 +984,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-19",
       "vid-20"
     ],
-    "ageRating": "ALL"
+    "ageRating": "ALL",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-paper-crafts",
@@ -967,7 +1009,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-165",
       "vid-24"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-storyline",
@@ -991,7 +1035,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-37",
       "vid-1"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-bedtime-stories",
@@ -1085,7 +1131,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-numberblocks",
@@ -1112,7 +1160,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-174",
       "vid-175"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-coding-kids",
@@ -1135,7 +1185,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-1",
       "vid-100"
     ],
-    "ageRating": "OLDER_KIDS"
+    "ageRating": "OLDER_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-math-arcade",
@@ -1259,7 +1311,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-cosmickids",
@@ -1282,7 +1336,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-106",
       "vid-161"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-active-tv",
@@ -1370,7 +1426,9 @@ export const INITIAL_CHANNELS: Channel[] = [
         ]
       }
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-world-kids",
@@ -1395,7 +1453,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-196",
       "vid-197"
     ],
-    "ageRating": "YOUNG_KIDS"
+    "ageRating": "YOUNG_KIDS",
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-teded-quest",
@@ -1418,7 +1478,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-224",
       "vid-225",
       "vid-226"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-maker-lab",
@@ -1438,7 +1500,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-231",
       "vid-232",
       "vid-233"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-logic-riddles",
@@ -1461,7 +1525,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-241",
       "vid-242",
       "vid-243"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-code-arcade-live",
@@ -1531,7 +1597,9 @@ export const INITIAL_CHANNELS: Channel[] = [
           }
         ]
       }
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-indie-anim",
@@ -1550,7 +1618,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-255",
       "vid-256",
       "vid-257"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-tween-toons-live",
@@ -1620,7 +1690,9 @@ export const INITIAL_CHANNELS: Channel[] = [
           }
         ]
       }
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-wild-earth",
@@ -1641,7 +1713,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-271",
       "vid-272",
       "vid-273"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-pro-sketch",
@@ -1662,7 +1736,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-279",
       "vid-280",
       "vid-281"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-chill-beats",
@@ -1683,7 +1759,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-287",
       "vid-288",
       "vid-289"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-myth-legends",
@@ -1704,7 +1782,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-295",
       "vid-296",
       "vid-297"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-tween-fitness",
@@ -1724,7 +1804,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-302",
       "vid-303",
       "vid-304"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-world-history",
@@ -1744,7 +1826,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-309",
       "vid-310",
       "vid-311"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-study-smart",
@@ -1763,7 +1847,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-315",
       "vid-316",
       "vid-317"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-gonoodle-music",
@@ -1790,7 +1876,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-197",
       "vid-199",
       "vid-208"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-toddler-move",
@@ -1807,7 +1895,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-29",
       "vid-55",
       "vid-60"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-toddler-stories",
@@ -1823,7 +1913,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-32",
       "vid-34",
       "vid-169"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-toddler-counting",
@@ -1841,7 +1933,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-216",
       "vid-56",
       "vid-185"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-baby-binocs",
@@ -1858,7 +1952,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-148",
       "vid-150",
       "vid-4"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   },
   {
     "id": "chan-toddler-world",
@@ -1874,7 +1970,9 @@ export const INITIAL_CHANNELS: Channel[] = [
       "vid-136",
       "vid-142",
       "vid-189"
-    ]
+    ],
+    "ownerId": "usr-team-famitube",
+    "ownerName": "Team FamiTube"
   }
 ];
 

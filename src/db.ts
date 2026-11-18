@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 import {
   channelMatchesAgeRating,
@@ -44,7 +45,8 @@ import {
   KidPlaylistItem,
   ParentSafetyRating,
   VideoParentReview,
-  AdvisoryVideoEntry
+  AdvisoryVideoEntry,
+  FamilyPassVoucher
 } from './types.js';
 
 import { INITIAL_CATEGORIES, INITIAL_CHANNELS, INITIAL_VIDEOS } from './catalog-seed.js';
@@ -79,6 +81,9 @@ const INITIAL_CONFIG: AppConfig = {
     enforcePin: true
   }
 };
+
+const ADMIN_CURATOR_ID = 'usr-team-famitube';
+const ADMIN_CURATOR_NAME = 'Team FamiTube';
 
 function parseJson<T>(val: unknown, fallback: T): T {
   if (val === null || val === undefined) return fallback;
@@ -134,6 +139,7 @@ function mapChannelRow(row: RowDataPacket): Channel {
     liveTimeline: parseJson<LiveTimelineItem[] | undefined>(row.liveTimeline, undefined),
     liveSchedules: parseJson<LiveDaySchedule[] | undefined>(row.liveSchedules, undefined),
     ownerId: row.ownerId || undefined,
+    ownerName: row.ownerName || (!row.ownerId || row.ownerId === ADMIN_CURATOR_ID ? ADMIN_CURATOR_NAME : undefined),
     visibility: (row.visibility as ChannelVisibility) || 'PUBLIC',
     defaultTags: parseJson<string[]>(row.defaultTags, []),
     createdAt: row.createdAt || undefined
@@ -242,6 +248,9 @@ function mapUserRow(row: RowDataPacket): User {
     parentId: row.parentId || undefined,
     plan: (row.plan as PlanTier) || 'FREE',
     planExpiresAt: row.planExpiresAt || null,
+    referralCode: row.referralCode || undefined,
+    referredByUserId: row.referredByUserId || undefined,
+    referredByCode: row.referredByCode || undefined,
     birthday: row.birthday || undefined,
     ageRating: (row.ageRating as AgeRating) || undefined,
     isVerified: Boolean(row.isVerified),
@@ -446,6 +455,9 @@ class Database {
     await this.ensureColumnExists('users', 'attentionMinWatchPercent', 'INT NOT NULL DEFAULT 70');
     await this.ensureColumnExists('users', 'plan', "VARCHAR(16) NOT NULL DEFAULT 'FREE'");
     await this.ensureColumnExists('users', 'planExpiresAt', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('users', 'referralCode', 'VARCHAR(32) NULL');
+    await this.ensureColumnExists('users', 'referredByUserId', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('users', 'referredByCode', 'VARCHAR(32) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -617,6 +629,24 @@ class Database {
         INDEX idx_vpr_rating (rating)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS family_pass_vouchers (
+        id VARCHAR(64) PRIMARY KEY,
+        userId VARCHAR(64) NOT NULL,
+        code VARCHAR(64) NOT NULL UNIQUE,
+        durationMonths INT NOT NULL DEFAULT 3,
+        source VARCHAR(32) NOT NULL DEFAULT 'REFERRAL',
+        referralCodeUsed VARCHAR(32) NULL,
+        referrerUserId VARCHAR(64) NULL,
+        status VARCHAR(16) NOT NULL DEFAULT 'AVAILABLE',
+        expiresAt VARCHAR(64) NULL,
+        redeemedAt VARCHAR(64) NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_fpv_user (userId),
+        INDEX idx_fpv_referrer (referrerUserId)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
   }
 
   private async ensureColumnExists(table: string, column: string, definition: string): Promise<void> {
@@ -631,6 +661,15 @@ class Database {
   }
 
   private async seedIfEmpty(): Promise<void> {
+    const nowIso = new Date().toISOString();
+
+    await this.pool.query(
+      `INSERT INTO users (id, email, name, passwordHash, role, isVerified, createdAt)
+       VALUES (?, ?, ?, ?, 'PARENT', 1, ?)
+       ON DUPLICATE KEY UPDATE name = VALUES(name), isVerified = 1`,
+      [ADMIN_CURATOR_ID, 'team@famitube.app', ADMIN_CURATOR_NAME, 'seeded-admin-account', nowIso]
+    );
+
     for (const c of INITIAL_CATEGORIES) {
       await this.pool.query(
         'INSERT IGNORE INTO categories (id, name, icon, color) VALUES (?, ?, ?, ?)',
@@ -640,8 +679,8 @@ class Database {
 
     for (const ch of INITIAL_CHANNELS) {
       await this.pool.query(
-        `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, ageRating, isVerified, channelType, scheduleStartTime, videoIds, liveSchedules)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `INSERT INTO channels (id, name, description, avatarUrl, bannerUrl, category, ageRating, isVerified, channelType, scheduleStartTime, videoIds, liveSchedules, ownerId, createdAt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON DUPLICATE KEY UPDATE
            name = VALUES(name),
            description = VALUES(description),
@@ -649,7 +688,8 @@ class Database {
            channelType = VALUES(channelType),
            ageRating = VALUES(ageRating),
            videoIds = VALUES(videoIds),
-           liveSchedules = COALESCE(liveSchedules, VALUES(liveSchedules))`,
+           liveSchedules = COALESCE(liveSchedules, VALUES(liveSchedules)),
+           ownerId = COALESCE(ownerId, VALUES(ownerId))`,
         [
           ch.id,
           ch.name,
@@ -662,10 +702,14 @@ class Database {
           ch.channelType,
           ch.scheduleStartTime || null,
           JSON.stringify(ch.videoIds || []),
-          ch.liveSchedules ? JSON.stringify(ch.liveSchedules) : null
+          ch.liveSchedules ? JSON.stringify(ch.liveSchedules) : null,
+          ch.ownerId || ADMIN_CURATOR_ID,
+          ch.createdAt || nowIso
         ]
       );
     }
+
+    await this.pool.query('UPDATE channels SET ownerId = ? WHERE ownerId IS NULL', [ADMIN_CURATOR_ID]);
 
     for (const v of INITIAL_VIDEOS) {
       const normalizedTags = normalizeVideoTags(v.tags || [], v.ageRating, v.category);
@@ -722,7 +766,6 @@ class Database {
       ]);
     }
 
-    const nowIso = new Date().toISOString();
     const scaryVideoId = 'vid-scary-01';
     const scaryChannel = INITIAL_CHANNELS[0]?.id || 'ch-science';
     await this.pool.query(
@@ -1045,8 +1088,13 @@ class Database {
 
   public async getChannels(options?: { onlyPublic?: boolean; ageRating?: string }): Promise<Channel[]> {
     const query = options?.onlyPublic
-      ? "SELECT * FROM channels WHERE visibility = 'PUBLIC' OR visibility IS NULL"
-      : 'SELECT * FROM channels';
+      ? `SELECT c.*, u.name AS ownerName
+         FROM channels c
+         LEFT JOIN users u ON u.id = c.ownerId
+         WHERE c.visibility = 'PUBLIC' OR c.visibility IS NULL`
+      : `SELECT c.*, u.name AS ownerName
+         FROM channels c
+         LEFT JOIN users u ON u.id = c.ownerId`;
     const [rows] = await this.pool.query<RowDataPacket[]>(query);
     let channels = rows.map(mapChannelRow);
     if (options?.ageRating && options.ageRating !== 'ALL') {
@@ -1061,7 +1109,13 @@ class Database {
   }
 
   public async getChannelById(id: string): Promise<Channel | undefined> {
-    const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM channels WHERE id = ?', [id]);
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT c.*, u.name AS ownerName
+       FROM channels c
+       LEFT JOIN users u ON u.id = c.ownerId
+       WHERE c.id = ?`,
+      [id]
+    );
     if (rows.length === 0) return undefined;
     const ch = mapChannelRow(rows[0]);
     const [vidRows] = await this.pool.query<RowDataPacket[]>(
@@ -1509,8 +1563,8 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, role, parentId, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, referralCode, referredByUserId, referredByCode, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
@@ -1518,6 +1572,9 @@ class Database {
         user.passwordHash,
         user.role || 'PARENT',
         user.parentId || null,
+        user.referralCode || null,
+        user.referredByUserId || null,
+        user.referredByCode || null,
         user.birthday || null,
         user.ageRating || null,
         user.isVerified ? 1 : 0,
@@ -2636,6 +2693,146 @@ class Database {
       .sort((a, b) => b.cautionCount - a.cautionCount || b.updatedAt.localeCompare(a.updatedAt));
 
     return { recommended, caution };
+  }
+
+  // --- Referrals & 3-Month Family Pass Vouchers ---
+  public async getUserByReferralCode(code: string): Promise<User | undefined> {
+    const clean = String(code || '').trim().toUpperCase();
+    if (!clean) return undefined;
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM users WHERE UPPER(TRIM(referralCode)) = ? LIMIT 1',
+      [clean]
+    );
+    if (rows.length === 0) return undefined;
+    return mapUserRow(rows[0]);
+  }
+
+  public async generateUniqueReferralCode(seedName?: string): Promise<string> {
+    const prefix = String(seedName || 'FAMI')
+      .replace(/[^a-zA-Z0-9]/g, '')
+      .toUpperCase()
+      .slice(0, 4) || 'FAMI';
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const rand = crypto.randomUUID().replace(/-/g, '').slice(0, 5).toUpperCase();
+      const candidate = `${prefix}-${rand}`;
+      const existing = await this.getUserByReferralCode(candidate);
+      if (!existing) return candidate;
+    }
+    return `FAMI-${crypto.randomUUID().replace(/-/g, '').slice(0, 6).toUpperCase()}`;
+  }
+
+  public async ensureParentReferralCode(userId: string): Promise<string> {
+    const user = await this.getUserById(userId);
+    if (user?.referralCode) return user.referralCode;
+    const code = await this.generateUniqueReferralCode(user?.name);
+    await this.pool.query('UPDATE users SET referralCode = ? WHERE id = ?', [code, userId]);
+    return code;
+  }
+
+  public async createFamilyPassVoucher(voucher: FamilyPassVoucher): Promise<FamilyPassVoucher> {
+    await this.pool.query(
+      `INSERT INTO family_pass_vouchers
+        (id, userId, code, durationMonths, source, referralCodeUsed, referrerUserId, status, expiresAt, redeemedAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        voucher.id,
+        voucher.userId,
+        voucher.code,
+        voucher.durationMonths,
+        voucher.source,
+        voucher.referralCodeUsed || null,
+        voucher.referrerUserId || null,
+        voucher.status,
+        voucher.expiresAt ?? null,
+        voucher.redeemedAt ?? null,
+        voucher.createdAt
+      ]
+    );
+    return voucher;
+  }
+
+  public async getVouchersByUserId(userId: string): Promise<FamilyPassVoucher[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM family_pass_vouchers WHERE userId = ? ORDER BY createdAt DESC',
+      [userId]
+    );
+    return rows.map((r) => ({
+      id: r.id,
+      userId: r.userId,
+      code: r.code,
+      durationMonths: Number(r.durationMonths) || 3,
+      source: (r.source as 'REFERRAL' | 'PROMO') || 'REFERRAL',
+      referralCodeUsed: r.referralCodeUsed || undefined,
+      referrerUserId: r.referrerUserId || undefined,
+      status: (r.status as 'AVAILABLE' | 'REDEEMED') || 'AVAILABLE',
+      expiresAt: r.expiresAt || null,
+      redeemedAt: r.redeemedAt || null,
+      createdAt: r.createdAt
+    }));
+  }
+
+  public async redeemFamilyPassVoucher(
+    userId: string,
+    voucherId: string
+  ): Promise<{ voucher: FamilyPassVoucher; user: User } | null> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM family_pass_vouchers WHERE id = ? AND userId = ? LIMIT 1',
+      [voucherId, userId]
+    );
+    if (rows.length === 0) return null;
+    const row = rows[0];
+    if (row.status !== 'AVAILABLE') {
+      return null;
+    }
+
+    const user = await this.getUserById(userId);
+    if (!user) return null;
+
+    const nowMs = Date.now();
+    const currentExpiresMs = user.planExpiresAt ? Date.parse(user.planExpiresAt) : 0;
+    const baseDate = new Date(
+      user.plan === 'PREMIUM' && !Number.isNaN(currentExpiresMs) && currentExpiresMs > nowMs
+        ? currentExpiresMs
+        : nowMs
+    );
+    const months = Number(row.durationMonths) || 3;
+    baseDate.setUTCMonth(baseDate.getUTCMonth() + months);
+    const newExpiresAt = baseDate.toISOString();
+    const nowIso = new Date(nowMs).toISOString();
+
+    await this.pool.query(
+      "UPDATE family_pass_vouchers SET status = 'REDEEMED', redeemedAt = ? WHERE id = ? AND userId = ?",
+      [nowIso, voucherId, userId]
+    );
+    await this.pool.query(
+      "UPDATE users SET plan = 'PREMIUM', planExpiresAt = ? WHERE id = ?",
+      [newExpiresAt, userId]
+    );
+
+    const updatedUser = (await this.getUserById(userId))!;
+    const updatedVouchers = await this.getVouchersByUserId(userId);
+    const updatedVoucher = updatedVouchers.find((v) => v.id === voucherId)!;
+    return { voucher: updatedVoucher, user: updatedUser };
+  }
+
+  public async getReferralStatsForUser(userId: string): Promise<{
+    referralCode: string;
+    referredUsers: Array<{ id: string; name: string; email: string; createdAt: string }>;
+  }> {
+    const referralCode = await this.ensureParentReferralCode(userId);
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT id, name, email, createdAt FROM users WHERE referredByUserId = ? ORDER BY createdAt DESC',
+      [userId]
+    );
+    return {
+      referralCode,
+      referredUsers: rows.map((r) => ({
+        id: r.id,
+        name: r.name,
+        email: r.email,
+        createdAt: r.createdAt
+      }))
+    };
   }
 }
 

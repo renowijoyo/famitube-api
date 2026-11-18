@@ -34,7 +34,7 @@ import {
 } from './utils.js';
 import { generateQuizQuestion } from './quiz.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
-import { buildPremiumRequiredPayload } from './entitlements.js';
+import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
 import {
   Video,
   AgeRating,
@@ -51,7 +51,8 @@ import {
   QuizType,
   LockoutAction,
   KidChannelQuizState,
-  PlanTier
+  PlanTier,
+  User
 } from './types.js';
 
 function resolvePermissionsInput(
@@ -333,9 +334,10 @@ apiRouter.get(
 apiRouter.post(
   '/auth/register',
   asyncHandler(async (req, res) => {
-    const { email, password, name } = req.body;
+    const { email, password, name, referralCode } = req.body;
     const cleanEmail = String(email || '').trim().toLowerCase();
     const cleanName = String(name || cleanEmail.split('@')[0] || '').trim();
+    const cleanReferralCode = String(referralCode || '').trim().toUpperCase();
 
     if (!cleanEmail || !cleanEmail.includes('@')) {
       return res.status(400).json({ success: false, message: 'Valid email is required' });
@@ -351,8 +353,21 @@ apiRouter.post(
       return res.status(409).json({ success: false, message: 'Email is already registered' });
     }
 
+    let referrerUser: User | undefined;
+    if (cleanReferralCode) {
+      referrerUser = await db.getUserByReferralCode(cleanReferralCode);
+      if (!referrerUser) {
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid referral code. Please check the code or leave it blank.'
+        });
+      }
+    }
+
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const verificationExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+    const newParentReferralCode = await db.generateUniqueReferralCode(cleanName || 'Parent');
+    const nowIso = new Date().toISOString();
 
     const user = await db.createUser({
       id: `usr-${uuidv4().slice(0, 8)}`,
@@ -360,17 +375,39 @@ apiRouter.post(
       name: cleanName || 'Parent',
       passwordHash: hashPassword(String(password)),
       role: 'PARENT',
+      referralCode: newParentReferralCode,
+      referredByUserId: referrerUser?.id,
+      referredByCode: referrerUser?.referralCode,
       isVerified: false,
       verificationToken,
       verificationExpiresAt,
-      createdAt: new Date().toISOString()
+      createdAt: nowIso
     });
+
+    if (referrerUser) {
+      await db.createFamilyPassVoucher({
+        id: `fpv-${uuidv4().slice(0, 8)}`,
+        userId: user.id,
+        code: `FP3M-${uuidv4().replace(/-/g, '').slice(0, 8).toUpperCase()}`,
+        durationMonths: 3,
+        source: 'REFERRAL',
+        referralCodeUsed: referrerUser.referralCode,
+        referrerUserId: referrerUser.id,
+        status: 'AVAILABLE',
+        expiresAt: null, // No expiration — usable anytime
+        redeemedAt: null,
+        createdAt: nowIso
+      });
+    }
 
     await sendVerificationEmail(user.email, user.name, verificationToken);
 
     res.status(201).json({
       success: true,
-      message: 'Registration successful! Please check your email to verify your account before logging in.'
+      referralApplied: Boolean(referrerUser),
+      message: referrerUser
+        ? 'Registration successful! Your 3-month Family Pass voucher (no expiration) is waiting in your account. Please verify your email before logging in.'
+        : 'Registration successful! Please check your email to verify your account before logging in.'
     });
   })
 );
@@ -1142,7 +1179,8 @@ apiRouter.post(
       channelType: validType,
       scheduleStartTime: new Date().toISOString(),
       videoIds: Array.isArray(videoIds) ? videoIds : [],
-      ownerId: req.user?.sub,
+      ownerId: req.user?.sub || 'usr-team-famitube',
+      ownerName: req.user?.name || 'Team FamiTube',
       visibility: validVisibility,
       createdAt: new Date().toISOString()
     };
@@ -1350,6 +1388,7 @@ apiRouter.post(
       liveTimeline: Array.isArray(liveTimeline) ? liveTimeline : undefined,
       liveSchedules: Array.isArray(liveSchedules) ? liveSchedules : undefined,
       ownerId: req.user!.sub,
+      ownerName: req.user!.name || 'Team FamiTube',
       visibility: validVisibility,
       defaultTags: parseTagList(defaultTags),
       createdAt: new Date().toISOString()
@@ -1522,7 +1561,7 @@ apiRouter.get(
           avatarUrl: channel.avatarUrl,
           category: channel.category,
           visibility: channel.visibility || 'PUBLIC',
-          ownerName: owner?.name || 'Parent'
+          ownerName: owner?.name || channel.ownerName || 'Team FamiTube'
         }
       }
     });
@@ -1989,6 +2028,55 @@ apiRouter.delete(
 // ==========================================
 // PARENT CHILD ACCOUNT MANAGEMENT & KIDS FEED
 // ==========================================
+
+// Parent referral code, referred registrations & Family Pass vouchers
+apiRouter.get(
+  '/parent/referrals',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const [stats, vouchers] = await Promise.all([
+      db.getReferralStatsForUser(req.user!.sub),
+      db.getVouchersByUserId(req.user!.sub)
+    ]);
+    res.json({
+      success: true,
+      data: {
+        referralCode: stats.referralCode,
+        referredUsers: stats.referredUsers,
+        vouchers
+      }
+    });
+  })
+);
+
+apiRouter.post(
+  '/parent/vouchers/:voucherId/redeem',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const voucherId = String(req.params.voucherId);
+    const result = await db.redeemFamilyPassVoucher(req.user!.sub, voucherId);
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: 'Voucher not found or already redeemed.'
+      });
+    }
+    const plan = resolveUserPlan(result.user);
+    const entitlements = getEntitlementsForPlan(plan, result.user.planExpiresAt ?? null);
+    res.json({
+      success: true,
+      message: `Activated ${result.voucher.durationMonths}-month Family Pass!`,
+      data: {
+        voucher: result.voucher,
+        plan,
+        planExpiresAt: result.user.planExpiresAt ?? null,
+        entitlements
+      }
+    });
+  })
+);
 
 // List child accounts registered by this parent
 apiRouter.get(
