@@ -334,6 +334,25 @@ export interface KidSiteRequest {
   decidedAt?: string | null;
 }
 
+export type AppNotificationType =
+  | 'VIDEO_REQUEST'
+  | 'VIDEO_DECISION'
+  | 'SITE_REQUEST'
+  | 'SITE_DECISION'
+  | 'BLOCKED_SITE'
+  | 'SYSTEM';
+
+export interface AppNotification {
+  id: string;
+  userId: string;
+  type: AppNotificationType;
+  title: string;
+  message: string;
+  relatedId?: string | null;
+  isRead: boolean;
+  createdAt: string;
+}
+
 export interface KidPlaylistItem {
   key: string;
   youtubeVideoId?: string;

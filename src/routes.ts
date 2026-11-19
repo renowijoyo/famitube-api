@@ -2788,6 +2788,15 @@ apiRouter.post(
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Video approval request not found' });
     }
+    await db.createNotification(
+      updated.kidId,
+      'VIDEO_DECISION',
+      decision === 'APPROVED' ? 'Video Approved!' : 'Video Request Declined',
+      decision === 'APPROVED'
+        ? `"${updated.title}" was approved by your parent.`
+        : `"${updated.title}" was declined by your parent.`,
+      updated.id
+    );
     res.json({
       success: true,
       data: updated,
@@ -3069,6 +3078,15 @@ apiRouter.post(
 
       let emailSent = false;
       const parentUser = user.parentId ? await db.getUserById(user.parentId) : undefined;
+      if (parentUser) {
+        await db.createNotification(
+          parentUser.id,
+          'VIDEO_REQUEST',
+          'New Video Request',
+          `${user.name || 'Your child'} asked to watch "${title}"`,
+          savedReq.id
+        );
+      }
       if (parentUser?.email) {
         try {
           const actionToken = signVideoRequestActionToken({
@@ -3260,6 +3278,18 @@ apiRouter.post(
       .filter((x: KidBrowserHistoryItem | null): x is KidBrowserHistoryItem => x !== null);
 
     const saved = await db.addKidBrowserHistoryBatch(user.id, sanitized);
+    if (user.role === 'CHILD' && user.parentId) {
+      const blockedEntries = sanitized.filter((item) => item.blocked);
+      for (const blockedItem of blockedEntries.slice(0, 3)) {
+        await db.createNotification(
+          user.parentId,
+          'BLOCKED_SITE',
+          'Blocked Website Attempt',
+          `${user.name || 'Your child'} tried to visit ${blockedItem.domain}`,
+          blockedItem.id
+        );
+      }
+    }
     res.json({ success: true, data: saved });
   })
 );
@@ -3291,6 +3321,13 @@ apiRouter.post(
       createdAt: new Date().toISOString()
     };
     const saved = await db.createOrGetKidSiteRequest(request);
+    await db.createNotification(
+      user.parentId,
+      'SITE_REQUEST',
+      'Website Access Request',
+      `${user.name || 'Your child'} asked to visit ${domain}`,
+      saved.id
+    );
     res.json({ success: true, data: saved });
   })
 );
@@ -3372,7 +3409,56 @@ apiRouter.post(
       }
     }
 
+    await db.createNotification(
+      decided.kidId,
+      'SITE_DECISION',
+      decision === 'APPROVED' ? 'Website Approved!' : 'Website Request Declined',
+      decision === 'APPROVED'
+        ? `${decided.domain} is now allowed in Safe Browser.`
+        : `Access to ${decided.domain} was declined.`,
+      decided.id
+    );
+
     res.json({ success: true, data: decided });
+  })
+);
+
+// Notifications & Notification History (Parent & Child)
+apiRouter.get(
+  '/notifications',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const limit = req.query.limit ? Number(req.query.limit) : 100;
+    const items = await db.getNotificationsForUser(req.user!.sub, limit);
+    const unreadCount = items.filter((n) => !n.isRead).length;
+    res.json({ success: true, data: { items, unreadCount } });
+  })
+);
+
+apiRouter.post(
+  '/notifications/:id/read',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const updated = await db.markNotificationRead(String(req.params.id), req.user!.sub);
+    res.json({ success: true, data: { updated } });
+  })
+);
+
+apiRouter.post(
+  '/notifications/read-all',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    await db.markAllNotificationsRead(req.user!.sub);
+    res.json({ success: true, message: 'All notifications marked as read' });
+  })
+);
+
+apiRouter.delete(
+  '/notifications',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    await db.clearNotificationsForUser(req.user!.sub);
+    res.json({ success: true, message: 'Notification history cleared' });
   })
 );
 

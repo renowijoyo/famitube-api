@@ -289,5 +289,15 @@ export function videoMatchesCategoryTag(videoTags: string[], category: string): 
   const target = category.trim().toLowerCase();
   if (!target || target === 'all videos' || target === 'cat-all') return true;
   const normalized = videoTags.map((t) => t.trim().toLowerCase());
-  return normalized.includes(`category:${target}`) || normalized.includes(target);
+  if (normalized.includes(`category:${target}`) || normalized.includes(target)) {
+    return true;
+  }
+  const topicAliases: Record<string, string[]> = {
+    'video games & gaming': ['topic:gaming-wholesome'],
+    'hobbies & diy': ['topic:crafts-diy', 'topic:art-drawing', 'topic:music-instruments', 'topic:engineering-robotics'],
+    'sports & outdoors': ['topic:sports-outdoors', 'topic:physical-fitness'],
+    'cooking & baking': ['topic:cooking-baking']
+  };
+  const aliases = topicAliases[target];
+  return Boolean(aliases && aliases.some((alias) => normalized.includes(alias)));
 }

@@ -66,6 +66,30 @@ export const INITIAL_CATEGORIES: Category[] = [
     "name": "World & Discovery",
     "icon": "public",
     "color": "#FB8500"
+  },
+  {
+    "id": "cat-gaming",
+    "name": "Video Games & Gaming",
+    "icon": "sports_esports",
+    "color": "#8B5CF6"
+  },
+  {
+    "id": "cat-hobbies",
+    "name": "Hobbies & DIY",
+    "icon": "handyman",
+    "color": "#F59E0B"
+  },
+  {
+    "id": "cat-sports",
+    "name": "Sports & Outdoors",
+    "icon": "sports_soccer",
+    "color": "#10B981"
+  },
+  {
+    "id": "cat-cooking",
+    "name": "Cooking & Baking",
+    "icon": "bakery_dining",
+    "color": "#EC4899"
   }
 ];
 

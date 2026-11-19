@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
+import mysql, { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import {
   channelMatchesAgeRating,
   normalizeVideoTags,
@@ -42,6 +42,8 @@ import {
   KidBrowserHistoryItem,
   KidSiteRequest,
   KidSiteRequestStatus,
+  AppNotification,
+  AppNotificationType,
   KidPlaylist,
   KidPlaylistItem,
   ParentSafetyRating,
@@ -619,6 +621,20 @@ class Database {
         decidedAt VARCHAR(64) NULL,
         UNIQUE KEY uniq_kid_site_req (kidId, domain),
         INDEX idx_site_req_parent (parentId, status)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS app_notifications (
+        id VARCHAR(64) PRIMARY KEY,
+        userId VARCHAR(64) NOT NULL,
+        type VARCHAR(32) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL,
+        relatedId VARCHAR(128) NULL,
+        isRead TINYINT(1) NOT NULL DEFAULT 0,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_notif_user_time (userId, createdAt)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
@@ -2558,6 +2574,64 @@ class Database {
       createdAt: row.createdAt,
       decidedAt: nowIso
     };
+  }
+
+  public async createNotification(
+    userId: string,
+    type: AppNotificationType,
+    title: string,
+    message: string,
+    relatedId?: string | null
+  ): Promise<AppNotification> {
+    const notif: AppNotification = {
+      id: `notif-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
+      userId,
+      type,
+      title: title.slice(0, 255),
+      message: message.slice(0, 1000),
+      relatedId: relatedId || null,
+      isRead: false,
+      createdAt: new Date().toISOString()
+    };
+    await this.pool.query(
+      `INSERT INTO app_notifications (id, userId, type, title, message, relatedId, isRead, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, 0, ?)`,
+      [notif.id, notif.userId, notif.type, notif.title, notif.message, notif.relatedId, notif.createdAt]
+    );
+    return notif;
+  }
+
+  public async getNotificationsForUser(userId: string, limit = 100): Promise<AppNotification[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM app_notifications WHERE userId = ? ORDER BY createdAt DESC LIMIT ?',
+      [userId, Math.max(1, Math.min(300, limit))]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      userId: row.userId,
+      type: row.type as AppNotificationType,
+      title: row.title,
+      message: row.message,
+      relatedId: row.relatedId || null,
+      isRead: Boolean(row.isRead),
+      createdAt: row.createdAt
+    }));
+  }
+
+  public async markNotificationRead(id: string, userId: string): Promise<boolean> {
+    const [result] = await this.pool.query<ResultSetHeader>(
+      'UPDATE app_notifications SET isRead = 1 WHERE id = ? AND userId = ?',
+      [id, userId]
+    );
+    return result.affectedRows > 0;
+  }
+
+  public async markAllNotificationsRead(userId: string): Promise<void> {
+    await this.pool.query('UPDATE app_notifications SET isRead = 1 WHERE userId = ? AND isRead = 0', [userId]);
+  }
+
+  public async clearNotificationsForUser(userId: string): Promise<void> {
+    await this.pool.query('DELETE FROM app_notifications WHERE userId = ?', [userId]);
   }
 
   public async getKidPlaylists(kidId: string): Promise<KidPlaylist[]> {
