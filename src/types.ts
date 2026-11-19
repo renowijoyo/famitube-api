@@ -225,7 +225,15 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
-export interface ParentalControls {
+export interface BrowserControls {
+  browserEnabled: boolean;
+  browserAllowlistOnly: boolean;
+  browserLogHistory: boolean;
+  allowedDomains: string[];
+  blockedDomains: string[];
+}
+
+export interface ParentalControls extends BrowserControls {
   parentPin: string;
   dailyLimitMinutes: number;
   ageRating: AgeRating;
@@ -264,6 +272,7 @@ export interface User {
   attentionTrackingEnabled?: boolean;
   attentionPauseSeconds?: number;
   attentionMinWatchPercent?: number;
+  browserControls?: Partial<BrowserControls> | null;
   parentalOverride?: ParentalControlsOverride | null;
   verificationToken?: string;
   verificationExpiresAt?: string;
@@ -299,6 +308,30 @@ export interface KidHistoryItem {
   sourceUrl: string;
   isApprovedSearch: boolean;
   watchedAt: string;
+}
+
+export interface KidBrowserHistoryItem {
+  id: string;
+  kidId: string;
+  url: string;
+  domain: string;
+  title: string;
+  blocked: boolean;
+  visitedAt: string;
+}
+
+export type KidSiteRequestStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
+
+export interface KidSiteRequest {
+  id: string;
+  kidId: string;
+  kidName?: string;
+  parentId: string;
+  url: string;
+  domain: string;
+  status: KidSiteRequestStatus;
+  createdAt: string;
+  decidedAt?: string | null;
 }
 
 export interface KidPlaylistItem {
