@@ -2643,6 +2643,161 @@ apiRouter.get(
   })
 );
 
+// Verify parent PIN from a child (or parent) session for quick-access parental controls
+apiRouter.post(
+  '/kids/parental-controls/verify-pin',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const effective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+
+    const submittedPin = String(req.body?.pin ?? '').trim();
+    if (!submittedPin || submittedPin !== effective.parentPin) {
+      return res.status(403).json({ success: false, message: 'Incorrect Parent PIN' });
+    }
+
+    res.json({
+      success: true,
+      data: {
+        parentPin: effective.parentPin,
+        dailyLimitMinutes: effective.dailyLimitMinutes,
+        ageRating: effective.ageRating,
+        attentionTrackingEnabled: effective.attentionTrackingEnabled,
+        attentionPauseSeconds: effective.attentionPauseSeconds,
+        attentionMinWatchPercent: effective.attentionMinWatchPercent
+      }
+    });
+  })
+);
+
+// Quick-access parental controls update from a child device/web session (requires valid currentPin)
+apiRouter.put(
+  '/kids/parental-controls',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const currentEffective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+
+    const currentPin = String(req.body?.currentPin ?? '').trim();
+    if (!currentPin || currentPin !== currentEffective.parentPin) {
+      return res.status(403).json({ success: false, message: 'Incorrect Parent PIN' });
+    }
+
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const {
+      parentPin,
+      dailyLimitMinutes,
+      ageRating,
+      attentionTrackingEnabled,
+      attentionPauseSeconds,
+      attentionMinWatchPercent
+    } = req.body || {};
+
+    const cleanNewPin =
+      parentPin !== undefined && parentPin !== null && String(parentPin).trim() !== ''
+        ? String(parentPin).trim()
+        : undefined;
+    if (cleanNewPin !== undefined && !/^\d{4}$/.test(cleanNewPin)) {
+      return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
+    }
+
+    if (user.role === 'CHILD' && user.parentId) {
+      const nextOverrides: ParentalControlsOverride = { ...(user.parentalOverride || {}) };
+      if (cleanNewPin !== undefined) nextOverrides.parentPin = cleanNewPin;
+      if (dailyLimitMinutes !== undefined) {
+        nextOverrides.dailyLimitMinutes = Math.max(0, Math.min(720, Number(dailyLimitMinutes)));
+      }
+      if (ageRating !== undefined && validRatings.includes(String(ageRating) as AgeRating)) {
+        nextOverrides.ageRating = String(ageRating) as AgeRating;
+      }
+      if (attentionTrackingEnabled !== undefined) {
+        nextOverrides.attentionTrackingEnabled = Boolean(attentionTrackingEnabled);
+      }
+      if (attentionPauseSeconds !== undefined) {
+        nextOverrides.attentionPauseSeconds = Math.max(5, Math.min(300, Number(attentionPauseSeconds)));
+      }
+      if (attentionMinWatchPercent !== undefined) {
+        nextOverrides.attentionMinWatchPercent = Math.max(10, Math.min(100, Number(attentionMinWatchPercent)));
+      }
+
+      const nextEffective = resolveEffectiveParentalControls(parentUser, {
+        ...user,
+        parentalOverride: nextOverrides
+      });
+
+      await db.updateChildAccount(user.parentId, user.id, {
+        ageRating: nextEffective.ageRating,
+        parentPin: nextEffective.parentPin,
+        dailyLimitMinutes: nextEffective.dailyLimitMinutes,
+        attentionTrackingEnabled: nextEffective.attentionTrackingEnabled,
+        attentionPauseSeconds: nextEffective.attentionPauseSeconds,
+        attentionMinWatchPercent: nextEffective.attentionMinWatchPercent,
+        parentalOverride: Object.keys(nextOverrides).length > 0 ? nextOverrides : null
+      });
+
+      return res.json({
+        success: true,
+        data: {
+          parentPin: nextEffective.parentPin,
+          dailyLimitMinutes: nextEffective.dailyLimitMinutes,
+          ageRating: nextEffective.ageRating,
+          attentionTrackingEnabled: nextEffective.attentionTrackingEnabled,
+          attentionPauseSeconds: nextEffective.attentionPauseSeconds,
+          attentionMinWatchPercent: nextEffective.attentionMinWatchPercent
+        },
+        message: 'Parental controls updated and synced.'
+      });
+    }
+
+    // Fallback for parent previewing child mode
+    const updatedParent = await db.updateParentGlobalControls(user.id, {
+      parentPin: cleanNewPin,
+      dailyLimitMinutes:
+        dailyLimitMinutes !== undefined ? Math.max(0, Math.min(720, Number(dailyLimitMinutes))) : undefined,
+      ageRating:
+        ageRating !== undefined && validRatings.includes(String(ageRating) as AgeRating)
+          ? (String(ageRating) as AgeRating)
+          : undefined,
+      attentionTrackingEnabled:
+        attentionTrackingEnabled !== undefined ? Boolean(attentionTrackingEnabled) : undefined,
+      attentionPauseSeconds:
+        attentionPauseSeconds !== undefined ? Math.max(5, Math.min(300, Number(attentionPauseSeconds))) : undefined,
+      attentionMinWatchPercent:
+        attentionMinWatchPercent !== undefined ? Math.max(10, Math.min(100, Number(attentionMinWatchPercent))) : undefined
+    });
+    const nextGlobal = getGlobalParentalControls(updatedParent || user);
+    res.json({
+      success: true,
+      data: {
+        parentPin: nextGlobal.parentPin,
+        dailyLimitMinutes: nextGlobal.dailyLimitMinutes,
+        ageRating: nextGlobal.ageRating,
+        attentionTrackingEnabled: nextGlobal.attentionTrackingEnabled,
+        attentionPauseSeconds: nextGlobal.attentionPauseSeconds,
+        attentionMinWatchPercent: nextGlobal.attentionMinWatchPercent
+      },
+      message: 'Parental controls updated.'
+    });
+  })
+);
+
 // Kid saved channels list (channels added by the child to their channel list)
 apiRouter.get(
   '/kids/channels',
