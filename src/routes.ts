@@ -3832,54 +3832,60 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'first_watch',
         title: 'First Watch',
         description: 'Watch your very first video on FamiTube',
-        icon: 'ðŸŽ¬',
+        icon: '🎬',
         progress: Math.min(videosWatched, 1),
         target: 1,
+        rewardFamibux: 20,
         rewardStars: 20
       },
       {
         id: 'video_explorer',
         title: 'Video Explorer',
         description: 'Watch 5 different videos',
-        icon: 'ðŸš€',
+        icon: '🚀',
         progress: Math.min(videosWatched, 5),
         target: 5,
+        rewardFamibux: 50,
         rewardStars: 50
       },
       {
         id: 'super_viewer',
         title: 'Super Viewer',
         description: 'Watch 15 videos in your library',
-        icon: 'ðŸŒŸ',
+        icon: '🌟',
         progress: Math.min(videosWatched, 15),
         target: 15,
+        rewardFamibux: 120,
         rewardStars: 120
       },
       {
         id: 'playlist_maker',
         title: 'Playlist Maker',
-        description: 'Create your first personal playlist',
-        icon: 'ðŸŽµ',
+        description: 'Create your first personal favorites list',
+        icon: '🎵',
         progress: Math.min(playlistsCreated, 1),
         target: 1,
+        rewardFamibux: 25,
         rewardStars: 25
       },
       {
         id: 'curator_junior',
         title: 'Junior Curator',
-        description: 'Save 5 videos into your playlists',
-        icon: 'ðŸ“š',
+        description: 'Save 5 videos into your favorites lists',
+        icon: '📚',
         progress: Math.min(playlistItemsCount, 5),
         target: 5,
+        rewardFamibux: 60,
         rewardStars: 60
       },
       {
         id: 'safe_searcher',
         title: 'Safe Searcher',
         description: 'Watch a parent-approved YouTube search video',
-        icon: 'ðŸ”',
+        icon: '🔍',
         progress: Math.min(approvedSearches, 1),
         target: 1,
+        rewardFamibux: 30,
         rewardStars: 30
       }
     ];
@@ -3889,39 +3895,49 @@ async function computeKidAchievementsSummary(kidId: string) {
       unlocked: a.progress >= a.target
     }));
 
-    const activityStars =
+    const activityFamibux =
       videosWatched * 15 +
       playlistsCreated * 10 +
       playlistItemsCount * 5;
-    const bonusStars = achievements
+    const bonusFamibux = achievements
       .filter((a) => a.unlocked)
-      .reduce((sum, a) => sum + a.rewardStars, 0);
-    const stars = Math.max(0, activityStars + bonusStars + (user?.bonusStars || 0));
+      .reduce((sum, a) => sum + (a.rewardFamibux || a.rewardStars), 0);
+    const famibux = Math.max(0, activityFamibux + bonusFamibux + (user?.bonusStars || 0));
+
+    // Gamification leveling is based EXCLUSIVELY on unlocked badges (achievements)
+    const unlockedCount = achievements.filter((a) => a.unlocked).length;
+    const totalCount = achievements.length;
 
     const levels = [
-      { level: 1, title: 'Curious Explorer', min: 0, next: 100 },
-      { level: 2, title: 'Science Sprout', min: 100, next: 250 },
-      { level: 3, title: 'Knowledge Seeker', min: 250, next: 500 },
-      { level: 4, title: 'Super Learner', min: 500, next: 1000 },
-      { level: 5, title: 'FamiTube Legend', min: 1000, next: 1000 }
+      { level: 1, title: 'Curious Explorer', minBadges: 0, nextBadges: 1 },
+      { level: 2, title: 'Science Sprout', minBadges: 1, nextBadges: 2 },
+      { level: 3, title: 'Knowledge Seeker', minBadges: 2, nextBadges: 4 },
+      { level: 4, title: 'Super Learner', minBadges: 4, nextBadges: 6 },
+      { level: 5, title: 'FamiTube Legend', minBadges: 6, nextBadges: 6 }
     ];
-    const currentLevel = [...levels].reverse().find((l) => stars >= l.min) || levels[0];
+    const currentLevel = [...levels].reverse().find((l) => unlockedCount >= l.minBadges) || levels[0];
     const progressPercent =
       currentLevel.level === 5
         ? 100
         : Math.min(
             100,
-            Math.round(((stars - currentLevel.min) / (currentLevel.next - currentLevel.min)) * 100)
+            Math.round(
+              ((unlockedCount - currentLevel.minBadges) /
+                (currentLevel.nextBadges - currentLevel.minBadges)) *
+                100
+            )
           );
 
     return {
-      stars,
+      famibux,
+      stars: famibux, // backwards compatibility
       level: currentLevel.level,
       levelTitle: currentLevel.title,
-      nextLevelStars: currentLevel.next,
+      nextLevelBadges: currentLevel.nextBadges,
+      nextLevelStars: currentLevel.nextBadges, // compatibility alias
       progressPercent,
-      unlockedCount: achievements.filter((a) => a.unlocked).length,
-      totalCount: achievements.length,
+      unlockedCount,
+      totalCount,
       stats: {
         videosWatched,
         approvedSearches,
@@ -3932,6 +3948,38 @@ async function computeKidAchievementsSummary(kidId: string) {
     };
 }
 
+// Famibux API alias endpoints
+apiRouter.post(
+  '/kids/famibux/award',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const amount = Math.trunc(Number(req.body?.amount ?? 0));
+    if (!Number.isFinite(amount) || amount <= 0 || amount > 10000) {
+      return res.status(400).json({ success: false, message: 'Amount must be between 1 and 10000' });
+    }
+    await db.adjustUserBonusStars(req.user!.sub, amount);
+    const data = await computeKidAchievementsSummary(req.user!.sub);
+    res.json({ success: true, data });
+  })
+);
+
+apiRouter.post(
+  '/kids/famibux/spend',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const cost = Math.trunc(Number(req.body?.cost ?? 0));
+    if (!Number.isFinite(cost) || cost <= 0) {
+      return res.status(400).json({ success: false, message: 'Cost must be positive' });
+    }
+    const current = await computeKidAchievementsSummary(req.user!.sub);
+    if (current.famibux < cost) {
+      return res.status(400).json({ success: false, message: 'Not enough Famibux', data: current });
+    }
+    await db.adjustUserBonusStars(req.user!.sub, -cost);
+    const data = await computeKidAchievementsSummary(req.user!.sub);
+    res.json({ success: true, data });
+  })
+);
 apiRouter.get(
   '/kids/achievements',
   requireAuth,
