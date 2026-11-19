@@ -1665,6 +1665,7 @@ class Database {
     if (updates.browserEnabled !== undefined) nextBrowser.browserEnabled = updates.browserEnabled;
     if (updates.browserAllowlistOnly !== undefined) nextBrowser.browserAllowlistOnly = updates.browserAllowlistOnly;
     if (updates.browserLogHistory !== undefined) nextBrowser.browserLogHistory = updates.browserLogHistory;
+    if (updates.browserSearchProvider !== undefined) nextBrowser.browserSearchProvider = updates.browserSearchProvider;
     if (updates.allowedDomains !== undefined) nextBrowser.allowedDomains = updates.allowedDomains;
     if (updates.blockedDomains !== undefined) nextBrowser.blockedDomains = updates.blockedDomains;
     const browserControlsJson = Object.keys(nextBrowser).length > 0 ? JSON.stringify(nextBrowser) : null;

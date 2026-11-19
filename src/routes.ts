@@ -40,6 +40,7 @@ import {
   AgeRating,
   Channel,
   ChannelVisibility,
+  SearchProvider,
   PermissionPreset,
   ChannelPermissions,
   PERMISSION_PRESETS,
@@ -67,6 +68,20 @@ const DEFAULT_ALLOWED_DOMAINS = [
 
 const DEFAULT_BLOCKED_DOMAINS = ['youtube.com', 'youtu.be'];
 
+const SEARCH_PROVIDER_TEMPLATES: Record<SearchProvider, { label: string; template: string }> = {
+  GOOGLE: { label: 'Google SafeSearch', template: 'https://www.google.com/search?safe=active&q={query}' },
+  DUCKDUCKGO: { label: 'DuckDuckGo Safe', template: 'https://duckduckgo.com/?kp=1&q={query}' },
+  BING: { label: 'Bing SafeSearch', template: 'https://www.bing.com/search?adlt=strict&q={query}' }
+};
+
+function isSearchProvider(value: unknown): value is SearchProvider {
+  return typeof value === 'string' && ['GOOGLE', 'DUCKDUCKGO', 'BING'].includes(value);
+}
+
+function getDefaultSearchProvider(): SearchProvider {
+  return 'GOOGLE';
+}
+
 function normalizeDomain(raw: unknown): string {
   const s = String(raw || '').trim().toLowerCase();
   if (!s) return '';
@@ -92,6 +107,7 @@ function getDefaultBrowserControlsForAge(ageRating: AgeRating): BrowserControls 
         browserEnabled: false,
         browserAllowlistOnly: true,
         browserLogHistory: true,
+        browserSearchProvider: getDefaultSearchProvider(),
         allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
         blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
       };
@@ -100,6 +116,7 @@ function getDefaultBrowserControlsForAge(ageRating: AgeRating): BrowserControls 
         browserEnabled: true,
         browserAllowlistOnly: true,
         browserLogHistory: true,
+        browserSearchProvider: getDefaultSearchProvider(),
         allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
         blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
       };
@@ -110,6 +127,7 @@ function getDefaultBrowserControlsForAge(ageRating: AgeRating): BrowserControls 
         browserEnabled: true,
         browserAllowlistOnly: false,
         browserLogHistory: true,
+        browserSearchProvider: getDefaultSearchProvider(),
         allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
         blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
       };
@@ -133,6 +151,7 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
     browserEnabled: bc.browserEnabled ?? ageBrowserDefaults.browserEnabled,
     browserAllowlistOnly: bc.browserAllowlistOnly ?? ageBrowserDefaults.browserAllowlistOnly,
     browserLogHistory: bc.browserLogHistory ?? ageBrowserDefaults.browserLogHistory,
+    browserSearchProvider: bc.browserSearchProvider ?? ageBrowserDefaults.browserSearchProvider,
     allowedDomains: bc.allowedDomains ?? ageBrowserDefaults.allowedDomains,
     blockedDomains: bc.blockedDomains ?? ageBrowserDefaults.blockedDomains
   };
@@ -159,6 +178,8 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
       ov.browserAllowlistOnly ?? parentBrowser.browserAllowlistOnly ?? ageBrowserDefaults.browserAllowlistOnly,
     browserLogHistory:
       ov.browserLogHistory ?? parentBrowser.browserLogHistory ?? ageBrowserDefaults.browserLogHistory,
+    browserSearchProvider:
+      ov.browserSearchProvider ?? parentBrowser.browserSearchProvider ?? ageBrowserDefaults.browserSearchProvider,
     allowedDomains: ov.allowedDomains ?? parentBrowser.allowedDomains ?? ageBrowserDefaults.allowedDomains,
     blockedDomains: ov.blockedDomains ?? parentBrowser.blockedDomains ?? ageBrowserDefaults.blockedDomains
   };
@@ -185,6 +206,7 @@ function formatChildResponse(parent: User | undefined, child: User) {
     browserEnabled: effective.browserEnabled,
     browserAllowlistOnly: effective.browserAllowlistOnly,
     browserLogHistory: effective.browserLogHistory,
+    browserSearchProvider: effective.browserSearchProvider,
     allowedDomains: effective.allowedDomains,
     blockedDomains: effective.blockedDomains,
     overrides: child.parentalOverride || {},
@@ -2234,6 +2256,7 @@ apiRouter.put(
       browserEnabled,
       browserAllowlistOnly,
       browserLogHistory,
+      browserSearchProvider,
       allowedDomains,
       blockedDomains
     } = req.body || {};
@@ -2264,6 +2287,7 @@ apiRouter.put(
       browserEnabled: browserEnabled !== undefined ? Boolean(browserEnabled) : undefined,
       browserAllowlistOnly: browserAllowlistOnly !== undefined ? Boolean(browserAllowlistOnly) : undefined,
       browserLogHistory: browserLogHistory !== undefined ? Boolean(browserLogHistory) : undefined,
+      browserSearchProvider: isSearchProvider(browserSearchProvider) ? browserSearchProvider : undefined,
       allowedDomains:
         allowedDomains !== undefined ? normalizeDomainList(allowedDomains, DEFAULT_ALLOWED_DOMAINS) : undefined,
       blockedDomains:
@@ -2419,6 +2443,7 @@ apiRouter.put(
       browserEnabled,
       browserAllowlistOnly,
       browserLogHistory,
+      browserSearchProvider,
       allowedDomains,
       blockedDomains,
       overrides: overridesBody
@@ -2485,6 +2510,9 @@ apiRouter.put(
       applyOverride('browserEnabled', ob.browserEnabled, (v) => Boolean(v));
       applyOverride('browserAllowlistOnly', ob.browserAllowlistOnly, (v) => Boolean(v));
       applyOverride('browserLogHistory', ob.browserLogHistory, (v) => Boolean(v));
+      applyOverride('browserSearchProvider', ob.browserSearchProvider, (v) =>
+        isSearchProvider(v) ? v : getDefaultSearchProvider()
+      );
       applyOverride('allowedDomains', ob.allowedDomains, (v) =>
         normalizeDomainList(v, DEFAULT_ALLOWED_DOMAINS)
       );
@@ -2502,6 +2530,9 @@ apiRouter.put(
     applyOverride('browserEnabled', browserEnabled, (v) => Boolean(v));
     applyOverride('browserAllowlistOnly', browserAllowlistOnly, (v) => Boolean(v));
     applyOverride('browserLogHistory', browserLogHistory, (v) => Boolean(v));
+    applyOverride('browserSearchProvider', browserSearchProvider, (v) =>
+      isSearchProvider(v) ? v : getDefaultSearchProvider()
+    );
     applyOverride('allowedDomains', allowedDomains, (v) => normalizeDomainList(v, DEFAULT_ALLOWED_DOMAINS));
     applyOverride('blockedDomains', blockedDomains, (v) => normalizeDomainList(v, DEFAULT_BLOCKED_DOMAINS));
     applyOverride('attentionMinWatchPercent', attentionMinWatchPercent, (v) => Math.max(10, Math.min(100, Number(v))));
@@ -3410,9 +3441,27 @@ apiRouter.get(
         browserEnabled: effective.browserEnabled,
         browserAllowlistOnly: effective.browserAllowlistOnly,
         browserLogHistory: effective.browserLogHistory,
+        browserSearchProvider: effective.browserSearchProvider,
         allowedDomains: effective.allowedDomains,
         blockedDomains: effective.blockedDomains
       }
+    });
+  })
+);
+
+// Search providers available (used by parent settings and Android/web search URL formatting)
+apiRouter.get(
+  '/browser/search-providers',
+  requireAuth,
+  asyncHandler(async (_req: AuthenticatedRequest, res) => {
+    res.json({
+      success: true,
+      data: (Object.keys(SEARCH_PROVIDER_TEMPLATES) as SearchProvider[]).map((id) => ({
+        id,
+        label: SEARCH_PROVIDER_TEMPLATES[id].label,
+        template: SEARCH_PROVIDER_TEMPLATES[id].template,
+        configured: true
+      }))
     });
   })
 );

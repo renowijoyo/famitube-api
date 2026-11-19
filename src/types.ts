@@ -225,10 +225,13 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
+export type SearchProvider = 'GOOGLE' | 'DUCKDUCKGO' | 'BING';
+
 export interface BrowserControls {
   browserEnabled: boolean;
   browserAllowlistOnly: boolean;
   browserLogHistory: boolean;
+  browserSearchProvider: SearchProvider;
   allowedDomains: string[];
   blockedDomains: string[];
 }
