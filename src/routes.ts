@@ -2555,6 +2555,38 @@ apiRouter.delete(
   })
 );
 
+// Switch into a child's session from an authenticated parent account
+apiRouter.post(
+  '/parent/children/:childId/switch-session',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const [parent, children] = await Promise.all([
+      db.getUserById(req.user!.sub),
+      db.getChildrenByParentId(req.user!.sub)
+    ]);
+    const child = children.find((c) => c.id === childId);
+    if (!child) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+
+    const token = signAuthToken({
+      sub: child.id,
+      email: child.email,
+      name: child.name,
+      role: 'CHILD',
+      parentId: req.user!.sub
+    });
+
+    res.json({
+      success: true,
+      token,
+      user: formatChildResponse(parent, child)
+    });
+  })
+);
+
 // Kid-safe feed (for logged-in CHILD or PARENT preview)
 apiRouter.get(
   '/kids/feed',
