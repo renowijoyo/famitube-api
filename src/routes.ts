@@ -62,7 +62,7 @@ const DEFAULT_ALLOWED_DOMAINS = [
   'kids.nationalgeographic.com',
   'nasa.gov',
   'scratch.mit.edu',
-  'kiddle.co'
+  'google.com'
 ];
 
 const DEFAULT_BLOCKED_DOMAINS = ['youtube.com', 'youtu.be'];
