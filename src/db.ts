@@ -1808,6 +1808,15 @@ class Database {
     return (await this.getUserById(userId)) || null;
   }
 
+  public async adjustUserBonusStars(userId: string, delta: number): Promise<number> {
+    await this.pool.query(
+      'UPDATE users SET bonusStars = COALESCE(bonusStars, 0) + ? WHERE id = ?',
+      [Math.trunc(delta), userId]
+    );
+    const updated = await this.getUserById(userId);
+    return updated?.bonusStars ?? 0;
+  }
+
   public async getEffectiveEntitlements(user: User): Promise<PlanEntitlements> {
     let planSource: User = user;
     if (user.role === 'CHILD' && user.parentId) {
@@ -2522,6 +2531,23 @@ class Database {
       [req.id, req.kidId, req.parentId, req.url, req.domain, req.status, req.createdAt]
     );
     return req;
+  }
+
+  public async getKidSiteRequestsForKid(kidId: string): Promise<KidSiteRequest[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_site_requests WHERE kidId = ? ORDER BY createdAt DESC',
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: row.id,
+      kidId: row.kidId,
+      parentId: row.parentId,
+      url: row.url,
+      domain: row.domain,
+      status: row.status as KidSiteRequestStatus,
+      createdAt: row.createdAt,
+      decidedAt: row.decidedAt || null
+    }));
   }
 
   public async getKidSiteRequestsForParent(parentId: string): Promise<KidSiteRequest[]> {

@@ -3385,6 +3385,17 @@ apiRouter.get(
   })
 );
 
+// Kid: get own embedded browser history
+apiRouter.get(
+  '/kids/browser/history',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const limit = req.query.limit ? Number(req.query.limit) : 50;
+    const history = await db.getKidBrowserHistory(req.user!.sub, limit);
+    res.json({ success: true, data: history });
+  })
+);
+
 // Kid: log embedded browser history batch (only if browserLogHistory is enabled)
 apiRouter.post(
   '/kids/browser/history',
@@ -3446,6 +3457,16 @@ apiRouter.post(
       }
     }
     res.json({ success: true, data: saved });
+  })
+);
+
+// Kid: list own site access requests
+apiRouter.get(
+  '/kids/browser/requests',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const requests = await db.getKidSiteRequestsForKid(req.user!.sub);
+    res.json({ success: true, data: requests });
   })
 );
 
@@ -3712,22 +3733,18 @@ apiRouter.delete(
   })
 );
 
-// Kid: gamification stats & achievements
-apiRouter.get(
-  '/kids/achievements',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const kidId = req.user!.sub;
-    const [user, history, playlists] = await Promise.all([
-      db.getUserById(kidId),
-      db.getKidHistory(kidId),
-      db.getKidPlaylists(kidId)
-    ]);
+// Kid: gamification stats & achievements (single source of truth for Web & Android)
+async function computeKidAchievementsSummary(kidId: string) {
+  const [user, history, playlists] = await Promise.all([
+    db.getUserById(kidId),
+    db.getKidHistory(kidId),
+    db.getKidPlaylists(kidId)
+  ]);
 
-    const videosWatched = history.length;
-    const approvedSearches = history.filter((h) => h.isApprovedSearch).length;
-    const playlistsCreated = playlists.length;
-    const playlistItemsCount = playlists.reduce((sum, pl) => sum + (pl.items?.length || 0), 0);
+  const videosWatched = history.length;
+  const approvedSearches = history.filter((h) => h.isApprovedSearch).length;
+  const playlistsCreated = playlists.length;
+  const playlistItemsCount = playlists.reduce((sum, pl) => sum + (pl.items?.length || 0), 0);
 
     const definitions = [
       {
@@ -3798,7 +3815,7 @@ apiRouter.get(
     const bonusStars = achievements
       .filter((a) => a.unlocked)
       .reduce((sum, a) => sum + a.rewardStars, 0);
-    const stars = activityStars + bonusStars + (user?.bonusStars || 0);
+    const stars = Math.max(0, activityStars + bonusStars + (user?.bonusStars || 0));
 
     const levels = [
       { level: 1, title: 'Curious Explorer', min: 0, next: 100 },
@@ -3816,25 +3833,62 @@ apiRouter.get(
             Math.round(((stars - currentLevel.min) / (currentLevel.next - currentLevel.min)) * 100)
           );
 
-    res.json({
-      success: true,
-      data: {
-        stars,
-        level: currentLevel.level,
-        levelTitle: currentLevel.title,
-        nextLevelStars: currentLevel.next,
-        progressPercent,
-        unlockedCount: achievements.filter((a) => a.unlocked).length,
-        totalCount: achievements.length,
-        stats: {
-          videosWatched,
-          approvedSearches,
-          playlistsCreated,
-          playlistItemsCount
-        },
-        achievements
-      }
-    });
+    return {
+      stars,
+      level: currentLevel.level,
+      levelTitle: currentLevel.title,
+      nextLevelStars: currentLevel.next,
+      progressPercent,
+      unlockedCount: achievements.filter((a) => a.unlocked).length,
+      totalCount: achievements.length,
+      stats: {
+        videosWatched,
+        approvedSearches,
+        playlistsCreated,
+        playlistItemsCount
+      },
+      achievements
+    };
+}
+
+apiRouter.get(
+  '/kids/achievements',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const data = await computeKidAchievementsSummary(req.user!.sub);
+    res.json({ success: true, data });
+  })
+);
+
+apiRouter.post(
+  '/kids/stars/award',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const amount = Math.trunc(Number(req.body?.amount ?? 0));
+    if (!Number.isFinite(amount) || amount <= 0 || amount > 10000) {
+      return res.status(400).json({ success: false, message: 'Amount must be between 1 and 10000' });
+    }
+    await db.adjustUserBonusStars(req.user!.sub, amount);
+    const data = await computeKidAchievementsSummary(req.user!.sub);
+    res.json({ success: true, data });
+  })
+);
+
+apiRouter.post(
+  '/kids/stars/spend',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const cost = Math.trunc(Number(req.body?.cost ?? 0));
+    if (!Number.isFinite(cost) || cost <= 0) {
+      return res.status(400).json({ success: false, message: 'Cost must be positive' });
+    }
+    const current = await computeKidAchievementsSummary(req.user!.sub);
+    if (current.stars < cost) {
+      return res.status(400).json({ success: false, message: 'Not enough stars', data: current });
+    }
+    await db.adjustUserBonusStars(req.user!.sub, -cost);
+    const data = await computeKidAchievementsSummary(req.user!.sub);
+    res.json({ success: true, data });
   })
 );
 
