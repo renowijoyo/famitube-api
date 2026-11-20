@@ -31,7 +31,8 @@ import {
   getYouTubeThumbnail,
   searchYouTubeVideos,
   resolveGeoForSearch,
-  deriveAgeRatingFromBirthday
+  deriveAgeRatingFromBirthday,
+  fetchYouTubeChannelInfo
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
@@ -1461,6 +1462,139 @@ apiRouter.get(
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const channels = await db.getChannelsForUser(req.user!.sub);
     res.json({ success: true, data: channels });
+  })
+);
+
+
+// Preview / parse YouTube channel metadata and recent videos
+apiRouter.post(
+  ['/channels/parse-youtube', '/admin/channels/parse-youtube'],
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const { url } = req.body || {};
+    if (!url || !String(url).trim()) {
+      return res.status(400).json({ success: false, message: 'YouTube channel URL or handle is required' });
+    }
+    const info = await fetchYouTubeChannelInfo(String(url));
+    if (!info) {
+      return res.status(404).json({ success: false, message: 'Could not resolve YouTube channel from provided URL or handle' });
+    }
+    res.json({ success: true, data: info });
+  })
+);
+
+// Import a YouTube channel into FamiTube with curated video ingestion
+apiRouter.post(
+  ['/channels/import-youtube', '/admin/channels/import-youtube'],
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const {
+      url,
+      name,
+      description,
+      avatarUrl,
+      category = 'Cartoons & Fun',
+      ageRating = 'ALL',
+      channelType = 'ON_DEMAND',
+      visibility = 'PUBLIC',
+      maxVideos = 10,
+      autoApproveVideos = true
+    } = req.body || {};
+
+    if (!url || !String(url).trim()) {
+      return res.status(400).json({ success: false, message: 'YouTube channel URL or handle is required' });
+    }
+
+    const info = await fetchYouTubeChannelInfo(String(url));
+    if (!info) {
+      return res.status(404).json({ success: false, message: 'Could not resolve YouTube channel from provided URL or handle' });
+    }
+
+    const channelName = String(name || info.title || 'Curated Channel').trim();
+    const channelDesc = String(description || info.description || '').trim();
+    const channelAvatar = String(avatarUrl || info.avatarUrl || 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=200&h=200&fit=crop');
+    const validType: ChannelType = channelType === 'LIVE_TV' ? 'LIVE_TV' : 'ON_DEMAND';
+    const validVisibility: ChannelVisibility = visibility === 'PRIVATE' ? 'PRIVATE' : 'PUBLIC';
+    const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    const resolvedAgeRating: AgeRating = validRatings.includes(String(ageRating).toUpperCase() as AgeRating)
+      ? (String(ageRating).toUpperCase() as AgeRating)
+      : 'ALL';
+
+    const channelId = `chan-${uuidv4().slice(0, 8)}`;
+    const nowIso = new Date().toISOString();
+
+    const limit = Math.min(Math.max(Number(maxVideos) || 10, 1), 25);
+    const candidateVideos = (info.videos || []).slice(0, limit);
+    const addedVideoIds: string[] = [];
+
+    for (const v of candidateVideos) {
+      const vidId = `vid-${uuidv4().slice(0, 8)}`;
+      const videoRecord: Video = {
+        id: vidId,
+        title: v.title,
+        description: v.description || `Video from ${channelName}`,
+        sourceType: 'YOUTUBE',
+        sourceUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
+        youtubeVideoId: v.videoId,
+        thumbnailUrl: v.thumbnailUrl || getYouTubeThumbnail(v.videoId),
+        duration: 240,
+        channelId,
+        channelTitle: channelName,
+        channelAvatar,
+        category,
+        ageRating: resolvedAgeRating,
+        isFeatured: false,
+        isApproved: Boolean(autoApproveVideos),
+        views: 0,
+        tags: [
+          category.toLowerCase(),
+          channelName.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          'curated',
+          'safe'
+        ],
+        createdAt: v.publishedAt || nowIso
+      };
+
+      try {
+        await db.addVideo(videoRecord);
+        addedVideoIds.push(vidId);
+      } catch (err) {
+        console.warn('Failed to add video during channel import:', err);
+      }
+    }
+
+    const newChannel: Channel = {
+      id: channelId,
+      name: channelName,
+      description: channelDesc,
+      avatarUrl: channelAvatar,
+      bannerUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1000&h=300&fit=crop',
+      category,
+      ageRating: resolvedAgeRating,
+      isVerified: true,
+      channelType: validType,
+      scheduleStartTime: nowIso,
+      scheduleTimezoneOffsetMinutes: 0,
+      videoIds: addedVideoIds,
+      ownerId: req.user!.sub,
+      ownerName: req.user!.name || 'Curator',
+      visibility: validVisibility,
+      defaultTags: [category.toLowerCase(), 'curated-channel'],
+      createdAt: nowIso
+    };
+
+    await db.addChannel(newChannel);
+
+    res.json({
+      success: true,
+      data: {
+        channel: newChannel,
+        videosImportedCount: addedVideoIds.length
+      },
+      message: `Successfully imported "${channelName}" with ${addedVideoIds.length} curated videos!`
+    });
   })
 );
 

@@ -301,3 +301,138 @@ export function videoMatchesCategoryTag(videoTags: string[], category: string): 
   const aliases = topicAliases[target];
   return Boolean(aliases && aliases.some((alias) => normalized.includes(alias)));
 }
+
+export interface YouTubeChannelVideo {
+  videoId: string;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  publishedAt?: string;
+}
+
+export interface YouTubeChannelInfo {
+  channelId: string;
+  title: string;
+  description: string;
+  avatarUrl: string;
+  bannerUrl?: string;
+  videos: YouTubeChannelVideo[];
+}
+
+export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouTubeChannelInfo | null> {
+  const input = String(urlOrHandle || '').trim();
+  if (!input) return null;
+
+  let targetUrl = input;
+  if (targetUrl.startsWith('@')) {
+    targetUrl = `https://www.youtube.com/${targetUrl}`;
+  } else if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+    targetUrl = targetUrl.startsWith('UC') && targetUrl.length === 24
+      ? `https://www.youtube.com/channel/${targetUrl}`
+      : `https://www.youtube.com/@${targetUrl}`;
+  }
+
+  if (targetUrl.includes('watch?v=') || targetUrl.includes('youtu.be/')) {
+    const vid = extractYouTubeId(targetUrl);
+    if (vid) {
+      targetUrl = `https://www.youtube.com/watch?v=${vid}`;
+    }
+  }
+
+  try {
+    const res = await fetch(targetUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9'
+      },
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!res.ok) return null;
+    const html = await res.text();
+
+    let channelId = '';
+    const chanMatch = html.match(/"channelId":"(UC[a-zA-Z0-9_-]{22})"/);
+    if (chanMatch) {
+      channelId = chanMatch[1];
+    } else {
+      const canonMatch = html.match(/\/channel\/(UC[a-zA-Z0-9_-]{22})/);
+      if (canonMatch) channelId = canonMatch[1];
+    }
+
+    let title = '';
+    const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
+    if (titleMatch) title = titleMatch[1].replace(/ - YouTube$/i, '').trim();
+
+    let description = '';
+    const descMatch = html.match(/<meta property="og:description" content="([^"]+)"/);
+    if (descMatch) description = descMatch[1].trim();
+
+    let avatarUrl = '';
+    const imgMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
+    if (imgMatch) avatarUrl = imgMatch[1].trim();
+
+    // If watch URL was loaded, title and avatar might be for video, not channel.
+    // If channelId was discovered, fetch channel's page to get exact channel title & avatar
+    if (channelId && (targetUrl.includes('/watch?v=') || !title)) {
+      try {
+        const cRes = await fetch(`https://www.youtube.com/channel/${channelId}`, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
+          signal: AbortSignal.timeout(6000)
+        });
+        if (cRes.ok) {
+          const cHtml = await cRes.text();
+          const cTitle = cHtml.match(/<meta property="og:title" content="([^"]+)"/);
+          if (cTitle) title = cTitle[1].replace(/ - YouTube$/i, '').trim();
+          const cDesc = cHtml.match(/<meta property="og:description" content="([^"]+)"/);
+          if (cDesc) description = cDesc[1].trim();
+          const cImg = cHtml.match(/<meta property="og:image" content="([^"]+)"/);
+          if (cImg) avatarUrl = cImg[1].trim();
+        }
+      } catch {}
+    }
+
+    const videos: YouTubeChannelVideo[] = [];
+    if (channelId) {
+      try {
+        const feedRes = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`, {
+          signal: AbortSignal.timeout(6000)
+        });
+        if (feedRes.ok) {
+          const xml = await feedRes.text();
+          const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map(m => m[1]);
+          for (const entry of entries) {
+            const vIdMatch = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
+            const tMatch = entry.match(/<title>([^<]+)<\/title>/);
+            const dMatch = entry.match(/<media:description>([\s\S]*?)<\/media:description>/);
+            const pMatch = entry.match(/<published>([^<]+)<\/published>/);
+            if (vIdMatch && vIdMatch[1]) {
+              const vId = vIdMatch[1].trim();
+              videos.push({
+                videoId: vId,
+                title: tMatch ? tMatch[1].trim() : `Video ${vId}`,
+                description: dMatch ? dMatch[1].trim() : '',
+                thumbnailUrl: getYouTubeThumbnail(vId),
+                publishedAt: pMatch ? pMatch[1].trim() : undefined
+              });
+            }
+          }
+        }
+      } catch (feedErr) {
+        console.warn('Failed to fetch YouTube RSS feed:', feedErr);
+      }
+    }
+
+    if (!title && !channelId) return null;
+
+    return {
+      channelId: channelId || `yt-${Date.now()}`,
+      title: title || 'YouTube Channel',
+      description: description || 'Curated YouTube channel for kids.',
+      avatarUrl: avatarUrl || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=200&h=200&fit=crop',
+      videos
+    };
+  } catch (err) {
+    console.warn('fetchYouTubeChannelInfo error:', err);
+    return null;
+  }
+}
