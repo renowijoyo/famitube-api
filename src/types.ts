@@ -313,6 +313,26 @@ export interface KidHistoryItem {
   watchedAt: string;
 }
 
+export interface KidYouTubeSearchHistoryItem {
+  id: string;
+  kidId: string;
+  query: string;
+  resultsCount: number;
+  regionCode?: string;
+  searchedAt: string;
+}
+
+export interface KidYouTubeSubscription {
+  id: string;
+  kidId: string;
+  handle: string; // e.g. '@SciShowKids'
+  channelId?: string;
+  title: string;
+  avatarUrl: string;
+  description?: string;
+  subscribedAt: string;
+}
+
 export interface KidBrowserHistoryItem {
   id: string;
   kidId: string;

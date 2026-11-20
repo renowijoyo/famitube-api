@@ -51,6 +51,14 @@ export interface YouTubeSearchResult {
   thumbnailUrl: string;
 }
 
+export interface YouTubeChannelSearchResult {
+  handle: string; // always starts with '@'
+  channelId?: string;
+  title: string;
+  avatarUrl: string;
+  description?: string;
+}
+
 export interface YouTubeSearchOptions {
   regionCode?: string;
   languageCode?: string;
@@ -202,6 +210,91 @@ export async function searchYouTubeVideos(
     return verified.filter((x): x is YouTubeSearchResult => Boolean(x));
   } catch (err) {
     console.warn('YouTube search failed:', err);
+    return [];
+  }
+}
+
+export async function searchYouTubeChannels(
+  query: string,
+  limit = 6,
+  options?: YouTubeSearchOptions
+): Promise<YouTubeChannelSearchResult[]> {
+  const cleanQuery = String(query || '').trim();
+  if (!cleanQuery) return [];
+  const region = (options?.regionCode || 'ID').toUpperCase();
+  const lang = (options?.languageCode || 'en').toLowerCase();
+  try {
+    // sp=EgIQAg%253D%253D filters YouTube search to Channels
+    const res = await fetch(
+      `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQuery)}&sp=EgIQAg%253D%253D&gl=${encodeURIComponent(region)}&hl=${encodeURIComponent(lang)}`,
+      {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          'Accept-Language': `${lang}-${region},${lang};q=0.9,en;q=0.8`
+        },
+        signal: AbortSignal.timeout(7000)
+      }
+    );
+    if (!res.ok) return [];
+    const html = await res.text();
+
+    const results: YouTubeChannelSearchResult[] = [];
+    const seenHandles = new Set<string>();
+
+    // Extract channelRenderer blocks from ytInitialData
+    const rendererParts = html.split('"channelRenderer":').slice(1);
+    for (const part of rendererParts) {
+      if (results.length >= limit) break;
+      const chunk = part.slice(0, 4500);
+      const cidMatch = chunk.match(/"channelId":"(UC[a-zA-Z0-9_-]{22})"/);
+      const handleMatch =
+        chunk.match(/"canonicalBaseUrl":"\/(@[a-zA-Z0-9_.-]+)"/) ||
+        chunk.match(/"url":"\/(@[a-zA-Z0-9_.-]+)"/);
+      const titleMatch = chunk.match(/"title":\{"simpleText":"([^"]+)"\}/);
+      const thumbMatches = [...chunk.matchAll(/"url":"((?:https?:)?\/\/yt3\.ggpht\.com\/[^"]+|(?:https?:)?\/\/yt3\.googleusercontent\.com\/[^"]+)"/g)];
+      const rawThumb = thumbMatches.length ? thumbMatches[thumbMatches.length - 1][1] : '';
+      const avatarUrl = rawThumb.startsWith('//')
+        ? `https:${rawThumb}`
+        : rawThumb || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=200&h=200&fit=crop';
+
+      const rawHandle = handleMatch
+        ? handleMatch[1]
+        : cidMatch
+          ? `@${cidMatch[1]}`
+          : '';
+      if (!rawHandle) continue;
+      const normalizedHandle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+      const key = normalizedHandle.toLowerCase();
+      if (seenHandles.has(key)) continue;
+      seenHandles.add(key);
+
+      const rawTitle = titleMatch ? titleMatch[1] : normalizedHandle;
+      results.push({
+        handle: normalizedHandle,
+        channelId: cidMatch ? cidMatch[1] : undefined,
+        title: rawTitle.startsWith('@') ? rawTitle : `${rawTitle} (${normalizedHandle})`,
+        avatarUrl
+      });
+    }
+
+    // Fallback: extract/@handles directly if channelRenderer parsing yielded nothing
+    if (results.length === 0) {
+      const handles = [...new Set([...html.matchAll(/\/(@[a-zA-Z0-9_.-]{3,40})/g)].map((m) => m[1]))].slice(0, limit);
+      for (const h of handles) {
+        const key = h.toLowerCase();
+        if (seenHandles.has(key)) continue;
+        seenHandles.add(key);
+        results.push({
+          handle: h,
+          title: h,
+          avatarUrl: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=200&h=200&fit=crop'
+        });
+      }
+    }
+
+    return results;
+  } catch (err) {
+    console.warn('YouTube channel search failed:', err);
     return [];
   }
 }
@@ -422,7 +515,39 @@ export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouT
       }
     }
 
-    if (!title && !channelId) return null;
+    if (videos.length === 0) {
+      try {
+        const videosUrl = targetUrl.replace(/\/+$/, '') + '/videos';
+        const vRes = await fetch(videosUrl, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+          signal: AbortSignal.timeout(6000)
+        });
+        const vHtml = vRes.ok ? await vRes.text() : html;
+        const ids = [...new Set([...vHtml.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)].map((m) => m[1]))].slice(0, 15);
+        const verified = await Promise.all(
+          ids.map(async (id) => {
+            try {
+              const r = await fetch(
+                `https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}&format=json`
+              );
+              if (!r.ok) return null;
+              const j = await r.json();
+              return {
+                videoId: id,
+                title: String(j.title || `Video ${id}`),
+                description: '',
+                thumbnailUrl: getYouTubeThumbnail(id)
+              } as YouTubeChannelVideo;
+            } catch {
+              return null;
+            }
+          })
+        );
+        videos.push(...verified.filter((v): v is YouTubeChannelVideo => Boolean(v)));
+      } catch {}
+    }
+
+    if (!title && !channelId && videos.length === 0) return null;
 
     return {
       channelId: channelId || `yt-${Date.now()}`,

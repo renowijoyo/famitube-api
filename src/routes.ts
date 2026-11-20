@@ -30,6 +30,7 @@ import {
   fetchYouTubeOEmbed,
   getYouTubeThumbnail,
   searchYouTubeVideos,
+  searchYouTubeChannels,
   resolveGeoForSearch,
   deriveAgeRatingFromBirthday,
   fetchYouTubeChannelInfo
@@ -321,7 +322,8 @@ apiRouter.get(
 // Get single video details and increment view count
 apiRouter.get(
   '/videos/:id',
-  asyncHandler(async (req, res) => {
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
     const id = String(req.params.id);
     const video = await db.getVideoById(id);
 
@@ -330,6 +332,28 @@ apiRouter.get(
     }
 
     await db.incrementViews(id);
+
+    if (req.user?.sub) {
+      try {
+        const key = video.youtubeVideoId || video.id;
+        await db.upsertKidHistory({
+          id: `hist-${req.user.sub}-${key}`,
+          kidId: req.user.sub,
+          itemKey: key,
+          youtubeVideoId: video.youtubeVideoId,
+          videoId: video.id,
+          title: video.title,
+          channelTitle: video.channelTitle || 'FamiTube',
+          thumbnailUrl: video.thumbnailUrl,
+          sourceType: video.sourceType,
+          sourceUrl: video.sourceUrl,
+          isApprovedSearch: false,
+          watchedAt: new Date().toISOString()
+        });
+      } catch {
+        // Non-fatal history logging
+      }
+    }
 
     const related = (await db.getVideos({ category: video.category, onlyApproved: true }))
       .filter((v) => v.id !== id)
@@ -538,7 +562,7 @@ apiRouter.post(
         referralCodeUsed: referrerUser.referralCode,
         referrerUserId: referrerUser.id,
         status: 'AVAILABLE',
-        expiresAt: null, // No expiration â€” usable anytime
+        expiresAt: null, // No expiration Ã¢â‚¬â€ usable anytime
         redeemedAt: null,
         createdAt: nowIso
       });
@@ -3112,7 +3136,7 @@ apiRouter.get(
         renderPage(
           isApproved ? 'Permission Granted' : 'Permission Denied',
           isApproved
-            ? 'This video has been approved and added to your childâ€™s Watch History.'
+            ? 'This video has been approved and added to your childÃ¢â‚¬â„¢s Watch History.'
             : 'This video request has been declined.',
           isApproved ? '#06d6a0' : '#ff3366',
           updated.thumbnailUrl,
@@ -3154,7 +3178,7 @@ apiRouter.post(
       data: updated,
       message:
         decision === 'APPROVED'
-          ? 'Video approved and added to your childâ€™s history.'
+          ? 'Video approved and added to your childÃ¢â‚¬â„¢s history.'
           : 'Video request declined.'
     });
   })
@@ -3247,7 +3271,7 @@ ${videoTitle ? `<p style="font-weight:bold;color:#e2e8f0;margin:8px 0;">${videoT
       200,
       decision === 'APPROVED' ? 'Video Approved!' : 'Request Declined',
       decision === 'APPROVED'
-        ? 'This video has been approved and added to your childâ€™s FamiTube Watch History so they can watch it anytime.'
+        ? 'This video has been approved and added to your childÃ¢â‚¬â„¢s FamiTube Watch History so they can watch it anytime.'
         : 'This video permission request has been declined.',
       updated.title,
       updated.thumbnailUrl
@@ -3287,13 +3311,24 @@ apiRouter.get(
       lat: req.query.lat,
       lon: req.query.lon
     });
-    const rawResults = await searchYouTubeVideos(q, 25, { regionCode, languageCode });
-    const [existingRequests, history] = await Promise.all([
+    const [rawResults, rawChannels, existingRequests, history, ytSubscriptions] = await Promise.all([
+      searchYouTubeVideos(q, 25, { regionCode, languageCode }),
+      searchYouTubeChannels(q, 6, { regionCode, languageCode }),
       db.getKidVideoRequestsForKid(user.id),
-      db.getKidHistory(user.id)
+      db.getKidHistory(user.id),
+      db.getKidYouTubeSubscriptions(user.id)
     ]);
     const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
     const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
+    const subSet = new Set(ytSubscriptions.map((s) => s.handle.toLowerCase()));
+    const channels = rawChannels.map((ch) => {
+      const handle = ch.handle.startsWith('@') ? ch.handle : `@${ch.handle}`;
+      return {
+        ...ch,
+        handle,
+        isSubscribed: subSet.has(handle.toLowerCase())
+      };
+    });
 
     const results = await Promise.all(
       rawResults.map(async (item) => {
@@ -3312,10 +3347,24 @@ apiRouter.get(
       })
     );
 
+    try {
+      await db.addKidYouTubeSearchHistory({
+        id: `ysh-${uuidv4().slice(0, 12)}`,
+        kidId: user.id,
+        query: q,
+        resultsCount: results.length,
+        regionCode,
+        searchedAt: new Date().toISOString()
+      });
+    } catch {
+      // Non-fatal search logging
+    }
+
     res.json({
       success: true,
       data: {
         results,
+        channels,
         regionCode,
         languageCode,
         searchSettings: {
@@ -3324,6 +3373,119 @@ apiRouter.get(
           searchViewsUsed: user.searchViewsUsed ?? 0,
           searchRequireApproval: effective.searchRequireApproval
         }
+      }
+    });
+  })
+);
+
+// Kid: list subscribed YouTube channels (@handle)
+apiRouter.get(
+  '/kids/youtube-subscriptions',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const subs = await db.getKidYouTubeSubscriptions(req.user!.sub);
+    res.json({ success: true, data: subs });
+  })
+);
+
+// Kid: subscribe to a YouTube channel (@handle)
+apiRouter.post(
+  '/kids/youtube-subscriptions',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const rawHandle = String(req.body?.handle || '').trim();
+    if (!rawHandle) {
+      return res.status(400).json({ success: false, message: 'Channel @handle is required' });
+    }
+    const handle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+    const title = String(req.body?.title || handle).trim();
+    const avatarUrl = String(
+      req.body?.avatarUrl || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=200&h=200&fit=crop'
+    ).trim();
+    const channelId = req.body?.channelId ? String(req.body.channelId).trim() : undefined;
+    const description = req.body?.description ? String(req.body.description).trim() : undefined;
+
+    const saved = await db.upsertKidYouTubeSubscription({
+      id: `ytsub-${req.user!.sub}-${handle.toLowerCase()}`,
+      kidId: req.user!.sub,
+      handle,
+      channelId,
+      title,
+      avatarUrl,
+      description,
+      subscribedAt: new Date().toISOString()
+    });
+    res.json({ success: true, data: saved });
+  })
+);
+
+// Kid: unsubscribe from a YouTube channel (@handle)
+apiRouter.delete(
+  '/kids/youtube-subscriptions/:handle',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const rawHandle = String(req.params.handle || '').trim();
+    const handle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+    await db.removeKidYouTubeSubscription(req.user!.sub, handle);
+    res.json({ success: true, data: { handle } });
+  })
+);
+
+// Kid: view a YouTube channel (@handle) detail and its video list
+apiRouter.get(
+  '/kids/youtube-channels/:handle',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const rawHandle = String(req.params.handle || '').trim();
+    if (!rawHandle) {
+      return res.status(400).json({ success: false, message: 'Channel @handle is required' });
+    }
+    const handle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+    const [info, existingRequests, history, subs] = await Promise.all([
+      fetchYouTubeChannelInfo(handle),
+      db.getKidVideoRequestsForKid(req.user!.sub),
+      db.getKidHistory(req.user!.sub),
+      db.getKidYouTubeSubscriptions(req.user!.sub)
+    ]);
+    if (!info) {
+      return res.status(404).json({ success: false, message: `Could not load YouTube channel ${handle}` });
+    }
+    const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
+    const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
+    const isSubscribed = subs.some((s) => s.handle.toLowerCase() === handle.toLowerCase());
+
+    const videos = await Promise.all(
+      (info.videos || []).map(async (v) => {
+        const curated = await db.getVideoByYouTubeId(v.videoId);
+        const reqItem = reqMap.get(v.videoId);
+        const inHistory = histSet.has(v.videoId);
+        return {
+          youtubeVideoId: v.videoId,
+          title: v.title,
+          channelTitle: `${info.title} (${handle})`,
+          thumbnailUrl: v.thumbnailUrl,
+          sourceType: 'YOUTUBE' as const,
+          sourceUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
+          isCurated: Boolean(curated),
+          curatedVideoId: curated?.id || null,
+          approvalStatus: reqItem?.status || (inHistory ? 'APPROVED' : null),
+          inHistory
+        };
+      })
+    );
+
+    res.json({
+      success: true,
+      data: {
+        channel: {
+          handle,
+          channelId: info.channelId,
+          title: info.title.startsWith('@') ? info.title : `${info.title} (${handle})`,
+          description: info.description,
+          avatarUrl: info.avatarUrl,
+          isSubscribed
+        },
+        videos
       }
     });
   })
@@ -3755,6 +3917,63 @@ apiRouter.delete(
   })
 );
 
+// Parent: view a child's YouTube search history, video requests, and video viewing history
+apiRouter.get(
+  '/parent/children/:childId/activity-history',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (!children.some((c) => c.id === childId)) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    const [searchHistory, videoRequests, watchHistory] = await Promise.all([
+      db.getKidYouTubeSearchHistory(childId, 150),
+      db.getKidVideoRequestsForKid(childId),
+      db.getKidHistory(childId)
+    ]);
+    res.json({
+      success: true,
+      data: {
+        searchHistory,
+        videoRequests,
+        watchHistory
+      }
+    });
+  })
+);
+
+apiRouter.delete(
+  '/parent/children/:childId/search-history',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (!children.some((c) => c.id === childId)) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    await db.clearKidYouTubeSearchHistory(childId);
+    res.json({ success: true, message: 'YouTube search history cleared' });
+  })
+);
+
+apiRouter.delete(
+  '/parent/children/:childId/watch-history',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (!children.some((c) => c.id === childId)) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    await db.clearKidWatchHistory(childId);
+    res.json({ success: true, message: 'Video viewing history cleared' });
+  })
+);
+
 // Parent: list & decide site access requests
 apiRouter.get(
   '/parent/site-requests',
@@ -3966,7 +4185,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'first_watch',
         title: 'First Watch',
         description: 'Watch your very first video on FamiTube',
-        icon: '🎬',
+        icon: 'ðŸŽ¬',
         progress: Math.min(videosWatched, 1),
         target: 1,
         rewardFamibux: 20,
@@ -3976,7 +4195,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'video_explorer',
         title: 'Video Explorer',
         description: 'Watch 5 different videos',
-        icon: '🚀',
+        icon: 'ðŸš€',
         progress: Math.min(videosWatched, 5),
         target: 5,
         rewardFamibux: 50,
@@ -3986,7 +4205,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'super_viewer',
         title: 'Super Viewer',
         description: 'Watch 15 videos in your library',
-        icon: '🌟',
+        icon: 'ðŸŒŸ',
         progress: Math.min(videosWatched, 15),
         target: 15,
         rewardFamibux: 120,
@@ -3996,7 +4215,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'playlist_maker',
         title: 'Playlist Maker',
         description: 'Create your first personal favorites list',
-        icon: '🎵',
+        icon: 'ðŸŽµ',
         progress: Math.min(playlistsCreated, 1),
         target: 1,
         rewardFamibux: 25,
@@ -4006,7 +4225,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'curator_junior',
         title: 'Junior Curator',
         description: 'Save 5 videos into your favorites lists',
-        icon: '📚',
+        icon: 'ðŸ“š',
         progress: Math.min(playlistItemsCount, 5),
         target: 5,
         rewardFamibux: 60,
@@ -4016,7 +4235,7 @@ async function computeKidAchievementsSummary(kidId: string) {
         id: 'safe_searcher',
         title: 'Safe Searcher',
         description: 'Watch a parent-approved YouTube search video',
-        icon: '🔍',
+        icon: 'ðŸ”',
         progress: Math.min(approvedSearches, 1),
         target: 1,
         rewardFamibux: 30,

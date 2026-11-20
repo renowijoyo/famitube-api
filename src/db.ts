@@ -39,6 +39,8 @@ import {
   KidVideoRequest,
   KidVideoRequestStatus,
   KidHistoryItem,
+  KidYouTubeSearchHistoryItem,
+  KidYouTubeSubscription,
   KidBrowserHistoryItem,
   KidSiteRequest,
   KidSiteRequestStatus,
@@ -570,6 +572,33 @@ class Database {
         watchedAt VARCHAR(64) NOT NULL,
         UNIQUE KEY uniq_kid_hist_item (kidId, itemKey),
         INDEX idx_hist_kid (kidId, watchedAt)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_youtube_search_history (
+        id VARCHAR(64) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        query VARCHAR(255) NOT NULL,
+        resultsCount INT NOT NULL DEFAULT 0,
+        regionCode VARCHAR(16) NULL,
+        searchedAt VARCHAR(64) NOT NULL,
+        INDEX idx_yt_search_kid (kidId, searchedAt)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_youtube_subscriptions (
+        id VARCHAR(128) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        handle VARCHAR(128) NOT NULL,
+        channelId VARCHAR(64) NULL,
+        title VARCHAR(255) NOT NULL,
+        avatarUrl TEXT NOT NULL,
+        description TEXT NULL,
+        subscribedAt VARCHAR(64) NOT NULL,
+        UNIQUE KEY uniq_kid_yt_sub (kidId, handle),
+        INDEX idx_kid_yt_sub (kidId, subscribedAt)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
@@ -2493,6 +2522,98 @@ class Database {
 
   public async clearKidBrowserHistory(kidId: string): Promise<void> {
     await this.pool.query('DELETE FROM kid_browser_history WHERE kidId = ?', [kidId]);
+  }
+
+  public async clearKidWatchHistory(kidId: string): Promise<void> {
+    await this.pool.query('DELETE FROM kid_watch_history WHERE kidId = ?', [kidId]);
+  }
+
+  public async addKidYouTubeSearchHistory(item: KidYouTubeSearchHistoryItem): Promise<void> {
+    await this.pool.query(
+      `INSERT INTO kid_youtube_search_history (id, kidId, query, resultsCount, regionCode, searchedAt)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        item.id,
+        item.kidId,
+        item.query.slice(0, 250),
+        Number(item.resultsCount) || 0,
+        item.regionCode || null,
+        item.searchedAt
+      ]
+    );
+  }
+
+  public async getKidYouTubeSearchHistory(
+    kidId: string,
+    limit = 100
+  ): Promise<KidYouTubeSearchHistoryItem[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_youtube_search_history WHERE kidId = ? ORDER BY searchedAt DESC LIMIT ?',
+      [kidId, Math.max(1, Math.min(500, limit))]
+    );
+    return rows.map((row) => ({
+      id: String(row.id),
+      kidId: String(row.kidId),
+      query: String(row.query),
+      resultsCount: Number(row.resultsCount) || 0,
+      regionCode: row.regionCode ? String(row.regionCode) : undefined,
+      searchedAt: String(row.searchedAt)
+    }));
+  }
+
+  public async clearKidYouTubeSearchHistory(kidId: string): Promise<void> {
+    await this.pool.query('DELETE FROM kid_youtube_search_history WHERE kidId = ?', [kidId]);
+  }
+
+  public async getKidYouTubeSubscriptions(kidId: string): Promise<KidYouTubeSubscription[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM kid_youtube_subscriptions WHERE kidId = ? ORDER BY subscribedAt DESC',
+      [kidId]
+    );
+    return rows.map((row) => ({
+      id: String(row.id),
+      kidId: String(row.kidId),
+      handle: String(row.handle),
+      channelId: row.channelId ? String(row.channelId) : undefined,
+      title: String(row.title),
+      avatarUrl: String(row.avatarUrl || ''),
+      description: row.description ? String(row.description) : undefined,
+      subscribedAt: String(row.subscribedAt)
+    }));
+  }
+
+  public async upsertKidYouTubeSubscription(sub: KidYouTubeSubscription): Promise<KidYouTubeSubscription> {
+    const normalizedHandle = sub.handle.startsWith('@') ? sub.handle : `@${sub.handle}`;
+    const id = `ytsub-${sub.kidId}-${normalizedHandle.toLowerCase()}`;
+    await this.pool.query(
+      `INSERT INTO kid_youtube_subscriptions (id, kidId, handle, channelId, title, avatarUrl, description, subscribedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+       ON DUPLICATE KEY UPDATE
+         channelId = VALUES(channelId),
+         title = VALUES(title),
+         avatarUrl = VALUES(avatarUrl),
+         description = VALUES(description),
+         subscribedAt = VALUES(subscribedAt)`,
+      [
+        id,
+        sub.kidId,
+        normalizedHandle,
+        sub.channelId || null,
+        sub.title,
+        sub.avatarUrl || '',
+        sub.description || null,
+        sub.subscribedAt
+      ]
+    );
+    return { ...sub, id, handle: normalizedHandle };
+  }
+
+  public async removeKidYouTubeSubscription(kidId: string, handle: string): Promise<void> {
+    const normalized = handle.startsWith('@') ? handle : `@${handle}`;
+    await this.pool.query(
+      'DELETE FROM kid_youtube_subscriptions WHERE kidId = ? AND LOWER(handle) = LOWER(?)',
+      [kidId, normalized]
+    );
   }
 
   public async createOrGetKidSiteRequest(req: KidSiteRequest): Promise<KidSiteRequest> {
