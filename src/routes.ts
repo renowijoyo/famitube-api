@@ -33,7 +33,8 @@ import {
   searchYouTubeChannels,
   resolveGeoForSearch,
   deriveAgeRatingFromBirthday,
-  fetchYouTubeChannelInfo
+  fetchYouTubeChannelInfo,
+  fetchYouTubePlaylistVideos
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
@@ -3500,6 +3501,83 @@ apiRouter.get(
           isSubscribed,
           trustLevel: matchedSub?.trustLevel || 'SUPERVISED'
         },
+        videos,
+        playlists: info.playlists || []
+      }
+    });
+  })
+);
+
+// Kid: view videos inside a specific YouTube playlist (from a @channel)
+apiRouter.get(
+  '/kids/youtube-playlists/:playlistId',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const playlistId = String(req.params.playlistId || '').trim();
+    if (!playlistId) {
+      return res.status(400).json({ success: false, message: 'playlistId is required' });
+    }
+    const rawHandle = String(req.query.handle || '').trim();
+    const handle = rawHandle
+      ? rawHandle.startsWith('@')
+        ? rawHandle
+        : `@${rawHandle}`
+      : '';
+
+    const [plInfo, existingRequests, history, subs] = await Promise.all([
+      fetchYouTubePlaylistVideos(playlistId),
+      db.getKidVideoRequestsForKid(req.user!.sub),
+      db.getKidHistory(req.user!.sub),
+      db.getKidYouTubeSubscriptions(req.user!.sub)
+    ]);
+
+    if (!plInfo) {
+      return res.status(404).json({ success: false, message: 'Could not load YouTube playlist' });
+    }
+
+    const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
+    const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
+    const matchedSub = handle
+      ? subs.find((s) => s.handle.toLowerCase() === handle.toLowerCase())
+      : undefined;
+
+    if (matchedSub?.trustLevel === 'BLOCKED') {
+      return res.status(403).json({
+        success: false,
+        message: 'This YouTube channel has been blocked by your parent.'
+      });
+    }
+    const isTrustedChannel = matchedSub?.trustLevel === 'TRUSTED';
+    const channelLabel = matchedSub
+      ? `${matchedSub.title} (${matchedSub.handle})`
+      : handle || 'YouTube';
+
+    const videos = await Promise.all(
+      (plInfo.videos || []).map(async (v) => {
+        const curated = await db.getVideoByYouTubeId(v.videoId);
+        const reqItem = reqMap.get(v.videoId);
+        const inHistory = histSet.has(v.videoId);
+        return {
+          youtubeVideoId: v.videoId,
+          title: v.title,
+          channelTitle: channelLabel,
+          thumbnailUrl: v.thumbnailUrl,
+          sourceType: 'YOUTUBE' as const,
+          sourceUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
+          isCurated: Boolean(curated),
+          curatedVideoId: curated?.id || null,
+          approvalStatus: reqItem?.status || (inHistory || isTrustedChannel ? 'APPROVED' : null),
+          inHistory: inHistory || isTrustedChannel
+        };
+      })
+    );
+
+    res.json({
+      success: true,
+      data: {
+        playlistId: plInfo.playlistId,
+        title: plInfo.title,
+        handle: handle || null,
         videos
       }
     });

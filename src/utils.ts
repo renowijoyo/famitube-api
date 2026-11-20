@@ -403,6 +403,13 @@ export interface YouTubeChannelVideo {
   publishedAt?: string;
 }
 
+export interface YouTubeChannelPlaylist {
+  playlistId: string;
+  title: string;
+  thumbnailUrl: string;
+  videoCount: number;
+}
+
 export interface YouTubeChannelInfo {
   channelId: string;
   title: string;
@@ -410,6 +417,289 @@ export interface YouTubeChannelInfo {
   avatarUrl: string;
   bannerUrl?: string;
   videos: YouTubeChannelVideo[];
+  playlists: YouTubeChannelPlaylist[];
+}
+
+function extractYtInitialData(html: string): any | null {
+  const markers = ['var ytInitialData = ', 'window["ytInitialData"] = '];
+  for (const marker of markers) {
+    const startIdx = html.indexOf(marker);
+    if (startIdx >= 0) {
+      const jsonStart = startIdx + marker.length;
+      const endIdx = html.indexOf(';</script>', jsonStart);
+      if (endIdx > jsonStart) {
+        try {
+          return JSON.parse(html.slice(jsonStart, endIdx));
+        } catch {
+          // continue
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function parseVideosFromYtInitialData(data: any): YouTubeChannelVideo[] {
+  if (!data) return [];
+  const videos: YouTubeChannelVideo[] = [];
+  const seen = new Set<string>();
+
+  function walk(node: any) {
+    if (!node || typeof node !== 'object') return;
+    if (node.lockupViewModel) {
+      const lvm = node.lockupViewModel;
+      const cid = String(lvm.contentId || '').trim();
+      const ctype = String(lvm.contentType || '');
+      if (
+        cid.length === 11 &&
+        (ctype === 'LOCKUP_CONTENT_TYPE_VIDEO' || !ctype.includes('PLAYLIST')) &&
+        !seen.has(cid)
+      ) {
+        const title =
+          lvm.metadata?.lockupMetadataViewModel?.title?.content ||
+          `Video ${cid}`;
+        seen.add(cid);
+        videos.push({
+          videoId: cid,
+          title: String(title).trim(),
+          description: '',
+          thumbnailUrl: getYouTubeThumbnail(cid)
+        });
+      }
+    }
+    if (node.videoRenderer && node.videoRenderer.videoId) {
+      const vr = node.videoRenderer;
+      const vid = String(vr.videoId).trim();
+      if (vid.length === 11 && !seen.has(vid)) {
+        const title =
+          vr.title?.runs?.[0]?.text ||
+          vr.title?.simpleText ||
+          `Video ${vid}`;
+        seen.add(vid);
+        videos.push({
+          videoId: vid,
+          title: String(title).trim(),
+          description: vr.descriptionSnippet?.runs?.map((r: any) => r.text).join('') || '',
+          thumbnailUrl: getYouTubeThumbnail(vid),
+          publishedAt: vr.publishedTimeText?.simpleText
+        });
+      }
+    }
+    if (node.playlistVideoRenderer && node.playlistVideoRenderer.videoId) {
+      const pvr = node.playlistVideoRenderer;
+      const vid = String(pvr.videoId).trim();
+      if (vid.length === 11 && !seen.has(vid)) {
+        const title =
+          pvr.title?.runs?.[0]?.text ||
+          pvr.title?.simpleText ||
+          `Video ${vid}`;
+        seen.add(vid);
+        videos.push({
+          videoId: vid,
+          title: String(title).trim(),
+          description: '',
+          thumbnailUrl: getYouTubeThumbnail(vid)
+        });
+      }
+    }
+    for (const key of Object.keys(node)) {
+      walk(node[key]);
+    }
+  }
+
+  walk(data);
+  return videos;
+}
+
+function parsePlaylistsFromYtInitialData(data: any): YouTubeChannelPlaylist[] {
+  if (!data) return [];
+  const playlists: YouTubeChannelPlaylist[] = [];
+  const seen = new Set<string>();
+
+  function walk(node: any) {
+    if (!node || typeof node !== 'object') return;
+    if (node.lockupViewModel) {
+      const lvm = node.lockupViewModel;
+      const pid = String(lvm.contentId || '').trim();
+      const ctype = String(lvm.contentType || '');
+      if (
+        pid.startsWith('PL') &&
+        pid !== 'PLAYLIST_EDIT_LIST_TYPE_QUEUE' &&
+        (ctype === 'LOCKUP_CONTENT_TYPE_PLAYLIST' || pid.length >= 16) &&
+        !seen.has(pid)
+      ) {
+        const title =
+          lvm.metadata?.lockupMetadataViewModel?.title?.content ||
+          `Playlist ${pid}`;
+        const sources =
+          lvm.contentImage?.collectionThumbnailViewModel?.primaryThumbnail?.thumbnailViewModel?.image?.sources || [];
+        const rawThumb = sources.length > 0 ? String(sources[sources.length - 1].url || '') : '';
+        const overlays =
+          lvm.contentImage?.collectionThumbnailViewModel?.primaryThumbnail?.thumbnailViewModel?.overlays || [];
+        let videoCount = 0;
+        for (const ov of overlays) {
+          const badges = ov?.thumbnailOverlayBadgeViewModel?.thumbnailBadges || [];
+          for (const b of badges) {
+            const txt = String(b?.thumbnailBadgeViewModel?.text || '');
+            const m = txt.match(/(\d+)/);
+            if (m) {
+              videoCount = Number(m[1]) || 0;
+              break;
+            }
+          }
+        }
+        seen.add(pid);
+        playlists.push({
+          playlistId: pid,
+          title: String(title).trim(),
+          thumbnailUrl: rawThumb || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=400&h=225&fit=crop',
+          videoCount
+        });
+      }
+    }
+    if (node.gridPlaylistRenderer || node.playlistRenderer) {
+      const pr = node.gridPlaylistRenderer || node.playlistRenderer;
+      const pid = String(pr.playlistId || '').trim();
+      if (pid.startsWith('PL') && !seen.has(pid)) {
+        const title =
+          pr.title?.runs?.[0]?.text ||
+          pr.title?.simpleText ||
+          `Playlist ${pid}`;
+        const thumbs = pr.thumbnail?.thumbnails || pr.thumbnails?.[0]?.thumbnails || [];
+        const rawThumb = thumbs.length > 0 ? String(thumbs[thumbs.length - 1].url || '') : '';
+        const countTxt =
+          pr.videoCountText?.runs?.map((r: any) => r.text).join('') ||
+          pr.videoCountShortText?.simpleText ||
+          pr.videoCount ||
+          '0';
+        const m = String(countTxt).match(/(\d+)/);
+        seen.add(pid);
+        playlists.push({
+          playlistId: pid,
+          title: String(title).trim(),
+          thumbnailUrl: rawThumb || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=400&h=225&fit=crop',
+          videoCount: m ? Number(m[1]) : 0
+        });
+      }
+    }
+    for (const key of Object.keys(node)) {
+      walk(node[key]);
+    }
+  }
+
+  walk(data);
+  return playlists;
+}
+
+export async function fetchYouTubeChannelPlaylists(urlOrHandle: string): Promise<YouTubeChannelPlaylist[]> {
+  const input = String(urlOrHandle || '').trim();
+  if (!input) return [];
+  let baseUrl = input;
+  if (baseUrl.startsWith('@')) {
+    baseUrl = `https://www.youtube.com/${baseUrl}`;
+  } else if (!baseUrl.startsWith('http://') && !baseUrl.startsWith('https://')) {
+    baseUrl = baseUrl.startsWith('UC') && baseUrl.length === 24
+      ? `https://www.youtube.com/channel/${baseUrl}`
+      : `https://www.youtube.com/@${baseUrl}`;
+  }
+  const playlistsUrl = `${baseUrl.replace(/\/+$/, '')}/playlists`;
+  try {
+    const res = await fetch(playlistsUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9'
+      },
+      signal: AbortSignal.timeout(7000)
+    });
+    if (!res.ok) return [];
+    const html = await res.text();
+    const data = extractYtInitialData(html);
+    return parsePlaylistsFromYtInitialData(data);
+  } catch (err) {
+    console.warn('fetchYouTubeChannelPlaylists error:', err);
+    return [];
+  }
+}
+
+export async function fetchYouTubePlaylistVideos(playlistId: string): Promise<{
+  playlistId: string;
+  title: string;
+  videos: YouTubeChannelVideo[];
+} | null> {
+  const cleanId = String(playlistId || '').trim();
+  if (!cleanId) return null;
+
+  try {
+    const res = await fetch(`https://www.youtube.com/playlist?list=${encodeURIComponent(cleanId)}`, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9'
+      },
+      signal: AbortSignal.timeout(8000)
+    });
+    let title = `Playlist`;
+    const videos: YouTubeChannelVideo[] = [];
+    const seen = new Set<string>();
+
+    if (res.ok) {
+      const html = await res.text();
+      const ogTitle = html.match(/<meta property="og:title" content="([^"]+)"/);
+      if (ogTitle && ogTitle[1]) {
+        title = ogTitle[1].replace(/ - YouTube$/i, '').trim();
+      }
+      const data = extractYtInitialData(html);
+      for (const v of parseVideosFromYtInitialData(data)) {
+        if (!seen.has(v.videoId)) {
+          seen.add(v.videoId);
+          videos.push(v);
+        }
+      }
+    }
+
+    // Fallback to YouTube's public playlist Atom/RSS feed if HTML had no items
+    if (videos.length === 0) {
+      const feedRes = await fetch(
+        `https://www.youtube.com/feeds/videos.xml?playlist_id=${encodeURIComponent(cleanId)}`,
+        { signal: AbortSignal.timeout(6000) }
+      );
+      if (feedRes.ok) {
+        const xml = await feedRes.text();
+        const feedTitleMatch = xml.match(/<title>([^<]+)<\/title>/);
+        if (feedTitleMatch && feedTitleMatch[1]) {
+          title = feedTitleMatch[1].trim();
+        }
+        const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
+        for (const entry of entries) {
+          const vIdMatch = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
+          const tMatch = entry.match(/<title>([^<]+)<\/title>/);
+          const dMatch = entry.match(/<media:description>([\s\S]*?)<\/media:description>/);
+          const pMatch = entry.match(/<published>([^<]+)<\/published>/);
+          if (vIdMatch && vIdMatch[1]) {
+            const vId = vIdMatch[1].trim();
+            if (!seen.has(vId)) {
+              seen.add(vId);
+              videos.push({
+                videoId: vId,
+                title: tMatch ? tMatch[1].trim() : `Video ${vId}`,
+                description: dMatch ? dMatch[1].trim() : '',
+                thumbnailUrl: getYouTubeThumbnail(vId),
+                publishedAt: pMatch ? pMatch[1].trim() : undefined
+              });
+            }
+          }
+        }
+      }
+    }
+
+    return {
+      playlistId: cleanId,
+      title,
+      videos
+    };
+  } catch (err) {
+    console.warn('fetchYouTubePlaylistVideos error:', err);
+    return null;
+  }
 }
 
 export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouTubeChannelInfo | null> {
@@ -485,14 +775,37 @@ export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouT
     }
 
     const videos: YouTubeChannelVideo[] = [];
-    if (channelId) {
-      try {
-        const feedRes = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`, {
-          signal: AbortSignal.timeout(6000)
-        });
-        if (feedRes.ok) {
+    const seenVideoIds = new Set<string>();
+    const cleanBaseUrl = targetUrl.replace(/\/+(videos|playlists|shorts|streams)?$/i, '');
+
+    // Fetch /videos tab (up to ~30 videos), RSS feed (publishedAt timestamps), and /playlists tab in parallel
+    const [videosTabList, rssVideos, playlists] = await Promise.all([
+      (async (): Promise<YouTubeChannelVideo[]> => {
+        try {
+          const vRes = await fetch(`${cleanBaseUrl}/videos`, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+              'Accept-Language': 'en-US,en;q=0.9'
+            },
+            signal: AbortSignal.timeout(7000)
+          });
+          if (!vRes.ok) return [];
+          const vHtml = await vRes.text();
+          return parseVideosFromYtInitialData(extractYtInitialData(vHtml));
+        } catch {
+          return [];
+        }
+      })(),
+      (async (): Promise<YouTubeChannelVideo[]> => {
+        if (!channelId) return [];
+        try {
+          const feedRes = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`, {
+            signal: AbortSignal.timeout(6000)
+          });
+          if (!feedRes.ok) return [];
           const xml = await feedRes.text();
-          const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map(m => m[1]);
+          const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
+          const list: YouTubeChannelVideo[] = [];
           for (const entry of entries) {
             const vIdMatch = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
             const tMatch = entry.match(/<title>([^<]+)<\/title>/);
@@ -500,7 +813,7 @@ export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouT
             const pMatch = entry.match(/<published>([^<]+)<\/published>/);
             if (vIdMatch && vIdMatch[1]) {
               const vId = vIdMatch[1].trim();
-              videos.push({
+              list.push({
                 videoId: vId,
                 title: tMatch ? tMatch[1].trim() : `Video ${vId}`,
                 description: dMatch ? dMatch[1].trim() : '',
@@ -509,52 +822,42 @@ export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouT
               });
             }
           }
+          return list;
+        } catch {
+          return [];
         }
-      } catch (feedErr) {
-        console.warn('Failed to fetch YouTube RSS feed:', feedErr);
+      })(),
+      fetchYouTubeChannelPlaylists(cleanBaseUrl)
+    ]);
+
+    const rssMap = new Map(rssVideos.map((v) => [v.videoId, v]));
+    for (const v of videosTabList) {
+      if (!seenVideoIds.has(v.videoId)) {
+        seenVideoIds.add(v.videoId);
+        const rssItem = rssMap.get(v.videoId);
+        videos.push({
+          ...v,
+          description: v.description || rssItem?.description || '',
+          publishedAt: v.publishedAt || rssItem?.publishedAt
+        });
+      }
+    }
+    for (const v of rssVideos) {
+      if (!seenVideoIds.has(v.videoId)) {
+        seenVideoIds.add(v.videoId);
+        videos.push(v);
       }
     }
 
-    if (videos.length === 0) {
-      try {
-        const videosUrl = targetUrl.replace(/\/+$/, '') + '/videos';
-        const vRes = await fetch(videosUrl, {
-          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-          signal: AbortSignal.timeout(6000)
-        });
-        const vHtml = vRes.ok ? await vRes.text() : html;
-        const ids = [...new Set([...vHtml.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)].map((m) => m[1]))].slice(0, 15);
-        const verified = await Promise.all(
-          ids.map(async (id) => {
-            try {
-              const r = await fetch(
-                `https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}&format=json`
-              );
-              if (!r.ok) return null;
-              const j = await r.json();
-              return {
-                videoId: id,
-                title: String(j.title || `Video ${id}`),
-                description: '',
-                thumbnailUrl: getYouTubeThumbnail(id)
-              } as YouTubeChannelVideo;
-            } catch {
-              return null;
-            }
-          })
-        );
-        videos.push(...verified.filter((v): v is YouTubeChannelVideo => Boolean(v)));
-      } catch {}
-    }
-
-    if (!title && !channelId && videos.length === 0) return null;
+    if (!title && !channelId && videos.length === 0 && playlists.length === 0) return null;
 
     return {
       channelId: channelId || `yt-${Date.now()}`,
       title: title || 'YouTube Channel',
       description: description || 'Curated YouTube channel for kids.',
       avatarUrl: avatarUrl || 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=200&h=200&fit=crop',
-      videos
+      videos,
+      playlists
     };
   } catch (err) {
     console.warn('fetchYouTubeChannelInfo error:', err);
