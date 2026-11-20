@@ -322,6 +322,8 @@ export interface KidYouTubeSearchHistoryItem {
   searchedAt: string;
 }
 
+export type YouTubeChannelTrustLevel = 'SUPERVISED' | 'TRUSTED' | 'BLOCKED';
+
 export interface KidYouTubeSubscription {
   id: string;
   kidId: string;
@@ -330,6 +332,7 @@ export interface KidYouTubeSubscription {
   title: string;
   avatarUrl: string;
   description?: string;
+  trustLevel?: YouTubeChannelTrustLevel;
   subscribedAt: string;
 }
 

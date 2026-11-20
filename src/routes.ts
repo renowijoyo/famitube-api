@@ -3320,15 +3320,19 @@ apiRouter.get(
     ]);
     const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
     const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
-    const subSet = new Set(ytSubscriptions.map((s) => s.handle.toLowerCase()));
-    const channels = rawChannels.map((ch) => {
-      const handle = ch.handle.startsWith('@') ? ch.handle : `@${ch.handle}`;
-      return {
-        ...ch,
-        handle,
-        isSubscribed: subSet.has(handle.toLowerCase())
-      };
-    });
+    const subMap = new Map(ytSubscriptions.map((s) => [s.handle.toLowerCase(), s]));
+    const channels = rawChannels
+      .map((ch) => {
+        const handle = ch.handle.startsWith('@') ? ch.handle : `@${ch.handle}`;
+        const existingSub = subMap.get(handle.toLowerCase());
+        return {
+          ...ch,
+          handle,
+          isSubscribed: Boolean(existingSub && existingSub.trustLevel !== 'BLOCKED'),
+          trustLevel: existingSub?.trustLevel || 'SUPERVISED'
+        };
+      })
+      .filter((ch) => ch.trustLevel !== 'BLOCKED');
 
     const results = await Promise.all(
       rawResults.map(async (item) => {
@@ -3383,7 +3387,9 @@ apiRouter.get(
   '/kids/youtube-subscriptions',
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const subs = await db.getKidYouTubeSubscriptions(req.user!.sub);
+    const subs = (await db.getKidYouTubeSubscriptions(req.user!.sub)).filter(
+      (s) => s.trustLevel !== 'BLOCKED'
+    );
     res.json({ success: true, data: subs });
   })
 );
@@ -3452,7 +3458,15 @@ apiRouter.get(
     }
     const reqMap = new Map(existingRequests.map((r) => [r.youtubeVideoId, r]));
     const histSet = new Set(history.map((h) => h.youtubeVideoId || h.itemKey));
-    const isSubscribed = subs.some((s) => s.handle.toLowerCase() === handle.toLowerCase());
+    const matchedSub = subs.find((s) => s.handle.toLowerCase() === handle.toLowerCase());
+    if (matchedSub?.trustLevel === 'BLOCKED') {
+      return res.status(403).json({
+        success: false,
+        message: 'This YouTube channel has been blocked by your parent.'
+      });
+    }
+    const isSubscribed = Boolean(matchedSub);
+    const isTrustedChannel = matchedSub?.trustLevel === 'TRUSTED';
 
     const videos = await Promise.all(
       (info.videos || []).map(async (v) => {
@@ -3468,8 +3482,8 @@ apiRouter.get(
           sourceUrl: `https://www.youtube.com/watch?v=${v.videoId}`,
           isCurated: Boolean(curated),
           curatedVideoId: curated?.id || null,
-          approvalStatus: reqItem?.status || (inHistory ? 'APPROVED' : null),
-          inHistory
+          approvalStatus: reqItem?.status || (inHistory || isTrustedChannel ? 'APPROVED' : null),
+          inHistory: inHistory || isTrustedChannel
         };
       })
     );
@@ -3483,7 +3497,8 @@ apiRouter.get(
           title: info.title.startsWith('@') ? info.title : `${info.title} (${handle})`,
           description: info.description,
           avatarUrl: info.avatarUrl,
-          isSubscribed
+          isSubscribed,
+          trustLevel: matchedSub?.trustLevel || 'SUPERVISED'
         },
         videos
       }
@@ -3521,10 +3536,19 @@ apiRouter.post(
     const channelTitle = String(req.body?.channelTitle || 'YouTube').trim();
     const thumbnailUrl = String(req.body?.thumbnailUrl || getYouTubeThumbnail(youtubeVideoId)).trim();
 
-    const curated = await db.getVideoByYouTubeId(youtubeVideoId);
-    const existingReq = await db.getKidVideoRequest(user.id, youtubeVideoId);
-    const history = await db.getKidHistory(user.id);
+    const [curated, existingReq, history, ytSubs] = await Promise.all([
+      db.getVideoByYouTubeId(youtubeVideoId),
+      db.getKidVideoRequest(user.id, youtubeVideoId),
+      db.getKidHistory(user.id),
+      db.getKidYouTubeSubscriptions(user.id)
+    ]);
     const inHistory = history.some((h) => h.youtubeVideoId === youtubeVideoId || h.itemKey === youtubeVideoId);
+    const lowerChannelTitle = channelTitle.toLowerCase();
+    const matchedSub = ytSubs.find(
+      (s) =>
+        lowerChannelTitle.includes(s.handle.toLowerCase()) ||
+        (s.title && lowerChannelTitle === s.title.toLowerCase())
+    );
 
     const searchSettings = {
       youtubeSearchEnabled: effective.youtubeSearchEnabled,
@@ -3533,8 +3557,20 @@ apiRouter.post(
       searchRequireApproval: effective.searchRequireApproval
     };
 
-    // Curated or already approved/in-history videos play anytime without approval or quota
-    if (curated || existingReq?.status === 'APPROVED' || inHistory) {
+    if (matchedSub?.trustLevel === 'BLOCKED') {
+      return res.json({
+        success: true,
+        data: {
+          allowed: false,
+          reason: 'CHANNEL_BLOCKED',
+          message: `The YouTube channel ${matchedSub.handle} is blocked by your parent.`,
+          searchSettings
+        }
+      });
+    }
+
+    // Curated, parent-trusted @channel, or already approved/in-history videos play anytime without approval or quota
+    if (curated || existingReq?.status === 'APPROVED' || inHistory || matchedSub?.trustLevel === 'TRUSTED') {
       await db.upsertKidHistory({
         id: `hist-${user.id}-${youtubeVideoId}`,
         kidId: user.id,
@@ -3928,19 +3964,67 @@ apiRouter.get(
     if (!children.some((c) => c.id === childId)) {
       return res.status(404).json({ success: false, message: 'Child account not found' });
     }
-    const [searchHistory, videoRequests, watchHistory] = await Promise.all([
+    const [searchHistory, videoRequests, watchHistory, youtubeSubscriptions] = await Promise.all([
       db.getKidYouTubeSearchHistory(childId, 150),
       db.getKidVideoRequestsForKid(childId),
-      db.getKidHistory(childId)
+      db.getKidHistory(childId),
+      db.getKidYouTubeSubscriptions(childId)
     ]);
     res.json({
       success: true,
       data: {
         searchHistory,
         videoRequests,
-        watchHistory
+        watchHistory,
+        youtubeSubscriptions
       }
     });
+  })
+);
+
+// Parent: update trust level (SUPERVISED, TRUSTED, BLOCKED) or remove a child's @YouTube subscription
+apiRouter.put(
+  '/parent/children/:childId/youtube-subscriptions/:handle',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (!children.some((c) => c.id === childId)) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    const rawHandle = String(req.params.handle || '').trim();
+    const handle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+    const trustLevel = String(req.body?.trustLevel || 'SUPERVISED').toUpperCase();
+    if (!['SUPERVISED', 'TRUSTED', 'BLOCKED'].includes(trustLevel)) {
+      return res.status(400).json({ success: false, message: 'trustLevel must be SUPERVISED, TRUSTED, or BLOCKED' });
+    }
+    const updated = await db.setKidYouTubeSubscriptionTrustLevel(
+      childId,
+      handle,
+      trustLevel as 'SUPERVISED' | 'TRUSTED' | 'BLOCKED'
+    );
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'YouTube channel subscription not found' });
+    }
+    res.json({ success: true, data: updated });
+  })
+);
+
+apiRouter.delete(
+  '/parent/children/:childId/youtube-subscriptions/:handle',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (!children.some((c) => c.id === childId)) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    const rawHandle = String(req.params.handle || '').trim();
+    const handle = rawHandle.startsWith('@') ? rawHandle : `@${rawHandle}`;
+    await db.removeKidYouTubeSubscription(childId, handle);
+    res.json({ success: true, data: { handle } });
   })
 );
 

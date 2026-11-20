@@ -41,6 +41,7 @@ import {
   KidHistoryItem,
   KidYouTubeSearchHistoryItem,
   KidYouTubeSubscription,
+  YouTubeChannelTrustLevel,
   KidBrowserHistoryItem,
   KidSiteRequest,
   KidSiteRequestStatus,
@@ -596,11 +597,13 @@ class Database {
         title VARCHAR(255) NOT NULL,
         avatarUrl TEXT NOT NULL,
         description TEXT NULL,
+        trustLevel VARCHAR(16) NOT NULL DEFAULT 'SUPERVISED',
         subscribedAt VARCHAR(64) NOT NULL,
         UNIQUE KEY uniq_kid_yt_sub (kidId, handle),
         INDEX idx_kid_yt_sub (kidId, subscribedAt)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+    await this.ensureColumnExists('kid_youtube_subscriptions', 'trustLevel', "VARCHAR(16) NOT NULL DEFAULT 'SUPERVISED'");
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS kid_saved_channels (
@@ -2578,6 +2581,7 @@ class Database {
       title: String(row.title),
       avatarUrl: String(row.avatarUrl || ''),
       description: row.description ? String(row.description) : undefined,
+      trustLevel: ((row.trustLevel as YouTubeChannelTrustLevel) || 'SUPERVISED'),
       subscribedAt: String(row.subscribedAt)
     }));
   }
@@ -2585,14 +2589,15 @@ class Database {
   public async upsertKidYouTubeSubscription(sub: KidYouTubeSubscription): Promise<KidYouTubeSubscription> {
     const normalizedHandle = sub.handle.startsWith('@') ? sub.handle : `@${sub.handle}`;
     const id = `ytsub-${sub.kidId}-${normalizedHandle.toLowerCase()}`;
+    const trustLevel: YouTubeChannelTrustLevel = sub.trustLevel || 'SUPERVISED';
     await this.pool.query(
-      `INSERT INTO kid_youtube_subscriptions (id, kidId, handle, channelId, title, avatarUrl, description, subscribedAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      `INSERT INTO kid_youtube_subscriptions (id, kidId, handle, channelId, title, avatarUrl, description, trustLevel, subscribedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
        ON DUPLICATE KEY UPDATE
-         channelId = VALUES(channelId),
+         channelId = COALESCE(VALUES(channelId), channelId),
          title = VALUES(title),
          avatarUrl = VALUES(avatarUrl),
-         description = VALUES(description),
+         description = COALESCE(VALUES(description), description),
          subscribedAt = VALUES(subscribedAt)`,
       [
         id,
@@ -2602,10 +2607,26 @@ class Database {
         sub.title,
         sub.avatarUrl || '',
         sub.description || null,
+        trustLevel,
         sub.subscribedAt
       ]
     );
-    return { ...sub, id, handle: normalizedHandle };
+    const all = await this.getKidYouTubeSubscriptions(sub.kidId);
+    return all.find((s) => s.handle.toLowerCase() === normalizedHandle.toLowerCase()) || { ...sub, id, handle: normalizedHandle, trustLevel };
+  }
+
+  public async setKidYouTubeSubscriptionTrustLevel(
+    kidId: string,
+    handle: string,
+    trustLevel: YouTubeChannelTrustLevel
+  ): Promise<KidYouTubeSubscription | null> {
+    const normalized = handle.startsWith('@') ? handle : `@${handle}`;
+    await this.pool.query(
+      'UPDATE kid_youtube_subscriptions SET trustLevel = ? WHERE kidId = ? AND LOWER(handle) = LOWER(?)',
+      [trustLevel, kidId, normalized]
+    );
+    const all = await this.getKidYouTubeSubscriptions(kidId);
+    return all.find((s) => s.handle.toLowerCase() === normalized.toLowerCase()) || null;
   }
 
   public async removeKidYouTubeSubscription(kidId: string, handle: string): Promise<void> {
