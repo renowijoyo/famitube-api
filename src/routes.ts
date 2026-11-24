@@ -43,7 +43,6 @@ import {
   AgeRating,
   Channel,
   ChannelVisibility,
-  SearchProvider,
   PermissionPreset,
   ChannelPermissions,
   PERMISSION_PRESETS,
@@ -55,92 +54,11 @@ import {
   PlanTier,
   ParentalControls,
   ParentalControlsOverride,
-  BrowserControls,
-  KidBrowserHistoryItem,
-  KidSiteRequest,
   User
 } from './types.js';
 
-const DEFAULT_ALLOWED_DOMAINS = [
-  'pbskids.org',
-  'kids.nationalgeographic.com',
-  'nasa.gov',
-  'scratch.mit.edu',
-  'google.com'
-];
-
-const DEFAULT_BLOCKED_DOMAINS = ['youtube.com', 'youtu.be'];
-
-const SEARCH_PROVIDER_TEMPLATES: Record<SearchProvider, { label: string; template: string }> = {
-  GOOGLE: { label: 'Google SafeSearch', template: 'https://www.google.com/search?safe=active&q={query}' },
-  DUCKDUCKGO: { label: 'DuckDuckGo Safe', template: 'https://duckduckgo.com/?kp=1&q={query}' },
-  BING: { label: 'Bing SafeSearch', template: 'https://www.bing.com/search?adlt=strict&q={query}' }
-};
-
-function isSearchProvider(value: unknown): value is SearchProvider {
-  return typeof value === 'string' && ['GOOGLE', 'DUCKDUCKGO', 'BING'].includes(value);
-}
-
-function getDefaultSearchProvider(): SearchProvider {
-  return 'GOOGLE';
-}
-
-function normalizeDomain(raw: unknown): string {
-  const s = String(raw || '').trim().toLowerCase();
-  if (!s) return '';
-  try {
-    const withProto = s.includes('://') ? s : `https://${s}`;
-    const host = new URL(withProto).hostname.replace(/^www\./, '');
-    return host;
-  } catch {
-    return s.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0].split(':')[0];
-  }
-}
-
-function normalizeDomainList(raw: unknown, fallback: string[]): string[] {
-  if (!Array.isArray(raw)) return fallback;
-  const cleaned = raw.map(normalizeDomain).filter(Boolean);
-  return Array.from(new Set(cleaned));
-}
-
-function getDefaultBrowserControlsForAge(ageRating: AgeRating): BrowserControls {
-  switch (ageRating) {
-    case 'TODDLER':
-      return {
-        browserEnabled: false,
-        browserAllowlistOnly: true,
-        browserLogHistory: true,
-        browserSearchProvider: getDefaultSearchProvider(),
-        allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
-        blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
-      };
-    case 'YOUNG_KIDS':
-      return {
-        browserEnabled: true,
-        browserAllowlistOnly: true,
-        browserLogHistory: true,
-        browserSearchProvider: getDefaultSearchProvider(),
-        allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
-        blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
-      };
-    case 'OLDER_KIDS':
-    case 'ALL':
-    default:
-      return {
-        browserEnabled: true,
-        browserAllowlistOnly: false,
-        browserLogHistory: true,
-        browserSearchProvider: getDefaultSearchProvider(),
-        allowedDomains: [...DEFAULT_ALLOWED_DOMAINS],
-        blockedDomains: [...DEFAULT_BLOCKED_DOMAINS]
-      };
-  }
-}
-
 function getGlobalParentalControls(parent?: User): ParentalControls {
   const ageRating = parent?.ageRating || 'ALL';
-  const ageBrowserDefaults = getDefaultBrowserControlsForAge(ageRating);
-  const bc = parent?.browserControls || {};
   return {
     parentPin: parent?.parentPin || '1234',
     dailyLimitMinutes: parent?.dailyLimitMinutes ?? 45,
@@ -150,13 +68,7 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
     attentionMinWatchPercent: parent?.attentionMinWatchPercent ?? 70,
     youtubeSearchEnabled: parent?.youtubeSearchEnabled !== false,
     searchViewLimit: parent?.searchViewLimit ?? 0,
-    searchRequireApproval: parent?.searchRequireApproval !== false,
-    browserEnabled: bc.browserEnabled ?? ageBrowserDefaults.browserEnabled,
-    browserAllowlistOnly: bc.browserAllowlistOnly ?? ageBrowserDefaults.browserAllowlistOnly,
-    browserLogHistory: bc.browserLogHistory ?? ageBrowserDefaults.browserLogHistory,
-    browserSearchProvider: bc.browserSearchProvider ?? ageBrowserDefaults.browserSearchProvider,
-    allowedDomains: bc.allowedDomains ?? ageBrowserDefaults.allowedDomains,
-    blockedDomains: bc.blockedDomains ?? ageBrowserDefaults.blockedDomains
+    searchRequireApproval: parent?.searchRequireApproval !== false
   };
 }
 
@@ -164,8 +76,6 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
   const global = getGlobalParentalControls(parent);
   const ov = child.parentalOverride || {};
   const effectiveAgeRating = ov.ageRating ?? child.ageRating ?? global.ageRating;
-  const ageBrowserDefaults = getDefaultBrowserControlsForAge(effectiveAgeRating);
-  const parentBrowser = parent?.browserControls || {};
   return {
     parentPin: ov.parentPin ?? global.parentPin,
     dailyLimitMinutes: ov.dailyLimitMinutes ?? global.dailyLimitMinutes,
@@ -175,16 +85,7 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
     attentionMinWatchPercent: ov.attentionMinWatchPercent ?? global.attentionMinWatchPercent,
     youtubeSearchEnabled: ov.youtubeSearchEnabled ?? global.youtubeSearchEnabled,
     searchViewLimit: ov.searchViewLimit ?? global.searchViewLimit,
-    searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval,
-    browserEnabled: ov.browserEnabled ?? parentBrowser.browserEnabled ?? ageBrowserDefaults.browserEnabled,
-    browserAllowlistOnly:
-      ov.browserAllowlistOnly ?? parentBrowser.browserAllowlistOnly ?? ageBrowserDefaults.browserAllowlistOnly,
-    browserLogHistory:
-      ov.browserLogHistory ?? parentBrowser.browserLogHistory ?? ageBrowserDefaults.browserLogHistory,
-    browserSearchProvider:
-      ov.browserSearchProvider ?? parentBrowser.browserSearchProvider ?? ageBrowserDefaults.browserSearchProvider,
-    allowedDomains: ov.allowedDomains ?? parentBrowser.allowedDomains ?? ageBrowserDefaults.allowedDomains,
-    blockedDomains: ov.blockedDomains ?? parentBrowser.blockedDomains ?? ageBrowserDefaults.blockedDomains
+    searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval
   };
 }
 
@@ -206,12 +107,6 @@ function formatChildResponse(parent: User | undefined, child: User) {
     attentionTrackingEnabled: effective.attentionTrackingEnabled,
     attentionPauseSeconds: effective.attentionPauseSeconds,
     attentionMinWatchPercent: effective.attentionMinWatchPercent,
-    browserEnabled: effective.browserEnabled,
-    browserAllowlistOnly: effective.browserAllowlistOnly,
-    browserLogHistory: effective.browserLogHistory,
-    browserSearchProvider: effective.browserSearchProvider,
-    allowedDomains: effective.allowedDomains,
-    blockedDomains: effective.blockedDomains,
     overrides: child.parentalOverride || {},
     createdAt: child.createdAt
   };
@@ -2411,13 +2306,7 @@ apiRouter.put(
       attentionMinWatchPercent,
       youtubeSearchEnabled,
       searchViewLimit,
-      searchRequireApproval,
-      browserEnabled,
-      browserAllowlistOnly,
-      browserLogHistory,
-      browserSearchProvider,
-      allowedDomains,
-      blockedDomains
+      searchRequireApproval
     } = req.body || {};
 
     const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
@@ -2442,15 +2331,7 @@ apiRouter.put(
         attentionMinWatchPercent !== undefined ? Number(attentionMinWatchPercent) : undefined,
       youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
       searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
-      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined,
-      browserEnabled: browserEnabled !== undefined ? Boolean(browserEnabled) : undefined,
-      browserAllowlistOnly: browserAllowlistOnly !== undefined ? Boolean(browserAllowlistOnly) : undefined,
-      browserLogHistory: browserLogHistory !== undefined ? Boolean(browserLogHistory) : undefined,
-      browserSearchProvider: isSearchProvider(browserSearchProvider) ? browserSearchProvider : undefined,
-      allowedDomains:
-        allowedDomains !== undefined ? normalizeDomainList(allowedDomains, DEFAULT_ALLOWED_DOMAINS) : undefined,
-      blockedDomains:
-        blockedDomains !== undefined ? normalizeDomainList(blockedDomains, DEFAULT_BLOCKED_DOMAINS) : undefined
+      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Parent account not found' });
@@ -2599,12 +2480,6 @@ apiRouter.put(
       attentionTrackingEnabled,
       attentionPauseSeconds,
       attentionMinWatchPercent,
-      browserEnabled,
-      browserAllowlistOnly,
-      browserLogHistory,
-      browserSearchProvider,
-      allowedDomains,
-      blockedDomains,
       overrides: overridesBody
     } = req.body;
     const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
@@ -2666,18 +2541,6 @@ apiRouter.put(
       applyOverride('youtubeSearchEnabled', ob.youtubeSearchEnabled, (v) => Boolean(v));
       applyOverride('searchViewLimit', ob.searchViewLimit, (v) => Math.max(0, Number(v)));
       applyOverride('searchRequireApproval', ob.searchRequireApproval, (v) => Boolean(v));
-      applyOverride('browserEnabled', ob.browserEnabled, (v) => Boolean(v));
-      applyOverride('browserAllowlistOnly', ob.browserAllowlistOnly, (v) => Boolean(v));
-      applyOverride('browserLogHistory', ob.browserLogHistory, (v) => Boolean(v));
-      applyOverride('browserSearchProvider', ob.browserSearchProvider, (v) =>
-        isSearchProvider(v) ? v : getDefaultSearchProvider()
-      );
-      applyOverride('allowedDomains', ob.allowedDomains, (v) =>
-        normalizeDomainList(v, DEFAULT_ALLOWED_DOMAINS)
-      );
-      applyOverride('blockedDomains', ob.blockedDomains, (v) =>
-        normalizeDomainList(v, DEFAULT_BLOCKED_DOMAINS)
-      );
     }
 
     // Also support flat fields on PUT body for direct per-kid override updates
@@ -2686,14 +2549,6 @@ apiRouter.put(
     applyOverride('ageRating', ageRating === null ? null : resolvedRating, (v) => v as AgeRating);
     applyOverride('attentionTrackingEnabled', attentionTrackingEnabled, (v) => Boolean(v));
     applyOverride('attentionPauseSeconds', attentionPauseSeconds, (v) => Math.max(5, Math.min(300, Number(v))));
-    applyOverride('browserEnabled', browserEnabled, (v) => Boolean(v));
-    applyOverride('browserAllowlistOnly', browserAllowlistOnly, (v) => Boolean(v));
-    applyOverride('browserLogHistory', browserLogHistory, (v) => Boolean(v));
-    applyOverride('browserSearchProvider', browserSearchProvider, (v) =>
-      isSearchProvider(v) ? v : getDefaultSearchProvider()
-    );
-    applyOverride('allowedDomains', allowedDomains, (v) => normalizeDomainList(v, DEFAULT_ALLOWED_DOMAINS));
-    applyOverride('blockedDomains', blockedDomains, (v) => normalizeDomainList(v, DEFAULT_BLOCKED_DOMAINS));
     applyOverride('attentionMinWatchPercent', attentionMinWatchPercent, (v) => Math.max(10, Math.min(100, Number(v))));
     applyOverride('youtubeSearchEnabled', youtubeSearchEnabled, (v) => Boolean(v));
     applyOverride('searchViewLimit', searchViewLimit, (v) => Math.max(0, Number(v)));
@@ -3831,206 +3686,6 @@ apiRouter.post(
   })
 );
 
-// Kid: embedded browser effective config
-apiRouter.get(
-  '/kids/browser/config',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const user = await db.getUserById(req.user!.sub);
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
-    }
-    const parent = user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : user;
-    const effective =
-      user.role === 'CHILD'
-        ? resolveEffectiveParentalControls(parent, user)
-        : getGlobalParentalControls(user);
-    res.json({
-      success: true,
-      data: {
-        browserEnabled: effective.browserEnabled,
-        browserAllowlistOnly: effective.browserAllowlistOnly,
-        browserLogHistory: effective.browserLogHistory,
-        browserSearchProvider: effective.browserSearchProvider,
-        allowedDomains: effective.allowedDomains,
-        blockedDomains: effective.blockedDomains
-      }
-    });
-  })
-);
-
-// Search providers available (used by parent settings and Android/web search URL formatting)
-apiRouter.get(
-  '/browser/search-providers',
-  requireAuth,
-  asyncHandler(async (_req: AuthenticatedRequest, res) => {
-    res.json({
-      success: true,
-      data: (Object.keys(SEARCH_PROVIDER_TEMPLATES) as SearchProvider[]).map((id) => ({
-        id,
-        label: SEARCH_PROVIDER_TEMPLATES[id].label,
-        template: SEARCH_PROVIDER_TEMPLATES[id].template,
-        configured: true
-      }))
-    });
-  })
-);
-
-// Kid: get own embedded browser history
-apiRouter.get(
-  '/kids/browser/history',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const limit = req.query.limit ? Number(req.query.limit) : 50;
-    const history = await db.getKidBrowserHistory(req.user!.sub, limit);
-    res.json({ success: true, data: history });
-  })
-);
-
-// Kid: log embedded browser history batch (only if browserLogHistory is enabled)
-apiRouter.post(
-  '/kids/browser/history',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const user = await db.getUserById(req.user!.sub);
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
-    }
-    const parent = user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : user;
-    const effective =
-      user.role === 'CHILD'
-        ? resolveEffectiveParentalControls(parent, user)
-        : getGlobalParentalControls(user);
-
-    if (!effective.browserLogHistory) {
-      return res.json({ success: true, data: [], message: 'History logging disabled for this profile' });
-    }
-
-    const rawEntries = Array.isArray(req.body?.entries)
-      ? req.body.entries
-      : req.body?.url
-        ? [req.body]
-        : [];
-    if (rawEntries.length === 0) {
-      return res.status(400).json({ success: false, message: 'entries array or url is required' });
-    }
-
-    const nowIso = new Date().toISOString();
-    const sanitized: KidBrowserHistoryItem[] = rawEntries
-      .slice(0, 100)
-      .map((entry: Record<string, unknown>, idx: number) => {
-        const rawUrl = String(entry?.url || '').trim();
-        const domain = normalizeDomain(entry?.domain || rawUrl);
-        if (!rawUrl || !domain) return null;
-        return {
-          id: `bh-${user.id}-${Date.now().toString(36)}-${idx}-${Math.random().toString(36).slice(2, 6)}`,
-          kidId: user.id,
-          url: rawUrl.slice(0, 2000),
-          domain: domain.slice(0, 255),
-          title: String(entry?.title || domain).trim().slice(0, 500),
-          blocked: Boolean(entry?.blocked),
-          visitedAt: entry?.visitedAt ? String(entry.visitedAt) : nowIso
-        };
-      })
-      .filter((x: KidBrowserHistoryItem | null): x is KidBrowserHistoryItem => x !== null);
-
-    const saved = await db.addKidBrowserHistoryBatch(user.id, sanitized);
-    if (user.role === 'CHILD' && user.parentId) {
-      const blockedEntries = sanitized.filter((item) => item.blocked);
-      for (const blockedItem of blockedEntries.slice(0, 3)) {
-        await db.createNotification(
-          user.parentId,
-          'BLOCKED_SITE',
-          'Blocked Website Attempt',
-          `${user.name || 'Your child'} tried to visit ${blockedItem.domain}`,
-          blockedItem.id
-        );
-      }
-    }
-    res.json({ success: true, data: saved });
-  })
-);
-
-// Kid: list own site access requests
-apiRouter.get(
-  '/kids/browser/requests',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const requests = await db.getKidSiteRequestsForKid(req.user!.sub);
-    res.json({ success: true, data: requests });
-  })
-);
-
-// Kid: request parent to allow a blocked site/domain
-apiRouter.post(
-  '/kids/browser/requests',
-  requireAuth,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const user = await db.getUserById(req.user!.sub);
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
-    }
-    if (user.role !== 'CHILD' || !user.parentId) {
-      return res.status(400).json({ success: false, message: 'Only child accounts can request site access' });
-    }
-    const rawUrl = String(req.body?.url || '').trim();
-    const domain = normalizeDomain(req.body?.domain || rawUrl);
-    if (!domain) {
-      return res.status(400).json({ success: false, message: 'Valid url or domain is required' });
-    }
-    const request: KidSiteRequest = {
-      id: `sreq-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
-      kidId: user.id,
-      parentId: user.parentId,
-      url: rawUrl || `https://${domain}`,
-      domain,
-      status: 'PENDING',
-      createdAt: new Date().toISOString()
-    };
-    const saved = await db.createOrGetKidSiteRequest(request);
-    await db.createNotification(
-      user.parentId,
-      'SITE_REQUEST',
-      'Website Access Request',
-      `${user.name || 'Your child'} asked to visit ${domain}`,
-      saved.id
-    );
-    res.json({ success: true, data: saved });
-  })
-);
-
-// Parent: view or clear a child's browser history
-apiRouter.get(
-  '/parent/children/:childId/browser-history',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const childId = String(req.params.childId);
-    const children = await db.getChildrenByParentId(req.user!.sub);
-    if (!children.some((c) => c.id === childId)) {
-      return res.status(404).json({ success: false, message: 'Child account not found' });
-    }
-    const limit = req.query.limit ? Number(req.query.limit) : 200;
-    const history = await db.getKidBrowserHistory(childId, limit);
-    res.json({ success: true, data: history });
-  })
-);
-
-apiRouter.delete(
-  '/parent/children/:childId/browser-history',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const childId = String(req.params.childId);
-    const children = await db.getChildrenByParentId(req.user!.sub);
-    if (!children.some((c) => c.id === childId)) {
-      return res.status(404).json({ success: false, message: 'Child account not found' });
-    }
-    await db.clearKidBrowserHistory(childId);
-    res.json({ success: true, message: 'Browser history cleared' });
-  })
-);
-
 // Parent: view a child's YouTube search history, video requests, and video viewing history
 apiRouter.get(
   '/parent/children/:childId/activity-history',
@@ -4133,65 +3788,6 @@ apiRouter.delete(
     }
     await db.clearKidWatchHistory(childId);
     res.json({ success: true, message: 'Video viewing history cleared' });
-  })
-);
-
-// Parent: list & decide site access requests
-apiRouter.get(
-  '/parent/site-requests',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const requests = await db.getKidSiteRequestsForParent(req.user!.sub);
-    res.json({ success: true, data: requests });
-  })
-);
-
-apiRouter.post(
-  '/parent/site-requests/:requestId/decide',
-  requireAuth,
-  requireParent,
-  asyncHandler(async (req: AuthenticatedRequest, res) => {
-    const requestId = String(req.params.requestId);
-    const decision = String(req.body?.decision || '').toUpperCase();
-    if (decision !== 'APPROVED' && decision !== 'REJECTED') {
-      return res.status(400).json({ success: false, message: 'decision must be APPROVED or REJECTED' });
-    }
-    const decided = await db.decideKidSiteRequest(requestId, req.user!.sub, decision);
-    if (!decided) {
-      return res.status(404).json({ success: false, message: 'Site request not found' });
-    }
-
-    if (decision === 'APPROVED') {
-      const [parentUser, children] = await Promise.all([
-        db.getUserById(req.user!.sub),
-        db.getChildrenByParentId(req.user!.sub)
-      ]);
-      const child = children.find((c) => c.id === decided.kidId);
-      if (child) {
-        const effective = resolveEffectiveParentalControls(parentUser, child);
-        const nextAllowed = Array.from(new Set([...effective.allowedDomains, decided.domain]));
-        const nextBlocked = effective.blockedDomains.filter((d) => d !== decided.domain);
-        const nextOverrides: ParentalControlsOverride = {
-          ...(child.parentalOverride || {}),
-          allowedDomains: nextAllowed,
-          blockedDomains: nextBlocked
-        };
-        await db.updateChildAccount(req.user!.sub, child.id, { parentalOverride: nextOverrides });
-      }
-    }
-
-    await db.createNotification(
-      decided.kidId,
-      'SITE_DECISION',
-      decision === 'APPROVED' ? 'Website Approved!' : 'Website Request Declined',
-      decision === 'APPROVED'
-        ? `${decided.domain} is now allowed in Safe Browser.`
-        : `Access to ${decided.domain} was declined.`,
-      decided.id
-    );
-
-    res.json({ success: true, data: decided });
   })
 );
 

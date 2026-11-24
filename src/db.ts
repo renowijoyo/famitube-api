@@ -35,16 +35,12 @@ import {
   PlanEntitlements,
   ParentalControls,
   ParentalControlsOverride,
-  BrowserControls,
   KidVideoRequest,
   KidVideoRequestStatus,
   KidHistoryItem,
   KidYouTubeSearchHistoryItem,
   KidYouTubeSubscription,
   YouTubeChannelTrustLevel,
-  KidBrowserHistoryItem,
-  KidSiteRequest,
-  KidSiteRequestStatus,
   AppNotification,
   AppNotificationType,
   KidPlaylist,
@@ -288,9 +284,6 @@ function mapUserRow(row: RowDataPacket): User {
     parentalOverride: row.parentalOverrideJson
       ? parseJson<ParentalControlsOverride | null>(row.parentalOverrideJson, null)
       : null,
-    browserControls: row.browserControlsJson
-      ? parseJson<Partial<BrowserControls> | null>(row.browserControlsJson, null)
-      : null,
     verificationToken: row.verificationToken || undefined,
     verificationExpiresAt: row.verificationExpiresAt || undefined,
     createdAt: row.createdAt
@@ -466,7 +459,6 @@ class Database {
     await this.ensureColumnExists('users', 'attentionPauseSeconds', 'INT NOT NULL DEFAULT 30');
     await this.ensureColumnExists('users', 'attentionMinWatchPercent', 'INT NOT NULL DEFAULT 70');
     await this.ensureColumnExists('users', 'parentalOverrideJson', 'TEXT NULL');
-    await this.ensureColumnExists('users', 'browserControlsJson', 'TEXT NULL');
     await this.ensureColumnExists('users', 'plan', "VARCHAR(16) NOT NULL DEFAULT 'FREE'");
     await this.ensureColumnExists('users', 'planExpiresAt', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('users', 'referralCode', 'VARCHAR(32) NULL');
@@ -625,34 +617,6 @@ class Database {
         createdAt VARCHAR(64) NOT NULL,
         updatedAt VARCHAR(64) NOT NULL,
         INDEX idx_kid_pl (kidId)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-    `);
-
-    await this.pool.query(`
-      CREATE TABLE IF NOT EXISTS kid_browser_history (
-        id VARCHAR(64) PRIMARY KEY,
-        kidId VARCHAR(64) NOT NULL,
-        url TEXT NOT NULL,
-        domain VARCHAR(255) NOT NULL,
-        title VARCHAR(512) NOT NULL,
-        blocked TINYINT(1) NOT NULL DEFAULT 0,
-        visitedAt VARCHAR(64) NOT NULL,
-        INDEX idx_browser_hist_kid_time (kidId, visitedAt)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-    `);
-
-    await this.pool.query(`
-      CREATE TABLE IF NOT EXISTS kid_site_requests (
-        id VARCHAR(64) PRIMARY KEY,
-        kidId VARCHAR(64) NOT NULL,
-        parentId VARCHAR(64) NOT NULL,
-        url TEXT NOT NULL,
-        domain VARCHAR(255) NOT NULL,
-        status VARCHAR(16) NOT NULL DEFAULT 'PENDING',
-        createdAt VARCHAR(64) NOT NULL,
-        decidedAt VARCHAR(64) NULL,
-        UNIQUE KEY uniq_kid_site_req (kidId, domain),
-        INDEX idx_site_req_parent (parentId, status)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
@@ -1692,19 +1656,9 @@ class Database {
         ? updates.searchRequireApproval
         : (existing.searchRequireApproval !== false);
 
-    const prevBrowser = existing.browserControls || {};
-    const nextBrowser: Partial<BrowserControls> = { ...prevBrowser };
-    if (updates.browserEnabled !== undefined) nextBrowser.browserEnabled = updates.browserEnabled;
-    if (updates.browserAllowlistOnly !== undefined) nextBrowser.browserAllowlistOnly = updates.browserAllowlistOnly;
-    if (updates.browserLogHistory !== undefined) nextBrowser.browserLogHistory = updates.browserLogHistory;
-    if (updates.browserSearchProvider !== undefined) nextBrowser.browserSearchProvider = updates.browserSearchProvider;
-    if (updates.allowedDomains !== undefined) nextBrowser.allowedDomains = updates.allowedDomains;
-    if (updates.blockedDomains !== undefined) nextBrowser.blockedDomains = updates.blockedDomains;
-    const browserControlsJson = Object.keys(nextBrowser).length > 0 ? JSON.stringify(nextBrowser) : null;
-
     await this.pool.query(
       `UPDATE users
-       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?, browserControlsJson = ?
+       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?
        WHERE id = ? AND role = 'PARENT'`,
       [
         parentPin,
@@ -1716,7 +1670,6 @@ class Database {
         youtubeSearchEnabled ? 1 : 0,
         searchViewLimit,
         searchRequireApproval ? 1 : 0,
-        browserControlsJson,
         parentId
       ]
     );
@@ -2484,49 +2437,6 @@ class Database {
     return item;
   }
 
-  public async getKidBrowserHistory(kidId: string, limit = 200): Promise<KidBrowserHistoryItem[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_browser_history WHERE kidId = ? ORDER BY visitedAt DESC LIMIT ?',
-      [kidId, Math.max(1, Math.min(1000, limit))]
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      kidId: row.kidId,
-      url: row.url,
-      domain: row.domain,
-      title: row.title,
-      blocked: Boolean(row.blocked),
-      visitedAt: row.visitedAt
-    }));
-  }
-
-  public async addKidBrowserHistoryBatch(
-    kidId: string,
-    items: KidBrowserHistoryItem[]
-  ): Promise<KidBrowserHistoryItem[]> {
-    if (items.length === 0) return [];
-    const values = items.map((item) => [
-      item.id,
-      kidId,
-      item.url,
-      item.domain,
-      item.title,
-      item.blocked ? 1 : 0,
-      item.visitedAt
-    ]);
-    await this.pool.query(
-      `INSERT IGNORE INTO kid_browser_history
-        (id, kidId, url, domain, title, blocked, visitedAt)
-       VALUES ?`,
-      [values]
-    );
-    return items;
-  }
-
-  public async clearKidBrowserHistory(kidId: string): Promise<void> {
-    await this.pool.query('DELETE FROM kid_browser_history WHERE kidId = ?', [kidId]);
-  }
-
   public async clearKidWatchHistory(kidId: string): Promise<void> {
     await this.pool.query('DELETE FROM kid_watch_history WHERE kidId = ?', [kidId]);
   }
@@ -2635,114 +2545,6 @@ class Database {
       'DELETE FROM kid_youtube_subscriptions WHERE kidId = ? AND LOWER(handle) = LOWER(?)',
       [kidId, normalized]
     );
-  }
-
-  public async createOrGetKidSiteRequest(req: KidSiteRequest): Promise<KidSiteRequest> {
-    const [existingRows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_site_requests WHERE kidId = ? AND domain = ?',
-      [req.kidId, req.domain]
-    );
-    if (existingRows[0]) {
-      const row = existingRows[0];
-      if (row.status === 'REJECTED') {
-        await this.pool.query(
-          'UPDATE kid_site_requests SET url = ?, status = ?, createdAt = ?, decidedAt = NULL WHERE id = ?',
-          [req.url, 'PENDING', req.createdAt, row.id]
-        );
-        return {
-          ...req,
-          id: row.id,
-          status: 'PENDING',
-          decidedAt: null
-        };
-      }
-      return {
-        id: row.id,
-        kidId: row.kidId,
-        parentId: row.parentId,
-        url: row.url,
-        domain: row.domain,
-        status: row.status as KidSiteRequestStatus,
-        createdAt: row.createdAt,
-        decidedAt: row.decidedAt || null
-      };
-    }
-
-    await this.pool.query(
-      `INSERT INTO kid_site_requests (id, kidId, parentId, url, domain, status, createdAt, decidedAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, NULL)`,
-      [req.id, req.kidId, req.parentId, req.url, req.domain, req.status, req.createdAt]
-    );
-    return req;
-  }
-
-  public async getKidSiteRequestsForKid(kidId: string): Promise<KidSiteRequest[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_site_requests WHERE kidId = ? ORDER BY createdAt DESC',
-      [kidId]
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      kidId: row.kidId,
-      parentId: row.parentId,
-      url: row.url,
-      domain: row.domain,
-      status: row.status as KidSiteRequestStatus,
-      createdAt: row.createdAt,
-      decidedAt: row.decidedAt || null
-    }));
-  }
-
-  public async getKidSiteRequestsForParent(parentId: string): Promise<KidSiteRequest[]> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      `SELECT r.*, u.name AS kidName
-       FROM kid_site_requests r
-       LEFT JOIN users u ON u.id = r.kidId
-       WHERE r.parentId = ?
-       ORDER BY FIELD(r.status, 'PENDING', 'APPROVED', 'REJECTED'), r.createdAt DESC`,
-      [parentId]
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      kidId: row.kidId,
-      kidName: row.kidName || undefined,
-      parentId: row.parentId,
-      url: row.url,
-      domain: row.domain,
-      status: row.status as KidSiteRequestStatus,
-      createdAt: row.createdAt,
-      decidedAt: row.decidedAt || null
-    }));
-  }
-
-  public async decideKidSiteRequest(
-    requestId: string,
-    parentId: string,
-    decision: 'APPROVED' | 'REJECTED'
-  ): Promise<KidSiteRequest | null> {
-    const [rows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT * FROM kid_site_requests WHERE id = ? AND parentId = ?',
-      [requestId, parentId]
-    );
-    const row = rows[0];
-    if (!row) return null;
-
-    const nowIso = new Date().toISOString();
-    await this.pool.query(
-      'UPDATE kid_site_requests SET status = ?, decidedAt = ? WHERE id = ?',
-      [decision, nowIso, requestId]
-    );
-
-    return {
-      id: row.id,
-      kidId: row.kidId,
-      parentId: row.parentId,
-      url: row.url,
-      domain: row.domain,
-      status: decision,
-      createdAt: row.createdAt,
-      decidedAt: nowIso
-    };
   }
 
   public async createNotification(

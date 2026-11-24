@@ -225,18 +225,7 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
-export type SearchProvider = 'GOOGLE' | 'DUCKDUCKGO' | 'BING';
-
-export interface BrowserControls {
-  browserEnabled: boolean;
-  browserAllowlistOnly: boolean;
-  browserLogHistory: boolean;
-  browserSearchProvider: SearchProvider;
-  allowedDomains: string[];
-  blockedDomains: string[];
-}
-
-export interface ParentalControls extends BrowserControls {
+export interface ParentalControls {
   parentPin: string;
   dailyLimitMinutes: number;
   ageRating: AgeRating;
@@ -275,7 +264,6 @@ export interface User {
   attentionTrackingEnabled?: boolean;
   attentionPauseSeconds?: number;
   attentionMinWatchPercent?: number;
-  browserControls?: Partial<BrowserControls> | null;
   parentalOverride?: ParentalControlsOverride | null;
   verificationToken?: string;
   verificationExpiresAt?: string;
@@ -336,36 +324,9 @@ export interface KidYouTubeSubscription {
   subscribedAt: string;
 }
 
-export interface KidBrowserHistoryItem {
-  id: string;
-  kidId: string;
-  url: string;
-  domain: string;
-  title: string;
-  blocked: boolean;
-  visitedAt: string;
-}
-
-export type KidSiteRequestStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
-
-export interface KidSiteRequest {
-  id: string;
-  kidId: string;
-  kidName?: string;
-  parentId: string;
-  url: string;
-  domain: string;
-  status: KidSiteRequestStatus;
-  createdAt: string;
-  decidedAt?: string | null;
-}
-
 export type AppNotificationType =
   | 'VIDEO_REQUEST'
   | 'VIDEO_DECISION'
-  | 'SITE_REQUEST'
-  | 'SITE_DECISION'
-  | 'BLOCKED_SITE'
   | 'SYSTEM';
 
 export interface AppNotification {
