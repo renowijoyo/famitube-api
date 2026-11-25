@@ -348,6 +348,32 @@ export function channelMatchesAgeRating(channelAgeRating: string | undefined, ta
   return chAge === target || chAge === 'ALL';
 }
 
+export const CATEGORY_TAG_MAP: Record<string, string[]> = {
+  'Cartoons & Fun': ['category:cartoons & fun', 'cartoons & fun', 'topic:animation-cartoons', 'topic:comedy-clean', 'cartoon', 'cartoons', 'animation', 'animated', 'comedy', 'funny', 'puppet', 'puppets', 'toons'],
+  'Learning & ABCs': ['category:learning & abcs', 'learning & abcs', 'topic:abcs-phonics', 'topic:language-learning', 'abc', 'abcs', 'alphabet', 'phonics', 'letters', 'colors', 'shapes', 'preschool', 'spelling', 'vocabulary', 'counting', 'numbers'],
+  'Music & Rhymes': ['category:music & rhymes', 'music & rhymes', 'topic:music-instruments', 'purpose:background-audio', 'music', 'rhyme', 'rhymes', 'nursery rhyme', 'nursery rhymes', 'song', 'songs', 'sing-along', 'singalong', 'lullaby', 'lullabies'],
+  'Animals & Nature': ['category:animals & nature', 'animals & nature', 'topic:animals-nature', 'animal', 'animals', 'nature', 'wildlife', 'ocean', 'reef', 'marine', 'zoo', 'pets', 'pet', 'dino', 'dinosaur', 'dinosaurs', 'birds', 'insects', 'jungle', 'safari', 'bunny', 'puppy', 'kitten'],
+  'Art & Crafts': ['category:art & crafts', 'art & crafts', 'topic:art-drawing', 'topic:crafts-diy', 'art', 'arts', 'craft', 'crafts', 'drawing', 'draw', 'painting', 'paint', 'origami', 'coloring', 'clay', 'illustration'],
+  'Science & Space': ['category:science & space', 'science & space', 'topic:science', 'topic:space-astronomy', 'science', 'space', 'astronomy', 'planet', 'planets', 'rocket', 'rockets', 'nasa', 'physics', 'chemistry', 'biology', 'experiment', 'experiments', 'solar system', 'astronaut'],
+  'Stories & Reading': ['category:stories & reading', 'stories & reading', 'topic:reading-books', 'purpose:story-narrative', 'story', 'stories', 'reading', 'read-aloud', 'book', 'books', 'fairytale', 'fairy tale', 'bedtime story', 'fable', 'storytelling'],
+  'Math & Coding': ['category:math & coding', 'math & coding', 'topic:math-logic', 'topic:coding-tech', 'math', 'maths', 'counting', 'numbers', 'addition', 'subtraction', 'multiplication', 'geometry', 'logic', 'coding', 'programming', 'computer science', 'robotics', 'stem'],
+  'Kids Yoga & Active': ['category:kids yoga & active', 'kids yoga & active', 'topic:physical-fitness', 'topic:mindfulness-breathing', 'context:movement-break', 'yoga', 'fitness', 'exercise', 'workout', 'stretching', 'mindfulness', 'breathing', 'dance', 'movement', 'active'],
+  'World & Discovery': ['category:world & discovery', 'world & discovery', 'topic:history-geography', 'world', 'discovery', 'geography', 'history', 'countries', 'culture', 'cultures', 'earth', 'continents', 'travel', 'landmarks', 'civilization'],
+  'Video Games & Gaming': ['category:video games & gaming', 'video games & gaming', 'topic:gaming-wholesome', 'gaming', 'video game', 'video games', 'minecraft'],
+  'Hobbies & DIY': ['category:hobbies & diy', 'hobbies & diy', 'topic:crafts-diy', 'topic:engineering-robotics', 'hobby', 'hobbies', 'diy', 'maker', 'lego', 'building', 'engineering'],
+  'Sports & Outdoors': ['category:sports & outdoors', 'sports & outdoors', 'topic:sports-outdoors', 'sport', 'sports', 'soccer', 'football', 'basketball', 'swimming', 'outdoors', 'camping', 'hiking'],
+  'Cooking & Baking': ['category:cooking & baking', 'cooking & baking', 'topic:cooking-baking', 'cooking', 'baking', 'recipe', 'recipes', 'kitchen', 'chef', 'cupcakes']
+};
+
+export const CANONICAL_CATEGORIES = Object.keys(CATEGORY_TAG_MAP);
+
+export function getCategoryMatchTags(categoryName: string): string[] {
+  const lower = String(categoryName || '').trim().toLowerCase();
+  const entry = Object.entries(CATEGORY_TAG_MAP).find(([name]) => name.toLowerCase() === lower);
+  if (entry) return entry[1];
+  return lower ? [`category:${lower}`, lower] : [];
+}
+
 export function normalizeVideoTags(
   tags: string[] = [],
   ageRating?: AgeRating,
@@ -360,7 +386,6 @@ export function normalizeVideoTags(
   const filtered = cleaned.filter((t) => {
     const lower = t.toLowerCase();
     if (ageRating && lower.startsWith('age:')) return false;
-    if (category && lower.startsWith('category:')) return false;
     return true;
   });
 
@@ -396,21 +421,47 @@ export function videoMatchesAgeTag(videoTags: string[], targetRating: string): b
   );
 }
 
-export function videoMatchesCategoryTag(videoTags: string[], category: string): boolean {
+export function videoMatchesCategoryTag(
+  videoTags: string[],
+  category: string,
+  fallbackCategory?: string
+): boolean {
   const target = category.trim().toLowerCase();
   if (!target || target === 'all videos' || target === 'cat-all') return true;
-  const normalized = videoTags.map((t) => t.trim().toLowerCase());
-  if (normalized.includes(`category:${target}`) || normalized.includes(target)) {
+  const tagSet = new Set(videoTags.map((t) => t.trim().toLowerCase()).filter(Boolean));
+  if (fallbackCategory && fallbackCategory.trim() && fallbackCategory.trim().toLowerCase() !== 'all videos') {
+    tagSet.add(`category:${fallbackCategory.trim().toLowerCase()}`);
+  }
+  if (tagSet.has(`category:${target}`) || tagSet.has(target)) {
     return true;
   }
-  const topicAliases: Record<string, string[]> = {
-    'video games & gaming': ['topic:gaming-wholesome'],
-    'hobbies & diy': ['topic:crafts-diy', 'topic:art-drawing', 'topic:music-instruments', 'topic:engineering-robotics'],
-    'sports & outdoors': ['topic:sports-outdoors', 'topic:physical-fitness'],
-    'cooking & baking': ['topic:cooking-baking']
-  };
-  const aliases = topicAliases[target];
-  return Boolean(aliases && aliases.some((alias) => normalized.includes(alias)));
+  const matchTags = getCategoryMatchTags(category);
+  return matchTags.some((alias) => tagSet.has(alias));
+}
+
+export function resolveVideoCategories(videoTags: string[] = [], fallbackCategory?: string): string[] {
+  const matched = CANONICAL_CATEGORIES.filter((catName) =>
+    videoMatchesCategoryTag(videoTags, catName, fallbackCategory)
+  );
+  if (matched.length === 0 && fallbackCategory && fallbackCategory.trim() && fallbackCategory.trim() !== 'All Videos') {
+    return [fallbackCategory.trim()];
+  }
+  return matched;
+}
+
+export function isVideoCategoriesAllowedForAge(
+  videoTags: string[],
+  videoAgeRating: string | undefined,
+  fallbackCategory: string | undefined,
+  targetAgeRating?: string
+): boolean {
+  if (String(targetAgeRating || 'ALL').trim().toUpperCase() !== 'TODDLER') return true;
+  const cats = resolveVideoCategories(videoTags, fallbackCategory);
+  if (!cats.some((c) => isCategoryAllowedForAge(c, 'TODDLER'))) return false;
+  if (String(videoAgeRating || 'ALL').trim().toUpperCase() !== 'TODDLER') {
+    return cats.every((c) => isCategoryAllowedForAge(c, 'TODDLER'));
+  }
+  return true;
 }
 
 export interface YouTubeChannelVideo {

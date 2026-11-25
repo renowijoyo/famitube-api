@@ -35,7 +35,8 @@ import {
   deriveAgeRatingFromBirthday,
   fetchYouTubeChannelInfo,
   fetchYouTubePlaylistVideos,
-  isCategoryAllowedForAge
+  isCategoryAllowedForAge,
+  resolveVideoCategories
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
@@ -253,8 +254,15 @@ apiRouter.get(
       }
     }
 
-    const related = (await db.getVideos({ category: video.category, onlyApproved: true }))
-      .filter((v) => v.id !== id)
+    const videoCats = video.categories?.length
+      ? video.categories
+      : resolveVideoCategories(video.tags, video.category);
+    const related = (await db.getVideos({ onlyApproved: true }))
+      .filter((v) => {
+        if (v.id === id) return false;
+        const cats = v.categories?.length ? v.categories : resolveVideoCategories(v.tags, v.category);
+        return cats.some((cat) => videoCats.includes(cat));
+      })
       .slice(0, 4);
 
     res.json({
@@ -273,11 +281,7 @@ apiRouter.get(
   '/categories',
   asyncHandler(async (req, res) => {
     const ageRating = req.query.ageRating ? String(req.query.ageRating) : undefined;
-    const allCategories = await db.getCategories();
-    const categories =
-      ageRating && ageRating !== 'ALL'
-        ? allCategories.filter((c) => c.id === 'cat-all' || isCategoryAllowedForAge(c.name, ageRating))
-        : allCategories;
+    const categories = await db.getCategories(ageRating);
     res.json({ success: true, data: categories });
   })
 );

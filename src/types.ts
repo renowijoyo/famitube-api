@@ -36,6 +36,7 @@ export interface Video {
   channelTitle: string;
   channelAvatar: string;
   category: string;
+  categories?: string[];
   ageRating: AgeRating;
   isFeatured: boolean;
   isApproved: boolean;
@@ -132,6 +133,7 @@ export interface ChannelSuggestion {
   thumbnailUrl: string;
   duration: number;
   category: string;
+  categories?: string[];
   ageRating: AgeRating;
   note?: string;
   status: SuggestionStatus;
@@ -178,6 +180,7 @@ export interface Playlist {
   thumbnailUrl: string;
   videoIds: string[];
   category: string;
+  categories?: string[];
   ageRating: AgeRating;
 }
 
@@ -186,6 +189,7 @@ export interface Category {
   name: string;
   icon: string;
   color: string;
+  tags?: string[];
   videoCount?: number;
 }
 

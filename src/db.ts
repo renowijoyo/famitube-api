@@ -2,8 +2,11 @@ import crypto from 'crypto';
 import mysql, { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import {
   channelMatchesAgeRating,
+  getCategoryMatchTags,
   isCategoryAllowedForAge,
+  isVideoCategoriesAllowedForAge,
   normalizeVideoTags,
+  resolveVideoCategories,
   videoMatchesAgeTag,
   videoMatchesCategoryTag
 } from './utils.js';
@@ -942,21 +945,20 @@ class Database {
 
     let list = rows.map((row) => {
       const video = mapVideoRow(row);
-      const chTags = channelTagsMap.get(video.channelId);
-      if (chTags && chTags.length > 0) {
-        return {
-          ...video,
-          tags: resolveEffectiveVideoTags(video.tags, chTags, video.ageRating, video.category)
-        };
-      }
-      return video;
+      const chTags = channelTagsMap.get(video.channelId) || [];
+      const effectiveTags = resolveEffectiveVideoTags(video.tags, chTags, video.ageRating, video.category);
+      return {
+        ...video,
+        tags: effectiveTags,
+        categories: resolveVideoCategories(effectiveTags, video.category)
+      };
     });
 
     if (filter?.onlyApproved ?? true) {
       list = list.filter((v) => v.isApproved);
     }
     if (filter?.category && filter.category !== 'All Videos' && filter.category !== 'cat-all') {
-      list = list.filter((v) => videoMatchesCategoryTag(v.tags, filter.category!));
+      list = list.filter((v) => videoMatchesCategoryTag(v.tags, filter.category!, v.category));
     }
     if (filter?.channelId) {
       const ch = await this.getChannelById(filter.channelId);
@@ -973,7 +975,7 @@ class Database {
       list = list.filter(
         (v) =>
           videoMatchesAgeTag(v.tags, filter.ageRating!) &&
-          isCategoryAllowedForAge(v.category, filter.ageRating)
+          isVideoCategoriesAllowedForAge(v.tags, v.ageRating, v.category, filter.ageRating)
       );
     }
     if (filter?.featured !== undefined) {
@@ -1012,7 +1014,19 @@ class Database {
   public async getVideoById(id: string): Promise<Video | undefined> {
     const [rows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM videos WHERE id = ?', [id]);
     if (rows.length === 0) return undefined;
-    return mapVideoRow(rows[0]);
+    const video = mapVideoRow(rows[0]);
+    const ch = video.channelId ? await this.getChannelById(video.channelId) : undefined;
+    const effectiveTags = resolveEffectiveVideoTags(
+      video.tags,
+      ch?.defaultTags || [],
+      video.ageRating,
+      video.category
+    );
+    return {
+      ...video,
+      tags: effectiveTags,
+      categories: resolveVideoCategories(effectiveTags, video.category)
+    };
   }
 
   public async addVideo(video: Video): Promise<Video> {
@@ -1520,20 +1534,23 @@ class Database {
   }
 
   // --- Categories ---
-  public async getCategories(): Promise<Category[]> {
+  public async getCategories(ageRating?: string): Promise<Category[]> {
     const [catRows] = await this.pool.query<RowDataPacket[]>('SELECT * FROM categories');
-    const [vidRows] = await this.pool.query<RowDataPacket[]>(
-      'SELECT category FROM videos WHERE isApproved = 1'
-    );
-    return catRows.map((c) => ({
+    const approvedVideos = await this.getVideos({ onlyApproved: true, ageRating });
+    const filteredCats =
+      ageRating && ageRating !== 'ALL'
+        ? catRows.filter((c) => c.id === 'cat-all' || isCategoryAllowedForAge(c.name, ageRating))
+        : catRows;
+    return filteredCats.map((c) => ({
       id: c.id,
       name: c.name,
       icon: c.icon,
       color: c.color,
+      tags: c.id === 'cat-all' ? [] : getCategoryMatchTags(c.name),
       videoCount:
         c.id === 'cat-all'
-          ? vidRows.length
-          : vidRows.filter((v) => v.category === c.name).length
+          ? approvedVideos.length
+          : approvedVideos.filter((v) => videoMatchesCategoryTag(v.tags, c.name, v.category)).length
     }));
   }
 
