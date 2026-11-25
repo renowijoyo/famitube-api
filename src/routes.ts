@@ -34,7 +34,8 @@ import {
   resolveGeoForSearch,
   deriveAgeRatingFromBirthday,
   fetchYouTubeChannelInfo,
-  fetchYouTubePlaylistVideos
+  fetchYouTubePlaylistVideos,
+  isCategoryAllowedForAge
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
 import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
@@ -76,6 +77,7 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
   const global = getGlobalParentalControls(parent);
   const ov = child.parentalOverride || {};
   const effectiveAgeRating = ov.ageRating ?? child.ageRating ?? global.ageRating;
+  const isToddler = effectiveAgeRating === 'TODDLER';
   return {
     parentPin: ov.parentPin ?? global.parentPin,
     dailyLimitMinutes: ov.dailyLimitMinutes ?? global.dailyLimitMinutes,
@@ -83,7 +85,7 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
     attentionTrackingEnabled: ov.attentionTrackingEnabled ?? global.attentionTrackingEnabled,
     attentionPauseSeconds: ov.attentionPauseSeconds ?? global.attentionPauseSeconds,
     attentionMinWatchPercent: ov.attentionMinWatchPercent ?? global.attentionMinWatchPercent,
-    youtubeSearchEnabled: ov.youtubeSearchEnabled ?? global.youtubeSearchEnabled,
+    youtubeSearchEnabled: isToddler ? false : (ov.youtubeSearchEnabled ?? global.youtubeSearchEnabled),
     searchViewLimit: ov.searchViewLimit ?? global.searchViewLimit,
     searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval
   };
@@ -269,8 +271,13 @@ apiRouter.get(
 // Get Categories
 apiRouter.get(
   '/categories',
-  asyncHandler(async (_req, res) => {
-    const categories = await db.getCategories();
+  asyncHandler(async (req, res) => {
+    const ageRating = req.query.ageRating ? String(req.query.ageRating) : undefined;
+    const allCategories = await db.getCategories();
+    const categories =
+      ageRating && ageRating !== 'ALL'
+        ? allCategories.filter((c) => c.id === 'cat-all' || isCategoryAllowedForAge(c.name, ageRating))
+        : allCategories;
     res.json({ success: true, data: categories });
   })
 );
@@ -2011,6 +2018,17 @@ apiRouter.post(
         message: 'You do not have permission to suggest videos to this channel'
       });
     }
+    const requestingUser = await db.getUserById(req.user!.sub);
+    if (requestingUser?.role === 'CHILD') {
+      const parentUser = requestingUser.parentId ? await db.getUserById(requestingUser.parentId) : undefined;
+      const effective = resolveEffectiveParentalControls(parentUser, requestingUser);
+      if (effective.ageRating === 'TODDLER') {
+        return res.status(403).json({
+          success: false,
+          message: 'Toddlers cannot submit video requests or suggestions.'
+        });
+      }
+    }
 
     const {
       title,
@@ -3150,6 +3168,12 @@ apiRouter.get(
       user.role === 'CHILD'
         ? resolveEffectiveParentalControls(parentUser, user)
         : getGlobalParentalControls(user);
+    if (user.role === 'CHILD' && effective.ageRating === 'TODDLER') {
+      return res.status(403).json({
+        success: false,
+        message: 'Search is only available for Young Kids and Older Kids.'
+      });
+    }
     if (user.role === 'CHILD' && !effective.youtubeSearchEnabled) {
       return res.status(403).json({
         success: false,
@@ -3454,12 +3478,6 @@ apiRouter.post(
       user.role === 'CHILD'
         ? resolveEffectiveParentalControls(parentUser, user)
         : getGlobalParentalControls(user);
-    if (user.role === 'CHILD' && !effective.youtubeSearchEnabled) {
-      return res.status(403).json({
-        success: false,
-        message: 'YouTube search is currently disabled by your parent.'
-      });
-    }
 
     const youtubeVideoId = extractYouTubeId(String(req.body?.youtubeVideoId || ''));
     if (!youtubeVideoId) {
@@ -3529,6 +3547,24 @@ apiRouter.post(
     }
 
     // Check view limit for non-curated searched videos (0 = unlimited)
+    if (user.role === 'CHILD' && effective.ageRating === 'TODDLER') {
+      return res.json({
+        success: true,
+        data: {
+          allowed: false,
+          reason: 'TODDLER_CANNOT_REQUEST',
+          message: 'Toddlers cannot request video approvals. Only parent-approved videos can play.',
+          searchSettings
+        }
+      });
+    }
+    if (user.role === 'CHILD' && !effective.youtubeSearchEnabled) {
+      return res.status(403).json({
+        success: false,
+        message: 'YouTube search is currently disabled by your parent.'
+      });
+    }
+
     const limit = user.searchViewLimit ?? 0;
     const used = user.searchViewsUsed ?? 0;
     if (user.role === 'CHILD' && limit > 0 && used >= limit) {

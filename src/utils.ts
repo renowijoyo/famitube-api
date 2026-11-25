@@ -322,6 +322,24 @@ export function deriveAgeRatingFromBirthday(birthday: string): AgeRating | null 
   return 'OLDER_KIDS';
 }
 
+export const TODDLER_ALLOWED_CATEGORIES = new Set([
+  'cartoons & fun',
+  'learning & abcs',
+  'music & rhymes',
+  'animals & nature',
+  'art & crafts',
+  'stories & reading',
+  'kids yoga & active'
+]);
+
+export function isCategoryAllowedForAge(category: string | undefined, ageRating?: string): boolean {
+  const age = String(ageRating || 'ALL').trim().toUpperCase();
+  if (age !== 'TODDLER') return true;
+  const cat = String(category || '').trim().toLowerCase();
+  if (!cat || cat === 'all videos' || cat === 'cat-all') return true;
+  return TODDLER_ALLOWED_CATEGORIES.has(cat);
+}
+
 export function channelMatchesAgeRating(channelAgeRating: string | undefined, targetRating?: string): boolean {
   if (!targetRating) return true;
   const target = targetRating.trim().toUpperCase();

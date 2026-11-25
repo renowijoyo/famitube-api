@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import mysql, { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import {
   channelMatchesAgeRating,
+  isCategoryAllowedForAge,
   normalizeVideoTags,
   videoMatchesAgeTag,
   videoMatchesCategoryTag
@@ -969,7 +970,11 @@ class Database {
       }
     }
     if (filter?.ageRating && filter.ageRating !== 'ALL') {
-      list = list.filter((v) => videoMatchesAgeTag(v.tags, filter.ageRating!));
+      list = list.filter(
+        (v) =>
+          videoMatchesAgeTag(v.tags, filter.ageRating!) &&
+          isCategoryAllowedForAge(v.category, filter.ageRating)
+      );
     }
     if (filter?.featured !== undefined) {
       list = list.filter((v) => v.isFeatured === filter.featured);
@@ -1125,7 +1130,11 @@ class Database {
     const [rows] = await this.pool.query<RowDataPacket[]>(query);
     let channels = rows.map(mapChannelRow);
     if (options?.ageRating && options.ageRating !== 'ALL') {
-      channels = channels.filter((c) => channelMatchesAgeRating(c.ageRating, options.ageRating));
+      channels = channels.filter(
+        (c) =>
+          channelMatchesAgeRating(c.ageRating, options.ageRating) &&
+          isCategoryAllowedForAge(c.category, options.ageRating)
+      );
     }
     return Promise.all(
       channels.map(async (c) => ({
