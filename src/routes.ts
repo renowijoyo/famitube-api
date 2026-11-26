@@ -3875,6 +3875,10 @@ apiRouter.get(
   '/kids/playlists',
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const dbUser = await db.getUserById(req.user!.sub);
+    if (dbUser?.role === 'CHILD' && dbUser.ageRating === 'TODDLER') {
+      return res.json({ success: true, data: [] });
+    }
     const playlists = await db.getKidPlaylists(req.user!.sub);
     res.json({ success: true, data: playlists });
   })
@@ -3889,6 +3893,9 @@ apiRouter.post(
       return res.status(400).json({ success: false, message: 'Playlist title is required' });
     }
     const dbUser = await db.getUserById(req.user!.sub);
+    if (dbUser?.role === 'CHILD' && dbUser.ageRating === 'TODDLER') {
+      return res.status(403).json({ success: false, message: 'Playlists are not available for Toddler profiles.' });
+    }
     if (dbUser) {
       const entitlements = await db.getEffectiveEntitlements(dbUser);
       if (entitlements.maxPlaylists !== null) {
@@ -3913,6 +3920,10 @@ apiRouter.post(
   '/kids/playlists/:playlistId/items',
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const dbUser = await db.getUserById(req.user!.sub);
+    if (dbUser?.role === 'CHILD' && dbUser.ageRating === 'TODDLER') {
+      return res.status(403).json({ success: false, message: 'Toddlers cannot add videos to playlists.' });
+    }
     const playlistId = String(req.params.playlistId);
     const { key, youtubeVideoId, videoId, title, channelTitle, thumbnailUrl, sourceType, sourceUrl } = req.body || {};
     const resolvedKey = String(key || youtubeVideoId || videoId || '').trim();
