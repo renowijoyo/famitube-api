@@ -1,4 +1,11 @@
-import { AgeRating } from './types.js';
+import {
+  AgeRating,
+  ContentLanguage,
+  CultureMode,
+  ToddlerSubStage,
+  ToddlerTvChannelLoop,
+  Video
+} from './types.js';
 
 export function extractYouTubeId(url: string): string | null {
   if (!url) return null;
@@ -317,9 +324,185 @@ export function deriveAgeRatingFromBirthday(birthday: string): AgeRating | null 
     age--;
   }
   if (age < 0) return null;
-  if (age <= 4) return 'TODDLER';
-  if (age <= 7) return 'YOUNG_KIDS';
+  if (age <= 3) return 'TODDLER';
+  if (age <= 6) return 'YOUNG_KIDS';
   return 'OLDER_KIDS';
+}
+
+export interface ToddlerTvChannelDef {
+  topic: string;
+  displayTitle: string;
+  emoji: string;
+}
+
+export const TODDLER_TV_CHANNELS: ToddlerTvChannelDef[] = [
+  { topic: 'Music & Rhymes', displayTitle: 'Songs & Rhymes', emoji: '🎵' },
+  { topic: 'Animals & Nature', displayTitle: 'Cute Animals', emoji: '🐶' },
+  { topic: 'Learning & ABCs', displayTitle: 'ABCs & Colors', emoji: '🔤' },
+  { topic: 'Art & Crafts', displayTitle: 'Colors & Play', emoji: '🎨' },
+  { topic: 'Kids Yoga & Active', displayTitle: 'Sing & Dance', emoji: '🤸' },
+  { topic: 'Stories & Reading', displayTitle: 'Bedtime Stories', emoji: '📖' },
+  { topic: 'Cartoons & Fun', displayTitle: 'Gentle Toons', emoji: '🧸' }
+];
+
+export const DEFAULT_TODDLER_ENABLED_TOPICS: string[] = [
+  'Music & Rhymes',
+  'Animals & Nature',
+  'Learning & ABCs',
+  'Art & Crafts',
+  'Kids Yoga & Active',
+  'Stories & Reading'
+];
+
+export const TODDLER_EXCLUDED_TAGS = new Set([
+  'pacing:high-energy',
+  'format:short-form',
+  'commercial:toy-unboxing',
+  'advisory:mild-peril',
+  'advisory:slapstick'
+]);
+
+function stableHash(str: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+export function isToddlerCalmSafeVideo(video: Video, hiddenVideoIds: string[] = []): boolean {
+  if (!video.isApproved) return false;
+  if (hiddenVideoIds.includes(video.id)) return false;
+  const tagSet = new Set((video.tags || []).map((t) => t.trim().toLowerCase()));
+  for (const excluded of TODDLER_EXCLUDED_TAGS) {
+    if (tagSet.has(excluded)) return false;
+  }
+  return isVideoCategoriesAllowedForAge(video.tags || [], video.ageRating, video.category, 'TODDLER') &&
+    videoMatchesAgeTag(video.tags || [], 'TODDLER');
+}
+
+function matchesToddlerLanguage(video: Video, lang: ContentLanguage): boolean {
+  const tagSet = new Set((video.tags || []).map((t) => t.trim().toLowerCase()));
+  if (tagSet.has('access:no-dialogue') || tagSet.has('access:bilingual')) return true;
+  if (lang === 'id') {
+    return tagSet.has('lang:id') || tagSet.has('culture:indonesia');
+  }
+  if (lang === 'bilingual') {
+    return (
+      tagSet.has('lang:en') ||
+      tagSet.has('lang:id') ||
+      tagSet.has('culture:indonesia') ||
+      (!tagSet.has('lang:es'))
+    );
+  }
+  // 'en'
+  if (tagSet.has('lang:en')) return true;
+  return !tagSet.has('lang:id') && !tagSet.has('lang:es');
+}
+
+export function buildToddlerWeeklyChannelLoops(
+  videos: Video[],
+  options?: {
+    contentLanguage?: ContentLanguage;
+    cultureMode?: CultureMode;
+    toddlerSubStage?: ToddlerSubStage;
+    enabledTopics?: string[];
+    hiddenVideoIds?: string[];
+    nowMs?: number;
+  }
+): { channels: ToddlerTvChannelLoop[]; weekNumber: number } {
+  const contentLanguage: ContentLanguage = options?.contentLanguage || 'en';
+  const cultureMode: CultureMode = options?.cultureMode || 'GLOBAL';
+  const subStage: ToddlerSubStage = options?.toddlerSubStage || 'AUTO';
+  const hiddenIds = options?.hiddenVideoIds || [];
+  const enabledSet = new Set(
+    (options?.enabledTopics && options.enabledTopics.length > 0
+      ? options.enabledTopics
+      : DEFAULT_TODDLER_ENABLED_TOPICS
+    ).map((t) => t.trim().toLowerCase())
+  );
+
+  const nowMs = options?.nowMs ?? Date.now();
+  const weekNumber = Math.floor(nowMs / (7 * 86400 * 1000));
+  const safePool = videos.filter((v) => isToddlerCalmSafeVideo(v, hiddenIds));
+
+  const channels: ToddlerTvChannelLoop[] = [];
+
+  for (const def of TODDLER_TV_CHANNELS) {
+    if (!enabledSet.has(def.topic.toLowerCase())) continue;
+
+    let topicPool = safePool.filter((v) => videoMatchesCategoryTag(v.tags || [], def.topic, v.category));
+
+    // Prefer bite-sized/episode clips <= 10m if at least 6 exist
+    const shortMediumPool = topicPool.filter((v) => (v.duration || 180) <= 600);
+    if (shortMediumPool.length >= 6) {
+      topicPool = shortMediumPool;
+    }
+
+    // Language filter with safe fallback so a channel is never empty
+    const langFiltered = topicPool.filter((v) => matchesToddlerLanguage(v, contentLanguage));
+    let workingPool = langFiltered.length >= 4 ? langFiltered : topicPool;
+    if (langFiltered.length > 0 && langFiltered.length < 6 && topicPool.length > langFiltered.length) {
+      const existingIds = new Set(langFiltered.map((v) => v.id));
+      workingPool = [
+        ...langFiltered,
+        ...topicPool.filter((v) => !existingIds.has(v.id))
+      ];
+    }
+
+    // Deterministic sort with Culture & SubStage priority
+    const scored = [...workingPool].sort((a, b) => {
+      const aTags = new Set((a.tags || []).map((t) => t.trim().toLowerCase()));
+      const bTags = new Set((b.tags || []).map((t) => t.trim().toLowerCase()));
+
+      let aPriority = 0;
+      let bPriority = 0;
+
+      if (cultureMode === 'ID') {
+        if (aTags.has('culture:indonesia') || aTags.has('lang:id')) aPriority += 4;
+        if (bTags.has('culture:indonesia') || bTags.has('lang:id')) bPriority += 4;
+      }
+      if (subStage === 'EARLY') {
+        if (aTags.has('stage:early-toddler')) aPriority += 2;
+        if (bTags.has('stage:early-toddler')) bPriority += 2;
+      } else if (subStage === 'OLDER') {
+        if (aTags.has('stage:older-toddler')) aPriority += 2;
+        if (bTags.has('stage:older-toddler')) bPriority += 2;
+      }
+      if (aPriority !== bPriority) return bPriority - aPriority;
+      return stableHash(a.id) - stableHash(b.id);
+    });
+
+    const loopSize = Math.min(6, scored.length);
+    const picked: Video[] = [];
+    if (loopSize > 0) {
+      const startIdx = weekNumber % scored.length;
+      for (let i = 0; i < loopSize; i++) {
+        picked.push(scored[(startIdx + i) % scored.length]);
+      }
+    }
+
+    // Wind-down energy arc: moderate/active clips first, calm/bedtime-safe/gentle at the end
+    const isCalmTail = (v: Video): boolean => {
+      const t = new Set((v.tags || []).map((x) => x.trim().toLowerCase()));
+      return t.has('pacing:calm') || t.has('context:bedtime-safe') || t.has('audio:gentle');
+    };
+    const ordered = [
+      ...picked.filter((v) => !isCalmTail(v)),
+      ...picked.filter((v) => isCalmTail(v))
+    ];
+
+    channels.push({
+      topic: def.topic,
+      displayTitle: def.displayTitle,
+      emoji: def.emoji,
+      videos: ordered,
+      weekNumber
+    });
+  }
+
+  return { channels, weekNumber };
 }
 
 export const TODDLER_ALLOWED_CATEGORIES = new Set([

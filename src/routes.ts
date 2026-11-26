@@ -26,6 +26,8 @@ import {
   verifyVideoRequestDecisionToken
 } from './auth.js';
 import {
+  buildToddlerWeeklyChannelLoops,
+  DEFAULT_TODDLER_ENABLED_TOPICS,
   extractYouTubeId,
   fetchYouTubeOEmbed,
   getYouTubeThumbnail,
@@ -43,6 +45,9 @@ import { buildPremiumRequiredPayload, getEntitlementsForPlan, resolveUserPlan } 
 import {
   Video,
   AgeRating,
+  ContentLanguage,
+  CultureMode,
+  ToddlerSubStage,
   Channel,
   ChannelVisibility,
   PermissionPreset,
@@ -56,8 +61,31 @@ import {
   PlanTier,
   ParentalControls,
   ParentalControlsOverride,
-  User
+  User,
+  StoryBook,
+  StoryPage,
+  StoryLanguage,
+  StoryReadingMode,
+  StoryAgeRating
 } from './types.js';
+
+function normalizeContentLanguage(val: unknown, fallback: ContentLanguage = 'en'): ContentLanguage {
+  const s = String(val || '').trim().toLowerCase();
+  if (s === 'en' || s === 'id' || s === 'bilingual') return s;
+  return fallback;
+}
+
+function normalizeCultureMode(val: unknown, fallback: CultureMode = 'GLOBAL'): CultureMode {
+  const s = String(val || '').trim().toUpperCase();
+  if (s === 'GLOBAL' || s === 'ID') return s;
+  return fallback;
+}
+
+function normalizeToddlerSubStage(val: unknown, fallback: ToddlerSubStage = 'AUTO'): ToddlerSubStage {
+  const s = String(val || '').trim().toUpperCase();
+  if (s === 'AUTO' || s === 'EARLY' || s === 'OLDER') return s;
+  return fallback;
+}
 
 function getGlobalParentalControls(parent?: User): ParentalControls {
   const ageRating = parent?.ageRating || 'ALL';
@@ -70,7 +98,17 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
     attentionMinWatchPercent: parent?.attentionMinWatchPercent ?? 70,
     youtubeSearchEnabled: parent?.youtubeSearchEnabled !== false,
     searchViewLimit: parent?.searchViewLimit ?? 0,
-    searchRequireApproval: parent?.searchRequireApproval !== false
+    searchRequireApproval: parent?.searchRequireApproval !== false,
+    contentLanguage: normalizeContentLanguage(parent?.contentLanguage, 'en'),
+    cultureMode: normalizeCultureMode(parent?.cultureMode, 'GLOBAL'),
+    toddlerLoopMinutes: parent?.toddlerLoopMinutes ?? 15,
+    toddlerCooldownMinutes: parent?.toddlerCooldownMinutes ?? 30,
+    toddlerSubStage: normalizeToddlerSubStage(parent?.toddlerSubStage, 'AUTO'),
+    toddlerEnabledTopics:
+      Array.isArray(parent?.toddlerEnabledTopics) && parent.toddlerEnabledTopics.length > 0
+        ? parent.toddlerEnabledTopics
+        : [...DEFAULT_TODDLER_ENABLED_TOPICS],
+    toddlerHiddenVideoIds: Array.isArray(parent?.toddlerHiddenVideoIds) ? parent.toddlerHiddenVideoIds : []
   };
 }
 
@@ -88,7 +126,16 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
     attentionMinWatchPercent: ov.attentionMinWatchPercent ?? global.attentionMinWatchPercent,
     youtubeSearchEnabled: isToddler ? false : (ov.youtubeSearchEnabled ?? global.youtubeSearchEnabled),
     searchViewLimit: ov.searchViewLimit ?? global.searchViewLimit,
-    searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval
+    searchRequireApproval: ov.searchRequireApproval ?? global.searchRequireApproval,
+    contentLanguage: ov.contentLanguage ?? global.contentLanguage,
+    cultureMode: ov.cultureMode ?? global.cultureMode,
+    toddlerLoopMinutes: ov.toddlerLoopMinutes ?? child.toddlerLoopMinutes ?? global.toddlerLoopMinutes,
+    toddlerCooldownMinutes: ov.toddlerCooldownMinutes ?? child.toddlerCooldownMinutes ?? global.toddlerCooldownMinutes,
+    toddlerSubStage: ov.toddlerSubStage ?? child.toddlerSubStage ?? global.toddlerSubStage,
+    toddlerEnabledTopics:
+      ov.toddlerEnabledTopics ?? child.toddlerEnabledTopics ?? global.toddlerEnabledTopics,
+    toddlerHiddenVideoIds:
+      ov.toddlerHiddenVideoIds ?? child.toddlerHiddenVideoIds ?? global.toddlerHiddenVideoIds
   };
 }
 
@@ -110,6 +157,14 @@ function formatChildResponse(parent: User | undefined, child: User) {
     attentionTrackingEnabled: effective.attentionTrackingEnabled,
     attentionPauseSeconds: effective.attentionPauseSeconds,
     attentionMinWatchPercent: effective.attentionMinWatchPercent,
+    contentLanguage: effective.contentLanguage,
+    cultureMode: effective.cultureMode,
+    toddlerLoopMinutes: effective.toddlerLoopMinutes,
+    toddlerCooldownMinutes: effective.toddlerCooldownMinutes,
+    toddlerSubStage: effective.toddlerSubStage,
+    toddlerEnabledTopics: effective.toddlerEnabledTopics,
+    toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
+    toddlerCooldownUntil: child.toddlerCooldownUntil || null,
     overrides: child.parentalOverride || {},
     createdAt: child.createdAt
   };
@@ -2328,7 +2383,14 @@ apiRouter.put(
       attentionMinWatchPercent,
       youtubeSearchEnabled,
       searchViewLimit,
-      searchRequireApproval
+      searchRequireApproval,
+      contentLanguage,
+      cultureMode,
+      toddlerLoopMinutes,
+      toddlerCooldownMinutes,
+      toddlerSubStage,
+      toddlerEnabledTopics,
+      toddlerHiddenVideoIds
     } = req.body || {};
 
     const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
@@ -2353,7 +2415,20 @@ apiRouter.put(
         attentionMinWatchPercent !== undefined ? Number(attentionMinWatchPercent) : undefined,
       youtubeSearchEnabled: youtubeSearchEnabled !== undefined ? Boolean(youtubeSearchEnabled) : undefined,
       searchViewLimit: searchViewLimit !== undefined ? Math.max(0, Number(searchViewLimit)) : undefined,
-      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined
+      searchRequireApproval: searchRequireApproval !== undefined ? Boolean(searchRequireApproval) : undefined,
+      contentLanguage: contentLanguage !== undefined ? normalizeContentLanguage(contentLanguage) : undefined,
+      cultureMode: cultureMode !== undefined ? normalizeCultureMode(cultureMode) : undefined,
+      toddlerLoopMinutes:
+        toddlerLoopMinutes !== undefined ? Math.max(5, Math.min(60, Number(toddlerLoopMinutes))) : undefined,
+      toddlerCooldownMinutes:
+        toddlerCooldownMinutes !== undefined ? Math.max(5, Math.min(240, Number(toddlerCooldownMinutes))) : undefined,
+      toddlerSubStage: toddlerSubStage !== undefined ? normalizeToddlerSubStage(toddlerSubStage) : undefined,
+      toddlerEnabledTopics: Array.isArray(toddlerEnabledTopics)
+        ? toddlerEnabledTopics.map((t) => String(t).trim()).filter(Boolean)
+        : undefined,
+      toddlerHiddenVideoIds: Array.isArray(toddlerHiddenVideoIds)
+        ? toddlerHiddenVideoIds.map((id) => String(id).trim()).filter(Boolean)
+        : undefined
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Parent account not found' });
@@ -2502,6 +2577,14 @@ apiRouter.put(
       attentionTrackingEnabled,
       attentionPauseSeconds,
       attentionMinWatchPercent,
+      contentLanguage,
+      cultureMode,
+      toddlerLoopMinutes,
+      toddlerCooldownMinutes,
+      toddlerSubStage,
+      toddlerEnabledTopics,
+      toddlerHiddenVideoIds,
+      toddlerCooldownUntil,
       overrides: overridesBody
     } = req.body;
     const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
@@ -2517,12 +2600,11 @@ apiRouter.put(
       return res.status(400).json({ success: false, message: 'Parent PIN must be exactly 4 digits' });
     }
     const validRatings: AgeRating[] = ['ALL', 'TODDLER', 'YOUNG_KIDS', 'OLDER_KIDS'];
+    // Parent is in full control of ageRating on existing profiles; editing birthday never overwrites ageRating
     const resolvedRating =
       ageRating && validRatings.includes(ageRating as AgeRating)
         ? (ageRating as AgeRating)
-        : cleanBirthday
-          ? (deriveAgeRatingFromBirthday(cleanBirthday) || undefined)
-          : undefined;
+        : undefined;
 
     const [parentUser, existingChildren] = await Promise.all([
       db.getUserById(req.user!.sub),
@@ -2563,6 +2645,17 @@ apiRouter.put(
       applyOverride('youtubeSearchEnabled', ob.youtubeSearchEnabled, (v) => Boolean(v));
       applyOverride('searchViewLimit', ob.searchViewLimit, (v) => Math.max(0, Number(v)));
       applyOverride('searchRequireApproval', ob.searchRequireApproval, (v) => Boolean(v));
+      applyOverride('contentLanguage', ob.contentLanguage, (v) => normalizeContentLanguage(v));
+      applyOverride('cultureMode', ob.cultureMode, (v) => normalizeCultureMode(v));
+      applyOverride('toddlerLoopMinutes', ob.toddlerLoopMinutes, (v) => Math.max(5, Math.min(60, Number(v))));
+      applyOverride('toddlerCooldownMinutes', ob.toddlerCooldownMinutes, (v) => Math.max(5, Math.min(240, Number(v))));
+      applyOverride('toddlerSubStage', ob.toddlerSubStage, (v) => normalizeToddlerSubStage(v));
+      applyOverride('toddlerEnabledTopics', ob.toddlerEnabledTopics, (v) =>
+        Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : [...DEFAULT_TODDLER_ENABLED_TOPICS]
+      );
+      applyOverride('toddlerHiddenVideoIds', ob.toddlerHiddenVideoIds, (v) =>
+        Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
+      );
     }
 
     // Also support flat fields on PUT body for direct per-kid override updates
@@ -2575,6 +2668,17 @@ apiRouter.put(
     applyOverride('youtubeSearchEnabled', youtubeSearchEnabled, (v) => Boolean(v));
     applyOverride('searchViewLimit', searchViewLimit, (v) => Math.max(0, Number(v)));
     applyOverride('searchRequireApproval', searchRequireApproval, (v) => Boolean(v));
+    applyOverride('contentLanguage', contentLanguage, (v) => normalizeContentLanguage(v));
+    applyOverride('cultureMode', cultureMode, (v) => normalizeCultureMode(v));
+    applyOverride('toddlerLoopMinutes', toddlerLoopMinutes, (v) => Math.max(5, Math.min(60, Number(v))));
+    applyOverride('toddlerCooldownMinutes', toddlerCooldownMinutes, (v) => Math.max(5, Math.min(240, Number(v))));
+    applyOverride('toddlerSubStage', toddlerSubStage, (v) => normalizeToddlerSubStage(v));
+    applyOverride('toddlerEnabledTopics', toddlerEnabledTopics, (v) =>
+      Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : [...DEFAULT_TODDLER_ENABLED_TOPICS]
+    );
+    applyOverride('toddlerHiddenVideoIds', toddlerHiddenVideoIds, (v) =>
+      Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
+    );
 
     const effective = resolveEffectiveParentalControls(parentUser, {
       ...existingChild,
@@ -2595,6 +2699,14 @@ apiRouter.put(
       attentionTrackingEnabled: effective.attentionTrackingEnabled,
       attentionPauseSeconds: effective.attentionPauseSeconds,
       attentionMinWatchPercent: effective.attentionMinWatchPercent,
+      contentLanguage: effective.contentLanguage,
+      cultureMode: effective.cultureMode,
+      toddlerLoopMinutes: effective.toddlerLoopMinutes,
+      toddlerCooldownMinutes: effective.toddlerCooldownMinutes,
+      toddlerSubStage: effective.toddlerSubStage,
+      toddlerEnabledTopics: effective.toddlerEnabledTopics,
+      toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
+      toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : undefined,
       parentalOverride: Object.keys(nextOverrides).length > 0 ? nextOverrides : null
     });
     if (!updated) {
@@ -2735,10 +2847,134 @@ apiRouter.get(
           ageRating: effectiveControls.ageRating,
           attentionTrackingEnabled: effectiveControls.attentionTrackingEnabled,
           attentionPauseSeconds: effectiveControls.attentionPauseSeconds,
-          attentionMinWatchPercent: effectiveControls.attentionMinWatchPercent
+          attentionMinWatchPercent: effectiveControls.attentionMinWatchPercent,
+          contentLanguage: effectiveControls.contentLanguage,
+          cultureMode: effectiveControls.cultureMode,
+          toddlerLoopMinutes: effectiveControls.toddlerLoopMinutes,
+          toddlerCooldownMinutes: effectiveControls.toddlerCooldownMinutes,
+          toddlerSubStage: effectiveControls.toddlerSubStage,
+          toddlerEnabledTopics: effectiveControls.toddlerEnabledTopics,
+          toddlerHiddenVideoIds: effectiveControls.toddlerHiddenVideoIds,
+          toddlerCooldownUntil: user.toddlerCooldownUntil || null
         }
       }
     });
+  })
+);
+
+// Toddler TV Mode: Ready-made linear weekly loops + cooldown status
+apiRouter.get(
+  '/kids/toddler-tv',
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    let targetChild: User | undefined;
+    let parentUser: User | undefined;
+
+    if (req.user?.sub) {
+      const me = await db.getUserById(req.user.sub);
+      if (me?.role === 'CHILD') {
+        targetChild = me;
+        if (me.parentId) parentUser = await db.getUserById(me.parentId);
+      } else if (me?.role === 'PARENT') {
+        parentUser = me;
+        const childId = req.query.childId ? String(req.query.childId) : '';
+        if (childId) {
+          const children = await db.getChildrenByParentId(me.id);
+          targetChild = children.find((c) => c.id === childId);
+        }
+      }
+    }
+
+    const effective = targetChild
+      ? resolveEffectiveParentalControls(parentUser, targetChild)
+      : getGlobalParentalControls(parentUser);
+
+    const langParam = req.query.lang ? normalizeContentLanguage(req.query.lang) : effective.contentLanguage;
+    const cultureParam = req.query.culture ? normalizeCultureMode(req.query.culture) : effective.cultureMode;
+    const subStageParam = req.query.subStage ? normalizeToddlerSubStage(req.query.subStage) : effective.toddlerSubStage;
+
+    const allToddlerVideos = await db.getVideos({
+      ageRating: 'TODDLER',
+      onlyApproved: true
+    });
+
+    const { channels, weekNumber } = buildToddlerWeeklyChannelLoops(allToddlerVideos, {
+      contentLanguage: langParam,
+      cultureMode: cultureParam,
+      toddlerSubStage: subStageParam,
+      enabledTopics: effective.toddlerEnabledTopics,
+      hiddenVideoIds: effective.toddlerHiddenVideoIds
+    });
+
+    res.json({
+      success: true,
+      data: {
+        channels,
+        weekNumber,
+        serverTime: new Date().toISOString(),
+        cooldownUntil: targetChild?.toddlerCooldownUntil || null,
+        settings: {
+          contentLanguage: langParam,
+          cultureMode: cultureParam,
+          toddlerLoopMinutes: effective.toddlerLoopMinutes,
+          toddlerCooldownMinutes: effective.toddlerCooldownMinutes,
+          toddlerSubStage: subStageParam,
+          toddlerEnabledTopics: effective.toddlerEnabledTopics,
+          toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds
+        }
+      }
+    });
+  })
+);
+
+// Start Toddler TV nap cooldown after 1 loop, or wake TV with Parent PIN
+apiRouter.post(
+  '/kids/toddler-tv/cooldown',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const user = await db.getUserById(req.user!.sub);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    const parentUser =
+      user.role === 'CHILD' && user.parentId ? await db.getUserById(user.parentId) : undefined;
+    const effective =
+      user.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, user)
+        : getGlobalParentalControls(user);
+
+    const action = String(req.body?.action || 'START').trim().toUpperCase();
+    if (action === 'WAKE') {
+      const submittedPin = String(req.body?.pin ?? '').trim();
+      if (!submittedPin || submittedPin !== effective.parentPin) {
+        return res.status(403).json({ success: false, message: 'Incorrect Parent PIN' });
+      }
+      await db.setChildToddlerCooldown(user.id, null);
+      return res.json({ success: true, data: { cooldownUntil: null } });
+    }
+
+    const cooldownUntil = new Date(
+      Date.now() + Math.max(5, effective.toddlerCooldownMinutes) * 60_000
+    ).toISOString();
+    await db.setChildToddlerCooldown(user.id, cooldownUntil);
+    res.json({ success: true, data: { cooldownUntil } });
+  })
+);
+
+// Parent wakes up a child's Toddler TV from Nap Cooldown
+apiRouter.post(
+  '/parent/children/:childId/toddler-wake',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    const child = children.find((c) => c.id === childId);
+    if (!child) {
+      return res.status(404).json({ success: false, message: 'Child account not found' });
+    }
+    await db.setChildToddlerCooldown(childId, null);
+    res.json({ success: true, data: { childId, cooldownUntil: null }, message: 'Toddler TV is awake!' });
   })
 );
 
@@ -2771,7 +3007,15 @@ apiRouter.post(
         ageRating: effective.ageRating,
         attentionTrackingEnabled: effective.attentionTrackingEnabled,
         attentionPauseSeconds: effective.attentionPauseSeconds,
-        attentionMinWatchPercent: effective.attentionMinWatchPercent
+        attentionMinWatchPercent: effective.attentionMinWatchPercent,
+        contentLanguage: effective.contentLanguage,
+        cultureMode: effective.cultureMode,
+        toddlerLoopMinutes: effective.toddlerLoopMinutes,
+        toddlerCooldownMinutes: effective.toddlerCooldownMinutes,
+        toddlerSubStage: effective.toddlerSubStage,
+        toddlerEnabledTopics: effective.toddlerEnabledTopics,
+        toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
+        toddlerCooldownUntil: user.toddlerCooldownUntil || null
       }
     });
   })
@@ -2806,7 +3050,15 @@ apiRouter.put(
       ageRating,
       attentionTrackingEnabled,
       attentionPauseSeconds,
-      attentionMinWatchPercent
+      attentionMinWatchPercent,
+      contentLanguage,
+      cultureMode,
+      toddlerLoopMinutes,
+      toddlerCooldownMinutes,
+      toddlerSubStage,
+      toddlerEnabledTopics,
+      toddlerHiddenVideoIds,
+      toddlerCooldownUntil
     } = req.body || {};
 
     const cleanNewPin =
@@ -2835,6 +3087,27 @@ apiRouter.put(
       if (attentionMinWatchPercent !== undefined) {
         nextOverrides.attentionMinWatchPercent = Math.max(10, Math.min(100, Number(attentionMinWatchPercent)));
       }
+      if (contentLanguage !== undefined) {
+        nextOverrides.contentLanguage = normalizeContentLanguage(contentLanguage);
+      }
+      if (cultureMode !== undefined) {
+        nextOverrides.cultureMode = normalizeCultureMode(cultureMode);
+      }
+      if (toddlerLoopMinutes !== undefined) {
+        nextOverrides.toddlerLoopMinutes = Math.max(5, Math.min(60, Number(toddlerLoopMinutes)));
+      }
+      if (toddlerCooldownMinutes !== undefined) {
+        nextOverrides.toddlerCooldownMinutes = Math.max(5, Math.min(240, Number(toddlerCooldownMinutes)));
+      }
+      if (toddlerSubStage !== undefined) {
+        nextOverrides.toddlerSubStage = normalizeToddlerSubStage(toddlerSubStage);
+      }
+      if (Array.isArray(toddlerEnabledTopics)) {
+        nextOverrides.toddlerEnabledTopics = toddlerEnabledTopics.map((t) => String(t).trim()).filter(Boolean);
+      }
+      if (Array.isArray(toddlerHiddenVideoIds)) {
+        nextOverrides.toddlerHiddenVideoIds = toddlerHiddenVideoIds.map((id) => String(id).trim()).filter(Boolean);
+      }
 
       const nextEffective = resolveEffectiveParentalControls(parentUser, {
         ...user,
@@ -2848,6 +3121,14 @@ apiRouter.put(
         attentionTrackingEnabled: nextEffective.attentionTrackingEnabled,
         attentionPauseSeconds: nextEffective.attentionPauseSeconds,
         attentionMinWatchPercent: nextEffective.attentionMinWatchPercent,
+        contentLanguage: nextEffective.contentLanguage,
+        cultureMode: nextEffective.cultureMode,
+        toddlerLoopMinutes: nextEffective.toddlerLoopMinutes,
+        toddlerCooldownMinutes: nextEffective.toddlerCooldownMinutes,
+        toddlerSubStage: nextEffective.toddlerSubStage,
+        toddlerEnabledTopics: nextEffective.toddlerEnabledTopics,
+        toddlerHiddenVideoIds: nextEffective.toddlerHiddenVideoIds,
+        toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : undefined,
         parentalOverride: Object.keys(nextOverrides).length > 0 ? nextOverrides : null
       });
 
@@ -2859,7 +3140,15 @@ apiRouter.put(
           ageRating: nextEffective.ageRating,
           attentionTrackingEnabled: nextEffective.attentionTrackingEnabled,
           attentionPauseSeconds: nextEffective.attentionPauseSeconds,
-          attentionMinWatchPercent: nextEffective.attentionMinWatchPercent
+          attentionMinWatchPercent: nextEffective.attentionMinWatchPercent,
+          contentLanguage: nextEffective.contentLanguage,
+          cultureMode: nextEffective.cultureMode,
+          toddlerLoopMinutes: nextEffective.toddlerLoopMinutes,
+          toddlerCooldownMinutes: nextEffective.toddlerCooldownMinutes,
+          toddlerSubStage: nextEffective.toddlerSubStage,
+          toddlerEnabledTopics: nextEffective.toddlerEnabledTopics,
+          toddlerHiddenVideoIds: nextEffective.toddlerHiddenVideoIds,
+          toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : (user.toddlerCooldownUntil || null)
         },
         message: 'Parental controls updated and synced.'
       });
@@ -3978,10 +4267,11 @@ apiRouter.delete(
 
 // Kid: gamification stats & achievements (single source of truth for Web & Android)
 async function computeKidAchievementsSummary(kidId: string) {
-  const [user, history, playlists] = await Promise.all([
+  const [user, history, playlists, storiesRead] = await Promise.all([
     db.getUserById(kidId),
     db.getKidHistory(kidId),
-    db.getKidPlaylists(kidId)
+    db.getKidPlaylists(kidId),
+    db.getKidStoriesReadCount(kidId)
   ]);
 
   const videosWatched = history.length;
@@ -4104,7 +4394,8 @@ async function computeKidAchievementsSummary(kidId: string) {
         videosWatched,
         approvedSearches,
         playlistsCreated,
-        playlistItemsCount
+        playlistItemsCount,
+        storiesRead
       },
       achievements
     };
@@ -4263,5 +4554,203 @@ apiRouter.get(
   asyncHandler(async (_req: AuthenticatedRequest, res) => {
     const lists = await db.getParentCuratorAdvisoryLists();
     res.json({ success: true, data: lists });
+  })
+);
+
+// ==========================================
+// STORYBOOKS & READ-ALONG APIS
+// ==========================================
+
+apiRouter.get(
+  '/stories',
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    let ageRating = req.query.ageRating ? String(req.query.ageRating).toUpperCase() : '';
+    let language = req.query.language ? String(req.query.language).toLowerCase() : '';
+    const includeAllAges =
+      String(req.query.includeAllAges || '').toLowerCase() === 'true' ||
+      req.query.includeAllAges === '1';
+
+    if ((!ageRating || !language) && req.user?.sub) {
+      const user = await db.getUserById(req.user.sub);
+      if (user?.role === 'CHILD') {
+        const parent = user.parentId ? await db.getUserById(user.parentId) : undefined;
+        const effective = resolveEffectiveParentalControls(parent, user);
+        if (!ageRating) ageRating = effective.ageRating;
+        if (!language && effective.contentLanguage !== 'bilingual') {
+          language = effective.contentLanguage;
+        }
+      }
+    }
+
+    const stories = await db.getStoryBooks({
+      ageRating: ageRating || undefined,
+      language: language || undefined,
+      includeAllAges,
+      onlyApproved: true
+    });
+    res.json({ success: true, data: stories });
+  })
+);
+
+apiRouter.get(
+  '/stories/:id',
+  optionalAuth,
+  asyncHandler(async (req, res) => {
+    const story = await db.getStoryBookById(String(req.params.id));
+    if (!story) {
+      return res.status(404).json({ success: false, message: 'Storybook not found' });
+    }
+    res.json({ success: true, data: story });
+  })
+);
+
+apiRouter.post(
+  '/kids/stories/:id/complete',
+  requireAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const story = await db.getStoryBookById(String(req.params.id));
+    if (!story) {
+      return res.status(404).json({ success: false, message: 'Storybook not found' });
+    }
+    const rawMode = String(req.body?.mode || 'READ_ALONG').toUpperCase();
+    const mode: StoryReadingMode = rawMode === 'FLIP' ? 'FLIP' : 'READ_ALONG';
+    const reward =
+      mode === 'READ_ALONG'
+        ? story.rewardFamibux
+        : Math.max(5, Math.ceil(story.rewardFamibux * 0.5));
+
+    const result = await db.completeKidStory(req.user!.sub, story.id, mode, reward);
+    const summary = await computeKidAchievementsSummary(req.user!.sub);
+
+    res.json({
+      success: true,
+      data: {
+        awardedFamibux: result.awardedFamibux,
+        alreadyRewardedToday: result.alreadyRewardedToday,
+        storiesReadCount: result.storiesReadCount,
+        mode,
+        summary
+      }
+    });
+  })
+);
+
+apiRouter.get(
+  '/admin/stories',
+  asyncHandler(async (_req, res) => {
+    const stories = await db.getStoryBooks({ includeAllAges: true, onlyApproved: false });
+    res.json({ success: true, data: stories });
+  })
+);
+
+apiRouter.post(
+  '/admin/stories',
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const title = String(req.body?.title || '').trim();
+    const author = String(req.body?.author || 'FamiTube Storybooks').trim();
+    const description = String(req.body?.description || '').trim();
+    const coverUrl = String(
+      req.body?.coverUrl ||
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop'
+    ).trim();
+    const ageRating: StoryAgeRating =
+      String(req.body?.ageRating || 'TODDLER').toUpperCase() === 'YOUNG_KIDS'
+        ? 'YOUNG_KIDS'
+        : 'TODDLER';
+    const language: StoryLanguage =
+      String(req.body?.language || 'en').toLowerCase() === 'id' ? 'id' : 'en';
+    const rewardFamibux = Math.min(200, Math.max(5, Math.trunc(Number(req.body?.rewardFamibux ?? 25))));
+    const rawPages = Array.isArray(req.body?.pages) ? req.body.pages : [];
+
+    if (!title) {
+      return res.status(400).json({ success: false, message: 'Story title is required' });
+    }
+    const pages: StoryPage[] = rawPages
+      .map((p: Partial<StoryPage>, idx: number) => ({
+        pageNumber: idx + 1,
+        text: String(p?.text || '').trim(),
+        imageUrl: String(p?.imageUrl || coverUrl).trim(),
+        illustrationEmoji: p?.illustrationEmoji ? String(p.illustrationEmoji).trim() : '📖',
+        bgColor: p?.bgColor ? String(p.bgColor).trim() : '#1E293B'
+      }))
+      .filter((p: StoryPage) => p.text.length > 0);
+
+    if (pages.length < 2) {
+      return res.status(400).json({ success: false, message: 'At least 2 pages with text are required' });
+    }
+
+    const created = await db.createStoryBook({
+      id: `story-${uuidv4().slice(0, 8)}`,
+      title,
+      author,
+      description: description || `${title} — interactive flip-book story`,
+      coverUrl,
+      ageRating,
+      language,
+      category: 'Stories & Reading',
+      pages,
+      rewardFamibux,
+      isApproved: true,
+      ownerId: req.user?.sub,
+      createdAt: new Date().toISOString()
+    });
+    res.status(201).json({ success: true, data: created });
+  })
+);
+
+apiRouter.put(
+  '/admin/stories/:id',
+  asyncHandler(async (req, res) => {
+    const id = String(req.params.id);
+    const body = req.body || {};
+    const updates: Partial<StoryBook> = {};
+    if (typeof body.title === 'string' && body.title.trim()) updates.title = body.title.trim();
+    if (typeof body.author === 'string') updates.author = body.author.trim();
+    if (typeof body.description === 'string') updates.description = body.description.trim();
+    if (typeof body.coverUrl === 'string' && body.coverUrl.trim()) updates.coverUrl = body.coverUrl.trim();
+    if (body.ageRating !== undefined) {
+      updates.ageRating =
+        String(body.ageRating).toUpperCase() === 'YOUNG_KIDS' ? 'YOUNG_KIDS' : 'TODDLER';
+    }
+    if (body.language !== undefined) {
+      updates.language = String(body.language).toLowerCase() === 'id' ? 'id' : 'en';
+    }
+    if (body.rewardFamibux !== undefined) {
+      updates.rewardFamibux = Math.min(200, Math.max(5, Math.trunc(Number(body.rewardFamibux))));
+    }
+    if (typeof body.isApproved === 'boolean') updates.isApproved = body.isApproved;
+    if (Array.isArray(body.pages)) {
+      const cleaned = body.pages
+        .map((p: Partial<StoryPage>, idx: number) => ({
+          pageNumber: idx + 1,
+          text: String(p?.text || '').trim(),
+          imageUrl: String(p?.imageUrl || updates.coverUrl || '').trim(),
+          illustrationEmoji: p?.illustrationEmoji ? String(p.illustrationEmoji).trim() : '📖',
+          bgColor: p?.bgColor ? String(p.bgColor).trim() : '#1E293B'
+        }))
+        .filter((p: StoryPage) => p.text.length > 0);
+      if (cleaned.length < 2) {
+        return res.status(400).json({ success: false, message: 'At least 2 pages with text are required' });
+      }
+      updates.pages = cleaned;
+    }
+
+    const updated = await db.updateStoryBook(id, updates);
+    if (!updated) {
+      return res.status(404).json({ success: false, message: 'Storybook not found' });
+    }
+    res.json({ success: true, data: updated });
+  })
+);
+
+apiRouter.delete(
+  '/admin/stories/:id',
+  asyncHandler(async (req, res) => {
+    const deleted = await db.deleteStoryBook(String(req.params.id));
+    if (!deleted) {
+      return res.status(404).json({ success: false, message: 'Storybook not found' });
+    }
+    res.json({ success: true, message: 'Storybook deleted' });
   })
 );

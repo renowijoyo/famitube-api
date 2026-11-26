@@ -229,6 +229,12 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
+export type ContentLanguage = 'en' | 'id' | 'bilingual';
+
+export type CultureMode = 'GLOBAL' | 'ID';
+
+export type ToddlerSubStage = 'AUTO' | 'EARLY' | 'OLDER';
+
 export interface ParentalControls {
   parentPin: string;
   dailyLimitMinutes: number;
@@ -239,9 +245,40 @@ export interface ParentalControls {
   youtubeSearchEnabled: boolean;
   searchViewLimit: number;
   searchRequireApproval: boolean;
+  contentLanguage: ContentLanguage;
+  cultureMode: CultureMode;
+  toddlerLoopMinutes: number;
+  toddlerCooldownMinutes: number;
+  toddlerSubStage: ToddlerSubStage;
+  toddlerEnabledTopics: string[];
+  toddlerHiddenVideoIds: string[];
 }
 
 export type ParentalControlsOverride = Partial<ParentalControls>;
+
+export interface ToddlerTvChannelLoop {
+  topic: string;
+  displayTitle: string;
+  emoji: string;
+  videos: Video[];
+  weekNumber: number;
+}
+
+export interface ToddlerTvStateResponse {
+  channels: ToddlerTvChannelLoop[];
+  weekNumber: number;
+  serverTime: string;
+  cooldownUntil: string | null;
+  settings: {
+    contentLanguage: ContentLanguage;
+    cultureMode: CultureMode;
+    toddlerLoopMinutes: number;
+    toddlerCooldownMinutes: number;
+    toddlerSubStage: ToddlerSubStage;
+    toddlerEnabledTopics: string[];
+    toddlerHiddenVideoIds: string[];
+  };
+}
 
 export interface User {
   id: string;
@@ -268,6 +305,14 @@ export interface User {
   attentionTrackingEnabled?: boolean;
   attentionPauseSeconds?: number;
   attentionMinWatchPercent?: number;
+  contentLanguage?: ContentLanguage;
+  cultureMode?: CultureMode;
+  toddlerLoopMinutes?: number;
+  toddlerCooldownMinutes?: number;
+  toddlerSubStage?: ToddlerSubStage;
+  toddlerEnabledTopics?: string[];
+  toddlerHiddenVideoIds?: string[];
+  toddlerCooldownUntil?: string | null;
   parentalOverride?: ParentalControlsOverride | null;
   verificationToken?: string;
   verificationExpiresAt?: string;
@@ -412,4 +457,42 @@ export interface FamilyPassVoucher {
   expiresAt?: string | null;
   redeemedAt?: string | null;
   createdAt: string;
+}
+
+export type StoryLanguage = 'en' | 'id';
+export type StoryReadingMode = 'FLIP' | 'READ_ALONG';
+export type StoryAgeRating = 'TODDLER' | 'YOUNG_KIDS';
+
+export interface StoryPage {
+  pageNumber: number;
+  text: string;
+  imageUrl: string;
+  illustrationEmoji?: string;
+  bgColor?: string;
+}
+
+export interface StoryBook {
+  id: string;
+  title: string;
+  author: string;
+  description: string;
+  coverUrl: string;
+  ageRating: StoryAgeRating;
+  language: StoryLanguage;
+  category: string;
+  pages: StoryPage[];
+  rewardFamibux: number;
+  isApproved: boolean;
+  ownerId?: string;
+  createdAt: string;
+}
+
+export interface KidStoryCompletion {
+  id: string;
+  kidId: string;
+  storyId: string;
+  mode: StoryReadingMode;
+  famibuxAwarded: number;
+  completedDate: string;
+  completedAt: string;
 }

@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import mysql, { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import {
   channelMatchesAgeRating,
+  DEFAULT_TODDLER_ENABLED_TOPICS,
   getCategoryMatchTags,
   isCategoryAllowedForAge,
   isVideoCategoriesAllowedForAge,
@@ -15,6 +16,9 @@ import { getEntitlementsForPlan, resolveUserPlan } from './entitlements.js';
 import {
   Video,
   AgeRating,
+  ContentLanguage,
+  CultureMode,
+  ToddlerSubStage,
   Channel,
   LiveTimelineItem,
   LiveDaySchedule,
@@ -52,10 +56,16 @@ import {
   ParentSafetyRating,
   VideoParentReview,
   AdvisoryVideoEntry,
-  FamilyPassVoucher
+  FamilyPassVoucher,
+  StoryBook,
+  StoryPage,
+  StoryLanguage,
+  StoryReadingMode,
+  StoryAgeRating
 } from './types.js';
 
 import { INITIAL_CATEGORIES, INITIAL_CHANNELS, INITIAL_VIDEOS } from './catalog-seed.js';
+import { INITIAL_STORY_BOOKS } from './story-seed.js';
 
 const INITIAL_PLAYLISTS: Playlist[] = [
   {
@@ -285,6 +295,24 @@ function mapUserRow(row: RowDataPacket): User {
       row.attentionMinWatchPercent !== undefined && row.attentionMinWatchPercent !== null
         ? Number(row.attentionMinWatchPercent)
         : 70,
+    contentLanguage: (row.contentLanguage as ContentLanguage) || 'en',
+    cultureMode: (row.cultureMode as CultureMode) || 'GLOBAL',
+    toddlerLoopMinutes:
+      row.toddlerLoopMinutes !== undefined && row.toddlerLoopMinutes !== null
+        ? Number(row.toddlerLoopMinutes)
+        : 15,
+    toddlerCooldownMinutes:
+      row.toddlerCooldownMinutes !== undefined && row.toddlerCooldownMinutes !== null
+        ? Number(row.toddlerCooldownMinutes)
+        : 30,
+    toddlerSubStage: (row.toddlerSubStage as ToddlerSubStage) || 'AUTO',
+    toddlerEnabledTopics: row.toddlerEnabledTopicsJson
+      ? parseJson<string[]>(row.toddlerEnabledTopicsJson, [...DEFAULT_TODDLER_ENABLED_TOPICS])
+      : [...DEFAULT_TODDLER_ENABLED_TOPICS],
+    toddlerHiddenVideoIds: row.toddlerHiddenVideoIdsJson
+      ? parseJson<string[]>(row.toddlerHiddenVideoIdsJson, [])
+      : [],
+    toddlerCooldownUntil: row.toddlerCooldownUntil || null,
     parentalOverride: row.parentalOverrideJson
       ? parseJson<ParentalControlsOverride | null>(row.parentalOverrideJson, null)
       : null,
@@ -468,6 +496,14 @@ class Database {
     await this.ensureColumnExists('users', 'referralCode', 'VARCHAR(32) NULL');
     await this.ensureColumnExists('users', 'referredByUserId', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('users', 'referredByCode', 'VARCHAR(32) NULL');
+    await this.ensureColumnExists('users', 'contentLanguage', "VARCHAR(16) NOT NULL DEFAULT 'en'");
+    await this.ensureColumnExists('users', 'cultureMode', "VARCHAR(16) NOT NULL DEFAULT 'GLOBAL'");
+    await this.ensureColumnExists('users', 'toddlerLoopMinutes', 'INT NOT NULL DEFAULT 15');
+    await this.ensureColumnExists('users', 'toddlerCooldownMinutes', 'INT NOT NULL DEFAULT 30');
+    await this.ensureColumnExists('users', 'toddlerSubStage', "VARCHAR(16) NOT NULL DEFAULT 'AUTO'");
+    await this.ensureColumnExists('users', 'toddlerEnabledTopicsJson', 'TEXT NULL');
+    await this.ensureColumnExists('users', 'toddlerHiddenVideoIdsJson', 'TEXT NULL');
+    await this.ensureColumnExists('users', 'toddlerCooldownUntil', 'VARCHAR(64) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -678,6 +714,37 @@ class Database {
         INDEX idx_fpv_referrer (referrerUserId)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS story_books (
+        id VARCHAR(64) PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        author VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        coverUrl TEXT NOT NULL,
+        ageRating VARCHAR(32) NOT NULL DEFAULT 'TODDLER',
+        language VARCHAR(16) NOT NULL DEFAULT 'en',
+        category VARCHAR(255) NOT NULL DEFAULT 'Stories & Reading',
+        pages JSON NOT NULL,
+        rewardFamibux INT NOT NULL DEFAULT 25,
+        isApproved TINYINT(1) NOT NULL DEFAULT 1,
+        ownerId VARCHAR(64) NULL,
+        createdAt VARCHAR(64) NOT NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS kid_story_completions (
+        id VARCHAR(64) PRIMARY KEY,
+        kidId VARCHAR(64) NOT NULL,
+        storyId VARCHAR(64) NOT NULL,
+        mode VARCHAR(16) NOT NULL,
+        famibuxAwarded INT NOT NULL DEFAULT 0,
+        completedDate VARCHAR(16) NOT NULL,
+        completedAt VARCHAR(64) NOT NULL,
+        INDEX idx_ksc_kid_date (kidId, storyId, completedDate)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
   }
 
   private async ensureColumnExists(table: string, column: string, definition: string): Promise<void> {
@@ -795,6 +862,38 @@ class Database {
         'default',
         JSON.stringify(INITIAL_CONFIG)
       ]);
+    }
+
+    for (const book of INITIAL_STORY_BOOKS) {
+      await this.pool.query(
+        `INSERT INTO story_books (id, title, author, description, coverUrl, ageRating, language, category, pages, rewardFamibux, isApproved, ownerId, createdAt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           title = VALUES(title),
+           author = VALUES(author),
+           description = VALUES(description),
+           coverUrl = VALUES(coverUrl),
+           ageRating = VALUES(ageRating),
+           language = VALUES(language),
+           category = VALUES(category),
+           pages = VALUES(pages),
+           rewardFamibux = VALUES(rewardFamibux)`,
+        [
+          book.id,
+          book.title,
+          book.author,
+          book.description,
+          book.coverUrl,
+          book.ageRating,
+          book.language,
+          book.category,
+          JSON.stringify(book.pages),
+          book.rewardFamibux,
+          book.isApproved ? 1 : 0,
+          book.ownerId || ADMIN_CURATOR_ID,
+          book.createdAt
+        ]
+      );
     }
 
     const scaryVideoId = 'vid-scary-01';
@@ -1578,6 +1677,7 @@ class Database {
     const [vidRows] = await this.pool.query<RowDataPacket[]>('SELECT isApproved, views FROM videos');
     const [chanRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM channels');
     const [plRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM playlists');
+    const [storyRows] = await this.pool.query<RowDataPacket[]>('SELECT COUNT(*) AS cnt FROM story_books');
 
     return {
       totalVideos: vidRows.length,
@@ -1585,6 +1685,7 @@ class Database {
       pendingVideos: vidRows.filter((v) => !Boolean(v.isApproved)).length,
       totalChannels: Number(chanRows[0].cnt) || 0,
       totalPlaylists: Number(plRows[0].cnt) || 0,
+      totalStories: Number(storyRows[0].cnt) || 0,
       totalViews: vidRows.reduce((sum, v) => sum + (Number(v.views) || 0), 0)
     };
   }
@@ -1681,10 +1782,38 @@ class Database {
       updates.searchRequireApproval !== undefined
         ? updates.searchRequireApproval
         : (existing.searchRequireApproval !== false);
+    const contentLanguage: ContentLanguage =
+      updates.contentLanguage !== undefined
+        ? updates.contentLanguage
+        : (existing.contentLanguage || 'en');
+    const cultureMode: CultureMode =
+      updates.cultureMode !== undefined
+        ? updates.cultureMode
+        : (existing.cultureMode || 'GLOBAL');
+    const toddlerLoopMinutes =
+      updates.toddlerLoopMinutes !== undefined
+        ? Math.max(5, Math.min(60, Number(updates.toddlerLoopMinutes)))
+        : (existing.toddlerLoopMinutes ?? 15);
+    const toddlerCooldownMinutes =
+      updates.toddlerCooldownMinutes !== undefined
+        ? Math.max(5, Math.min(240, Number(updates.toddlerCooldownMinutes)))
+        : (existing.toddlerCooldownMinutes ?? 30);
+    const toddlerSubStage: ToddlerSubStage =
+      updates.toddlerSubStage !== undefined
+        ? updates.toddlerSubStage
+        : (existing.toddlerSubStage || 'AUTO');
+    const toddlerEnabledTopics =
+      updates.toddlerEnabledTopics !== undefined
+        ? updates.toddlerEnabledTopics
+        : (existing.toddlerEnabledTopics || [...DEFAULT_TODDLER_ENABLED_TOPICS]);
+    const toddlerHiddenVideoIds =
+      updates.toddlerHiddenVideoIds !== undefined
+        ? updates.toddlerHiddenVideoIds
+        : (existing.toddlerHiddenVideoIds || []);
 
     await this.pool.query(
       `UPDATE users
-       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?
+       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?
        WHERE id = ? AND role = 'PARENT'`,
       [
         parentPin,
@@ -1696,6 +1825,13 @@ class Database {
         youtubeSearchEnabled ? 1 : 0,
         searchViewLimit,
         searchRequireApproval ? 1 : 0,
+        contentLanguage,
+        cultureMode,
+        toddlerLoopMinutes,
+        toddlerCooldownMinutes,
+        toddlerSubStage,
+        JSON.stringify(toddlerEnabledTopics),
+        JSON.stringify(toddlerHiddenVideoIds),
         parentId
       ]
     );
@@ -1727,6 +1863,14 @@ class Database {
       attentionTrackingEnabled?: boolean;
       attentionPauseSeconds?: number;
       attentionMinWatchPercent?: number;
+      contentLanguage?: ContentLanguage;
+      cultureMode?: CultureMode;
+      toddlerLoopMinutes?: number;
+      toddlerCooldownMinutes?: number;
+      toddlerSubStage?: ToddlerSubStage;
+      toddlerEnabledTopics?: string[];
+      toddlerHiddenVideoIds?: string[];
+      toddlerCooldownUntil?: string | null;
       parentalOverride?: ParentalControlsOverride | null;
     }
   ): Promise<User | null> {
@@ -1770,12 +1914,44 @@ class Database {
       updates.attentionMinWatchPercent !== undefined
         ? Math.max(10, Math.min(100, Number(updates.attentionMinWatchPercent)))
         : (existing.attentionMinWatchPercent ?? 70);
+    const contentLanguage: ContentLanguage =
+      updates.contentLanguage !== undefined
+        ? updates.contentLanguage
+        : (existing.contentLanguage || 'en');
+    const cultureMode: CultureMode =
+      updates.cultureMode !== undefined
+        ? updates.cultureMode
+        : (existing.cultureMode || 'GLOBAL');
+    const toddlerLoopMinutes =
+      updates.toddlerLoopMinutes !== undefined
+        ? Math.max(5, Math.min(60, Number(updates.toddlerLoopMinutes)))
+        : (existing.toddlerLoopMinutes ?? 15);
+    const toddlerCooldownMinutes =
+      updates.toddlerCooldownMinutes !== undefined
+        ? Math.max(5, Math.min(240, Number(updates.toddlerCooldownMinutes)))
+        : (existing.toddlerCooldownMinutes ?? 30);
+    const toddlerSubStage: ToddlerSubStage =
+      updates.toddlerSubStage !== undefined
+        ? updates.toddlerSubStage
+        : (existing.toddlerSubStage || 'AUTO');
+    const toddlerEnabledTopics =
+      updates.toddlerEnabledTopics !== undefined
+        ? updates.toddlerEnabledTopics
+        : (existing.toddlerEnabledTopics || [...DEFAULT_TODDLER_ENABLED_TOPICS]);
+    const toddlerHiddenVideoIds =
+      updates.toddlerHiddenVideoIds !== undefined
+        ? updates.toddlerHiddenVideoIds
+        : (existing.toddlerHiddenVideoIds || []);
+    const toddlerCooldownUntil =
+      updates.toddlerCooldownUntil !== undefined
+        ? updates.toddlerCooldownUntil
+        : (existing.toddlerCooldownUntil ?? null);
     const parentalOverride =
       updates.parentalOverride !== undefined ? updates.parentalOverride : (existing.parentalOverride ?? null);
 
     await this.pool.query(
       `UPDATE users
-       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, parentalOverrideJson = ?
+       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?, toddlerCooldownUntil = ?, parentalOverrideJson = ?
        WHERE id = ? AND parentId = ?`,
       [
         name,
@@ -1791,12 +1967,24 @@ class Database {
         attentionTrackingEnabled ? 1 : 0,
         attentionPauseSeconds,
         attentionMinWatchPercent,
+        contentLanguage,
+        cultureMode,
+        toddlerLoopMinutes,
+        toddlerCooldownMinutes,
+        toddlerSubStage,
+        JSON.stringify(toddlerEnabledTopics),
+        JSON.stringify(toddlerHiddenVideoIds),
+        toddlerCooldownUntil,
         parentalOverride && Object.keys(parentalOverride).length > 0 ? JSON.stringify(parentalOverride) : null,
         childId,
         parentId
       ]
     );
     return (await this.getUserById(childId)) || null;
+  }
+
+  public async setChildToddlerCooldown(userId: string, cooldownUntil: string | null): Promise<void> {
+    await this.pool.query('UPDATE users SET toddlerCooldownUntil = ? WHERE id = ?', [cooldownUntil, userId]);
   }
 
   public async deleteChildAccount(parentId: string, childId: string): Promise<boolean> {
@@ -3012,6 +3200,176 @@ class Database {
         createdAt: r.createdAt
       }))
     };
+  }
+
+  // --- Storybooks & Read-Along ---
+  private mapStoryBookRow(row: RowDataPacket): StoryBook {
+    const pages = parseJson<StoryPage[]>(row.pages, []).map((p, idx) => ({
+      pageNumber: Number(p.pageNumber) || idx + 1,
+      text: String(p.text || ''),
+      imageUrl: String(p.imageUrl || ''),
+      illustrationEmoji: p.illustrationEmoji ? String(p.illustrationEmoji) : undefined,
+      bgColor: p.bgColor ? String(p.bgColor) : undefined
+    }));
+    return {
+      id: row.id,
+      title: row.title,
+      author: row.author || 'FamiTube Storybooks',
+      description: row.description || '',
+      coverUrl: row.coverUrl || '',
+      ageRating: row.ageRating === 'YOUNG_KIDS' ? 'YOUNG_KIDS' : 'TODDLER',
+      language: row.language === 'id' ? 'id' : 'en',
+      category: row.category || 'Stories & Reading',
+      pages,
+      rewardFamibux: Number(row.rewardFamibux) || 25,
+      isApproved: Boolean(row.isApproved),
+      ownerId: row.ownerId || undefined,
+      createdAt: row.createdAt
+    };
+  }
+
+  public async getStoryBooks(opts?: {
+    ageRating?: string;
+    language?: string;
+    includeAllAges?: boolean;
+    onlyApproved?: boolean;
+  }): Promise<StoryBook[]> {
+    const onlyApproved = opts?.onlyApproved !== false;
+    const includeAllAges = Boolean(opts?.includeAllAges);
+    const ageRating = opts?.ageRating ? String(opts.ageRating).toUpperCase() : '';
+    const lang = opts?.language ? String(opts.language).toLowerCase() : '';
+
+    if (!includeAllAges && (ageRating === 'OLDER_KIDS' || ageRating === 'ALL')) {
+      return [];
+    }
+
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM story_books ORDER BY createdAt DESC'
+    );
+    let books = rows.map((r) => this.mapStoryBookRow(r));
+    if (onlyApproved) {
+      books = books.filter((b) => b.isApproved);
+    }
+    if (lang === 'en' || lang === 'id') {
+      books = books.filter((b) => b.language === lang);
+    }
+    if (!includeAllAges) {
+      if (ageRating === 'TODDLER') {
+        books = books.filter((b) => b.ageRating === 'TODDLER');
+      } else if (ageRating === 'YOUNG_KIDS') {
+        books = books
+          .filter((b) => b.ageRating === 'YOUNG_KIDS' || b.ageRating === 'TODDLER')
+          .sort((a, b) => {
+            if (a.ageRating === b.ageRating) return 0;
+            return a.ageRating === 'YOUNG_KIDS' ? -1 : 1;
+          });
+      }
+    }
+    return books;
+  }
+
+  public async getStoryBookById(id: string): Promise<StoryBook | undefined> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT * FROM story_books WHERE id = ? LIMIT 1',
+      [id]
+    );
+    if (rows.length === 0) return undefined;
+    return this.mapStoryBookRow(rows[0]);
+  }
+
+  public async createStoryBook(book: StoryBook): Promise<StoryBook> {
+    await this.pool.query(
+      `INSERT INTO story_books (id, title, author, description, coverUrl, ageRating, language, category, pages, rewardFamibux, isApproved, ownerId, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        book.id,
+        book.title,
+        book.author,
+        book.description,
+        book.coverUrl,
+        book.ageRating,
+        book.language,
+        book.category,
+        JSON.stringify(book.pages),
+        book.rewardFamibux,
+        book.isApproved ? 1 : 0,
+        book.ownerId || null,
+        book.createdAt
+      ]
+    );
+    return book;
+  }
+
+  public async updateStoryBook(id: string, updates: Partial<StoryBook>): Promise<StoryBook | undefined> {
+    const existing = await this.getStoryBookById(id);
+    if (!existing) return undefined;
+    const merged: StoryBook = {
+      ...existing,
+      ...updates,
+      id: existing.id,
+      pages: updates.pages && updates.pages.length > 0 ? updates.pages : existing.pages
+    };
+    await this.pool.query(
+      `UPDATE story_books
+       SET title = ?, author = ?, description = ?, coverUrl = ?, ageRating = ?, language = ?, category = ?, pages = ?, rewardFamibux = ?, isApproved = ?
+       WHERE id = ?`,
+      [
+        merged.title,
+        merged.author,
+        merged.description,
+        merged.coverUrl,
+        merged.ageRating,
+        merged.language,
+        merged.category,
+        JSON.stringify(merged.pages),
+        merged.rewardFamibux,
+        merged.isApproved ? 1 : 0,
+        id
+      ]
+    );
+    return merged;
+  }
+
+  public async deleteStoryBook(id: string): Promise<boolean> {
+    const [res] = await this.pool.query<ResultSetHeader>('DELETE FROM story_books WHERE id = ?', [id]);
+    return res.affectedRows > 0;
+  }
+
+  public async getKidStoriesReadCount(kidId: string): Promise<number> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT COUNT(DISTINCT storyId) AS cnt FROM kid_story_completions WHERE kidId = ?',
+      [kidId]
+    );
+    return Number(rows[0]?.cnt || 0);
+  }
+
+  public async completeKidStory(
+    kidId: string,
+    storyId: string,
+    mode: StoryReadingMode,
+    rewardAmount: number
+  ): Promise<{ awardedFamibux: number; alreadyRewardedToday: boolean; storiesReadCount: number }> {
+    const nowIso = new Date().toISOString();
+    const completedDate = nowIso.slice(0, 10);
+    const [existingRows] = await this.pool.query<RowDataPacket[]>(
+      'SELECT id FROM kid_story_completions WHERE kidId = ? AND storyId = ? AND completedDate = ? AND famibuxAwarded > 0 LIMIT 1',
+      [kidId, storyId, completedDate]
+    );
+    const alreadyRewardedToday = existingRows.length > 0;
+    const awardedFamibux = alreadyRewardedToday ? 0 : Math.max(0, rewardAmount);
+
+    await this.pool.query(
+      `INSERT INTO kid_story_completions (id, kidId, storyId, mode, famibuxAwarded, completedDate, completedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [`ksc-${crypto.randomUUID().slice(0, 8)}`, kidId, storyId, mode, awardedFamibux, completedDate, nowIso]
+    );
+
+    if (awardedFamibux > 0) {
+      await this.adjustUserBonusStars(kidId, awardedFamibux);
+    }
+
+    const storiesReadCount = await this.getKidStoriesReadCount(kidId);
+    return { awardedFamibux, alreadyRewardedToday, storiesReadCount };
   }
 }
 

@@ -32,6 +32,8 @@ export const TAG_TAXONOMY: TagCategory[] = [
     multiSelect: false,
     tags: [
       { id: 'age:toddler', label: 'Toddler (2-4)', description: 'Slow speech, simple concepts, gentle visuals' },
+      { id: 'stage:early-toddler', label: 'Early Toddler (1.5-2.5y)', description: 'Simple songs, animal sounds, colors' },
+      { id: 'stage:older-toddler', label: 'Older Toddler (2.5-4y)', description: 'Gentle mini-stories, counting, how things work' },
       { id: 'age:young_kids', label: 'Young Kids (5-8)', description: 'Early reading, basic science, playful stories' },
       { id: 'age:older_kids', label: 'Older Kids (9-12)', description: 'Deeper hobbies, humor, critical thinking' },
       { id: 'age:early_teen', label: 'Early Teen (13-15)', description: 'Study skills, identity, STEM, creative arts' },
@@ -157,6 +159,8 @@ export const TAG_TAXONOMY: TagCategory[] = [
       { id: 'lang:en', label: 'English' },
       { id: 'lang:id', label: 'Indonesian' },
       { id: 'lang:es', label: 'Spanish' },
+      { id: 'culture:global', label: 'Global / Cross-Cultural' },
+      { id: 'culture:indonesia', label: 'Indonesian / Nusantara Culture' },
       { id: 'access:no-dialogue', label: 'No Dialogue / Visual Only' },
       { id: 'access:bilingual', label: 'Bilingual' },
       { id: 'access:captions-verified', label: 'Verified Captions' },
