@@ -70,9 +70,9 @@ import {
   StoryAgeRating
 } from './types.js';
 
-function normalizeContentLanguage(val: unknown, fallback: ContentLanguage = 'en'): ContentLanguage {
+function normalizeContentLanguage(val: unknown, fallback: ContentLanguage = 'all'): ContentLanguage {
   const s = String(val || '').trim().toLowerCase();
-  if (s === 'en' || s === 'id' || s === 'bilingual') return s;
+  if (s === 'all' || s === 'en' || s === 'id' || s === 'bilingual') return s as ContentLanguage;
   return fallback;
 }
 
@@ -100,7 +100,7 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
     youtubeSearchEnabled: parent?.youtubeSearchEnabled !== false,
     searchViewLimit: parent?.searchViewLimit ?? 0,
     searchRequireApproval: parent?.searchRequireApproval !== false,
-    contentLanguage: normalizeContentLanguage(parent?.contentLanguage, 'en'),
+    contentLanguage: normalizeContentLanguage(parent?.contentLanguage, 'all'),
     cultureMode: normalizeCultureMode(parent?.cultureMode, 'GLOBAL'),
     toddlerLoopMinutes: parent?.toddlerLoopMinutes ?? 15,
     toddlerCooldownMinutes: parent?.toddlerCooldownMinutes ?? 30,
@@ -3204,7 +3204,8 @@ apiRouter.put(
       attentionPauseSeconds:
         attentionPauseSeconds !== undefined ? Math.max(5, Math.min(300, Number(attentionPauseSeconds))) : undefined,
       attentionMinWatchPercent:
-        attentionMinWatchPercent !== undefined ? Math.max(10, Math.min(100, Number(attentionMinWatchPercent))) : undefined
+        attentionMinWatchPercent !== undefined ? Math.max(10, Math.min(100, Number(attentionMinWatchPercent))) : undefined,
+      contentLanguage: contentLanguage !== undefined ? normalizeContentLanguage(contentLanguage) : undefined
     });
     const nextGlobal = getGlobalParentalControls(updatedParent || user);
     res.json({
@@ -3215,7 +3216,8 @@ apiRouter.put(
         ageRating: nextGlobal.ageRating,
         attentionTrackingEnabled: nextGlobal.attentionTrackingEnabled,
         attentionPauseSeconds: nextGlobal.attentionPauseSeconds,
-        attentionMinWatchPercent: nextGlobal.attentionMinWatchPercent
+        attentionMinWatchPercent: nextGlobal.attentionMinWatchPercent,
+        contentLanguage: nextGlobal.contentLanguage
       },
       message: 'Parental controls updated.'
     });
@@ -4616,7 +4618,7 @@ apiRouter.get(
         const parent = child.parentId ? await db.getUserById(child.parentId) : undefined;
         const effective = resolveEffectiveParentalControls(parent, child);
         if (!ageRating) ageRating = effective.ageRating;
-        if (!language && effective.contentLanguage !== 'bilingual') {
+        if (!language && effective.contentLanguage !== 'bilingual' && effective.contentLanguage !== 'all') {
           language = effective.contentLanguage;
         }
         childReligion = effective.religion || null;
@@ -4627,7 +4629,7 @@ apiRouter.get(
         const parent = user.parentId ? await db.getUserById(user.parentId) : undefined;
         const effective = resolveEffectiveParentalControls(parent, user);
         if (!ageRating) ageRating = effective.ageRating;
-        if (!language && effective.contentLanguage !== 'bilingual') {
+        if (!language && effective.contentLanguage !== 'bilingual' && effective.contentLanguage !== 'all') {
           language = effective.contentLanguage;
         }
         childReligion = effective.religion || null;

@@ -383,6 +383,7 @@ export function isToddlerCalmSafeVideo(video: Video, hiddenVideoIds: string[] = 
 }
 
 function matchesToddlerLanguage(video: Video, lang: ContentLanguage): boolean {
+  if (lang === 'all') return true;
   const tagSet = new Set((video.tags || []).map((t) => t.trim().toLowerCase()));
   if (tagSet.has('access:no-dialogue') || tagSet.has('access:bilingual')) return true;
   if (lang === 'id') {
@@ -412,7 +413,7 @@ export function buildToddlerWeeklyChannelLoops(
     nowMs?: number;
   }
 ): { channels: ToddlerTvChannelLoop[]; weekNumber: number } {
-  const contentLanguage: ContentLanguage = options?.contentLanguage || 'en';
+  const contentLanguage: ContentLanguage = options?.contentLanguage || 'all';
   const cultureMode: CultureMode = options?.cultureMode || 'GLOBAL';
   const subStage: ToddlerSubStage = options?.toddlerSubStage || 'AUTO';
   const hiddenIds = options?.hiddenVideoIds || [];

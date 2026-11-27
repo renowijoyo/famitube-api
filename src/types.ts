@@ -230,7 +230,7 @@ export interface PlanEntitlements {
   dailySearchRequestLimit: number | null;
 }
 
-export type ContentLanguage = 'en' | 'id' | 'bilingual';
+export type ContentLanguage = 'all' | 'en' | 'id' | 'bilingual';
 
 export type CultureMode = 'GLOBAL' | 'ID';
 

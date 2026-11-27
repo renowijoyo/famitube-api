@@ -298,7 +298,7 @@ function mapUserRow(row: RowDataPacket): User {
       row.attentionMinWatchPercent !== undefined && row.attentionMinWatchPercent !== null
         ? Number(row.attentionMinWatchPercent)
         : 70,
-    contentLanguage: (row.contentLanguage as ContentLanguage) || 'en',
+    contentLanguage: (row.contentLanguage as ContentLanguage) || 'all',
     cultureMode: (row.cultureMode as CultureMode) || 'GLOBAL',
     toddlerLoopMinutes:
       row.toddlerLoopMinutes !== undefined && row.toddlerLoopMinutes !== null
@@ -501,7 +501,7 @@ class Database {
     await this.ensureColumnExists('users', 'referralCode', 'VARCHAR(32) NULL');
     await this.ensureColumnExists('users', 'referredByUserId', 'VARCHAR(64) NULL');
     await this.ensureColumnExists('users', 'referredByCode', 'VARCHAR(32) NULL');
-    await this.ensureColumnExists('users', 'contentLanguage', "VARCHAR(16) NOT NULL DEFAULT 'en'");
+    await this.ensureColumnExists('users', 'contentLanguage', "VARCHAR(16) NOT NULL DEFAULT 'all'");
     await this.ensureColumnExists('users', 'cultureMode', "VARCHAR(16) NOT NULL DEFAULT 'GLOBAL'");
     await this.ensureColumnExists('users', 'toddlerLoopMinutes', 'INT NOT NULL DEFAULT 15');
     await this.ensureColumnExists('users', 'toddlerCooldownMinutes', 'INT NOT NULL DEFAULT 30');
@@ -1802,7 +1802,7 @@ class Database {
     const contentLanguage: ContentLanguage =
       updates.contentLanguage !== undefined
         ? updates.contentLanguage
-        : (existing.contentLanguage || 'en');
+        : (existing.contentLanguage || 'all');
     const cultureMode: CultureMode =
       updates.cultureMode !== undefined
         ? updates.cultureMode
@@ -1935,7 +1935,7 @@ class Database {
     const contentLanguage: ContentLanguage =
       updates.contentLanguage !== undefined
         ? updates.contentLanguage
-        : (existing.contentLanguage || 'en');
+        : (existing.contentLanguage || 'all');
     const cultureMode: CultureMode =
       updates.cultureMode !== undefined
         ? updates.cultureMode
