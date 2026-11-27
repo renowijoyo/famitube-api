@@ -469,203 +469,6 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "pb-en-0006",
-    "title": "Counting on Moru",
-    "author": "Rukmini Banerji • Illus. Nina Sabnani (Pratham Books / CC BY 4.0)",
-    "description": "Moru had strong likes and dislikes. When he liked something, he loved it. And when he did not like something, he absolutely hated it. No one...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Moru had strong likes and dislikes. When he liked something, he loved it. And when he did not like something, he absolutely hated it. No one could make him do things that he did not want to do and no one could stop him from doing what he wanted to do.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Moru liked to climb trees and steal raw mangoes. He would creep along the branch pretending to be a cheetah in a deep dark jungle. He enjoyed catching insects - the blue green bottle fly with the big shiny head, the thin and crisp grasshopper, and the yellow butterfly whose colour came off like powder on his fingers. Moru loved flying kites, the higher the better. He would climb to the tallest terrace to get his kite to soar far above the clouds like a brilliant eagle trying to reach the sun.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Moru liked numbers. Number 1 looked thin and lonely; 100 was fat and wealthy. How graceful 9 was, even more so when she stood next to 1 and became 19. Numbers were like an unending staircase. Moru imagined climbing them one by one by one, racing up, sometimes two, sometimes three or four or more steps at a time.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "When he was tired, he saw himself sliding down the banister with the numbers waving at him. Unlike rice at lunchtime, which often finished before anyone was even half full, unlike friends who had to go home just as soon as the game was starting to be fun, numbers were always there. Unending and infinitely fun, to be juggled, sorted, matched, shared, laid out in a row, thrown away, put together and taken apart.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Moru liked going to school because many of his friends went too. He liked getting up in the morning and having somewhere to go. He liked the big playground but he did not like going to class. He did not like the teacher. He felt trapped in the room. The children could not ask questions, they could not move around and they could not speak when they wanted to say things. The teacher was bad-tempered. Moru felt that the teacher did not like the children at all. Maybe he did not even like being a teacher or coming to a school. In any case, children did not like the teacher either.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Every morning, the teacher wrote things on the blackboard. In a loud voice, he told the children to copy it down on their slates. Then he would go outside. If the boys could copy his things from the blackboard nicely, the teacher looked at it. If they could not do it, the teacher got angry. When he was angry, he would call the children names and if he got very angry he would hit them hard.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "One day, the teacher wrote some sums on the board. The sums were easy but they were boring. Moru did not feel like doing them and he did not have a slate. His slate had broken and his mother did not have the money to buy a new one. Instead he counted the hundreds of ants that were climbing the wall. He looked at the tree outside and noticed that the leaves were perfect. Perfect leaves had perfect shadows. In his mind, Moru counted how many broken bricks there were along the school's compound wall. He calculated that if each brick costed five rupees it would take more than one thousand rupees to fill in all the gaps and broken spaces in the wall.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“Moru!” scolded the teacher. “Why are you not doing anything?” Moru looked blank. “Where is your slate? Why haven't you brought one to school?” shouted the teacher. Moru could see that the teacher was angry with him. Moru replied, “My old slate broke and I don't have the money to buy a new one.” The teacher was angry and gave Moru a sharp tap with the stick in his hand.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Moru continued softly, \"Even if I had a slate I won't do the sums because I don't want to.\" The teacher was furious. He slapped Moru. Moru's cheek burned bright red. Sudden hot tears sprang into his eyes. He stood up and ran out of the room, down the verandah, across the dusty playground, through the broken gate and away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The next morning, Moru's mother woke him up in time for school. But Moru would not get up. He lay on the narrow bed with his eyes tightly shut. Next day it was the same story, and the next day and the next. No one could persuade Moru to go back to school. One week passed and then one month. Moru sat on the wall in front of his house.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Sometimes he would disappear into the market for hours. He would try to fly his kite from the terrace but it was no fun because the sky was empty. His mother scolded him, his brother teased him, his grandmother begged him, his uncle bribed him and his friends coaxed him. But nobody could persuade him to return to school.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "The rains came and school opened after the summer vacation. Everyone thought Moru would go back to school with all the children. “No,” said Moru very firmly. A year passed. Everyone gave up on Moru. Perhaps Moru gave up on himself too. Instead, he began to do other things.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 13,
-        "text": "He would go to the market and give the vegetable sellers a hard time. He would gang up with other children like him who had left school and tease and taunt the children who were going to school. He would make paper airplanes out of the school notebooks of his friends. He would go up on the terrace and hit unsuspecting people who were passing by with pellets from his sling.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/13.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      },
-      {
-        "pageNumber": 14,
-        "text": "One day, the old teacher left. A new young teacher came in his place. That day Moru was sitting on the wall watching the children go to school. No one asked him anymore why he did not go with them. Instead, children avoided him because they were afraid that he would bother them.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/14.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 15,
-        "text": "The teacher was passing by. Moru looked at the teacher. The teacher looked at Moru Neither smiled and neither frowned. The next day, at the same time and the same place, Moru looked down from the wall. The teacher looked up at him and smiled. It was a small smile. Moru jumped from the wall and ran away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/15.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 16,
-        "text": "A few days later, the teacher was passing by. He was carrying a huge bag. The bag was very heavy. The teacher was having a difficult time. Moru scratched his head. The teacher passed him by slowly. Moru thought and then he ran behind the teacher. Without saying anything, he took hold of one end of the bag. The teacher was relieved and together they were able to get the heavy load to the school quickly.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/16.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 17,
-        "text": "Inside the school , the bag was carefully put on the teacher's table. The teacher opened the bag and let Moru look inside. There were many many books, colourful books of all sizes and shapes. They felt shiny and smelt new. “Can you help me to take them out?” asked the teacher.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/17.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 18,
-        "text": "Moru began bringing out the books. There were books with stories in them, with pictures on the cover. Some were written in large letters. Some books had so much in them that the words had to be squeezed into the pages. Moru felt his excitement rising. He had not touched a book in two years.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/18.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 19,
-        "text": "The next day, Moru waited till school was over and all the children had left. The teacher was alone. Moru went in quietly and stood by the door. The school seemed ghostly when all the noise and laughter and shouting was gone. The teacher looked up and said, “Good you have come. I need your help.” Moru was curious. What kind of help could the teacher need? He had many, many children in his school to help him. In a very matter of fact kind of voice the teacher said, “Can you help me sort out the books?”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/19.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 20,
-        "text": "Moru sat on the floor. The books were all around him. There were so many storybooks. He put the animal ones together. The leopard storybook would feel more comfortable with the elephants and camels. The fairytales could sit with the stories about gods and goddesses. The adventure stories sat on their own. Or maybe they should go with the heroes and famous people?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/20.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 21,
-        "text": "Then came the books with numbers. Moru's eyes and fingers slowed down. The fat numbers danced with the thin ones. Two digits balanced one on top of the other like an unsteady building still waiting for the base to be filled. The multiplication sums looked short and squat and got fatter and fatter at the bottom as the numbers got bigger. Division was just the opposite. You began with a lot and then if you were careful, you worked it down to create a long thin graceful tail. If you were lucky there would be nothing left. One by one all the numbers and their tricks came back to Moru.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/21.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 22,
-        "text": "It was dark and the school had no lights. “You have to go home now, Moru, but you can come back tomorrow,” said the teacher. “But can you come when the children are here please?” Next day, soon after school started, Moru came. The children were surprised to see him and a little scared. By now Moru was famous as a ‘dada' of the neighbourhood. “I have someone to help me now,” said the teacher. He put Moru with the younger children. There were books in which the children were supposed to write. “Please, can you help the children arrange these numbers in ascending and descending order?” The little kids scrambled around Moru; they were amazed that a tough fellow like Moru knew so much.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/22.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 23,
-        "text": "Moru made the children stand in a line - the smallest children at one end and the tallest ones at the other end. He gave them numbers to hold. Now it was easy. Just like with short children and tall children, it is easy to know who to put where, it was the same with the numbers. Every day Moru would come for a little while and every day the teacher would give him a bigger and bigger task to do. Every day he found his love for numbers was getting stronger and every day his excitement and skill was being absorbed by the little children.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/23.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 24,
-        "text": "One month later, Moru's mother was looking for him in the middle of the morning. He was nowhere to be found. She looked on the terrace but he was not there. She looked on the wall where he normally sat dangling his feet, but only his kites were resting there.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/24.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 25,
-        "text": "She looked up on the mango tree, the leaves rustled in the breeze but there was no Moru on the branches. She went to the market but all the vegetable sellers were selling their vegetables without being bothered by the usual gang of boys. Finally, she walked down the lane and happened to look into the window of the school.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/25.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 26,
-        "text": "There was Moru. His head was down, and he was looking carefully into his notebook. There was a frown of concentration on his forehead and a deep look of absorption in his eyes. He was busy solving complicated mathematics problems along with all the other children of his age. The teacher looked out too, and he smiled his soft warm smile at Moru's mother. She smiled back happily. Moru was in school again. This time he was learning more and more. And most importantly, this time he was loving it.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0006/26.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
     "id": "pb-en-0007",
     "title": "Listen to My Body",
     "author": "Rohini Nilekani • Illus. Angie & Upesh (Pratham Books / CC BY 4.0)",
@@ -676,7 +479,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
+    "createdAt": "2026-01-06T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -845,7 +648,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -937,7 +740,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1015,7 +818,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1135,7 +938,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1255,7 +1058,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1340,7 +1143,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1474,7 +1277,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1566,7 +1369,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1679,7 +1482,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1743,7 +1546,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T08:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1807,7 +1610,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T08:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1878,7 +1681,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-19T08:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2061,7 +1864,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-20T08:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2118,7 +1921,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T08:00:00.000Z",
+    "createdAt": "2026-01-20T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2182,7 +1985,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-22T08:00:00.000Z",
+    "createdAt": "2026-01-21T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2302,7 +2105,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-23T08:00:00.000Z",
+    "createdAt": "2026-01-22T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2359,7 +2162,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-24T08:00:00.000Z",
+    "createdAt": "2026-01-23T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2444,7 +2247,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-25T08:00:00.000Z",
+    "createdAt": "2026-01-24T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2508,7 +2311,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-26T08:00:00.000Z",
+    "createdAt": "2026-01-25T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2684,7 +2487,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-27T08:00:00.000Z",
+    "createdAt": "2026-01-26T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2776,7 +2579,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T08:00:00.000Z",
+    "createdAt": "2026-01-27T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2868,7 +2671,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-01T08:00:00.000Z",
+    "createdAt": "2026-01-28T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2960,7 +2763,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-02T08:00:00.000Z",
+    "createdAt": "2026-01-01T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3052,7 +2855,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T08:00:00.000Z",
+    "createdAt": "2026-01-02T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3137,7 +2940,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T08:00:00.000Z",
+    "createdAt": "2026-01-03T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3201,7 +3004,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T08:00:00.000Z",
+    "createdAt": "2026-01-04T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3279,7 +3082,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
+    "createdAt": "2026-01-05T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3385,7 +3188,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
+    "createdAt": "2026-01-06T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3477,7 +3280,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3555,7 +3358,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3633,7 +3436,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3837,7 +3640,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3957,7 +3760,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4049,7 +3852,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4190,7 +3993,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4317,7 +4120,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4395,7 +4198,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4473,7 +4276,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T08:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4537,7 +4340,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-18T08:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4629,7 +4432,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-19T08:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4749,7 +4552,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T08:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4869,7 +4672,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T08:00:00.000Z",
+    "createdAt": "2026-01-20T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5066,7 +4869,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-22T08:00:00.000Z",
+    "createdAt": "2026-01-21T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5148,3906 +4951,4589 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "bd-en-a-beautiful-day",
-    "title": "A Beautiful Day",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "“What a beautiful day,” says Mom. “Wake up Nicholas.” “Hello sun,” says Nicholas. “Good morning birds.”",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/01.jpg",
+    "id": "pb-en-0052",
+    "title": "Little Painters",
+    "author": "Cheryl Rao • Illus. Tanvi Choudhury (Pratham Books / CC BY 4.0)",
+    "description": "It was holiday time. Veena and Vinay were in the garden. There were tins of paint everywhere.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-01T10:00:00.000Z",
+    "createdAt": "2026-01-22T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "“What a beautiful day,” says Mom. “Wake up Nicholas.” “Hello sun,” says Nicholas. “Good morning birds.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "It was holiday time. Veena and Vinay were in the garden. There were tins of paint everywhere.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "“It’s a lovely day,” says Dad. “Let’s have a picnic by the river.” “Can my friend Jacob come?” asks Nicholas.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“Don’t forget me. I love picnics!” says Donkey. “And me. I want to come too!” says Dog. “Follow us,” say the birds.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "“I’ll race you to that tree,” Nicholas says.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“I won, I won,” says Donkey. “Not fair,” says Nicholas. “You’ve got four legs.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“Look what I can do,” says Nicholas. “I bet you can’t do this,” says Jacob.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "“Here’s our picnic spot,” says Dad.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“Race you to the water!” says Jacob.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "“Come and eat, boys and girls,” says Mom.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "“Time to go home,” says Mom.“Say goodbye to Jacob.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-a-dancers-tale",
-    "title": "A Dancer's Tale: The Story of Phyllis Spira",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Once upon a time, not so far away, a baby called Phyllis was born for ballet. Two people in love, her Mom and her Dad, could not have known ...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-02T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Once upon a time, not so far away, a baby called Phyllis was born for ballet. Two people in love, her Mom and her Dad, could not have known yet what a dancer they had.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "There was white paint and red paint and green paint and blue paint and yellow paint.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/02.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       },
       {
-        "pageNumber": 2,
-        "text": "When Phyllis was four she had us transfixed: impressing her teachers with ducky feet flicks. Before school and after, she danced every day. Nothing pleased Phyllis more than ballet.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 3,
+        "text": "The painters were busy. One painter was on a ladder. Another was hanging from the roof on a swing. “Can we help?” asked Veena and Vinay.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/03.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       },
       {
-        "pageNumber": 3,
-        "text": "The world would soon see, when, only fifteen, she travelled to London to live out her dream. Far from home and her friends, she was starting afresh. The Royal Ballet school would soon be impressed!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 4,
+        "text": "The painter gave each of them a brush. “Paint the inside of the gate,” he said to Veena. “Paint the outside of the gate,” he said to Vinay.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/04.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0C4A6E"
       },
       {
-        "pageNumber": 4,
-        "text": "When she danced Swan Lake it was fit for the Queen! After years pirouetting, it was time to be seen! She took to the stage, leaping, twirling about, with everyone smiling! They clap and they shout!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 5,
+        "text": "They picked up two tins of paint and set to work. Veena painted one side of the gate. Vinay painted the other side of the gate.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/05.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       },
       {
-        "pageNumber": 5,
-        "text": "From Mexico to Canada, the US to France, everyone asked her to visit and dance. With the Royal Ballet, and all of her friends, she spread love for dancing so it never would end.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 6,
+        "text": "The paint fell on the ground. The paint fell on the wall. The paint fell on them.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/06.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       },
       {
-        "pageNumber": 6,
-        "text": "Still, Phyllis missed home, they’d been too long apart. She longed to return and to make a fresh start. So she leaped and she bounded to her beautiful land, to walk once again on South African sand.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 7,
+        "text": "At last they finished. They wiped off the paint that had splashed on the ground. They wiped off the paint that had splashed on the wall.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/07.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       },
       {
-        "pageNumber": 7,
-        "text": "Dance isn’t just fun, as Phyllis well knew: she worked day and night, and with hard work she grew. Always smiling and tireless, through good times and tough,she aimed for her best.‘Good’ was never enough.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 8,
+        "text": "They wiped off the paint that had splashed on them.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/08.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#4C1D95"
       },
       {
-        "pageNumber": 8,
-        "text": "Romeo and Juliet, Swan Lake and Giselle. She captured each audience under her spell. With Gary Burne beside her, Eduard Greyling too, her dancing was magic in every review.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 9,
+        "text": "\"I love my red gate!\" said Veena.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/09.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       },
       {
-        "pageNumber": 9,
-        "text": "Reward comes eventually, when you’re put to the test. And one day South Africa would call her the best: ‘Prima Ballerina Assoluta’, greatest dancer of all, her title forever. Phyllis wanted no more.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
         "pageNumber": 10,
-        "text": "Soon Phyllis found love when she met Philip Boyd, a dancer himself! They were both overjoyed. In love, they soon married, and together they’d dance. No match could be better when given the chance!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "\"I love my green gate!\" said Vinay.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "They didn’t have children but never were sad, for they had a way to help all moms and dads. Their school, Dance For All, would give children a chance, from all walks of life, to learn and love dance.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Her gift to the world and all her success help others to realise they can be their best. They dance for us now, inspired by her feats,inspiring us, too, as we dream in our seats.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "“Oh, you have made a two-coloured gate!” cried the painter. “Let us keep it that way!” said Mother.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0052/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-a-house-for-mouse",
-    "title": "A House for Mouse",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Mouse was looking for a new house.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/01.jpg",
+    "id": "pb-en-0053",
+    "title": "The Moon and The Cap",
+    "author": "Rohini Nilekani • Illus. Angie & Upesh (Pratham Books / CC BY 4.0)",
+    "description": "All of us went to the Dasara fair.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-23T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "All of us went to the Dasara fair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Papa bought Chintu fancy glasses. Mother bought me a bright blue cap. The baby got sugar candy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "On the way home, a very strong wind came. It blew my cap away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "My cap got stuck on a branch of the old Pipal tree.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "I cried a lot. And I did not eat my dinner.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Later that night, the moon came up. It looked at my cap on the old Pipal tree.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "It tried on my cap. The moon smiled happily. I had to smile too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "After school the next day, my mother gave me a shiny new red cap. “The moon sent it,” she said.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "That night, both the moon and I wore our caps and smiled. We were happy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Do you think the sun needs a hat?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Guess which cap I am wearing today!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0053/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0054",
+    "title": "Do and Don't",
+    "author": "Radha HS • Illus. Ruchi Shah (Pratham Books / CC BY 4.0)",
+    "description": "Good Morning! Time to wake up.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-24T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Good Morning! Time to wake up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "I DON'T want to wake up! I DON'T want to do the big job!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "I DON'T want to brush my teeth! I DON'T want to have a bath! I DON'T want to have idlis for breakfast!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "I DON'T want to go to school!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Hmm... But, today's your class picnic at the zoo!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "I DO like idlis with sugar! I DO want to go to school! I DO like singing while I take a bath! I DO want to use my new tooth brush!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Oops! This is urgent! I DO want to go for the big job! Here I come, like a rocket... DO please give way, DON'T stand in my way!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0054/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0055",
+    "title": "Curly and Straight",
+    "author": "Radha HS • Illus. Ruchi Shah (Pratham Books / CC BY 4.0)",
+    "description": "I like straight hair.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-03T10:00:00.000Z",
+    "createdAt": "2026-01-25T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Mouse was looking for a new house.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I like straight hair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "This looks like a nice house.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“You can come and sleep with me,” said Puppy. “Thank you,” said Mouse.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "That night, Mouse’s dreams were bouncy and muddy.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“You can come and sleep with me,” said Parrot. “Thank you,” said Mouse.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "That night, Mouse’s dreams were noisy and wild.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "“You can come and sleep with me,” said Fish. “Thank you,” said Mouse.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "That night, Mouse’s dreams were cold and wet.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Mouse needed somewhere warm and dry.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Mouse found a bookshelf nearby.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "That night, Mouse had warm and cosy dreams.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-a-tiny-seed",
-    "title": "A Tiny Seed: The Story of Wangari Maathai",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "In a village on the slopes of Mount Kenya in East Africa, a little girl worked in the fields with her mother. Her name was Wangari.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-04T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "In a village on the slopes of Mount Kenya in East Africa, a little girl worked in the fields with her mother. Her name was Wangari.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "I like curly hair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/02.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       },
       {
-        "pageNumber": 2,
-        "text": "Wangari loved being outside. In her family’s food garden she broke up the soil with her machete. She pressed tiny seeds into the warm earth.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 3,
+        "text": "I like curly tails.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/03.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       },
       {
-        "pageNumber": 3,
-        "text": "Her favourite time of day was just after sunset. When it got too dark to see the plants, Wangari knew it was time to go home. She would follow the narrow paths through the fields, crossing rivers as she went.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 4,
+        "text": "I like straight tails.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/04.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0C4A6E"
       },
       {
-        "pageNumber": 4,
-        "text": "Wangari was a clever child and couldn’t wait to go to school. But her mother and father wanted her to stay and help them at home. When she was seven years old, her big brother persuaded her parents to let her go to school.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 5,
+        "text": "I like staircases which curl upwards.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/05.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       },
       {
-        "pageNumber": 5,
-        "text": "She liked to learn! Wangari learnt more and more with every book she read. She did so well at school that she was invited to study in the United States of America. Wangari was excited! She wanted to know more about the world.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 6,
+        "text": "I like straight staircases. I like the straight road up the hill.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/06.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       },
       {
-        "pageNumber": 6,
-        "text": "At the American university Wangari learnt many new things. She studied plants and how they grow. And she remembered how she grew: playing games with her brothers in the shade of the trees in the beautiful Kenyan forests.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 7,
+        "text": "I like the road that curls around the hill.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/07.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       },
       {
-        "pageNumber": 7,
-        "text": "The more she learnt, the more she realised that she loved the people of Kenya. She wanted them to be happy and free. The more she learnt, the more she remembered her African home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 8,
+        "text": "I like to draw straight lines...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/08.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#4C1D95"
       },
       {
-        "pageNumber": 8,
-        "text": "When she had finished her studies, she returned to Kenya. But her country had changed. Huge farms stretched across the land. Women had no wood to make cooking fires. The people were poor and the children were hungry.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 9,
+        "text": "I always draw curly lines...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/09.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       },
       {
-        "pageNumber": 9,
-        "text": "Wangari knew what to do. She taught the women how to plant trees from seeds. The women sold the trees and used the money to look after their families. The women were very happy. Wangari had helped them to feel powerful and strong.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 10,
+        "text": "Want some Chakli?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/10.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       },
       {
-        "pageNumber": 10,
-        "text": "As time passed, the new trees grew into forests, and the rivers started flowing again. Wangari’s message spread across Africa. Today, millions of trees have grown from Wangari’s seeds.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
         "pageNumber": 11,
-        "text": "Wangari had worked hard. People all over the world took notice, and gave her a famous prize. It is called the Nobel Peace Prize, and she was the first African woman ever to receive it.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "I love Chakli!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "Wangari died in 2011, but we can think of her every time we see a beautiful tree.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "Straight or Curly?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Straight or Curly, who cares! We love Chaklis both ways!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0055/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
     ]
   },
   {
-    "id": "bd-en-amazing-daisy",
-    "title": "Amazing Daisy!",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Once upon a time on a little farm near a little village there lived a little chicken called Daisy.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/01.jpg",
+    "id": "pb-en-0056",
+    "title": "Goodnight, Tinku!",
+    "author": "Preethi Nambiar • Illus. Sonal Goyal, Sumit Sakhuja (Pratham Books / CC BY 4.0)",
+    "description": "It was a bright moonlit night. All the animals in Mangu's farm were sleeping. Except Tinku!",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T10:00:00.000Z",
+    "createdAt": "2026-01-26T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Once upon a time on a little farm near a little village there lived a little chicken called Daisy.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "It was a bright moonlit night. All the animals in Mangu's farm were sleeping. Except Tinku!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "“When I grow up, I want to fly high, high into the sky,” Daisy said. But all the other chickens laughed at her.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "“I am not sleepy, Ma,” murmured Tinku. But Ma did not hear him. She was fast asleep. He turned left, and he turned right. He lay on his tummy, and rolled on his back. But he could not sleep!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "“You are so weird,” they said. “We won’t play with you anymore.” “Daisy, we can all flap our wings but it’s very difficult for chickens to fly,” Mama told her.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "So he set off into the night to see what he could find. Up in the sky, Tinku saw the moon, white and round, smiling down at him. He felt very happy. ‘Night is beautiful,' thought Tinku.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Daisy wouldn’t give up. Every day she practised by herself, flapping her wings. Flap, flap, flap, she would flap her wings but she couldn’t lift off the ground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Far away on the top of a tree, there were some tiny lights. One spot of light flew down! “I'm a firefly,” said the spot of light. “I glow in the dark!” “Will you be my friend?” asked Tinku. “Yes, I will!” said the firefly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "While she practised, she imagined herself flying high into the sky and looking at the chickens below. She imagined herself flying past the sparrows and past the swallows. “Wow!” the birds would say. “A chicken that can fly!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Something flew by and hung upside down on a tree. “What is your name, bird?” asked Tinku. “I am not a bird, I am a bat. I can see during the night!” said the bat. “Will you be my friend?” asked Tinku. “Yes, I will!” said the bat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "So ... Flap, flap, flap, every day Daisy would flap her wings. She would lift off the ground but fall down again.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "A few leaves moved in the bushes. Someone was hiding! “Who are you?” asked Tinku. “I am a fox,” said the fox. “I go strolling out at night.” “Will you be my friend?” asked Tinku. “Yes, I will!” said the fox.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "“I’m never going to fly!” Daisy cried to Mama. “The others are right.” “Daisy, you are different from the other chickens. They don’t want to fly but you do! You can do it,” Mama said.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Two shiny eyes looked at him from a tree. “Who are you?” asked Tinku. “I'm an owl,” said the owl. “I hunt for food during the night.” “Will you be my friend?” asked Tinku. “Yes, I will!” said the owl.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "The following day Daisy climbed to the top of the chicken coop and flap, flap, flap, she flapped her wings. She flew into the air and flapped her wings ... and flapped her wings ... and flapped her wings and ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "“CHIRRRRRP! CHIRRRRRP!” “Who is here?” Tinku asked. “I'm a cricket,” said the cricket. “I chirp when it is dark.” “Will you be my friend?” asked Tinku. “Yes, I will!” said the cricket.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "BAM! The other chickens laughed out loud.“Ha ha ha! We told you! Chickens can’t fly!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Tinku and his friends jumped and tossed and rolled until Tinku yawned. “I am sleepy. I have to go home now,” said Tinku. He was happy that he had many new friends. Snuggling close to Ma, he said, “Night is not a lonely place, Ma. Night is full of wonderful beings.” “Yes!” replied Ma. “Your new friends are nocturnal, just like wild dogs.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "But the next day Daisy climbed even higher, right up to the top of the rondavel. Flap, flap, flap, Daisy flapped her wings. She flew into the air and flapped her wings ... and flapped her wings ... and flapped her wings and ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "“Nocturnal animals eat, play and work at night. They rest during the day. You must sleep now. Sleep will give you energy to play with your day-time friends tomorrow. Good night, little one!” she said, hugging him tight.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "She kept flying! The wind beneath her wings grew stronger and she flew higher and higher! The sparrows and the swallows said, “Amazing! A flying chicken!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "And the other chickens wanted to be just like her. They said, “Oh Daisy, you’re amazing!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "The bright round moon shone all night long, spreading her calm light all around. And Tinku slept all through the night!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0056/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-bathtub-safari",
-    "title": "Bathtub Safari",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Bathtime is Jack’s favourite part of the day. ‘I’ll be back in a few moments,’ says his mom. ‘Make sure to clean behind your ears.’",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/01.jpg",
+    "id": "pb-en-0057",
+    "title": "Ritu's Letter Gets Longer!",
+    "author": "Mala Kumar • Illus. Henu (Pratham Books / CC BY 4.0)",
+    "description": "Grandpa was writing a letter. Ritu stood beside him, leaning on the arm of the old chair. “Grandpa, have you asked Aunty to send Mani to our...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-27T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Grandpa was writing a letter. Ritu stood beside him, leaning on the arm of the old chair. “Grandpa, have you asked Aunty to send Mani to our home for the holidays?”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Of course, dear Ritu, I have written to your Aunty. Look here, let me read out the letter - Dear Pooja, Hope you are fine. Mani must be having holidays now. Ritu is very eager to see him. Do send him here to Tumkur.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Ritu jumped up and down. And since she could not stop herself, she ran around the room once and hugged Grandpa. “Would you like to post this letter yourself?” asked Grandpa. Ritu's eyes opened wide. “All by myself? Oh, may I?”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "“Yes, little Ritu. See, I have written the address. Take it to the Post Office. Give the postcard to Ramesh Uncle. You do know that big uncle with the big, handle-bar moustaches, don't you?” “Yes Grandpa. He is the uncle who taught Mani how to ride the cycle last summer. Will he take the letter to Aunty Pooja?” asked Ritu. “No, dear. But the letter will reach your aunty, don't worry.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Ritu picked up her little pink bag. She put the postcard inside. She put a pencil inside too. She felt very important. Ritu felt very grown-up. And just a wee bit scared: what if Bageera the dog chased her? But Ritu was very eager to post the letter. So she left for the post office that was just four buildings away!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "After taking a few steps, Ritu stopped and took out the letter. She could not read Grandpa's handwriting very well. She tried to remember what Grandpa had read. Then, after the word that she thought was ‘Tumkur' Ritu wrote, ‘PLEECE.' Happy with her work, Ritu walked on.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "After she had reached the next building, Ritu stopped and took out the postcard once again. What if Pooja Aunty did not realise how eager Ritu was to see Mani? So Ritu took out her pencil again and wrote, ‘PLEEEESE.'",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Finally, Ritu reached the small post office. There was a red post box outside the post office. Ritu could not reach the mouth of the post box even if she stood on her toes.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "She walked boldly up to Uncle Ramesh. He took the postcard from her and smiled. “Smart girl! Now run back to your house carefully. I shall make sure your letter reaches your aunty.” But Ritu did not run out. She saw Uncle Ramesh pick up a pen and scribble something on the card. Then he gave it to the postman who was stamping many letters with the postmark.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Dhhum, dhhum, DHHUM, he pounded on the letters. When he saw Ritu's letter, he stopped. Then he smiled. He picked out a pencil from behind his ear and wrote something on the card.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Five days passed. The postman brought a letter to Grandpa. Grandpa read it with a smile. “Ritu, your aunty says she will send Mani here day-after. Let me read out the letter. Dear Father... tara...ra...ra...da... ta...da...da...dada... I am sending Mani tomorrow. He will reach Tumkur on Friday. I think Ritu must be very eager to see him. Your letter was very interesting...”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“Grandpa, I wrote ‘PLEECE' on the letter, that's why!” said Ritu in excitement. “.... Your postcard had twenty ‘Please's written all over it!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Ritu did not know how one ‘please' had become twenty. She was just happy she had added one ‘PLEECE' And another ‘PLEEEESE!'",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/13.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Pleese Pleece PLEASE PLIS pleej pleece Please pleej PLIS pleece PLEASE Pleeese PLEASE",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0057/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0058",
+    "title": "Sailing Home",
+    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
+    "description": "Basava and his sister Sundari sat on the sand watching the sun rise over the sea. Slowly, the sky turned from grey to blue and the edges of ...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-28T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Basava and his sister Sundari sat on the sand watching the sun rise over the sea. Slowly, the sky turned from grey to blue and the edges of the clouds became an orange colour. They sat staring at the horizon – that line in the distance where the bowl of the sky seemed to curve down to meet the sea. Their father was a sailor who had sailed away on a merchant ship many months ago. The children were eagerly waiting for him to come back home. So, every morning at sunrise, they came and waited by the beach hoping to see the tall red sails of their father's ship rise slowly above the horizon. The children had seen many ships come and go because they lived in Mamallapuram, which was a busy port. The ships came from many distant lands carrying exciting cargo – chests of silk and pottery, jars full of wine, perfumes and even horses. Their father's ship had sailed out carrying logs of cedar and sandalwood, and bags of spices, rice and ghee. “It's been so many months,” Sundari said sadly, “Appa has never been away for so long.” “Remember that big storm last week?” Basava added worriedly, “The sea was full of high waves. I hope Appa's ship is safe.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Look, a ship is coming!” said Sundari excitedly, “But I can't see the sails.” As they watched eagerly, a ship appeared on the horizon. It was a small dot that slowly grew larger as it came closer. First, they saw the sails filling out with the wind. Then the high masts and the wooden bow rose into view. “No,” said Basava, disappointed, “Appa's ship has red sails with a flying eagle painted on them. This one has black and green sails.” They felt disappointed and decided to go home. They had work to do — they had to help their mother at her vegetable stall in the market. Their father was often away from home and after a while all the money he left behind would get over. That is why their mother sold vegetables, so that they had enough to eat. Sundari enjoyed working at the vegetable stall. The market was such an interesting place! Often their customers were sailors from different lands – some with pale skins and narrow tilted eyes and some with dark skins and curly hair. They wore odd clothes and jewellery and spoke in languages Sundari could not understand at all!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "This morning, as Basava was laying out bundles of spinach and cabbage, one of their regular customers came to buy vegetables. She was the wife of a trader who often sent spices to other lands by ship. She knew all about the ships coming and going from Mamallapuram. As she picked through the radishes and beans, the trader's wife asked, “Any news of your father?” Sundari shook her head sadly. “Why don't you go and ask at the jetty where all the ships are anchored?” she said. “Ask what?” Basava leaned forward eagerly. “Ask the sailors if they have seen your father's ship on their way to Mamallapuram. My husband does that quite often when his ships are late.” That afternoon, the children headed towards the main jetty. They went through the market and took the street going towards the sea. They went past the warehouses where the merchants kept the goods meant to be loaded into ships. In one warehouse, labourers were unloading bags of pepper and coriander seeds. In another, they were stacking up bales of cotton cloth woven in bright colours.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Three ships stood anchored at the jetty, tied to the shore by thick ropes. Two more ships were waiting out at sea. Small boats were moving in and out among them with the boatmen selling everything from flowers and fruits to beads and woodcarvings. Among the ships anchored at the jetty was the ship with the black and green sails that they had seen in the morning. They went towards a ship that was being loaded with goods. As they neared it, a soldier carrying a spear stopped them. “Halt! Watch where you are going!” the man yelled. “No one is allowed on this ship without a royal permit.” “Permit?” Sundari looked puzzled. “Why?” “Because it is a royal ship, you silly girl!” “You mean this ship belongs to the royal navy?” Basava's eyes widened in surprise. “Are we going to war?” “Of course not! This is a trading ship. His Majesty King Narasimha Varman owns many ships that trade with far off kingdoms. This one is going to the port of Tamralipti in the north.” “We are looking for a ship that has come from the kingdom of Kamboja...” Sundari began hesitantly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Our father is a sailor and he sailed for Kamboja many months ago. We want to ask the sailors if they have seen his ship.” “Kamboja?” the soldier asked. He then pointed to the ship with the black and green sails and said, “That ship's arrived from there.” Basava and Sundari ran to the ship, up the gangplank and on to its deck. They stopped when they saw that all the sailors on board were foreigners. They were speaking to each other in a strange tongue! “Oh no!” Basava sighed. “How do we make them understand us?” “Easy!” Sundari grinned. “We talk to them like Amma does when they come to buy vegetables.” “Of course!” laughed Basava, “We act and make signs with our hands.” They looked around trying to spot a sailor with a friendly face. Finally, they went up to a sailor sitting on a roll of rope. He was an old man with a dark, leathery, sunburnt face. There were deep lines around his narrow eyes. He wore loose pyjamas, a sleeveless jacket, bright bangles and earrings. “Kamboja?” Sundari asked nervously. The man nodded happily, “Kamboja!” Basava pointed to the sail, then he pointed to the red skirt Sundari was wearing and said, “Ship? Red sail?” The man frowned and shook his head. Sundari tried to explain. She tapped the side of the ship and said, “Ship?” Then she pointed to the sails and to her skirt, “Sail? Red?” The man pointed to the sea and said something in his own language. “Yes! A ship with red sails. Have you seen it?” Sundari asked excitedly. The man looked a bit puzzled. “Our father... Appa!” Sundari was acting out a tall man with a moustache. “Oh!” The man then flapped his arms to mimic a bird flying. “YES!” the children jumped and yelled in delight, “A flying eagle is on the sail!” The man was laughing as he stood up and pulled them by their hands to the other end of the ship. Then he pointed to the horizon where a ship was slowly sailing towards them, its red sails blowing proudly in the breeze. Basava and Sundari were speechless! There, before their eyes, were the familiar high masts, the curving prow, the red sails with flying eagles... “Your Appa is a sailor?” the man asked gently, looking at their delighted faces. “Is he on that ship?” “Oh!” The children stared at him in disbelief. “You can speak our language!” Sundari exclaimed. “A little bit,” the man laughed. “I come to Mamallapuram often. But I did enjoy your acting, especially ‘the tall man with the moustache' part!” Basava and Sundari taught their sailor-friend many new words as they stood at the jetty, waiting happily for the ship to come home.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "1. Basava and Sundari lived over 1200 years ago in the kingdom of King Narasimha Varman of the famous Pallava dynasty. The Pallava kingdom extended over present-day Tamil Nadu. 2. The town of Mamallapuram is near Chennai and is famous for its temples. At one time, it was a port from where ships sailed to Cambodia, Burma and Indonesia. Kamboja is the ancient name of Cambodia and Tamralipti was a port in Bengal.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "3. What did children study in school in the Pallava times? The subjects included logic, law, mathematics, grammar, astronomy, philosophy, the Vedas, economics and politics. 4. Women, especially of noble families, were educated, but were not allowed to study the Vedas. 5. People in the Pallava times dyed their hair, used scented hair oil and perfumes. They even used toothpicks after their meals!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0058/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0059",
+    "title": "This and That",
+    "author": "Radha HS • Illus. Ruchi Shah (Pratham Books / CC BY 4.0)",
+    "description": "This is Bekku. And that is me in the mirror.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-01T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "This is Bekku. And that is me in the mirror.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "This is what I love to do ... and this is what Bekku likes to do.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "This is Bekku's favorite place, and that is mine. When Bekku sees a mouse she runs after it.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "But if I see a mouse, I run from it.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Then when I run after my beeping car, Bekku scoots out through the door ajar.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "When mamma gives us milk, we both go SLURP, SLURP. Then follow our loud BURP, BURPS!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "We like different things - that is very plain. Our common love for milk, this will always remain!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0059/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0060",
+    "title": "Annual Haircut Day",
+    "author": "Rohini Nilekani • Illus. Angie & Upesh (Pratham Books / CC BY 4.0)",
+    "description": "It was the Annual Haircut Day for Sringeri Srinivas.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-02T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It was the Annual Haircut Day for Sringeri Srinivas.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Sringeri Srinivas left home as usual to go to the local barber.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "But the barber said, “Today, I have no time to cut such long hair!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Feeling sad, Sringeri Srinivas went back home to ask his wife for help.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "But his wife said, “Today, I have no time to cut such long hair!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Feeling a little angry, Sringeri Srinivas went to his friend, the tailor.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "But the tailor said, “Today, I have no time to cut such long hair!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Now a little worried, Sringeri Srinivas went to one more friend, the carpenter.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "But the carpenter said, “Today, I have no time to cut such long hair!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Poor Sringeri Srinivas. It seemed no one would cut his hair on this Annual Haircut Day.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "In tears, he walked off by himself past the village forest.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "He sat near a cave and cried loudly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "“The day is nearly over. How can I keep my promise to cut my hair? Oh God, help me!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/13.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "The tiger sleeping peacefully inside the cave was very disturbed by all the noise.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "He came out, roaring, waving his giant paws at Sringeri Srinivas.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/15.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 16,
+        "text": "Poor Sringeri Srinivas was so scared, so scared, so scared that ...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/16.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 17,
+        "text": "... all the hair fell off his head!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/17.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 18,
+        "text": "Sringeri Srinivas ran all the way back to the village. The tiger went back to sleep.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/18.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 19,
+        "text": "Now, Sringeri Srinivas will not need a haircut for a very long time.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0060/19.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0061",
+    "title": "Lassi, Ice-cream or Falooda?",
+    "author": "Mala Kumar, Manisha Chaudhry • Illus. Priya Kuriyan (Pratham Books / CC BY 4.0)",
+    "description": "“Meenu, please get a glass of water for Manoj,” says Amma. Manoj Mama has come to take me to Ooty! “We will go by train, Meenu. It is cold i...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-03T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "“Meenu, please get a glass of water for Manoj,” says Amma. Manoj Mama has come to take me to Ooty! “We will go by train, Meenu. It is cold in Ooty even during summer, as it is in the hills,” he says.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Summer is the season between spring and monsoon. It is called Greeshma Ritu in Sanskrit. School has closed for the summer. My friends and I do not mind playing outside. But our parents do not like us to play in the hot sun. So we sit under the trees and eat fruits and tell stories.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Yesterday was new year's day for my family. We call it Varsha Porappu in Tamil. Why are there so many new year's days in the same year? Grandma made raw mango panna. So sweet and tangy! Jasmit's mother made lassi. So cool and creamy! Last month, Farhan's aunty made falooda for their new year. So milky and sweet-smelling!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Appa has gone to Delhi. He says it is very hot and dusty there. In earlier times, people put mats made of khus on windows and kept them wet to cool their homes. Appa wears dark glasses to shade his eyes.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "He told us that he had to drink lots of nimbu pani to replace the water in his body because you sweat a lot in the heat of Delhi. He says he will bring lovely Dussehri mangoes for us from Delhi. The summer brings heat and dust but it also brings mangoes!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Do you remember the little sapling I planted in spring? It is my friend. It is growing up. It has seventeen leaves now. I water the little tree twice every day in summer.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I think it is waiting for the rain. Will it bear a fruit for me next summer?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0061/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0062",
+    "title": "Bheema, the Sleepyhead",
+    "author": "Kiran Kasturia • Illus. Shweta Mohapatra (Pratham Books / CC BY 4.0)",
+    "description": "Bheema loves to sleep and just cannot get up early. Ramu, the washerman, scolds Bheema often.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-04T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Bheema loves to sleep and just cannot get up early. Ramu, the washerman, scolds Bheema often.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "One day, Gauri, the cow, asked him, “Bheema, why are you so sad?” Bheema said, “I cannot get up early and Ramu shouts at me every day. Will you wake me up every morning, please?” “Yes, I will,” said Gauri. Early next morning, Gauri mooed loudly, but Bheema did not wake up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Coming back from the river in the evening, Bheema met Moti, the dog. “I can never get up in the morning on time. Will you wake me up?” Bheema asked Moti. “Yes, I will,” said Moti and the next morning he barked and barked but did Bheema wake up? No Sir!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "That evening Bheema met Cheenu, the rooster. He said to Cheenu, “You crow in the morning and everybody wakes up. Will you wake me up too?” Cheenu agreed. The next morning, Cheenu crowed long and loud, but Bheema did not wake up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The next evening, Bheema saw Kalu, the crow, cawing away happily. “Kalu, will you wake me up in the morning, please?” he asked. Kalu said, “Why not? I will caw and wake you up.” The next morning Kalu cawed all he could but Bheema did not wake up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Bheema was sad. The next morning, a fly came and sat on his nose. “Aaah...chhoooo... ahchhoo!” Bheema got up with a big sneeze.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“Wow! I woke up. How did I wake up?” he asked in wonder. “I woke you up,” said the fly.“Will you wake me up like this early every morning?” “Sure,” said the fly. Bheema was happy. Now he would have no problem getting up early every morning!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0062/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0063",
+    "title": "Playtime",
+    "author": "Sanjiv Jaiswal 'Sanjay' • Illus. Ajit Narayan (Pratham Books / CC BY 4.0)",
+    "description": "The little elephant's name was Golu. He was as round as a drum. The little rabbit was called Chhotu. He looked like a ball of cotton.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-05T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The little elephant's name was Golu. He was as round as a drum. The little rabbit was called Chhotu. He looked like a ball of cotton.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "They played together. One day, Golu said, “Let's play a new game today.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“You sit down. I'll land on your back in one flying leap,” said Chhotu. Golu sat down. Chhotu took a mighty leap.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Thump! He landed on Golu's back. “Wow!” laughed Golu and said, “My turn now. You sit down and I will leap on your back.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“You!” “Yes, me.” “How can you do that?” asked Chhotu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"Like this!\" Golu showed him.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Thud... thud... thud... A shower of coconuts came down on Golu's head.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "He ran away on fat legs, scared.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "One small coconut fell on Chhotu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "‘That's better,' thought Chhotu, ‘Better a coconut than an elephant on my head!'",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0063/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0064",
+    "title": "My Friends",
+    "author": "Rukmini Banerji • Illus. Rajeev Verma 'Banjara' (Pratham Books / CC BY 4.0)",
+    "description": "I have many friends.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-06T10:00:00.000Z",
+    "createdAt": "2026-01-06T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Bathtime is Jack’s favourite part of the day. ‘I’ll be back in a few moments,’ says his mom. ‘Make sure to clean behind your ears.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I have many friends.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "There’s a SWOOSH. And a swish of a tail. And then...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Some of my friends are older and...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Jack’s bathtub safari begins!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "some of them are younger than me.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Look at what’s coming! There’s a twist and a turn.. Something’s growing... It’s a...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Some of my friends are old.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "TOOOT!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "And some of them are tiny!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "There’s a RUMBLE! UP UP It’s going up and...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Some of my friends have tails...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "SPLASH!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Some of my friends have no feet.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "There’s a SPLOSH. Something bubbles. It’s time to...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "Some of my friends fly. Some of them swim.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "AAAAAAH But something’s lurking in the background...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Oh! Books are my friends too!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "ROAR",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "But who is my best friend? Who? Who? Who?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "‘Time to get out. I hope you’re clean and ready for bed.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "My mother!!!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0064/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-come-back-cat",
-    "title": "Come back, cat!",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Come back, cat! Play with me.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/01.jpg",
+    "id": "pb-en-0066",
+    "title": "My Car",
+    "author": "Phidi Pulu (Pratham Books / CC BY 4.0)",
+    "description": "Hi, I am Khaidi. I am seven years old. I have a car, a lovely long car. Papa made it for my birthday.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-07T10:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Come back, cat! Play with me.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Hi, I am Khaidi. I am seven years old. I have a car, a lovely long car. Papa made it for my birthday.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Sit in your basket. Stay right here!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "I love my car and love to drive it all day long. Drooomm... here I go ...drooomm... there I go. Drooomm... I go everywhere.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Come back, cat! That’s way too high.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "I visit my relatives driving my car, and in school, my friends want my car. I love my grandma and she loves to see me drive.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Come back, cat! Don’t go outside.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "With my car I can go round and round my home. With my car I can go around the earth. I can go around the sun, the moon and the stars.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Come back, cat! That’s not yours.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "My little brother loves riding on my car. Mummy tells us not to do so, but do we care!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Come back, cat! What have you got?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Come back, cat. That’s not your friend!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Hello, cat! Are you back?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Stay in your basket. It’s nap time now.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Cat?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "Now, here I am without my car and... my brother without his tooth! But still we go drooomm... with my brother on my back!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0066/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       }
     ]
   },
   {
-    "id": "bd-en-gracas-dream",
-    "title": "Graça’s Dream",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Graça was about to be born in a small village in Mozambique. The country was poor and the people did not yet rule themselves. Children didn’...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/01.jpg",
+    "id": "pb-en-0067",
+    "title": "Lost and Found",
+    "author": "Sukhada Rahalkar (Pratham Books / CC BY 4.0)",
+    "description": "Not here, not there. Where have you gone?",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T10:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Graça was about to be born in a small village in Mozambique. The country was poor and the people did not yet rule themselves. Children didn’t have good schools and many couldn’t read. Graça’s mother dreamed of giving her children better opportunities. But without education there was little hope.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Not here, not there. Where have you gone?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Baby Graça would be the sixth child. But with this joyous event there was great sadness. Their beloved father was dying. He dreamed that his youngest daughter would go to a good school. He knew that education would give her opportunities he never had. His family promised to make their dad’s dream come true.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Not on the sofa. Not under the cot.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Just weeks after their dad died, the new baby was born. She was given a name to match the beauty and blessing that she was – Graça. As the years passed, Graça brought much joy to her family and they kept the promise made to their father. Graça would have a good education.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Not in the box. Not under my sister's frock.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Graça worked hard at school and as a teenager she received a gift that would change her life. It was a scholarship to attend a rich city school. She dreamed of becoming a teacher and using her education to educate others. She wanted the children of her beloved Mozambique to know reading and learning. She dreamed of a time when all children would go to school.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Not under the pillow. Not in my bag. Sob, sob, where have you gone?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Graça did her best in that city school and years later she was blessed again. It was another scholarship to attend a university in faraway Portugal. She met new friends, learned new languages and read a bounty of books. She realised her dream of becoming a teacher. All this made Graça very happy. There was only one thing that still made her sad...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "I have looked in every room, l have looked under every book.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Back at home people were still not free. But now Graça had an education, skills, and hope. She also had friends who felt as she did about children’s right to learn. She would use her knowledge and work with her friends. Together they would bring change to Mozambique.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "I have looked under the chair, I have looked under the stool. Where have you gone?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "Finally with the help of all her friends, Mozambique was free!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Soon granny came back from her walk. \"Look what I found in the park.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "The man chosen to lead the country was Graça’s special friend, Samora Machel. They fell in love and got married.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "\"It can sway, it can bounce. It can spin, it can dangle. Ha-ha, hee-hee,\" said Granny with a giggle.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "Graça was given the important job of making sure that all children in Mozambique got a good education. It was a hard job because there were so many children in Mozambique who couldn’t read. She knew that they needed education and wanted to make real change in her country. She started with primary schools and getting boys and girls into classrooms. Literacy was her focus and putting books into children’s hands.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Oh Granny! Thank you so much! You have found my dear yo-yo!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "Graça and Samora had two children. They shared a dream to create good lives for their own family and for the Mozambican people. They were happy and hopeful. Then one terrible day, Samora died in an aeroplane crash.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "\"Yo-yo? What a funny name! What a funny toy! I want to play with it, It gives me so much joy!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Graça mourned Samora for many years, but she found love again. She met a man who had also spent his life dreaming of bringing freedom, hope and education to his people. Graça married Nelson Mandela and together they worked to help Africa’s children.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "Giggle, giggle, giggling away, Granny played, with my little toy. For the rest of the day!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0067/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0068",
+    "title": "The Auto That Flew",
+    "author": "Ken Spillman • Illus. Ajanta Guhathakurta (Pratham Books / CC BY 4.0)",
+    "description": "Arjun had three wheels, one headlight and a coat of green and yellow. He belonged to the largest family in the whole of Delhi. Everywhere Ar...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-09T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Arjun had three wheels, one headlight and a coat of green and yellow. He belonged to the largest family in the whole of Delhi. Everywhere Arjun went there were brothers, sisters, aunties, uncles and cousins. ‘Go carefully!' they beeped. ‘Sure!' he would beep in reply.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Arjun worked hard, day and night. Pht-pht-tuka-tuka-tuk, he went. Pht-pht-tuka-tuka-tuk! He never complained because Autowallah Sirish worked hard too. Sirishji had old bones that caused him pain. He decorated Arjun's dashboard with plastic flowers and pictures of movie stars. He quenched Arjun's thirst for clean gas, even when the queues were long. And whenever Arjun's canopy was torn, he wasted no time taking it to be patched.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Arjun liked taking whole families to Lajpat Nagar Market. His heart sang when tourists chose three wheels over four. He loved to rest with Sirishji in the shade of a tree outside Qutab Minar.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Arjun never tired of the glamour of Connaught Place at night. He was thrilled by the bustle outside the railway station, and by the crowds that spewed from Feroz Shah Kotla after a cricket match. Life was good, and Arjun knew he should never wish for more.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "But secretly, Arjun did wish for more. Secretly, he wanted to fly. Oh, to have helicopter blades! Arjun thought. They would chop the air above his canopy. Sirishji would wrap his head in a scarf, and the ends of it would flap gaily in the breeze. Off they would go, pht-pht-tuka-tuka-tuk in the sky!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "But Arjun knew this was only a dream. An auto having helicopter blades would be like an elephant having wings, or a train that could zoom off into space like a rocket, with its carriages trailing behind.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "One hot day, Arjun was waiting in a hotch-potch of traffic at a busy intersection. Behind Sirishji sat a grey-haired woman in a dull, well-worn saree. Pht-pht-pht-pht...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "A grubby boy came squeezing between cars and autos, selling water. His eyes sparkled like polished stones as he held out one frosted bottle. “Ma'am? Very cold... very good... magic.” The woman laughed. “Magic?” The boy wobbled his head with such gusto that Arjun thought it might fall off.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"We all need a little magic,\" the woman said. She produced some rupees and took two bottles from the boy. Immediately, she handed one to Sirishji.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Sirishji smiled broadly, showing the woman his paan-stained teeth. He drank quickly and the traffic budged. “Already the magic is working,” Sirishji joked. The woman drank too, spilling a little on Arjun as he started forward. Pht-pht-tuka-tuka-tuk went Arjun, beeping a cheery hello to one of his brothers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "No sooner were they moving than Arjun began to feel light on his wheels. The traffic parted before him and he sailed through.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "Here’s a book, my child. What will it inspire you to do?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "Astonished by the open road, Sirishji caught the woman's eye in his rear-view mirror. “Yes, very magical, ma'am!” Now the woman's saree carried a brilliant sheen, and was embroidered with fine gold thread. “Magic...” she chuckled.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Arjun's wheels lifted off the road. Up, up he went... Pht-pht-tuka-tuka-tuk... up, up, up! There were no helicopter blades to help him. Magic, Arjun thought. It's auto magic!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "A flock of birds scattered. Arjun's headlight was lit with joy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "Arjun flew high above Jawaharlal Nehru Stadium and India Gate. He looked upon Humayun's Tomb, the Yamuna River and the gracious temple of Akshardham. He saw a giant web of roads, like the work of a crazy spider. Wide-eyed, Sirishji began shrieking with the fun of it all. He no longer gripped the handlebar, no longer dodged cars.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/15.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 16,
+        "text": "The woman fingered her beautiful saree. “Sir,” she called, looking at the rear-view mirror. “Your face!” When Sirishji looked at himself, he saw a face like that of a Bollywood hero. His teeth shone white and his skin was radiant. “We must drink more water,” he roared.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/16.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 17,
+        "text": "But what are we doing? Arjun wondered. Where can we go? What am I, if I am no longer driven? Never had Arjun been so free. Yet never had he felt so lost. In the world he had known, every journey had purpose, each destination was temporary.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/17.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 18,
+        "text": "In boundless quiet above all the honking cars, Arjun missed the roads of his life, jammed with cars, motorcycles and buses. Below, he saw his family at work, dots of yellow canopy glowing bright like beacons. Arjun even missed the rush and bustle of people, all so eager to arrive somewhere else. Places to go, places to go...pht-pht-tuka-tuka-tuk...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/18.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 19,
+        "text": "The woman looked down and thought of the joys below. It was easy now to forget the shimmer of her saree. I was going to visit my daughter and grandchildren, she thought. They will be waiting. They are the real magic in my life.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/19.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 20,
+        "text": "Already, Sirishji was tired of his Bollywood face. What use is it, he wondered. Once he had wished only for this. Now Sirishji wanted only the comfort of his own skin.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/20.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 21,
+        "text": "Arjun's headlight had grown dull. He felt aimless. He could read Sirishji's thoughts. He could sense the woman's mood. Lower and lower he flew. The city radiated warmth. The nearer Arjun got, the more energy it gave him.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/21.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 22,
+        "text": "Sirishji became busy again, drinking in the familiar magic of the city. Every sign and every turning spoke to him. Very soon he could recognise himself again. He knew where he was going. He was already there. The woman's saree became dull, but her face was bright. Down to earth they came. Arjun's wheels touched warm asphalt and his engine sighed with relief. Pht-pht-tuka-tuka-tuk... “Go carefully,” beeped a brother from the street corner.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/22.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 23,
+        "text": "The woman's grandchildren waved from a window above. She stepped down and handed Sirishji her fare. “Auto! Auto! Auto!” Arjun heard the wonderful cry of a stranger. Every ride would be new, part of his endless journey, full of surprises.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0068/23.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       }
     ]
   },
   {
-    "id": "bd-en-grandpas-gold",
-    "title": "Grandpa's Gold",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "The children were talking about their Grandpas.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/01.jpg",
+    "id": "pb-en-0069",
+    "title": "The Red Raincoat",
+    "author": "Kiran Kasturia • Illus. Zainab Tambawalla (Pratham Books / CC BY 4.0)",
+    "description": "On Sunday, Manu's parents got him a red raincoat. “Ma, may I wear it now?” asked Manu. “No, my dear, the rains are near, but just now the sk...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T10:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "The children were talking about their Grandpas.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "On Sunday, Manu's parents got him a red raincoat. “Ma, may I wear it now?” asked Manu. “No, my dear, the rains are near, but just now the sky is clear,” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "My Grandpa can build a tower to the sky, said Giraffe. Once he built a skyscraper for a king.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Monday was bright and sunny. “WILL it rain today, Mummy?” asked Manu. “No Manu, not today. If you wear your raincoat, you will look quite funny!” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "My Grandpa can fish for anything in the sea, said Cheetah. Once he caught a whale and kept it in his bath.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "On Tuesday, the sky was blue. “Ma, WHEN will my wish come true?” asked Manu. “Not today, my dear, there is just one white cloud in the sky!” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "My Grandpa can climb to the clouds in the sky, said Mountain Goat. He climbed the tallest mountain in the world, in just four hours.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Wednesday was hot. “Ma, WHY doesn't it rain?” asked Manu. “Son, I think it will rain very soon. Maybe even before it is noon,” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "My Grandpa can cook a feast, said Elephant. Once he cooked a meal for a president’s birthday party. All by himself.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "On Thursday Manu went on a picnic. “Ma, WHAT if it rains? Shall I take the raincoat with me?” asked Manu. “No my dear, it will not rain today. The little white clouds are too high in the sky,” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Well my Grandpa doesn’t build or fish or climb or cook, said Monkey. But he owns gold! He hides it in his mouth. And at night he soaks it in a glass of water.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Friday was cloudy. “Ma, will it rain today?” asked Manu loudly. “It might, my dear. There are some dark clouds low down in the sky,” said Ma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "No, he doesn’t! Yes, he does! No, he doesn’t! Well, come and see if you don’t believe me, said Monkey.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Saturday began with a bang! Badaboom! \"Ma, is that thunder I hear? Will it rain very soon?\" asked Manu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "So the children went to see Monkey’s Grandpa.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "And then at last, it started raining! “Oh, it's raining, it's raining,” sang Manu, running out.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "You see? said Monkey. And he can take them out.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "“But Manu,” called Ma, running after him, “you forgot your raincoat!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0069/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0070",
+    "title": "Bani",
+    "author": "Herminder Ohri • Illus. Taposhi Ghoshal (Pratham Books / CC BY 4.0)",
+    "description": "Bani is a little girl of four. She lives in a house with a green door. She goes to a school with bright yellow windows and red doors.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-11T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Bani is a little girl of four. She lives in a house with a green door. She goes to a school with bright yellow windows and red doors.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Bani loves her school. Along with lessons, she dances, sings and plays with her friends.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "One night, Bani was really tired. As she closed her eyes to sleep, she felt herself floating away, out of the house, down the hill into a grove of trees.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Wake up! Wake up Bani! Bani woke up with a start. She saw many strange children with funny faces and hats standing in front of her.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The children made a ring around Bani and began singing. “Welcome! Welcome! We have waited for you for nearly a year.” “For a whole year!” whispered Bani. “Yes! Yes!” they shouted.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "“We know you can float in your sleep.” “May be sing in your sleep.” “But I am not asleep,” said Bani pinching herself, “Ouch!” “Even fly in your sleep,” they sang. “Fly? How and where?” asked Bani. “Stretch your arms out like wings, fly like a bird, a cloud or anything.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Bani stretched out her arms and she was flying with her new friends. They flew over the forest and when Bani looked down, she saw hundreds of lights.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "She followed the children down towards the lights. Bani saw a town all made of giant mushrooms. There were green mushrooms, yellow, white, purple and red mushrooms. In each mushroom was a house.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Bani flew into one house. The house was like any other house, but the floors were mushroom floors – so – so – soft. Softer than any carpet. The children skipped and ran showing Bani the mushroom town.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "No, he can’t! cried the animals.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "“Come! Let us eat,” said the children together. All Bani could see were fields and fields of odd looking mushrooms. “What funny mushrooms,” said Bani. “Oh! those are laddoo mushrooms.” Bani was surprised to see that on top of each mushroom was a laddoo. There were yellow, green and white laddoos and barfis too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Waaah! said Grandpa Monkey. And there are enough ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "Bani broke off one laddoo and ate it. It was so...o...delicious. Quite laddoo–licious, she thought. Bani heard her name being called. She saw mushrooms shaped like books. The pages were turning by themselves. The figures on these pages were jumping up and down, “Bani come read with us.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "... for everyone!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-hippo-wants-to-dance",
-    "title": "Hippo Wants to Dance",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Hippo wants to dance. She jumps up and down on the dusty ground. THUMP! THUMP!",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-10T10:00:00.000Z",
-    "pages": [
+        "text": "Bani went to the book mushrooms. The figures told her stories of kings, queens, fairies and brave warriors. She listened while eating mushroom chips. Soon she was very thirsty. The children took her to a stream of sparkling water. It was lemonade. The next stream was orange juice and another mango juice. Bani drank a little from all the streams. It was nice and cold.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
       {
-        "pageNumber": 1,
-        "text": "Hippo wants to dance. She jumps up and down on the dusty ground. THUMP! THUMP!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 13,
+        "text": "There was wonderful music coming from the music mushrooms. Bani found herself dancing with a little boy in a pointed hat and pointed shoes. “What is your name?” asked Bani. “I am Pointy,” said he. Even his face was pointed. Then Bani danced with a little girl who wore a heart-shaped hat and shoes to match her heart-shaped face. “I am Little Heart,” she sang.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/13.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Bani sang and danced with all the children. “I am tired,” said Bani, “Can we rest?” “No time! No time! Take a sip of lemonade.” Bani took a sip and she felt better. “Let us fly to the mountains,” they said. They flew past mountains made of cake, ice cream and candy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "Then they came to the very last mountain. It was a toy mountain. Bani had never seen so many toys! The children played with brightly coloured magic balls that bounced here and there making the children jump. Toy cars whizzed up to them and took them for rides.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/15.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       },
       {
-        "pageNumber": 2,
-        "text": "“You’re getting dirt on me!” says Shongololo, sleeping in the sand. “Go dance somewhere else.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 16,
+        "text": "There were magic jigsaw puzzles that spoke, “Put us together!” Coloured blocks shouted, “Build us up and you can knock us down.” Bani had a great time. Now it was time to go home. They all flew over the forest to Bani's home.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/16.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       },
       {
-        "pageNumber": 3,
-        "text": "Hippo wants to dance. She rolls into the river and splashes her arms and legs. SPLISH! SPLASH!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 17,
+        "text": "“Bye bye Bani! Come again!” The children flew back to mushroom town.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/17.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0C4A6E"
       },
       {
-        "pageNumber": 4,
-        "text": "“You’re making me wet!” says Kingfisher, hunting for her breakfast. “Go dance somewhere else.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 18,
+        "text": "Bani got into her bed and fell fast asleep. In the morning she thought she had such a lovely dream, till she opened her hand and saw a ... What do you think Bani saw in her hand? Why don't you make your own little story ... about Bani.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0070/18.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Hippo wants to dance. She twirls around and around in a field, kicking her legs up high. SWOOSH! SWOOSH!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“Be careful! You nearly kicked me!” says Meerkat, bathing his babies. “Go dance somewhere else.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Hippo wants to dance. She flops into a puddle of mud and slides around on her nice big belly. SQUISH! SQUASH!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“Why don’t you stop dancing?” asks Donkey, carrying his buckets. “Why can’t you do something useful instead?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Hippo is sad. She is too sad to dance. She sits on a rock and cries. The tears roll down her cheeks and fall on the ground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "HOP! HOP! Grasshopper hears Hippo’s tears. He starts dancing around her feet. PLOP! PLOP!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Hippo and Grasshopper start to dance, and the other animals come to look ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/hippo-wants-to-dance/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
       }
     ]
   },
   {
-    "id": "bd-en-how-about-you",
-    "title": "How about you?",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Who are you?",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/01.jpg",
+    "id": "pb-en-0071",
+    "title": "Colours of Nature",
+    "author": "Bulbul Sharma (Pratham Books / CC BY 4.0)",
+    "description": "I see a blue butterfly waving goodbye",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-11T10:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Who are you?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I see a blue butterfly waving goodbye",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Is that goo? Eeuw! I want some too.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "I see a yellow bee drinking a cup of tea",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "We are two. How old are you? Six hundred and thirty two?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "I see a red fish in a dish",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "I like blue. Do you too? I choose two shoes. Which do you choose?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "I see a green frog playing with a puppy dog",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Horseshoes!?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "I see an orange duck wishing me good luck",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "I make toys with boys.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "I see a violet flower dancing with a caterpillar",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "We make lots of noise. Whaaa! eurgghhh...aargh!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "I see a grey and black cat wearing an orange hat",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "I take a nap on Gogo’s back.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "I see a grey and brown mouse hiding in a pink house",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "I don’t nap!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "I see a red and black fox wearing purple socks",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "I stay upright all through the night.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "I see a green grasshopper reading a black and white newspaper",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "The ball goes THWOCK! Buddy, you ROCK!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "I see a black and purple goat sailing in a red boat",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "That’s what we do. How about you?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "I see a green and brown crocodile giving me a big smile",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "I see a black and blue snake eating a slice of cake",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "I see a red and yellow hen writing with a pen",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "I see a black and orange tiger standing in the water",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/15.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 16,
+        "text": "I see with my two black eyes all the colours as they fly",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0071/16.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       }
     ]
   },
   {
-    "id": "bd-en-i-will-help-you",
-    "title": "I Will Help You",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "“Ouch!” Mama Heron hurts her wing and leg on barbed wire.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/01.jpg",
+    "id": "pb-en-0072",
+    "title": "Happy and Sad (Tell me now series)",
+    "author": "Madhav Chavan • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
+    "description": "Why is the baby crying?",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-12T10:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "“Ouch!” Mama Heron hurts her wing and leg on barbed wire.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Why is the baby crying?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "“I am hurt. I can’t get home to my children.” “Please help me.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "I think she is hungry.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "“Why are you crying Mama Heron?” “I can’t get home to my children.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Why is the boy sad?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "“I will help you,” says Lungile.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "I think he is missing his father.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "“Thank you, Lungile!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Why is the girl happy?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "The next day, Gogo sends Lungile to the shop to buy bread. On the way, he stops to play with his friends in the river.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "She has a new dress.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "Eish! The money is gone.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Why is the old man laughing?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "“Don’t come home until you find that money!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "He read a good joke.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "“Why are you crying, Lungile?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Why is the lady smiling?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "“I lost the money Gogo gave me to buy bread. We have no supper now.” “I will help you.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "Her children are reading quietly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Mama Heron’s sharp eyes see the coins shining in the water.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "“Thank you, Mama Heron.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "What is this lady feeling? I think she is feeling shy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0072/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-is-there-anyone-like-me",
-    "title": "Is There Anyone Like Me?",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "I wonder if there’s another me somewhere in the world.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/01.jpg",
+    "id": "pb-en-0073",
+    "title": "Colours (Tell me now series)",
+    "author": "Madhav Chavan • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
+    "description": "Why is the sky blue?",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-13T10:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "I wonder if there’s another me somewhere in the world.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Why is the sky blue?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Who looks the same. And talks the same.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "It is not always blue. Is it?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "And even has my curls.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Why are leaves green?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Someone with my eyes my ears. Who even has my laugh.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "They are not always green. Are they?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Who can do what I can do ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Why are bananas yellow?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "... and can’t do what I can’t.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Ripe bananas are yellow. Raw bananas are green.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "I’ve looked and looked everywhere to find another me. I went down to the park and looked behind the trees.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Why are umbrellas black?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "I looked around, up and down ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "All umbrellas are not black.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "... at every single face.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Why is blood red?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "I couldn’t find another me in any single place.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "There is iron in the blood. That makes it red.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "There’s only one me in the world! I’m special, oh it’s true!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "But not just me, don’t you see? There’s only one of you!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "Why is salt white? I don't know.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0073/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-karabos-question",
-    "title": "Karabo’s Question",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "My sister Kifue chases roosters that crow. What do I do? What do I know?",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-14T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "My sister Kifue chases roosters that crow. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "My brother Katleho has a ball to throw. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "My cousin Kutloano plants seeds in a row. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "My cousin Kamohelo leans on her hoe. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "My aunt Keromang has a dress to sew. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "My uncle Khotso herds the cattle that low. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Mama dries wheat when the wind does not blow. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Papa rides a horse over mountains in snow. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Grandpa’s slow donkey walks to and fro. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Grandma sings songs till the fire burns low. What do I do? What do I know?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "You know how to say yes. You know how to say no. That’s what you do! That’s what you know!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Everyone laughs when you put on a show. Your work is to play. Your work is to grow.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-lara-the-yellow-ladybird",
-    "title": "Lara the Yellow Ladybird",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Lara the ladybird was a special bug. Unlike all her friends, she had bright yellow wings.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-15T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Lara the ladybird was a special bug. Unlike all her friends, she had bright yellow wings.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Everyone loved her yellow wings. Each morning, Bibi Butterfly said hello. And Manto Mantis always waved.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Even Sesa, the sulky spider, was happy to see her. At school, she played with lots of friends.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "But Lara wanted to be like the other ladybirds. “I wish I had red wings like you, Mama,” she cried.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "So one day, to cheer her up, Lara’s mother painted her wings bright red.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "The next morning, nobody greeted Lara on her way to school.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "And when she got there, none of her friends said hello.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Lara sat all alone. No one noticed her new red wings. Until Miss Miya spotted her and said: “You’ve painted your lovely yellow wings!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Lara’s classmates were shocked. “Your wings are special!” “So unique!”“So rare!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "“Lara,” Miss Miya said, “your yellow wings are what make you you. Like Sipho’s spot ... and Sally’s legs.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Back home, Lara took a long bath and scrubbed until her golden wings gleamed. “I’ll never paint my wings again!” she thought. Except, maybe once or twice ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "To try a bit of purple ... or something nice. But not for ever and just for fun.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-little-ants-big-plan",
-    "title": "Little Ant's Big Plan",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Little Ant loved to read. Little Ant was often teased. “Ants don’t read. Ants must feed. Ants collect the food they need.”",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-16T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Little Ant loved to read. Little Ant was often teased. “Ants don’t read. Ants must feed. Ants collect the food they need.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Little Ant would read all day, he’d read and read the day away. The other ants took what they found to store for winter underground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "His mum and dad got really mad, and Little Ant felt really bad.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "In autumn when the leaves fall down, the ants must keep food underground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "The Queen wants food to fill the store, so all the ants must work some more.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Little Ant begins to shout about a place he read about. “A restaurant is what we need, a place where people go to feed. It says so in the books I read.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "The ants go marching one by one. They march into the setting sun.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "And Little Ant said “Hey, there’s one!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The ants go marching one by one, carrying a burger, carrying a bun.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "When they return the Queen is glad. The stores are full. They cheer like mad.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Ant gets hugs from mum and dad.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "His baby sister takes his hand “Now I think I understand.” “The way you love to read a book ... Makes me want to take a look.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-little-sock",
-    "title": "Little Sock and the Tiny Creatures",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "It’s wash day for the Socks.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/01.jpg",
+    "id": "pb-en-0074",
+    "title": "Naughty or Not (Tell me now series)",
+    "author": "Madhav Chavan • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
+    "description": "Am I a good boy?",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-17T10:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "It’s wash day for the Socks.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Am I a good boy?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "OH NO! Little Sock falls out! “I have to get home,” says Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Yes, you are a good boy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "“Do you know the way home?” asks Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Am I a sweet girl?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "“No, but take this,” says the Robot.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Yes, sometimes you are a sweet girl.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "“Do you know the way home?” asks Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Is he a bad boy?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "“No, but take this,” says the Mouse.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Yes, sometimes he is a bad boy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "“Do you know the way home?” asks Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Is she a naughty girl?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "\"No, but take... OOPS!!!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "Sometimes she is very naughty.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "“Maybe the marble knows the way home,” says Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Is he a quiet boy?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "“It does!” says Little Sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "He likes noise.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Little Sock is happy.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Different socks have different personalities, so pick your favourite. MAKE YOUR OWN LITTLE SOCK YOU WILL NEED: • a sock • two buttons • a needle and thread • a grown-up to help INSTRUCTIONS Ask your grown-up to sew the buttons onto the sock.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-sock/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "You are the best. You are the best too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0074/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-londi-the-dreaming-girl",
-    "title": "Londi the Dreaming Girl",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Londi was a dreaming girl. Up in the sky, she didn’t see clouds.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/01.jpg",
+    "id": "pb-en-0075",
+    "title": "Gulli's Box of Things",
+    "author": "Anupama Ajinkya Apte (Pratham Books / CC BY 4.0)",
+    "description": "“What's wrong Grandpa, why are you not reading the newspaper?” asked Gulli one morning. “Oh dear, I broke my reading glasses, and I can't re...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T10:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Londi was a dreaming girl. Up in the sky, she didn’t see clouds.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "“What's wrong Grandpa, why are you not reading the newspaper?” asked Gulli one morning. “Oh dear, I broke my reading glasses, and I can't read anything without them,”said Grandpa.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Instead Londi saw flying geese, jumping fish, and fluffy sheep running home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "“Ah, don't you worry, Grandpa. Let me go and get my box of things.” Gulli ran out fast, and came back with his little brown box.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "One afternoon, Gogo came outside, looking tired. “Londi, stop dreaming!” she said. “It’s time to go and fetch the water.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Clink, clonk, dadum-dum. What has he found at last? A shining bright magnifying glass! If you care to look through it, everything will look better and bigger.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Londi stood up and smiled at her feet. “Let’s go, feet! You know the way there!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "\"Thank you, this is just fine, now I can read each and every line,\" said Grandpa.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Londi started walking to the tap. She hopped over the rocks. She crept past Mama Neli’s house. She dashed down the path.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "“What is wrong, Mangal Chacha?” asked Gulli one Sunday. “I have to pour oil from this pack, but the bottle's neck is so small. I am sure I will make a complete mess in my kitchen,” said Mangal Chacha. “Ah, don't worry, let me find you something really fast,” said Gulli.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "The line at the tap was long. “Oh no!” Londi said to her feet. “We’ll have to wait. Let’s stay in line. No dreaming away!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Clink, clonk, dadum-dum, let's see what Gulli has found this time!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "Ooh! Londi thought. But what’s that shining over there? I wonder who lost their shoe?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "A funnel with a big, wide mouth! Pour anything from the top, and see how it comes down so neatly, drop by drop! \"Here, Mangal Chacha, use this one, the kitchen will be clean and cooking will be fun.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Did it belong to a girl like me? Or something else...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "\"Thank you Gulli, for helping me out!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "And what’s that under there? Cheep! Cheep!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "“What are you looking for, Grandma?” asked Gulli. “Oh, I was mending Grandpa's monkey cap, and the needle just fell off from my lap!” said Grandma. “You just sit here on the chair that rocks, while I go find something from my little brown box!” said Gulli.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "And what’s that big shadow? Uh oh, it’s Gogo! “Londi, your bucket nearly rolled away!” “Sorry, Gogo. I dreamed too far, again.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "Clink, clonk, dadum-dum, what has Gulli found this time? A magnet! All the little metal things will stick to that! \"Let me scan the ground, and the needle will soon be found,\" said Gulli.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "They filled up the bucket together. Londi watched the big sun sink into the hills. “Come let’s go, my dreaming girl,” said Gogo.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "“Look, Gogo! There’s a pink pig in the sky!” “Oh Londi... It’s just a cloud,” Gogo sighed. Londi took Gogo’s hand and they walked home together happily.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "“Look Grandma, see how your needle is stuck, and I also found other long-lost metal stuff!” “Thank you Gulli, you are so wise. Your little brown box is really nice!” said Grandma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0075/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-lory-dory",
-    "title": "Lory Dory",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One night Grandpa was tucking me in. His hands were soft and his hair was thin.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/01.jpg",
+    "id": "pb-en-0076",
+    "title": "Paplu, the Giant",
+    "author": "Ramendra Kumar • Illus. Zainab Tambawalla (Pratham Books / CC BY 4.0)",
+    "description": "This is the story of a nine-year old giant called Paplu. He was very different from the other giants. They loved to fight, whereas Paplu hat...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-19T10:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "One night Grandpa was tucking me in. His hands were soft and his hair was thin.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "This is the story of a nine-year old giant called Paplu. He was very different from the other giants. They loved to fight, whereas Paplu hated fighting. While his classmates would spend their time twisting the ears of dinosaurs or yanking the tails of tigers, Paplu would be busy protecting his friends. Paplu's mother was worried about her son. One night she woke up Paplu. “Son, you will never be happy staying in our tribe. I am taking you to a village where people are normal human beings. You will stay there with Raghav, the head man.” Just before they reached the village, Paplu's mother asked him to close his eyes. When he opened them, he almost fainted. He had shrunk to one-tenth his size and so had she. Paplu's mother handed him over to Raghav and left.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "‘I’m going to tell you a special story, about a girl named Lory Dory.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Paplu soon made friends with the boys and girls of the village. One day Raghav came home very worried. “A ruthless bandit called Angaar has blocked the only way out of our village. We cannot go to our farms to work and will surely starve,” he said. Paplu wished he could help Raghav in some way. Paplu suddenly remembered something. Before leaving the forest, his mother had told him the magic words which would make him a giant once again. And as a giant, he would easily be able to take care of Angaar. Paplu did everything he could, including standing on his head and pulling his own ears, but he couldn't remember those words.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "You couldn’t see Lory Dory at all because she was born invisible.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Then Paplu heard a soft lisp. “Paplu paiyaa, play with me, pleath.” It was his two-year old neighbour Soni. Paplu was her best friend. He picked her up and threw her high in the air and she started singing: “Paplu paiyya, Paplu paiyaa thlow me up, cath me quick, Paplu paiyya, Paplu paiyya please show me youll magic thlik.” Paplu froze! These words and the tune sounded very familiar. He rushed inside and came out with a blue stone in his hand. He now remembered what his mother had told him, “Son, throw the stone in the air and say these words: I'll throw you up, I'll catch you quick. Don't forget my magic trick.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "You’d only see Lory when rain hit her head, or when she was curled under blankets in bed.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "As Paplu threw the stone and recited the words, he felt himself swelling up like a balloon. Suddenly he heard a sound – R-r-rip! R-ri-ip!! His clothes were tearing. If he didn't look for cover, he would soon be standing bang in the middle of the village, in clothes hundred sizes too small for him. All he would have to cover his modesty would be strips of cloth and little else. Paplu rushed into the woods with the sound ‘R-r-rip! Rri-i-p!' chasing him. Once deep into the undergrowth, Paplu got down on his knees. It looked like he had missed a word or two in the magic chant his mother had made him learn. That is why his clothes had not grown along with his body!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Lory was left out of all the kids’ games. They teased her and they called her names. ‘Look, it’s Lory. The Imaginary Friend! She’s not like us, she’s just pretend!’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "What was he to do now? Although he had become a giant, he couldn't venture out on his rescue mission in his birthday suit. He needed clothes urgently. But how was he to get clothes his size and that too, quickly? He heard a voice and looked down. It was Raghav. “Soni told me you had become big and that you had run away somewhere. When I heard this strange story, I came out to investigate.” “Using a magic trick my mother taught me, I have become a giant. Now I can take care of Angaar and his gang,” said Paplu. “That's great, then what are you waiting for?” “My clothes didn't keep pace with my growth. I am wearing almost nothing. How can I come out like this?” Raghav thought for some time and said, “Okay, give me some time. By nightfall, I'll have your clothes ready.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "One day at school, a boy wanted to know: ‘How do you look? I only see you in snow.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Raghav went back home and summoned all the tailors in the village. Twenty one tailors appeared in no time. Raghav explained the problem to them and said, “I want a pair of pyjamas and a kurta, to be stitched as soon as possible for Paplu.” Soon ‘Operation Paplu Dress' started. It was quite funny to see the tailors scrambling up Paplu's back, legs and hands to take his measurements. The whole village got into action contributing whatever material they could. Even Soni donated her doll's shawl to the project! In seven hours, the dress was ready. In seven hours, with a whoop of joy, Paplu stood up towering over the villagers. He looked really smart with the multi-coloured kurta and an equally multi-coloured pyjama. There was thunderous applause.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "‘Can you paint yourself?’ Lory knew that she could. But not in the same way the boy thought she would.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "It was just past midnight. Angaar and his men were fast asleep. Only two bandits were on guard. Suddenly Angaar woke up. He could hear a strange sound. He got up and picking up his sword, rushed out of his tent. The other dacoits too were coming out of their enclosures, spears and swords in hand. “Whoosh!” There was the sound again. It seemed to be growing louder and closer. “WHOOSH!” Angaar looked around. A dust storm seemed to be gathering momentum. Trees had started swaying and the noise was slowly becoming deafening. “WHOOSH! WHOOSH!” Angaar felt himself being picked up by the air current. He desperately tried to hold on, flaying his arms and legs, but it was no use. He was flying in the air. To his left, was his deputy Jarnail looking like an ungainly dinosaur. To his right, was his most accomplished swordsman, Talwar, air-borne like his colleagues, desperately trying to reach out for his sword which was flying ahead of him. A few minutes later, there was a splash.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Lory painted her body with all that she loved from the world all around and the sky up above.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "They landed in the river to the south of the village. As they swam to the shore, spluttering and shivering, a huge shadow loomed over their heads. “Angaar, you scoundrel!” the shadow thundered, its voice echoing in the night. “Y...yes,” stammered the dreaded Angaar. He had never been so terrified in his life, since the day his father, Rosh Bundela had walloped him for eating up his jalebis. “This time I have merely roughed you up. Next time, if you or any of your men come anywhere close to the village, I'll rip each and every limb from your bodies and chew them up.” “Y..yes, Maharaj, we will never again come within a thousand miles of this place.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "She painted herself every day with such pride, to bring out the person who she was inside.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "I know I’m invisible and hard to see. So I painted these pictures to show the real me.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "‘Are you making this up, Gramps? Is this story true?’ ‘Lory is real – real as me, real as you.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "When Grandpa had left me, I can’t quite be sure, but I think I saw Lory just outside my door.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "“Good. Remember, if I hear you are even passing through these parts, I'll make a paste of you and your gang and feed it to the fish in this river.” “Yes, Maharaj. But please, do tell me, who are you? I have never seen you in these parts.” “I am a guardian of this village,” Paplu said. He paused for a good ten seconds and then in his deepest tone said, “And my name is Paplu, the Giant.” And with these words, Paplu stormed back to the village. Angaar and his men left the same night and were never heard of again. Paplu went back to his original shape and size. However, he couldn't get back his original name. No one called him Paplu anymore. To everyone, and even to Soni, he was Paplu, the Giant.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0076/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       }
     ]
   },
   {
-    "id": "bd-en-maddy-moona",
-    "title": "Maddy Moona’s Menagerie!",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "My name is Maddy Moona, and today I’m turning five. Dad promised I could choose a pet, a real one! Something live! We’ll travel across the w...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/01.jpg",
+    "id": "pb-en-0078",
+    "title": "Cheenu's Gift",
+    "author": "Sridala Swami • Illus. Suvidha Mistry (Pratham Books / CC BY 4.0)",
+    "description": "School was about to get over. Just five minutes more, but Cheenu could not wait! He looked outside. There was nobody there. From somewhere c...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T10:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "My name is Maddy Moona, and today I’m turning five. Dad promised I could choose a pet, a real one! Something live! We’ll travel across the whole wide world, searching Mali through Tibet, until we find the perfect one... Oh, I know just what I’ll get!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "School was about to get over. Just five minutes more, but Cheenu could not wait! He looked outside. There was nobody there. From somewhere close by, a bell jingled.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "I’m going to get an elephant. I’ll ride on it to school. My brother Billy can walk behind, he’ll think I’m awfully cool. But... what if Ellie caught a cold? I guess she’d sneeze.... A LOT! There is no tissue big enough to wipe up all that snot.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "“Cheenu, what are you doing?” asked his teacher. “Sorry Miss,” Cheenu said. “It's just that...”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "I want a Nile crocodile sent to me by the pharaohs. I’ll call him Tut and feed him soup, fish fingers, and baby marrows. I’ll keep him in the bathtub and brush his pearly whites, But... what if flossing all those teeth takes me all day and night?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "“Paperwala, kaidalu! Papere kaidalu!” sang Cheenu's father, the Kabadiwala. Even from outside, he could see Cheenu's grin. Kaidalu: Paper in Telugu, Kabadiwala: Junk dealer in Hindi.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Perhaps a pair of porcupines, for games of robbers and cops. Their prickly quills will be handy for holding up sweetie shops. I can munch away on candy bars while my gang sharpen their spines. But... what if my sharp-shooting pals put me in the firing line?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "The school bell rang. Cheenu ran out to his father, grinning from ear to ear. He was the only child in school whose father came to pick him up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Maybe I need a stealthier plan. Let’s clear out the store with funk! There isn’t a smellier critter on earth. That’s what I want — a skunk! But... what if I can’t go into the shop after Skunky has let off his stink? Sweets are no good for my teeth anyway. A rotten idea! I need to rethink!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Cheenu jumped on to the bandi and dangled his legs. His father pushed the bandi, shouting, “Paperwala... kaidalu!!!” Cheenu also shouted. They were quite loud! When a watchman stopped them, Cheenu jumped off. He went with his father, carrying an empty sack. All the things they would get today would go into that sack. Bandi: Cart in Telugu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "A rhino! The horns, the big stomping feet, the armour on both of its flanks! Billy would never chase me again. It would be my own personal tank. But... what if Billy raises his temper and Rhino goes on the rampage? Crash bang boom! The teacups! The plates! Now I’m grounded ‘til I’m gran’s age.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "From this house, newspapers. From that one, newspapers and magazines. From the ground floor, newspapers and magazines and empty bottles.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "I need a beast to tame my brother. With teeth, sharp claws and a roar. A LION! I could feed it Billy biltong... Yes! A lion would settle the score. But... a lion has a huge appetite. Skinny Billy won’t satisfy. And once Brutus has a taste for us Moonas, he’ll see me as Maddy stir-fry.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Cheenu ran to the bandi to get another empty sack. They were going up in a lift! Cheenu's eyes grew big and round!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Dad thinks I should choose a cuddlier pet. My parents are so hard to please. They want me to have a pet I can hug. A python? A python has squeeze. But... if Snakey develops too much of a crush, he’ll suffocate me with affection. To be honest, I just can’t marry a snake! And reptiles can’t handle rejection.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "From the fifth floor, newspapers and magazines, bottles and boxes and books.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "No, reptiles aren’t the way to go. I definitely need something taller. A giraffe would be awesome. I’ll slide down her neck, and think up a long name to call her. But... something more than eight foot tall is no good. Our house has a rather low ceiling. I’d spend hours massaging cricks out her neck. My fingers would lose all their feeling.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "While his father was talking to the lady, Cheenu put everything away so that the books were right on top. Where he could look at them!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "None of these are the perfect pet! Oh what, oh what will I get?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "This time, Cheenu had to help his father push the bandi!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Those animals just don’t work. None are my perfect partner in crime. I want something with fur, a pet who will follow. Oh wait! I know — a canine!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "My Bandit is the biggest bark on the block! He’s the fastest pup in the west! Nothing can stop us. Not Billy nor bedtime. I love my Bandit. He’s my best!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "At home, after they had put everything away, Cheenu's father called him. “I have something for you,” he said. It was the book Cheenu had been looking at all afternoon! “Thank you, Naana!” Cheenu said. After that, they had to call him three times to come and have dinner! Naana: Father in Telugu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0078/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-miss-helens-magical-world",
-    "title": "Miss Helen’s Magical World",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a who...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-21T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a whole world here. She even made me. And she named her house after me. It was called ‘The Owl House’.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Most of Helen’s nine brothers and sisters were grown up and gone by the time she arrived. But she still had her sisters Annie and Alida. Helen didn’t have many friends in the village, but she didn’t mind. From the start, Helen did things differently from most people.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "After her sisters left home, Helen lived alone with her parents. She loved her mother, but she hated her father. Everyone agreed he was a very strange man. Her big sister Alida travelled all over the world. One day she sent Helen a postcard from Egypt. In her mind Helen saw princes and pyramids and camels in the sand.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "As she grew older, Helen read more stories of faraway places. She especially liked poems from Persia in the Middle East. She dreamed of visiting the ocean one day. She kept a seashell on her bedside table, and imagined she could hear the sound of waves inside it. But of course, owls were always her favourite things of all!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Helen loved books and stories so much that she decided to become a teacher. She was very good at it too. But then she met Johannes Pienaar. He was also a teacher, and a writer and actor. He convinced her to run away with him.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Helen and Johannes got married. They travelled to many different towns, teaching and performing plays. Helen thought she might start a family like her sisters had done. But it was not to be. She and her husband were always fighting. When Helen’s mother became very sick, she decided it was time to go back home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Helen was not happy. Her mother was so sick, and her father was so grumpy. She kept to herself. People thought she was strange. The night her mother died, Helen kept a candle burning beside her bed all night. With the help of that little light, Helen didn’t feel so afraid of the dark.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Helen decided she wanted brightness in her life. She began by changing the space around her. She needed helpers. Three men from the village, Jonas Adams, Piet van der Merwe, and Koos Malgas, made the things she imagined out of wire and cement. She filled her back garden with interesting creatures. There were sphinxes and camels, mermaids and cats. And lots and lots of owls! She called it her camel yard. On the fence she made a wire sign. It said: ‘This is my world’.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "During the day Helen made sculptures. At night, she practised catching light. She collected glasses and mirrors, candles and lamps. Anything that would shine. She put lanterns in every room. Mirrors caught and reflected the light. She covered the walls in glittering glass so that they could shine too. After Helen’s father died, she had the house to herself. Each night she slept in a different room. She would always choose the one with the best view of the moon and the stars.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The people of Nieu Bethesda would walk past Helen’s garden and marvel at the creatures in it. Some of the village children brought her glass bottles for her sculptures and called her ‘Miss Helen’. She always thanked them with sweets. Others were not so friendly. They called her names and threw stones on her roof. Miss Helen spent all her money on glass and cement. She lived on bread and black tea. In her diary she wrote: “In my loneliness I am happy.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The garden grew and grew, until there was hardly space left for any more creatures. Miss Helen was tired now. Her hands were stiff and sore. Her eyes were going blind from working with tiny bits of glass. She wasn’t afraid of being alone. But she was still afraid of the dark. And her world was getting darker and darker. She knew that soon she wouldn’t be able to see anything at all.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "But when she closed her eyes for the last time, Miss Helen didn’t see darkness. She saw the sun and the moon and the stars. She saw wise men and mermaids, camels and cats, acrobats and owls with big brown glittering glass eyes. And we still stand here today, just the way she left us, in the garden she made, looking East.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-mrs-penguins-palace",
-    "title": "Mrs Penguin’s Perfect Palace",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "“I wish I had a HOUSE!” said Mrs Penguin. “I don’t like living in rubbish.” “Dear Mrs Penguin,” said Papa Penguin. “We will build you a pala...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-22T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "“I wish I had a HOUSE!” said Mrs Penguin. “I don’t like living in rubbish.” “Dear Mrs Penguin,” said Papa Penguin. “We will build you a palace.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "So the Penguin family set to work. “The sand is making me itch,” grumbled Sissie. “The measurements are wrong,” said Boetie. “I’m hungry,” said Gobbles. Mrs Penguin sighed. She was doing all the work.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "At last the castle was finished. But the tide came in and washed it away. “We’ll try again,” said Papa Penguin.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "“Come children, we’ll build Mama a mansion from stone.” So the Penguin family set to work.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“The stones are heavy,” grumbled Sissie. “The measurements are wrong,” said Boetie. “I’m still hungry,” said Gobbles.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "At last it was finished. But the wind came up and blew it over. Mrs Penguin was cross. “I’m not doing any more work,” she said.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "“We’ll try again,” said Papa.“I can’t think of anything,” said Sisi. “It’s too hard.” “We haven’t got any cement,” said Boetie. “You can’t build a proper house without cement.” “I’m hungry,” said Gobbles. Mrs Penguin sighed. She was never going to get her home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“Just look at all this mess,” she said. Then Mrs Penguin had an idea.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "“Boetie, fetch wood,” she said. “Sissie, find nets.” “Gobbles, pick up plastic. Papa, fetch the hammer.” All day they worked.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "I’m tired,” said Sissie. “Keep working,” said Mama. “The measurements are wrong,” said Boetie. “Keep working,” said Mama. “I’m still hungry,” said Gobbles. “Keep working,” said Mama.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "“It’s going to be wonderful,” said Papa. “You’re doing a good job,” said Mama. So they worked and worked and worked and worked... ...and at last the house was finished.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "“Welcome to your palace,” said Papa. Mrs Penguin clapped her flippers. “Thank you,” she said. “It’s Mrs Penguin’s Perfect Palace.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/mrs-penguins-palace/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-queen-of-soweto",
-    "title": "Queen of Soweto: The story of Basetsana Kumalo",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Basetsana Makgalemele was born in a township called Soweto. She was her parents’ third daughter. They named her Basetsana, which means “girl...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-23T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Basetsana Makgalemele was born in a township called Soweto. She was her parents’ third daughter. They named her Basetsana, which means “girls”. In Tswana culture, calling your daughter that means your next child will be a boy. This actually happened. Her parents’ next child was a boy. Her parents, big sisters and younger brother all called her Bassie for short.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "When she was a child, Bassie was very shy. She liked to sing and dance in her room on her own. One day at school netball practice, the coach told two girls to pick teams. Bassie stood on the edge of the field hoping someone would say, “Come play with us!” But nobody wanted her on their team. Little did they know, Bassie would become one of the most popular girls in the country.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "On weekends, she and her brother and sisters helped their teacher mom and bus driver dad to pay the bills. They made sandwiches to sell at local soccer matches. They tried to sell everything as fast as they could so they had time to play with the other children when the game was over.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "By the time Bassie turned 16, she was a beautiful young woman. She was so beautiful that she won two beauty competitions in one year: Miss Soweto and Miss Black South Africa. But Bassie was not only beautiful on the outside. She was also beautiful on the inside. Even though she was a beauty queen, she still cared about the community where she grew up.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Bassie was also very smart. She worked hard at school, especially on her favourite subject: science. Her hard work was rewarded when she was the top science student at her school in matric. That’s not all, she was also Head Girl. The shy little girl was now one of the most popular girls in school.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Bassie’s father always encouraged his children to read. He gave her a book called The Power of Positive Thinking. From that book, she learnt that being optimistic is the key to making your dreams a reality. She dreamt of winning Miss South Africa. Not only did that dream come true, she was even crowned First Princess in the Miss World competition!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Bassie’s mother was her role model. Bassie described her mom as a “fierce, hardworking Xhosa woman who did not suffer fools”. She was a teacher and Bassie had plans to follow in her footsteps, but things don’t always go as planned! After winning Miss South Africa, she became a TV presenter. She wasn’t a teacher, but like her mom, she was hardworking. Her career in TV led to her opening her own television production company. She was now a successful business woman.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Bassie’s motto is: “To whom much is given, much is expected.” She believes that you are given a gift so that you can give to others. Bassie does this by volunteering, giving of her time and money and even creating jobs. She is involved with projects and charities to help people in her community. One that is very close to her heart is the Nelson Mandela Institute.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Bassie had a very close relationship with Nelson Mandela. When she was crowned Miss South Africa, Madiba wrote her a letter of congratulations. In the letter, he called her “our Queen”. They shared a passion for children and education and the belief that an educated nation can help fight poverty.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "In 2002, Bassie married Romeo Kumalo and became known as Basetsana Kumalo. Together they established the Romeo & Basetsana Kumalo Family Foundation. The foundation looks after orphans - children who don’t have a mom and dad.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Bassie has had to learn to balance her busy work and family life. She has her own company called Basetsana Women Investment Holdings. She and Romeo have three children, two boys and a girl. Bassie sees her role as mother to her children as her “highest calling and greatest privilege”.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Bassie says the secret to her success is “courage, determination, passion and staying committed to the course”. Despite all her success, she remains humble while trying to make the world a better place. Being beautiful on the outside is not what makes you a beautiful person. It’s a heart filled with love and generosity. And that’s why Bassie is our beautiful Queen.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-rafikis-style",
-    "title": "Rafiki’s Style",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "On Sunday, Jimmy Zogba scored the winning goal.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/01.jpg",
+    "id": "pb-en-0079",
+    "title": "Kallu's World 1 - In Big Trouble Again!",
+    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
+    "description": "“Kallu get up! You'll get late for school again! KALLOOO!” The urgent voice pierced through a lovely dream in which Kallu and his friend Dam...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-24T10:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "On Sunday, Jimmy Zogba scored the winning goal.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "“Kallu get up! You'll get late for school again! KALLOOO!” The urgent voice pierced through a lovely dream in which Kallu and his friend Damu were catching a huge fish in the river, and for some strange reason the fish was smiling at them. Kallu pushed a bleary face out of his quilt and protested sleepily, “Shabbo it's too early! I hardly slept!” “No, it isn't,” his brother Shabbo said firmly. “The sun came up long ago. Ammi has already milked the buffalo and we've all had breakfast.” Kallu sat up shivering and looked out of the window and mumbled, “Sun? I don't see any sun.” “That's the mist you idiot! Abbu has already gone to work in the vegetable field and all the school kids of our mohalla went past long ago.” “Everyone's gone?” Kallu about to yawn swallowed it in panic. “Even Munia?” Shabbo nodded silently, his face looking really gloomy. “BAAP RE!” Throwing back the quilt, Kallu struggled out of bed. He couldn't get late for school again! He just couldn't! Two days earlier, Masterji had threatened that one more late entrance in class and the punishment would get really serious. He was even thinking of not promoting him to the next class. And that too after he made Kallu stand in a corner holding his ears for hours and hours. “I have to think up a story right now!” Kallu thought desperately as he hunted for his chappals under the bed. “A really wonderful, heartbreaking, very convincing story...” He rushed at super speed to get ready, like he did every morning. He quickly splashed some freezing water on his face to really open his eyes, no bath of course. Luckily it was winter or his mother would have made him take one. He grabbed a shirt, trousers and sweater and hopped about putting them on. Shoving his feet into his chappals, he looked at his younger brother and panted, “You're so lucky Shabbo! No school for a whole month!” Shabbo sitting by the window, his right leg covered in plaster, said grimly, “Sure! Breaking a leg is great fun. I love sitting here all day, getting so bored I could tear out my hair, while you go off with Damu to play football. Zaroor, I'm having fun!” By the time he finished speaking, Kallu was already out of the house and half way down the lane. Shabbo leaned out of the window to watch his hurrying figure vanish through the swirling mist. Then a huge delighted grin slowly spread across his face. “He's gone!” Shabbo sang out. “You can come out Munia!” His sister Munia who had been hiding behind a cupboard, came out with an even bigger smile on her face. They were laughing so much that Munia got an attack of hiccups. On his way out, Kallu had grabbed a dry chapati from the kitchen and now taking a bite he mumbled to himself, “A story Kallan Mian! A very convincing, brand new story or you're standing in the corner again.” Life was a mystery to Kallu. He liked school, he really did. He enjoyed doing sums and learning science, he loved playing football and singing in the school programmes. But then why, oh why, did he find it so hard to get to school on time? Even Masterji couldn't really understand it.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "On Monday, the Cool Cat Crew strutted by.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "He had suggested sarcastically that Kallu should start sleeping in the school veranda at night, and all the other kids in his class had laughed at Kallu. The problem was that things were getting serious now. If Masterji really did not promote him to class nine, then he was in deep trouble because then his Abbu would make him leave school and make him work in the vegetable fields. Who wanted to pull up spinach and collect carrots and peas when he could go to school? School was a hundred times more fun and he knew that if he could pass the twelfth class board exam, he could find a good job, may be even go to college! Going to college... ah! That was Kallu's biggest dream. What Kallu really wanted to do, was to complete his twelfth class and then learn about computers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "“Hey, Rafiki, where’s your zebra hair? Your hair’s so plain, like you don’t care.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Masterji said he had the brains to do that. Last month, he had taken their class to a computer show in the nearby town and they all thought the machines were totally amazing! The salesman had shown him the correct way to use the mouse and how you could go into the Internet. That was absolute magic! Now Kallu and Damu wanted to become magicians with the mouse, going zip-zap across the computer screen. On the way back in the bus, he and Damu had worked out a fantastic plan. Now that the new highway went past Khajuria village, they would open a dhaba-cum-STD booth-cum-computer centre right beside it. Damu, who dreamed of food all the time would run the dhaba, and Kallu would manage the STD booth. Truck drivers would eat at the dhaba and call home from the STD booth and the people from all the nearby villages sending vegetables, wheat and sugarcane to the wholesale market, could check out the latest market prices on the Internet. “Kya baat! ‘Damodar Dhaba and Kallan Computer Centre'.” Damu smiled and then turned to give Kallu an anxious glance, “If only you would get to school on time.” Whizzing past the tea shop, still munching the chapati, Kallu yelled, “Salaam Dharam Chacha!” Dharampal, the chai shop owner, looked up from the boiling kettle and gave a surprised look, “Arrey it's Kallu!” Then his grin widened as his eyebrows shot up, “What's the matter? Did the sun rise from the west today? Where are you going so early in the morning?” “Schooooool!” “Have a pakora first!” And he laughed. “Garam garam Dharam ke pakorey!” Hurrying along Kallu had no time to reply. Dharampal Chacha jokes about everything, he grumbled to himself. Here Kallu was in serious trouble and he was talking about silly pakoras. What was so funny about Kallu getting late for school anyway? It happened every week!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "“Hey, Rafiki, where’s your fake tattoo? Your skin’s so boring. You are too.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Of course, the most disastrous was when he arrived late, day before yesterday. There was a rehearsal for the 26th January programme and when he crept into the school courtyard, they were already singing “Jaiya he!” of the National Anthem. And Kallu was supposed to be there in front with Damu, Munia and Saru leading the singing. So he stood at the back, sang “Jaiya he!” and was trying to sneak off to class when someone grabbed him by the collar and hauled him back. His heart nearly stopped as he looked up at Masterji's grim face. “You are again late for rehearsals, so you're out of the show.” Masterji's voice was cold as ice. “Oh no! Please Masterji!” Kallu had tears in his eyes and these were real tears, not the ones he could bring out at will. He really wanted to be part of the show. “Please... please...” he pleaded desperately. “I promise I won't be late again.” “Fine.” Masterji's voice softened a bit. “I'll let you go this time, but one more late mark and you're out! Get that?” Kallu nodded with a sniff. By then they had reached Kallu's classroom and as Kallu headed to his seat, he said, “Where are you going? Stand in the corner, holding your ears.” His classmates had already begun to giggle when Masterji came up with the final, terrible threat, “May be I won't promote you. Kallan - failed in eighth because of late marks!” And now he was late again. His life was over. A good story... thought Kallu ...a really credible excuse. He had come up with so many in the past, why couldn't he think of a new one today? In his mind's eye, he could see Masterji frown in disbelief looking down at Kallu, as he stood stammering and stuttering away. He was concentrating so hard on his story, he ran straight into a herd of buffaloes. Just my luck, he thought in disgust, dodging the mooing cattle. In a life threatening crisis like this, what do I do? I crash into Badri and his fat buffaloes. Puffing and panting, slithering through the mud, he struggled through. Badri, the mad buffalo man in his huge turban, waved a stick in greeting and smiled behind his bushy moustache. “Aren't you early Kallu? Why don't you help me wash the buffaloes and then go to school?” “Are you joking?” “No. I'll give you five rupees. There's time, you're early.” “Sure, I'm early,” muttered Kallu irritated. “I'm so early it's not even today yet, it's still yesterday. And I'll also feed your buffaloes and dance with them.” “Heh! Heh!” Badri laughed as he slapped a buffalo on the rump. “You're really funny Kallan!” Kallu kept running. The whole village is against me, he thought gloomily, even crazy Badri.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "“Hey, Rafiki, where’s your bling? Your teeth are wonky, that’s the thing.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "That day, Rafiki walked home slowly.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "“Auntie, can I have zebra hair?” “I can’t cut you zebra hair. Actually, I wouldn’t dare.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“My skin’s so boring, Sisi. Can you make a fake tattoo?” “You don’t need one to look like you.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "“Mkhulu, I wish I had some bling.”“Bling, my child, don’t mean a thing.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The next weekend, Santi Ramires scored the winning goal.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "On Monday, the Cool Cat Crew strutted by. “Hey, Rafiki! Looking fine!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Rafiki shrugged. “I look like me; this style is mine.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "Can't they stop joking and teasing a poor boy like me? And then he got busy with the story-cum-excuse problem once again. Ammi was sick and he had to make breakfast? Nope. He'd tried that one at least twice before. It won't work again. The goat had run away? Nah! It didn't work last time. Someone stole his pen? The pen was right there in his school bag. His chappals broke and he had to get them repaired? No way! They were brand new. Going past Damu's house, he saw his best friend and his sister Saru sitting on a charpai in the courtyard, eating breakfast. Ha! They were late too, Kallu thought in triumph, and they are still eating, so they'll come in after me, and hopefully Masterji will be so busy yelling at them, he'll forget about me. Damu looked up, his eyes wide in surprise, “Oye Kallu! Wait for me yar!” “Paranthas, Kallu Bhaiya,” Saru called out. “Gobhi paranthas!” “No time!” Kallu huffed past at full speed. “Meet you in school.” “Theek hai. See you later.” Damu shrugged and went back to eating. Damu and Saru are so lucky, Kallu thought. They lived right next to school. They could even leave home when the school bell rang. As he got to the school gate, Kallu's heart began to thud really fast. Guess who was standing there, stuffing a paan into his mouth. Masterji!! Talk of bad luck! Kallu skated to a stop, and began in a nervous rush, “I'm sorry I'm late Masterji, but today it's not my fault at all! I had to help Shabbo take a bath. You know he's broken his leg and...” he came to a sudden stop because of an amazing sight. Masterji, the scariest human being on earth, was laughing! “Wait!” Masterji held up a hand, while he tried to stop from choking on his paan. “Why are you telling me a new story today?” “What story?” Kallu tried hard to look shocked. “I never tell stories... I mean... but...” Things are getting very strange here, thought Kallu. “Every word is hundred percent true, Masterji!” “You are nearly fifteen minutes early Kallan,” Masterji's smile still lingered. “EARLY?” Kallu froze in shock. “WHAT DO YOU MEAN EARLY?” Masterji pointed to his watch, “See? Seven forty five.” “Munia's not here?” “No one's here yet.” And Masterji laughed again, sending out a spray of paan juice into the air. “No one except you!” Kallu stood still, “You mean I could have slept more? I had time for breakfast?” He nodded to himself. “Now I know. It's Shabbo and Munia. I'll kill them. I really will. Just because Shabbo is bored he's played this trick on me.” \"And you wasted a good story too,” Masterji said sympathetically. “Better come in anyway.” “I'll make Shabbo pay for this,” Kallu said through gritted teeth. “I really will.” “What will you do?” “I'll break his other leg!!” said Kallu with a glare.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0079/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       }
     ]
   },
   {
-    "id": "bd-en-sbus-special-shoes",
-    "title": "Sbu’s Special Shoes",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "These are my big brother Sbu’s shoes.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/01.jpg",
+    "id": "pb-en-0080",
+    "title": "The Day the Vegetables Came to School",
+    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
+    "description": "One morning not so long ago, Raju was on his way to school as usual. He loved school and was walking along happily, looking forward to the d...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-20T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One morning not so long ago, Raju was on his way to school as usual. He loved school and was walking along happily, looking forward to the day. That was when he saw something very strange: ahead of him were some unusual shapes, heading towards school themselves, schoolbags slung over their shoulders.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "As he came closer to the shapes, Raju wondered if they were vegetables, the kind he had seen so often in the market. He rubbed his eyes in disbelief.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The vegetables looked fresh and healthy. They were marching towards school like little soldiers, one behind the other.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Raju walked faster and faster. He was full of curiosity about his new schoolmates, and wanted a closer look at them.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "At long last, Raju caught up with the shapes marching ahead of him. He stared at their faces, mouth open in surprise.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Just as he had guessed, the shapes were really vegetables: potatoes, sweet potatoes, yams, and all the other root vegetables he had seen in the market.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "\"What? Is it really you?\" The question popped out of his mouth before he realized it. The vegetables did not reply. They just looked at each other and smiled, amused at his amazement.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Where are you going?” asked Raju in wonder. “Where else?” replied the vegetables, speaking together as one. “We're on our way to your school!” Raju nodded. He didn't know what to say. He continued on his way to school.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "A little while later, Raju looked back to see if the vegetables were still around. That was when he had his second surprise of the morning. A parade of green leafy vegetables had now joined the root vegetables. They were also marching towards his school, their schoolbags over their shoulders.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Now that he was part of the parade himself, Raju's joy knew no bounds. No one he knew had ever gone to school as part of a vegetable parade before!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "By and by, the parade reached the school. All the children came to the door to watch the strange procession. Their mouths fell open at the sight. Their eyes were round with astonishment.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Raju's teacher came forward to welcome them. “Good boy!” she said, patting Raju on the back. Raju was delighted. “Thank you, teacher,” he said happily. The other children clapped and cheered. The teacher left but someone continued to pat him, and quite hard too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Raju opened his eyes. His mother was shaking him awake, saying, “Wake up, Raju! You're going to be late for school.” Raju was fully awake now. “I've been dreaming,” he said to himself. “What a strange dream I've had!” Raju got out of bed, smiling to himself. He would have to hurry if he wanted to get to school on time.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/13.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Use your imagination and colour this picture anyway you like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "Use your imagination and colour this picture anyway you like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0080/15.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0081",
+    "title": "The Generous Crow",
+    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
+    "description": "It was dawn. In her nest, Kaage the crow woke up and looked around, bored. She cleared her throat and cawed a few times. Bo-ring. Then, sudd...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-21T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It was dawn. In her nest, Kaage the crow woke up and looked around, bored. She cleared her throat and cawed a few times. Bo-ring. Then, suddenly, she pricked up her ears. A koel was singing his sweet song somewhere nearby.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "For a while, Kaage enjoyed the song. Then she got mad. It just wasn't fair! It was she who had warmed the egg that the koel had hatched from, and now that little bird was singing so much better than her! But she should not be jealous, she told herself. The thing to do was to take singing lessons from the koel.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kaage went looking for the koel, and found her at last. The koel looked at her a little suspiciously, but Kaage was very respectful. “Will you teach me to sing?” Kaage asked humbly. “All right,” said the koel. “But on one condition. You have to be here very early each morning, at daybreak.” Kaage nodded. “Good. Class begins tomorrow,” said the koel, flying off on her errands.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Kaage loved her sleep, and never woke up before sunrise. But she had her first singing lesson the next morning at daybreak! She wound up her alarm clock and set it before she went to bed. When the alarm rang, Kaage jumped out of bed, rubbed the sleep out of her eyes, and rushed to class.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The koel was waiting impatiently. As soon as Kaage landed on a nearby branch, the music lesson began. “Now, let me hear you sing this,” said the koel. “Kuhoo, kuhoo...” Eagerly, Kaage tried. But all she could say was “Kaa, kaa.” After a while, the koel had had enough. “You are impossible,” she declared. “You will have to find yourself another teacher.” And off she flew.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Kaage was very disappointed. Crying bitter tears, she returned to her nest.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Days passed. One day, Kaage watched as the sky filled with dark clouds. A cool breeze began to blow and it began to drizzle a little. From her nest, Kaage could see the peacock spread his beautiful tail feathers and begin to dance. She was filled with the urge to dance. 'Maybe the peacock can help,' she thought to herself, and flew off to look for him.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Peacock, will you give me dance lessons?” asked Kaage, when she had found him. “Sure,” said the peacock. “Just do as I do.” Kaage spread her tail feathers. She stepped in time.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "“That isn't right,” said the peacock. “Watch carefully when I do it.” Kaage tried again, and again, and again, but never got it right. The peacock was furious. “You will never learn to dance!” he scolded and flew away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Kaage was sad. She could not sing, and she could not dance. Maybe she could learn to build a wonderful nest. She went to the sparrow to ask for lessons. But the sparrow wouldn't hear of it. “You? You will never be able to build a nest like mine,” she said, nose in the air, and sent Kaage away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Kaage felt very bad. When would she find something that she was good at? Looking down from her nest, she noticed that there was a pile of rice in the backyard of the house below. She began to caw loudly, inviting her family and friends to the feast. All of them ate until they were stuffed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "It was then that a thought struck Kaage. All right, so she couldn't sing or dance or build a beautiful nest. But which other bird, when it found food, invited others to share it? Not the koel, not the peacock, and certainly not the sparrow. No bird, in fact, except other crows like her. Kaage was thrilled that she had discovered this for herself.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "She was proud that she was part of such a generous family. The other crows saw Kaage looking extremely happy with herself. “What is it, Kaage? Are you getting married soon?” they teased. Kaage blushed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/13.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Use your imagination and colour this picture any way YOU like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0081/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0082",
+    "title": "The Woodcutter of Gura - A Folktale from Ethiopia",
+    "author": "Veena Seshadri • Illus. Greystroke (Pratham Books / CC BY 4.0)",
+    "description": "One sunny morning, the woodcutter of Gura set out to get some firewood. He walked across the plain until he came to the great big olive tree...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-22T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One sunny morning, the woodcutter of Gura set out to get some firewood. He walked across the plain until he came to the great big olive tree by the river. He climbed the tree and perched himself at the end of the largest branch. Then he made himself comfortable, swung his axe, and began to cut the branch on which he was sitting. The village priest, who was passing by, looked up at the woodcutter and stopped to talk to him. “Brother, what are you doing?” he cried. “That's no way to chop wood!” “What other way is there?” answered the woodcutter. “If you want wood, you must lift your axe and keep going chop-chop-chop!\" “But you're sitting at the end of the branch and chopping it in the middle! The branch will break, and when it does, you'll fall down and die,” warned the priest.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The woodcutter thought the priest was joking. In any case, he was stubborn and lazy, and didn't want to get up and change his position, so the priest shook his head and walked away. And the woodcutter sat exactly where he was, and went chop-chop-chop, once again.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Suddenly, there was a mighty loud c-r-a-c-k, and down crashed the branch, the man and his axe! As he lay on the ground, dazed and bewildered and aching everywhere, the woodcutter remembered his conversation with the priest. “The priest said three things – that the branch would break, that I would fall...and be killed. The priest was right. The branch broke just as he said it would, and I fell too. The priest is indeed a very wise man, so whatever he says must be true. Ah, me! Then I must be dead!” It did not take the woodcutter long to convince himself that he was really dead. So he just closed his eyes and lay on the ground without moving. After a while, his friends came along and called out to him, but the woodcutter lay perfectly still. They shook him and splashed water on his faced. But the woodcutter neither spoke nor moved as he had made up his mind that he was quite dead. They tried to make him stand, but the woodcutter thought to himself, “Surely, a dead man can't stand up!” and promptly fell down again. Now his friends too were convinced that he was dead. So they lifted him up and began to carry him back to the village. “Pick up my axe!” shouted the woodcutter, and they did. Soon they came to a fork in the path and there they stopped. Should they turn right or left? The friends stood there and began to argue long and loud.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The woodcutter got so irritated that he sat up and pointed out the way. Then he lay down and shut his eyes again. And his friends carried him to the village saying, “Ah, what a clever man! He always knew the answer to everything. What a pity he's dead!” Soon they reached the woodcutter's house, but found no one at home. So they put him on the floor and began to argue about what they should do next.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Send for my wife, of course!” the woodcutter cut in angrily. “Right away, brother! Who would have thought that a dead man could come up with such a clever idea!” marveled his friends, and they promptly sent for his wife. Sobbing and wailing, the woodcutter's wife appeared, and many of the villagers followed her into the house. “A branch fell on him and killed him,” the friends began to explain. “No! No! No!” exclaimed the woodcutter, “How many times am I to tell you I was sitting on the branch and it broke?” “But my husband is talking! How can he be dead! What happened to him?” cried the woodcutter's wife. “How...when...what.... Woman, it's not respectful to ask the dead all those questions,” said the friends. “I tell you he isn't dead at all,” said the woodcutter's wife. “Use your brains!” The woodcutter was getting irritated now. “The wise priest told me the branch would break, and I would surely fall down and die. The branch broke and I fell. The priest was speaking the truth. So I must be dead.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "“Nonsense! In any case, the priest didn't see you after you fell, so...” began his wife. “Nag! Nag! Nag!” said the woodcutter getting up from the ground in disgust. He picked up his axe and went out of the house. “Where are you going?” asked his wife. “To get some firewood so that you can cook dinner,” he said, walking away. “What a fine man!” murmured his friends. “Even when he's dead he doesn't forget his duty!”    And that is why it is often said, “A fool always finds one still more foolish to admire him!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "RAFT CRAFT What do you think the woodcutter of Gura was chopping wood for? Perhaps to light a fire and cook his food. What other uses of wood can you think of? Do you know that people sail across lakes and rivers in rafts made with logs of wood tied together? How about making your own toy raft? It's easy – grab some sticks or twigs... and get, set, and sail away!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "You need: A. 11 straight twigs or sticks 16 cm long. (They should be about as thick as your little finger) B. String C. Thick paper cut into a triangle 8 cm in height for the sail. (You could also cut out a colourful picture from a magazine cover or paint your own picture for the sail.)",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "TO MAKE THE RAFT 1. Take 8 sticks and place them side by side. 2. Place a stick across each end of the raft as shown. Tie the sticks together with the string to secure your raft. 3. Take another stick (this will be your mast) and poke it through the sail as shown. Be careful not to tear the sail when yo do this. 4. Push the lower end of the sail (the mast, that is) down the middle of the raft, between the 4th and 5th sticks. The mast should stay up straight. Now find a pool or a puddle or even a bucket of water, and set your raft to s-a-i-l. Enjoy!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0082/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0083",
+    "title": "Three for Free - A Folktale from Taiwan",
+    "author": "Greystroke • Illus. P. G. Dinesh (Pratham Books / CC BY 4.0)",
+    "description": "In Kaohsiung in southern Taiwan, there is a mountain called Ban Pin Shan, meaning ‘one half'. Strange name for an ordinary mountain, you mig...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-23T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In Kaohsiung in southern Taiwan, there is a mountain called Ban Pin Shan, meaning ‘one half'. Strange name for an ordinary mountain, you might think. But take one look at it and you will see why it is called so. It looks like one half of the mountain is missing! Almost as if someone has cut off the top neatly, with a big sword. Before you start to wonder how it got its name, let me tell you the legend behind it. Long, long ago, when Ban Pin Shan was still a whole mountain, there used to be a village near it. One day, a very old man came to the village carrying a huge pot on his head. His hair was white as snow, and so was his beard. His face was wrinkled like the old, worn-out clothes he wore. He set the pot down in the village square and opened the lid.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The sweet smell of fresh dumplings filled the air. “Hot dumplings! Fresh, hot dumplings!” he yelled. “One for one cent, two for two cents and three, for FREE!” Villagers passing by became curious and crowded around this foolish man who was giving away dumplings that looked inviting and smelt absolutely delicious. “One for one cent, two for two cents and three, for FREE!” yelled the old man again. “Red beans and sesame, and three for free.” The villagers who had gathered around the old man began whispering to each other. “Must be a trick! Three dumplings for free? How can that be?” they said. “The most delicious ones, Sir,” said the old man as he handed the first one to Big-Head Wang. It was as big as an egg. Big-Head Wang popped it into his mouth and went mmmm.... Everyone could see that he was really enjoying the dumpling. By the time he finished the second one, his stomach was full. But he looked at the old man and said, “If I eat the third one, I don't have to pay. It is not a lie, right?” He wanted to make sure the old man had meant what he said. “Three for free and that it will be!” said the old man, handing Big-Head Wang the third dumpling, which he promptly stuffed into his mouth. If he could eat it, he wouldn't have to pay anything.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The old man kept his word and Big-Head Wang went away happy, his stomach full to bursting. Soon, everyone wanted three dumplings each. Not a single villager ordered one or two dumplings; everyone wanted only three for free. In a while, the whole pot was wiped clean. Some of the villagers were disappointed as the old man prepared to leave. “My, my, don't all of you have good appetites,” the old man said as he heaved the empty pot over his head and walked away. Suddenly, Eagle-Eye Chan, who had just gulped down three free dumplings, cried out, “Look! A part of the mountain is missing!” “Nonsense!” said the villagers. “Too many dumplings in your tummy have made you think funny!” All of them laughed at Eagle-Eye Chan, who kept staring at the mountain long after the villagers had left. That evening, everyone was talking about the old man and his delicious dumplings. “He must be a really stupid man to give away three for free!” they said, laughing. “Let's hope he comes every day.” The next morning, the old man arrived again, carrying his pot of dumplings. He set the pot down again in the village square. “One for one cent, two for two cents and three, for FREE!” he yelled. “Peanuts and sesame, and three for free.” This time, the pot was emptied an hour earlier than the previous day. The villagers had eaten up all the dumplings, three apiece. And for free. Quietly, the old man heaved the pot over his head and left, smiling a strange smile. On the third day, the old man came again. This time, the villagers were waiting for the stupid old man to arrive. Soon, they were trying to eat as many dumplings as possible, for free. Suddenly, a voice said, “Mister, can I have one dumpling, please?” Everyone froze! Their mouths hung open with bits of dumpling falling out, as they tried to catch sight of whoever had uttered the words.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Now, which idiot would want to pay for ONE dumpling when he could have THREE for FREE? There was pin-drop silence. They saw a young man with a soft face standing in the middle of the crowd, a single cent in his outstretched hand. The old man spoke. “Young man, didn't you hear me?” he said. “One for one cent, two for two cents and three, for FREE!” “Yes, I did,” said the young man in a sincere voice. “But I've seen how you've carried this huge pot every day, giving away your dumplings, three for free. You have not made any money in the last few days and I feel sorry for you. I want to help, but I have only enough money to pay for one dumpling.” When the villagers heard the young man, their hearts were filled with shame. They hung their heads in silence. The old man stepped towards the young man and embraced him. “Ha! At last I've found you!” he cried. “I am the mountain god and I choose you to be my pupil. I will teach you all the magic that I know,” he said, as tears flowed down his old, wrinkled face. The villagers quickly realized that the mountain god had disguised himself as this old man to test them. And to find a kind-hearted soul who could become his pupil. Then, the mountain god revealed to the utter shock of everyone present that the dumplings they had been eating weren't real dumplings. They were made from the mud that he had dug out from the mountain.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "As soon as the villagers heard this, they ran to see the leftover dumplings in the pot. But all they saw was a pot full of mud! And when they turned to look at the mountain, they couldn't believe their eyes! There was only half of it left standing! Just as Eagle-Eye Chan had said. But they had been too greedy to listen.... Soon, the mountain god took his young disciple with him to the mountain to teach him the magic of the gods. As for the villagers, their hearts were filled with remorse and they cursed themselves for being so greedy. They named the mountain Ban Pin Sghan – a name that stands to this day – and vowed to be less greedy. Now tell me, if an old man came to your town selling delicious dumplings, “One for one cent, two for two cents and three, for FREE!” – how many would you buy?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "PAPER PIZZAZZ! Did you notice the lovely hats that the characters in the story are wearing? These traditional hats are worn by farmers while working in the fields to protect themselves from the sun. Would you like to have one for your self? Then here's one you can make easily. YOU NEED: A. sheet of chart paper (about the size of a newspaper), B. Scissors, C. Glue, D. Two pieces of string",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "HOW TO MAKE THE PAPER HAT: 1. Cut out a large circle from the chart paper. 2. Draw a ‘V' on the circle as shown. Cut it out. 3. Overlap the cut edge (marked ‘A') over the other (marked ‘B') as shown. Stick them together. You will now have a conical hat. 4. Make two holes in the hat and tie the strings to them as shown. 5. There! Your hat is now ready to protect you from the sun! Decorate your hat with fancy designs.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0083/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0084",
+    "title": "Who is a good dog?",
+    "author": "Purvi Shah • Illus. Parismita (Pratham Books / CC BY 4.0)",
+    "description": "The dog wants to catch the bird.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-25T10:00:00.000Z",
+    "createdAt": "2026-01-24T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "These are my big brother Sbu’s shoes.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "The dog wants to catch the bird.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Look what I can do in them.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Dog goes to man for help. Please help me catch the bird.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "I can race cars!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Man swells up in anger. Why do you want to catch the poor bird?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Sometimes, I even race our bouncy dog.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "I am going to teach you a lesson.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "With Sbu’s shoes I win every time.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "I am going to teach you a lesson.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Wait! Let me show you one more thing.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "GOTCHA!!!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "Watch me dance and spin.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "I can cartwheel over and over.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "I’m a monkey! Look at me hang upside down.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Watch me jump and catch the moon.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Here, try them on!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "See what you can do in Sbu’s special shoes.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "Understood? No more chasing birds. Good Dog.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       }
     ]
   },
   {
-    "id": "bd-en-searching-for-the-spirit-of-spring",
-    "title": "Searching for the spirit of spring",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "The Winter cold had passed. Spring was coming to Nkanyezi’s village. Soon the villagers would gather to celebrate the new season. Nkanyezi l...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-26T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "The Winter cold had passed. Spring was coming to Nkanyezi’s village. Soon the villagers would gather to celebrate the new season. Nkanyezi looked forward to the Spring festival more than any other day in the year.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "One warm morning, Nkanyezi overheard two village elders talking about the festival. “The people of Ndlovu have lost their spirit of celebration,” one sighed. “How can we have a Spring festival in a village that has forgotten how to celebrate?” asked another.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Nkanyezi was worried. “How will the sun shine again unless we sing to wake it from its winter slumber?” she asked herself. Nkanyezi thought for a long time. “I must find what we have lost,” she decided. “I must go in search of things that will bring backthe spirit of celebration to my village.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "The elders gave Nkanyezi their blessing for the journey. They gave her a bag to carry the things she would find. Nkanyezi was afraid, but she believed she would succeed.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Nkanyezi walked all day. She hiked up a hill, and down into a valley. She sailed across the great river, and climbed between sharp rocks. She marched across the plains until she reached the shadow of the red mountains.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "As night was closing in, Nkanyezi arrived at a village of patterns and colours as she had never seen before. She told the village elders about her journey to bring back the spirit of celebration to her people The mother of this tribe gave Nkanyezi a gift.She told the girl, “With love we give to you this paint to restore colour to a village that has gone dull.” Nkanyezi thanked the elders and put the paint in her bag. Early the next morning she went on her way again, excited with this gift of colour.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Nkanyezi walked all day, through a vast forest of giant trees. As the sky became too dark for her to see, she heard the sound of beating drums. She hurried towards the drumming, feeling the spirit of dance coming to her tired feet.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Nkanyezi found herself in the village of the Bhubezi. People were sitting around a fire, drumming and singing. She had never before heard such wonderful music. She told the village elders about her journey to bring back the spirit of celebration to her people. The Bhubezi invited her to rest and stay the night.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "In the morning the chief called on Nkanyezi. “My child,” he said, “here is a special drum. It plays a new song every time you beat it.” Nkanyezi thanked the elders and put the drum in her bag. She went on her way again, delighted with this gift of music and dance.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "On the third day of her journey, as she a passed a field of fat cows, her nose started to tingle. An aroma tickled her taste buds and her mouth started to water. She followed the scent, and arrived in a village to find people standing over steaming pots of stew. This tribe was famous for its feasts and Nkanyezi had never before tasted such flavours. After she had eaten her fill, she told the village elders about her journey to bring back the spirit of celebration to her people.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The next day, the council of cooks gave her a secret spice blend. “Our daughter,” they said, “with these spices, happy tummies are guaranteed! We give you the gift of good food.” Nkanyezi thanked the elders and put the spices in her bag. She knew she had everything she needed. With new energy she started the long journey back to the village of Ndlovu.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "When she arrived home the villagers gathered around her to hear of her adventures. She told them the tales of what she had seen, heard, and eaten. Then she opened her bag to share the gifts given. The people rejoiced to receive these treasures. Through the generosity of others and the courage of Nkanyezi, the villagers again found the colour, song and dance in their lives. And so the spirit of celebration was restored to the village of Ndlovu.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-shongololos-shoes",
-    "title": "Shongololo’s Shoes",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Where are all my shoes? I know I left them here!",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/01.jpg",
+    "id": "pb-en-0085",
+    "title": "When Amma Went to School",
+    "author": "Nandini Nayar • Illus. Ruchi Shah (Pratham Books / CC BY 4.0)",
+    "description": "“Meera, I went to your school today!” Amma said one day. “Really?” Meera said. “And the gate was wide open, and the watchman was missing!” “...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/01.jpg",
     "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-27T10:00:00.000Z",
+    "createdAt": "2026-01-25T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Where are all my shoes? I know I left them here!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "“Meera, I went to your school today!” Amma said one day. “Really?” Meera said. “And the gate was wide open, and the watchman was missing!” “Oh! He was in our classroom, to see why our teacher had screamed!” “And why did your teacher scream?” Amma asked. “Because Rohan began crying!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "I haven’t seen your shoes. Go ask Snail!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "“And why did Rohan cry?” Amma wanted to know. “Because the snake he had brought back from the zoo had eaten his mouse! And then the teacher screamed and the watchman came running!” “But I went to your classroom, and there was nobody there!” said Amma.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "No shoes here. Go ask Giraffe.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "“We were all hiding in the Staff Room,” Meera said.“Because Rohan's snake was in our classroom!” “But Meera, when I went to the Staff Room, I didn't see anyone there!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "I’m in a hurry – go ask Frog.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "“That is because we had all run away to the Principal's Room,” Meera said. “Because Rohan said the snake was following us!” “But when I went to the Principal's Room, it was empty!” Amma said.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Shoes? How many? Go ask Flamingo.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "“We couldn't stay there,” Meera said, “because Rohan's snake was looking for him. We climbed up to the terrace and stayed there till the bell rang!” “And I waited and waited in your school, all alone!” Amma said.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Seen your shoes? No, not me.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Will I ever find my shoes?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Shoes, eh? You should ask the Monkeys",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "We’re busy. Go ask Owl, she knows everything! Hello hello?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Hmm. I have an idea. Why don’t you ask Lion?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "These are yours? I’ll give them all back if you come to my party!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/shongololos-shoes/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "“Not all alone, Amma, you had the snake for company!” “The snake!” Amma said, sitting down with a thump on a chair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       }
     ]
   },
   {
-    "id": "bd-en-sima-and-siza",
-    "title": "Sima and Siza",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Simamkele loves dolls. Mama buys him lots. They keep his loneliness away. Sima’s favourite doll is Siza. Sima wants to be a nurse when he gr...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/01.jpg",
+    "id": "pb-en-0086",
+    "title": "Grandpa Fish and the Radio",
+    "author": "Venkatramana Gowda • Illus. Srikrishna Kedilaya (Pratham Books / CC BY 4.0)",
+    "description": "Once upon a time, there was a little village. In the little village was a little stream.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T10:00:00.000Z",
+    "createdAt": "2026-01-26T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Simamkele loves dolls. Mama buys him lots. They keep his loneliness away. Sima’s favourite doll is Siza. Sima wants to be a nurse when he grows up.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Once upon a time, there was a little village. In the little village was a little stream.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "He loves to put on Mama’s skirt, and twirl. Like magic, he suddenly becomes Sima the nurse. He plays hospital-hospital and makes sickly Siza and all his dolls better.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "In the stream, several families of frogs, tortoises, and fish lived happily in each other's company. The fish family was the largest of them all.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Wherever Sima is, Siza is there too.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "The fish family was also the most respected. The reason?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "But Sima’s friends do not like Siza. One day, they took him away and stuck his head in the toilet.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "A big fat radio that occupied pride of place in their underwater home.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "When Papa came home, Sima was nursing Siza. ‘What are you doing?’ asked Papa. ‘I’m being a nurse,’ said Sima. ‘Will you play with me?’ ‘Yes. But we will go to the park and play soccer,’ said Papa.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Grandpa Fish was the head of the fish family. He was obeyed in most things, not just by the younger fish but also by the frog and tortoise families.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "His friends saw Sima and Papa playing soccer. They joined in. Sima and Papa often play soccer now. But they still haven’t played with dolls.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "But there was one thing over which he simply had no control: the family radio.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "One day, Sima was playing hospital-hospital with his dolls. He heard Mama shout. ‘Sima! Run! Papa is waiting to play with you at the park.’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Never did Grandpa Fish get a chance to listen to the news.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "‘Why on earth are you wearing a dress?’ said Papa in an angry voice. Just then a ball flew out of nowhere and ...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "The younger fish, frogs, and tortoises simply adored film music, and would not move from the radio's side as long as it was playing.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "... knocked Papa down. Everyone panicked. Except Sima. He knelt and tied his blanket around Papa’s bleeding head. ‘Call an ambulance!’ he shouted.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "By the time he had convinced the younger ones to let him listen to the news, it was usually too late. Most often, all Grandpa Fish heard was the newscaster saying, “And that is the end of the news...” It was very annoying.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "‘He needs stitches in his head. You did just the right thing,’ said the nurse. Sima was proud.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "One day, Grandpa managed to convince the younger ones a little earlier than usual. Rushing to the radio, he tuned in to the news, and heard the newscaster say, “And before we end, the headlines once again...” The Breaking News on the River Radio network that morning was very frightening.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "‘You’re a hero. You’ll make a great doctor one day.’ ‘But I want to be a nurse, just like you,’ said Sima.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "“A group of humans are using a new technique to capture the maximum number of fish possible!” said the newscaster. “They are poisoning the water of the rivers one by one! When the fish die, the humans just trap them all in their nets and take them away!They could be coming to your river very soon!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "‘Thank you, Nurse Sima,’ said Papa. Now Sima and Papa play hospital-hospital and soccer – and his friends do too.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "Grandpa Fish was stunned. He quickly relayed the information to the rest of the fish and to the other river creatures. Numb with fear, everyone sat quietly thinking about the next course of action. No one wanted to listen to film music now.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Meanwhile, the daughter of the village headman came to the river to fetch some water. Grandpa Fish and the headman had been friends for a long time.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Swimming quickly to the surface, Grandpa Fish informed the girl that there was an emergency. \"Please tell your father to come and see me immediately,\" he said anxiously.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "The headman came at once. Grandpa Fish first made sure his guest was comfortable and even offered him a cup of coffee. Only then did he bring up the subject of the frightening news he had heard on the radio. Now the headman was worried too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/15.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 16,
+        "text": "Thinking quickly, he came up with a plan to make sure the river in his village, and all the creatures in it, would be safe.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/16.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 17,
+        "text": "The headman quickly reassured the old fish and his clan. “Don't worry, Grandpa Fish,” he said. “I will see to it that you and your fellow creatures will be safe from those terrible human beings.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/17.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 18,
+        "text": "The younger fish, frogs, and tortoises realized what a huge disaster it would have been had Grandpa Fish not listened to the news on the River Radio network that day.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/18.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 19,
+        "text": "Ashamed of their earlier behaviour, they resolved to mend their ways in the future.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/19.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 20,
+        "text": "Use your imagination and colour this picture any way YOU like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/20.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 21,
+        "text": "Use your imagination and colour this picture any way YOU like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/21.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       }
     ]
   },
   {
-    "id": "bd-en-sindi-and-the-moon",
-    "title": "Sindi and the Moon",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Sindi was a very lively little girl who loved to sing and dance. She lived on a farm with her parents and her Gogo. Sindi enjoyed following ...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/01.jpg",
+    "id": "pb-en-0087",
+    "title": "Rain, Rain",
+    "author": "Sanjiv Jaiswal 'Sanjay' • Illus. Ajit Narayan (Pratham Books / CC BY 4.0)",
+    "description": "A cloud rolled along merrily in the sky.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-27T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A cloud rolled along merrily in the sky.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The peacock said, “Why don't you rain? I will dance for you.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The fish said, \"Please rain. I need more water.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The farmer said, “Please rain. I'll plant seeds for the next crop.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Raju said, “If you rain, I'll sail paper boats.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The cloud rained in a shower of shimmering drops.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The peacock spread its pretty feathers and danced.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The pond filled up. The fish was happy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The farmer started planting seeds.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Splish! Splash! Splosh! Raju and his friends had a wonderful time in the puddles.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The cloud filled everybody's heart with joy. It moved on. All the children waved goodbye.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0088",
+    "title": "The Flyaway Cradle",
+    "author": "Sridala Swami • Illus. Sanjay Sarkar (Pratham Books / CC BY 4.0)",
+    "description": "That is a cradle hanging from the Neem tree. You know what is in there? Devi's little sister!",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-01T10:00:00.000Z",
+    "createdAt": "2026-01-28T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Sindi was a very lively little girl who loved to sing and dance. She lived on a farm with her parents and her Gogo. Sindi enjoyed following Gogo around and feeding the animals.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "That is a cradle hanging from the Neem tree. You know what is in there? Devi's little sister!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "One evening while Sindi and her family were having dinner, Sindi’s mother had something to tell her. “Sindi,” she said, “after the long Christmas holidays, you are going to go to school. ”Sindi was so excited. She was happy that she would finally get to learn how to read and write.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Yes, she is crying. You mean you can hear it as well? Devi certainly can. And she is sick of it!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "When Sindi was happy, she danced. Her joy spread to the farm animals. The dogs barked more loudly. The cows mooed more beautifully. The butterflies flapped their wings and landed in her hair.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Devi has finally stopped playing hopscotch, and she has taken her sister out. Oops! The cradle is flying! Right over the tree! It's only an old sari, what do you expect?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "When Sindi danced, she swayed from left to right, as if she were pushed and pulled by the wind. She sang along with its soft, slow music.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "That is Krishna, Devi's friend. He thinks throwing small rocks at the sari will bring it down. The little girl in the orange skirt is Leela.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "As the holidays were ending after Christmas, Sindi started to wonder what school would really be like. She did not want her mother to know that she was nervous, so she asked Gogo what school would be like. “School is very serious,” Gogo said. “There is no more time for song and dance, only learning.” This did not make Sindi happy at all.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "She wants Devi to use a long stick to untangle the sari. All the kids are laughing at her. “If it was that easy, do you think WE wouldn't have thought of it?” they ask.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "The night before school started was very hot. Sindi just could not sleep! She tiptoed outside and sat on the stoep, looking up at the dark sky. The moon was big and bright and beautiful and the stars were twinkling.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Salia is taking running jumps at the sari. She is quite tall, and her fingers just touch the cloth. Now ALL the children are lining up for jumps!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "Sindi spoke to the beautiful moon. “Dear moon so bright,” she said, “are you afraid of the dark? Is that why you ask the stars to keep you company?” “I am going to school tomorrow, what will it be like?” “Will they let me sing? Will they let me dance?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Devi's sister is quite happy. She is smiling and chewing on some grass she has found. Oh, no, she isn't. Devi has taken it from her.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Sindi started to sing. What she saw next made her rub her eyes in disbelief. Was she dreaming? The moon was smiling! And the stars were dancing to her song!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "Raju has organised all the children, big ones first, small ones later. Oh, gosh! Do you think he's going to make them climb on top of each other? Yes! and they are going to manage it!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "A gentle voice spoke to her. “Dear little Sindi,” the voice said. “School is a wonderful place. You will learn many things: to read and write, to sing and dance and to make many friends.”“But for now, Sindi, you must rest. Tomorrow will be beautiful.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "No, they are not! What now?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "Sindi had never seen anything this amazing. She wanted to wake everyone up and show them the talking moon and dancing stars. But the moon stopped her. “Shhhh, Sindi,”it said. “This is our little secret.” The moon winked. Sindi returned to bed, comforted by the moon’s wise words, and slept peacefully.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "That is Devi's father at the top of the road! Quick! Think of something! Leela is tottering under the long pole she has found. It's about to fall!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "The time came for school. Mama held Sindi’s hand as they approached the school. She was confident that the day would be beautiful, because the moon had told her so. Children were arriving with their mothers and fathers. They all looked excited. Sindi could not wait to make friends.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "No, it isn't. Krishna has taken it from her. Raju is helping too. This time they just might get it down!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "By lunch time, Sindi loved everything about school. “I wish the moon could see me now,” she said to herself. “Now I will learn to read. I will learn to write. But also I will sing and dance!” And all of Sindi’s new friends danced with her, just like the animals had done. They clapped their hands and sang to her tune.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "Quick! Put the baby in the cradle before Devi's father sees! In any case, it is nice to have friends to play hopscotch with.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Quick! Put the baby in the cradle before Devi's father sees! In any case, it is nice to have friends to play hopscotch with.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
     ]
   },
   {
-    "id": "bd-en-sindiwe-and-the-fireflies",
-    "title": "Sindiwe and the Fireflies",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One day a very clever baby was born in Gungululu in the Eastern Cape. Her name was Sindiwe Magona. She was the oldest of eight children.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/01.jpg",
+    "id": "pb-en-0089",
+    "title": "The Magic Powder - A Folktale from Myanmar",
+    "author": "Greystroke • Illus. P. G. Dinesh (Pratham Books / CC BY 4.0)",
+    "description": "Once upon a time, in a little village on the banks of the Irrawaddy river, there lived a young woman called Thuza. She was very happily marr...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-02T10:00:00.000Z",
+    "createdAt": "2026-01-01T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "One day a very clever baby was born in Gungululu in the Eastern Cape. Her name was Sindiwe Magona. She was the oldest of eight children.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Once upon a time, in a little village on the banks of the Irrawaddy river, there lived a young woman called Thuza. She was very happily married to handsome young Theingi. But there was one problem that nagged Thuza – her husband believed he was an alchemist and would spend all his time dreaming about ways to turn dirt into gold. All day, and for days on end, Theingi spent his time in experiments, searching for a breakthrough. Soon, all their money was over, and young Thuza had to struggle to buy food for the two of them. She became very worried. “You should find a job soon,” she pleaded with her husband. “We cannot continue like this!” But Theingi wouldn't listen. “I'm on the verge of a breakthrough! Why do I have to work when we will be rich beyond our wildest dreams? We will soon be able to turn all the dirt we find into gold!” Disheartened, Thuza approached her father, wise old Thet, for a solution. Thet was surprised when he heard that his son-in-law was an alchemist. He thought for a while and asked to see Theingi. Thuza returned home happily that day, for she knew her wise father would have a solution.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "At night, her grandmother told magical stories about ogres and giants, animals of the forests, great beasts, and little creatures of the veld. It was Sindiwe’s favourite time.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "The next day, Theingi arrived at his father-in-law's house, fully prepared for a scolding. He was taken by surprise when Thet took him aside and whispered, “When I was young like you, I was an alchemist too!” The two of them spent the whole afternoon discussing Theingi's work. Finally, the old man stood up and said, “Why Theingi, you've done everything exactly like I did when I was your age! You are definitely on the verge of a breakthrough! Congratulations! But you seem to be lacking one very important ingredient in your experiments. You will need this when you finally turn dirt to gold. Only recently did I discover this. But I am too old for this task. It requires enormous effort...” “Then let me do it for you, Father!” cried Theingi. He was really excited. All his efforts would pay off at last. “Tell me what the ingredient is!” “Good, you are excited!” said Thet. He leaned closer and whispered, “Son, the secret ingredient is a silver powder that is found only on banana leaves. You will have to plant the bananas yourself and cast certain spells on them. Then, as the plants grow, the powder on the leaves will gain magical powers.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Sindiwe loved school and she dreamed about being a teacher.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "“How much of this powder will we need, Father?” asked Theingi excitedly. “A kilo,” replied Thet. “A kilo!” cried Theingi. “That would require hundreds of banana plants!” “I'm afraid so, Son,” said the old man. “That is why I can't complete the task myself...” “Don't lose heart, Father!” said Theingi. “I shall!” Later that evening, the old man taught his son-in-law the magic spells and loaned him the money to start the work. The very next day, Theingi bought a small field near his home and cleared it. Just as he had been instructed, he dug the ground himself and planted the saplings after carefully chanting the magic spells. Every day he went to the field and examined the saplings. He kept the weeds and pests away diligently. When the plants grew and bore fruit, he carefully collected the silver powder from the leaves and kept it safely in a box.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "When Sindiwe became a teenager, her family organised a feast to celebrate. She was given special things to wear and a wise old man sang a praise song to her. (Blessings, long life! May your ancestors guard you!)",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "There was hardly any powder on each leaf, so Theingi had to buy more land and grow more bananas. But he was determined to do what was needed. It took him several years, but at the end of it all, he had managed to collect enough of the magic powder. He rushed to his father-in-law, excited as never before. He would soon be able to make gold from mere dirt! “Father, finally... here is the kilo of magic powder!” he cried. The old man was filled with joy. “Wonderful!'' he said. “Wonderful! You've done well, Theingi. I'm proud of you. Now I will show you how to turn dirt into gold. But first, let's get Thuza. We need her help.” Theingi was a little puzzled, but without losing any time, he ran to his wife and was soon back with her. “Thuza,” asked the old man, “what did you do with the bananas when your husband was collecting the powder?” “Why, I sold them, Father,” replied Thuza. “That's how we earned a living.” “Then you must have been able to save some money too. Theingi grew more than enough bananas...” the old man continued. “Yes, I did,” replied Thuza. “Can we see it?” asked Thet. “Of course, I have kept it safely at home,” beamed Thuza. The three of them went to Theingi's house where Thuza produced several bags from the loft where she had kept them safely. Thet opened one of the bags, peered inside, and smiled. He then emptied one of the bags on the table. Gold coins tinkled as they fell in a huge, shiny heap. Then he went to the field and came back with a handful of dirt, which he placed next to the heap of gold. “You see, Theingi,” he said, turning to his son-in-law, “you have changed dirt into gold!” Never after that day did Theingi collect any more magic powder from the leaves. But he continued to grow bananas. His “alchemist” father-in-law had taught him the best way to turn dirt into gold, after all. He didn't need the magic powder any more.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Sindiwe trained to be a teacher. She was very excited to teach at her first school. But there weren’t enough schools for black children and they had no desks or books to write in. This made Sindiwe feel scared. How could she be a good teacher when the children had nowhere to sit?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "BANANAGIC! After Theingi's magic powder from bananas, how about surprising your friends with some magical bananas?! Tell them about a new variety that you have just discovered – one that grows in slices! MAKE YOUR OWN MAGICAL BANANAS YOU'LL NEED: A few ripe bananas A toothpick or sewing needle",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "She left the school to work as a cleaner. She worked in four different houses. Sometimes the people there treated her badly and Sindiwe became very unhappy.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "HOW TO MAKE IT: 1. Push the toothpick into the banana somewhere along the seam. 2. Without taking it out, carefully rotate the toothpick left and right inside the banana. You should cut all the way through the fruit, but not through the peel, mind you. Also, try and keep the toothpick hole as small as possible – the smaller, the lesser it will be visible.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "All this time Sindiwe studied. Her hard work paid off! She won a scholarship to study at a university in New York. She and her three small children packed their bags and flew across the sea to the United States of America.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "3. Remove the toothpick and repeat the above step at another spot on the banana, say after an inch. Keep making internal one-inch slices until you have at least five or six. Do these two steps with all the bananas you have. That's it – your magic bananas are ready to eat. Offer the “new variety” to your friends while telling them a big story about how you discovered them in the field nearby. When your friends peel the banana, imagine the look on their faces when they find that it is already sliced? While inside the skin! Isn't that some yummy banana magic?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0090",
+    "title": "Raza Meets the King",
+    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
+    "description": "It was a very special day and so Raza was wearing his best clothes. Today, he was going to meet someone very important – His Majesty Jalalud...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-02T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It was a very special day and so Raza was wearing his best clothes. Today, he was going to meet someone very important – His Majesty Jalaluddin Akbar, the great Mughal king! Raza's father Rahmat Khan was an important man too. He was the royal tailor to the king, and he stitched all his angarakhas – the loose coats that the king wore over his tight churidar pyjamas. This morning they were going to the palace in Fatehpur Sikri with the angarakhas the king had ordered for summer. The king was very fussy about his clothes and it was very hard to please him. Rahmat Khan had worked hard to make the angarakhas – cutting and stitching late into the night. Raza had helped too – putting in tiny stitches using the finest needle and the best silken thread. The spring sun shone brightly, the flowers smiled, and the pigeons cooed happily as the two of them walked to the fortress of Fatehpur Sikri. Two soldiers holding spears stood guarding the gate. “I'm Rahmat Khan,” Raza's father said, “I'm the angarakha maker to His Majesty and I've brought new sets for him.” “Is His Majesty expecting you?” the guard with big moustaches asked. “Ji huzoor. He chose the designs himself.” “Wait here,” the guard turned to go inside, “I'll call the Royal Steward.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "After a while the guard returned with another man. Rahmat bowed to him. “I've brought the summer clothes, Dhaniji,” he said. “Good! Come with me. His Majesty is still in his sleeping chamber. He'll see you before he leaves for the royal court.” As they walked in, Raza whispered, “Who is he, Abbu?” “Dhani Singh. He works in the Khwabgah.” “Khwabgah?” “The king's personal palace, where he has his sitting room and bedroom.” It was a long walk. Raza looked around, his eyes wide with wonder. The Mughal palaces were so beautiful! All made of red sandstone with slim carved pillars and curving arches. In between were gardens filled with flowers, lily pools and sparkling fountains. Raza thought he was in heaven. As they waited at the door of the king's bedroom, Raza studied Dhani Singh. Being a tailor's son, he noticed the clothes first. Dhani Singh was wearing a cotton angarakha in a red and white flowery print over white churidars. His nagra shoes had pointed toes that curved inward. He had tied a narrow cloth belt, a patka, at his waist. What Raza liked most was his bright red turban, printed with a design in white and yellow squares and dots.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Your turban is very nice, Dhaniji,” he said, “that's a really pretty design!” “Thank you! I come from the land of the Rajputs and... this design, called bandhani, is from my homeland.” As they entered the room, Raza's heart was thudding. Sunlight poured in through the arched doorways, lighting up the thick silken Persian carpet woven in jewelled colours. The room was furnished with a beautifully carved bed and exquisite chairs. There were silk and gold cushions on the low bed. Even the curtains were made of silk! Raza bowed and then looked at his king. Akbar was choosing jewellery from a box held before him by a servant. He was not very tall but he had the broad shoulders of a sword-fighter. He had large, slightly slanted eyes, a drooping moustache, and a small mole above his lips. Hearing them enter, Akbar turned and smiled, “Ah Rahmat! You've brought the angarakhas? And who is this boy with you?” “My son Raza, huzoor.” “And can you stitch too, Raza?” “I'm learning, huzoor,” Raza replied nervously, “but I still make mistakes in cutting the cloth.” “You'll learn. Your father will teach you,” Akbar said gently. Rahmat opened the bundle and laid out the angarakhas on the bed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "They were made of the finest muslin and covered with delicate embroidery. All of them were in light summery colours – cream, lemon, pale blue, green and a sparkling white. Raza knew the king's favourite colour was white. Rahmat helped Akbar put on a white angarakha. Then Dhani Singh brought a large mirror and held it before the king. “I like the embroidery... and it fits well too,” Akbar said, looking pleased. “Now tie a patka. Let's see how it looks.” Rahmat took out a handful of belts and tied a light blue one around Akbar's waist, letting the fringed ends hang in front. “No...” said Akbar moodily, “this is too pale... I want something brighter.” Raza and his father then tried one patka after another – green and yellow, orange and purple, but nothing pleased Akbar. “I don't like any of the colours, Rahmat!” Akbar said, frowning impatiently. Raza saw that his father was beginning to look worried. Oh no! If His Majesty did not like the patkas, would he send all the clothes back? “I have to do something fast!” Raza thought. He looked around and said suddenly, “Huzoor, would you like to try a bright red one with a white and yellow design?” “What kind of red?” Akbar boomed. “Show me!” Raza pointed to Dhani Singh's turban, “That red?” “Hmmm...” Akbar stared thoughtfully at Dhani Singh's moustached face and said, “Let me give it a try.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "In a flash, Raza had taken off Dhani Singh's turban, unrolled it and tied it around Akbar's waist. He waited with bated breath while Akbar studied his reflection in the mirror. He noticed Dhani Singh grinning widely – he must have been amused to see the king wearing his turban as a belt! “I like the colour... and a new design too!” Akbar said finally. “Bandhani, huzoor... from the land of the Rajputs,” said Raza promptly. “Aha! Rajput like my queen, Jodh Bai!” Akbar began to smile. “Dhani, pay Rahmat for the angarakhas and patkas. I'll take them all!” “Huzoor,” asked Raza cautiously, “Dhaniji needs a turban. We've taken the one he was wearing.” “Give him a patka!” laughed Akbar. “That boring pale blue one. I am keeping his turban.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "FUN FACTS OF HISTORY 1. Raza lived during the reign of King Akbar over 400 years ago. Akbar was the greatest king of the Mughal dynasty. He was also a famous warrior. He loved wearing clothes with new designs. He also enjoyed flying kites and eating mangoes! 2. Babur, the founder of the Mughal dynasty, was the king of Kabul. He invaded India in 1526 and defeated the Sultan of Delhi, Ibrahim Lodi, at the Battle of Panipat. Akbar was Babur's grandson. He was an equally successful general and never lost a battle during his 49-year rule. 3. Two Mughal kings built new cities. Akbar built Fatehpur Sikri near Agra and Shahjahan built Shahjahanabad in Delhi. Fatehpur Sikri lies empty today but Shahjahanabad (present-day Old Delhi) is full of life and people.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "4. Shahjahan's famous Peacock Throne was a square flat seat, with slim pillars at each corner covered with precious jewels. The seat had a canopy, which had the figure of a peacock studded with gems on top of it. The emperor sat under the canopy, leaning against silk cushions. 5. Many Mughal princesses were highly educated. Gulbadan Begum wrote the biography of her father, Babur. Shahjahan's daughter Jahanara was a poet. 6. The Mughal fort had many kitchens. Each kitchen sent food for the king. So when he sat down to eat, he would have as many as thirty dishes to choose from! Lip-smacking Mughlai cusine, which includes yummy dishes like biryani, pulao, kalia and korma, originated in these kitchens.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0091",
+    "title": "The Boat Ride",
+    "author": "Herminder Ohri (Pratham Books / CC BY 4.0)",
+    "description": "In a small garden in the city, there was a big pipal tree. A family of squirrels lived on that tree. Vikki is one member of that family who ...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-03T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In a small garden in the city, there was a big pipal tree. A family of squirrels lived on that tree. Vikki is one member of that family who likes to talk big. His cousin, Kato had come to visit him from Far Forest.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Today we shall go on a big boat,” said Vikki to Kato. “B... B... But, I... I...am afraid of water, I cannot swim,” mumbled Kato. “Come on, you scrappy squirrel! With Vikki around, you need not be afraid. I have been on a boat many times.” Vikki importantly leading the way, they reached the river.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The boat was tied to a post. So they ran up the rope, hopped into the boat, and sat curled in a corner.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Slowly the boat started moving up and down the river, which curled and curved through the trees. Kato saw many ducks swimming past them. The fish put their heads out of the water and gulped a “Hello!” Some swans majestically glided near them.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "They were so beautiful that Kato tried to touch one and he toppled over into the river. As he went deeper into the water, he passed some fish. “Help! Help!” he gurgled, as he passed the boat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Vikki did not know what to do. He just scampered from one side of the boat to the other side, shouting, “Help! Squirrel overboard!” A swan had seen Kato fall into the water. She just put her head down in the water and picked up Kato in her beak. Then she tossed him into the boat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "A shivering, trembling Kato sat in a sunny corner to dry himself. Vikki sat quietly near him. As he got warm and dry, he cheered up, “What an adventure! Wait till I tell the folks back home.” Already he fancied himself as a sailor! A hero! Brave and adventurous!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "In New York, Sindiwe studied to become a social worker. She wanted to help families make their lives better.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "When the boat reached the bank, the squirrels hopped off and swaggered their way home. Kato was finding it difficult to keep his grand adventure inside his head. His head was going round and round like the boat. He shut his eyes and fell fast asleep at the dinner table.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0092",
+    "title": "The Sparrow and The Fruit",
+    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
+    "description": "There was once a sparrow called Gubbi. One day, Gubbi went off to the market and bought herself a nice juicy guava. On the way back, the gua...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-04T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "There was once a sparrow called Gubbi. One day, Gubbi went off to the market and bought herself a nice juicy guava. On the way back, the guava slipped from Gubbi's beak and fell into a clump of thorns. Gubbi couldn't bear the thought of losing her fruit. She decided she would get it back at any cost.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "First she went to a boy working nearby. “Little boy, little boy, please get my guava back for me,” she begged. “Can't do it,” replied the boy. “Go away!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Gubbi was furious. She went straight to the farmer. She said, “I dropped my fruit in a clump of thorns. I asked the boy to help me but he didn't. Now I want you to give him a good beating.” “Won't do it,” said the farmer. “Go away!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Gubbi went straight to a cow that was grazing in the farmer's pasture. She said, “I dropped my fruit in a clump of thorns. I asked the boy to help me but he didn't. I asked the farmer to give the boy a beating but he didn't. Now I want you to go and eat up the farmer's crops.” “Can't do it,” said the cow, and turned her head away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Gubbi flew straight to the fisherman. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, and the cow did not help me. Now I want you to whip the cow.” “Won't do it,” said the fisherman and cast his net again.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Gubbi went straight to the rat. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, the cow did not help me, and the fisherman did not help me. Now I want you to chew up the fisherman's net.” “Can't do it,” said the rat, and scurried away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Gubbi flew straight to the cat. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, the cow did not help me, the fisherman did not help me, and the rat did not help me. Now I want you to catch the rat.” “Won't do it,” said the cat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Gubbi did not know what to do. She wished someone would do as she said. Suddenly, she remembered her friend, the ant. Gubbi knew he could help her get her fruit back.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "When she finished studying, the United Nations gave Sindiwe a job. Most of the countries in the world meet at the United Nations to talk about their problems.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "Gubbi flew straight to the ant's house. When she saw him, she asked simply, “Will you bite a cat for me?” “Sure!” said the ant. “Show me where she is!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "Sindiwe told the world about South Africa, and how hard it was for black people living there. The people at the United Nations loved to listen to Sindiwe’s stories. They wanted to learn more and more about South Africans. Perhaps, together, they could help to change things in South Africa.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "The ant kept his word and bit the cat. The cat went chasing after the rat and caught him. The rat quickly chewed up the fisherman's net. The fisherman whipped the cow. The cow ate up all the farmer's crops.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "She worked at the United Nations for twenty years while her children grew into adults. But Sindiwe missed the country where she was born. She wanted to tell her stories to the people at home. So she packed her luggage, got on a plane and flew back over the sea to Cape Town.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "The farmer gave the boy a beating. The boy picked up the guava that had fallen into the clump of thorns and gave it back to Gubbi. Gubbi was thrilled. She thanked her friend the ant with all her heart.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "Sindiwe’s love for books and stories have helped her write piles and piles of books. And children and grown-ups love to read her stories. Many people call her Nomabali because she’s always writing, telling and reading stories.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "Greedy Gubbi wanted to eat the guava immediately. She settled down on a branch for a feast. She had only had a small bite of it when something heavy fell on her head. A crow flying overhead with a big chunk of firewood in his beak had dropped it on Gubbi by accident. Gubbi fainted. And that is how naughty Gubbi was punished. And that is the end of the story.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0093",
+    "title": "Marching to Freedom",
+    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
+    "description": "Dhani knew something exciting was being planned at the ashram, but no one would tell him anything. “Just because I'm nine years old,” though...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-05T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Dhani knew something exciting was being planned at the ashram, but no one would tell him anything. “Just because I'm nine years old,” thought Dhani glumly. “I'm sure they think I'm stupid. I am not!” Dhani and his parents lived in a very special place. It was Mahatma Gandhi's Sabarmati Ashram near Ahmedabad where people from all over India came to stay. Like Gandhiji, they were all fighting for India's freedom. During their stay at the ashram, they spent their time spinning khadi thread on charkhas, singing bhajans and listening to Gandhiji's lectures. At Sabarmati, everyone had to work – cook and clean, wash clothes, fetch water from the well, milk the cows and goats, and grow vegetables. Even Dhani had a job – he had to take care of Binni, one of the ashram's goats. He quite enjoyed that because Binni was his best friend and he liked talking to her.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "That morning, as Dhani fed Binni with fresh grass and changed the water in her bowl, he said, “Something's up, Binni! They all sit and talk in Gandhiji's room. They are planning something. I know it!” Binni chewed and nodded as if she understood. Dhani felt hungry. He headed towards the kitchen, with Binni skipping along beside him. His mother was fanning the chulha, filling up the room with smoke. “Amma, is Gandhiji going somewhere?” he asked. His mother coughed in the smoke and said, “They are going on a march.” “March? Where are they going?” Dhani queried. “Somewhere near the sea. Now stop asking questions and go away Dhani!” his mother said impatiently. “Let me finish the cooking first.” Dhani wandered off to the vegetable garden where old Binda was digging up potatoes.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Binda chacha,” Dhani sat beside him, “are you going on the march too?” Binda shook his head. Before he could say anything, Dhani eagerly asked, “Who is marching? Where are they going? What is happening?” Binda stopped digging and said, “I'll answer all your questions, but first tie up that troublesome goat. She's chewing up my spinach.” Dhani dragged Binni away and tied her to the lemon tree nearby. Then Binda told him about the march. Gandhiji and some of the men from the ashram were going to walk through Gujarat to reach the sea at a place called Dandi. They would walk through villages and towns for a whole month. Once they reached Dandi, they would make salt. “Salt?” Dhani sat up and frowned. “Why will they make salt? You can buy it in every shop!” “I know,” Binda laughed. “But Mahatmaji has a plan. You know he always marches to protest against something, right?” “Of course I know. He leads the Satyagraha marches to fight the British government and win freedom for India. But why is he protesting about salt? It's silly!” “It's not silly at all, Dhani! Do you know we all have to pay a tax on salt?” “So what?” “Everyone needs salt... that means, every Indian, even the poorest, has to pay this tax,” explained Binda chacha. “That is really unfair!” Dhani's eyes were hot with anger. “Of course it's unfair. Not only that, Indians are not allowed to make any salt either. Mahatmaji has asked the British to stop the tax, but they have refused. So he has decided to walk to Dandi and make salt from seawater.” “Walking for a month!” Dhani brooded worriedly. “Gandhiji will get really tired. Why don't they take a bus or train to Dandi instead?” “Because, if he goes on this long march and walks all the way to Dandi, the news will spread. There will be pictures in the papers and reports on the radio, and people all over the world will know that we are fighting for our freedom. And that will really embarrass the British.” “Gandhiji is clever, isn't he?” Dhani's eyes were shining. “Ah, that he is!” Binda's eyes crinkled with laughter. “He's even written to the Viceroy and told him what he plans to do! The British have no idea what they are in for!” Later in the morning, Dhani wandered up to the hut where Gandhiji was staying and peered in through a window. Inside, many of the ashram people were talking to Gandhiji. Dhani heard them planning the route along which they would walk to Dandi. He was thrilled to see his father sitting among the people. In the afternoon, when the ashram was quiet, Dhani went looking for his father. He found him under a tree, spinning on his charkha. “Pitaji, are you and Amma going on the march to Dandi?” Dhani got straight to the point. “I am going. You and Amma will stay here.” “I am coming with you.” “Don't be silly, Dhani. You can't walk so much. Only the ashram's young men will go.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "“I'm nine and I can run faster than you can!” Dhani replied stubbornly. “You can't stop me from coming with you.” His father stopped spinning and explained patiently, “Only the people who have been chosen by Mahatmaji will go.” “Fine! I'll talk to him then! I'm sure he'll say yes,” said Dhani and marched off. Gandhiji was a very busy man and it was not easy to catch him alone. But Dhani knew exactly when he would have the time to listen – early every morning when he went for a walk around the ashram. The next morning, as the sun came up, Dhani slipped out of bed and went looking for Gandhiji. He found him in the cowshed checking on all the cows. Then he strolled into the vegetable garden to inspect the peas and cabbage and have a chat with Binda.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "All the while, Dhani and Binni followed him. Finally, Gandhiji headed back to his hut. He sat down beside his charkha in the verandah and called out to Dhani, “Come here, child!” Dhani ran up, with Binni skipping along. “What's your name beta?” “Dhani, Gandhiji.” “And this is your goat?” “Yes, Gandhiji! This is my friend Binni, who gives the milk you drink every morning.” Dhani smiled proudly and said, “I take care of her.” “Good!” Gandhiji leaned forward. “Now Dhani, tell me why you and Binni have been following me everywhere this morning?” “I wanted to ask you something,” Dhani began nervously. “Can I come with you to Dandi?” Gandhiji smiled, “You are too small, beta. Dandi is 385 kilometres away and only young men like your father will be able to walk with me.” “But you are not young!” Dhani said. “Won't you feel tired?” “I am a very good walker,” Gandhiji replied. “I am a good walker too.” Dhani was adamant. “Ah yes,” Gandhiji looked thoughtful. “But there is a problem. If you go with me, who will take care of Binni? After walking for so long, I will become weak. When I come back, I'll need to drink lots of milk to become strong again.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "“Hmm, you're right, Gandhiji. Binni eats only when I feed her.” Dhani lovingly stroked Binni's head, “And only I know what she likes to eat.” “Exactly! So will you stay in the ashram and take care of Binni for me?” “Yes, Gandhiji, I will,” said Dhani. “And Binni and I will be waiting for you.” “Hmm, you're right, Gandhiji. Binni eats only when I feed her.” Dhani lovingly stroked Binni's head, “And only I know what she likes to eat.” “Exactly! So will you stay in the ashram and take care of Binni for me?” \"Yes, Gandhiji, I will,” said Dhani. “And Binni and I will be waiting for you.” Fun facts of History 1. In March 1930, Mahatma Gandhi led the march to Dandi to protest against the tax on salt imposed by the British. Gandhi and his followers walked through Gujarat for 24 days. All along the way, they were welcomed with flowers and songs. Newspapers across the world carried reports about the march. 2. At Dandi, Gandhi and his followers collected salt from the seashore and were arrested. The arrest sparked off the Non-cooperation Movement, and people all over India boycotted schools, colleges and offices. 3. There were 78 volunteers who accompanied Gandhi on the march. They covered a distance of 385 kilometres. 4. The march began on 12 March and ended on 5 April 1930. The youngest marcher was 16 years old. 5. The year 2005 marks the 75th anniversary of the Dandi March.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0094",
+    "title": "Going to Buy a Book",
+    "author": "Rukmini Banerji • Illus. Santosh Pujari (Pratham Books / CC BY 4.0)",
+    "description": "One day, grandfather gave my brother and me some money. \"Go and buy books,\" he said. We were both very happy. We both love to read.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-06T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One day, grandfather gave my brother and me some money. \"Go and buy books,\" he said. We were both very happy. We both love to read.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Should we go now? Should we go later? Should we go today? Should we go tomorrow? We decided to go right now.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Should we go to the big market? Should we go to the small shop? Should we go with somebody? Should we go alone? We decided to go to the small shop, just the two of us.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "We like the small bookshop. It is small but it has many books. The man in the shop likes us. He always helps us.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Should I buy a book with a lot of pictures? Should I buy a book with many stories? Should I buy a thin book? I could not decide.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "We do not know which book to buy. The man in the shop smiled at us. “Relax, come with me,” he said. “These books are about animals. Those are about machines. Those over there are about wars. Take what you want.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I picked up some books. My brother picked up some books. I sat on the floor. He sat on the chair. And we read and we read and we read.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "It was very quiet. There was no sound. One hour passed. Two hours passed. Finally, we knew which books to buy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The man in the bookshop smiled at us. I got a fat book with many stories. My brother got a big book with many pictures. We ran home to our grandfather. We climbed on his bed. He put his arms around us and then we read, and read, and read.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0095",
+    "title": "Shobhini and Nani",
+    "author": "Sarvendra Vikram • Illus. Vibhash Pandey (Pratham Books / CC BY 4.0)",
+    "description": "Mela Shobhini asked Nani, “Shall we go to the mela?” From a distance they could see the big giant wheel. It turned slowly and then faster an...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-07T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Mela Shobhini asked Nani, “Shall we go to the mela?” From a distance they could see the big giant wheel. It turned slowly and then faster and faster. “Shall we take a ride on the giant wheel?” Shobhini said to Nani. The wheel began to move slowly. Then it began to go faster and faster. Shobhini closed her eyes tightly. She was not really scared but felt better when she held on to Nani's hand. She would open her eyes a little from time to time to see where they were. Shobhini noticed that Nani did not shut her eyes. Instead she was laughing and waving to the people below. When the ride was over, Shobhini and Nani wandered around in the mela. Shobhini bought a little horn. She tooted so hard that a dog jumped up and ran away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Nani bought Shobhini a gas balloon. When they came home, Shobhini tied a small paper basket to the balloon and put some ants in the basket. Then she let go of the string. The balloon floated high above the house, beyond the field, past the mela and went off far, far away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "# Shobhini Combs Nani's Hair Nani had just washed her hair. Her hair was long, soft and white and it was shining in the sunshine. “Nani, can I comb your hair for you?” asked Shobhini. “I will do it carefully. I won't hurt you at all.” Shobhini combed Nani's hair carefully. She made a parting in the middle and divided her hair into two parts. With each portion she made a pony tail on either side of Nani's head. Not happy with the pony tails, she made them into two long plaits. Quickly Shobhini found a big yellow flower. She stuck the flower in one of Nani's plaits. A red and orange butterfly came and sat down on Nani's hair. Right next to the big yellow flower. Shobhini ran to bring a mirror. She showed Nani the two long plaits, the big yellow flower and the colourful butterfly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "# Jungle “Shall we go to the jungle?” Shobhini asked Nani. “There are wild animals there. You won't be scared, I hope?” Shobhini and Nani reached the jungle. First they saw a rabbit. He was lost and was looking for his mother. His eyes were full of tears. Shobhini and Nani helped him find his mother. Elephants were bathing in the river. They filled water in their trunks and sprayed it like a fountain over each other. It looked like a lot of fun. One monkey was eating a mango on a tree. Shobhini teased the monkey and made a face at him. The monkey was furious. He took a mango and threw it at Shobhini. Nani quickly put her hand out and swiftly caught the mango before it could hit Shobhini. It was a very good catch. “Wow! Nani!!” said Shobhini. “I did not know that you could play cricket!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Rain It was raining. Sometimes it was windy and the rain came pouring down hard and loud. Sometimes the rain was soft. Shobhini asked Nani, “Can I go out and play in the rain? I want to get wet.” “Be careful of the lightning,” replied Nani. Shobhini's dog Pillu was under the chair. When he saw Shobhini with an umbrella, he came out from under the chair. Pillu licked Shobhini's hand and wagged his tail. “All right,” said Shobhini “You can come too.” Shobhini walked ahead. Pillu was just behind her. As they reached the end of the verandah, there was a sudden gust of wind. Shobhini's umbrella flew out of her hand and out onto the grass. There was a streak of lightning in the sky. Shobhini stopped.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "A few seconds later, there was a very loud clap of thunder. Pillu ran back to the house and hid under the chair. Shobhini ran back and hid in Nani's lap. Wool Nani was sitting in the sun. She was rolling wool into a ball. “Can I help you?” asked Shobhini. Shobhini looked for the end of the wool. She started rolling it into a ball like Nani was doing. Soon the wool became a big ball. When it was too big, it slipped out of Shobhini's hand and jumped up in the air. Many swans were flying overhead. One of them caught the ball of wool. Shobhini looked up and saw a long string of red wool hanging from the sky. Shobhini clapped her hands when she saw this sight. The other end of the wool slipped out of her hands. When the swan heard the clap he looked down. He could see Shobhini on the ground but she looked very small from so high up.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "As he looked, the ball of wool slipped out of his mouth. Shobhini ran to where the wool fell from the sky. She quickly rolled up all the wool and gave the ball to Nani. The River It was a hot summer day. “Nani, will you come with me to the river to bathe?” asked Shobhini. The river was quite far from the house. Nani and Shobhini sat in a tonga and reached the riverbank. Many people were bathing on the ghats. The water near the banks did not flow very fast. Shobhini had brought many paper boats with her. One of her boats quickly floated away very far. Nani talked to a boatman. Shobhini and Nani sat in the boat and went quite far. The boatman said, “The water is very deep here. If you put one elephant on top of another, they would both sink.” ‘Wow! One elephant on top of another,' thought Shobhini, entranced. A goldfish leapt out of the water. It touched Shobhini's hand. Shobhini was delighted.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The boatman said, “Come again, Shobhini.” “You know me?” asked Shobhini surprised. “Yes, I know your mother too,” said the boatman, “When she was little, I used to take her out on this boat.” Nani smiled at Shobhini.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The Moon “Let us go to the moon today,” said Shobhini to Nani. She took Nani's special walking stick – the one that had a head of silver. First Shobhini climbed on the stick. “Get on carefully, Nani,” said Shobhini. “There is nothing to be scared of.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The stick zoomed into the air with Shobhini sitting on the stick and Nani behind her. They flew into the sky, above all the birds and the clouds. Soon they were like tiny dots in the sky. We are all waiting for them to come back...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      }
+    ]
+  },
+  {
+    "id": "pb-en-0096",
+    "title": "Samira Goes Shopping",
+    "author": "Bharati Jagannathan • Illus. Preeti Krishnamurthy (Pratham Books / CC BY 4.0)",
+    "description": "Amma had just begun to make some halwa for Samira's birthday when she found that there was no sooji. “Will you please run down to that shop ...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-08T08:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Amma had just begun to make some halwa for Samira's birthday when she found that there was no sooji. “Will you please run down to that shop and buy some sooji, dear?” said Amma pointing to the shop at the corner of the street, and gave her some money.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“Here are twelve rupees. Ask for half a kilo of sooji. Take Mouchak with you, and don't talk to any strangers on the way,” she said. “And don't go climbing trees,” she added as Samira set out with Mouchak to buy half a kilo of sooji. It was a pleasant February day. Samira sang, “Tra la la la la,” as she skipped along. “Woof! Woof!” said Mouchak friskily.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "They had just reached the corner when Samira saw a butterfly. “Oh! How lovely! Let us try and catch it,” she said, and both of them ran after the butterfly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "It went and sat on a baramasi flower, but away it flew exactly when Samira reached out to it. “Oh, oh!” she said sadly, then remembered that it wasn't right to catch butterflies anyway. They should be free.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "A brown cat with grey stripes ran across and Mouchak began to chase it, saying, “Bow wow, bow wow wow!” And behind Mouchak ran Samira, breathless. The brown-and-grey cat leapt over a wall and disappeared. Mouchak and Samira stopped, looked at each other and laughed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Then Samira saw a chandni bush. ‘Aren't the flowers like stars in the night sky? How happy Amma will be to have them,' she thought, and plucked a lot of chandni flowers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Mouchak sniffed at them and turned away. He had found something more exciting ahead! “Hey, where are you off to?” asked Samira, but all she got was, “Woof, woof, woof,” as Mouchak bounded off joyfully. He had found a bone and he held it out proudly to Samira. Wasn't that nice?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "They had reached a great simal tree a-twitter with parrots and bulbuls. The ground below was carpeted with hundreds of rich scarlet flowers. Delighted, Samira filled her pinafore with the waxy blossoms. Her arms full of flowers, she looked up and realized that she didn't know where she was.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "She looked right and she looked left, she looked ahead and she turned on her heel, but everything was new. Samira was lost. She sat down on the pavement and began to cry, “I want to go home. I want Amma.” Mouchak ran up and down and said, “Woof! Woof,” which meant, “Don't worry,” but Samira didn't understand and kept crying.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Then Mouchak pulled at her dress saying, “Bow bow,” (which meant “Come, come,”) till at last she looked up and dabbed her eyes. Off they both went then, Samira sniffing a little and dropping half her flowers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "She ran behind Mouchak, turning left and turning right, up one street and down another, and soon they were home. Amma was standing at the gate, looking up and down anxiously. “Where have you been?” she asked, looking at Samira's tear-stained face.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "And Samira told Amma how she had got lost and how Mouchak had brought her home. “Good dog,” said Amma, and gave him a nice big biscuit as Mouchak buried his bone in the garden.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Just then, Samira remembered that she was clutching a bunch of flowers in her hand. “Oh, Amma, these are for you,” she held out the chandni flowers. One simal blossom was sticking out of her pocket too. “These are lovely!” said Amma. “Thank you so much. But where is the sooji?” Amma is going to make kheer now as there is no sooji for the halwa. Samira loves kheer too. And isn't Mouchak lucky? He'll have a huge bowl of kheer in the evening with his juicy bone.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
     ]
   },
   {
-    "id": "bd-en-singing-the-truth",
-    "title": "Singing the Truth: the story of Miriam Makeba",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "A long time ago, in the vast city of Johannesburg, a baby girl was born. That baby was me. My mom called me Miriam. Miriam Makeba.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/01.jpg",
+    "id": "pb-en-0097",
+    "title": "Sniffles, the Crocodile and Punch, the Butterfly",
+    "author": "Herminder Ohri (Pratham Books / CC BY 4.0)",
+    "description": "In the swamp on the far side of the Far Forest, lived Sniffles, the Crocodile. Sniffles was always crying big crocodile tears or going sniff...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T10:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "A long time ago, in the vast city of Johannesburg, a baby girl was born. That baby was me. My mom called me Miriam. Miriam Makeba.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "In the swamp on the far side of the Far Forest, lived Sniffles, the Crocodile. Sniffles was always crying big crocodile tears or going sniff... sniff... Even his mom was quite tired of him and would say, “Stop snivelling and crying, start behaving like a crocodile. Go hunt for your food.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Mom was a sangoma, but she also worked to make other people’s homes neat and clean. It was hard for my mom to earn enough for both of us. She started selling homemade beer to bring in more money.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "But Sniffles would burst into tears at the thought of eating another animal. So mom and dad had to feed Sniffles every day.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "The laws of the land said that selling homemade beer was wrong. The police sent my mom to jail for six long months. I was only 18 days old, and needed my mom. So even though I was just a baby, I went to jail too.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Sniffles did not want to be a crocodile. 'I am so ugly,' he thought, bursting into tears. He did not even want to live like crocodiles do. His best friend was Punch, a golden yellow butterfly. And Punch wanted to be big and strong. So Punch always had her feeler curled into a fist saying, “Look out! I will punch you in the mouth.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "As a little girl I loved to sing. When I was older, I helped my mom clean houses. Singing songs as I worked made the chores go faster and the days seem brighter. Singing made me happier than I can explain.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "They made a very funny pair. Sniffles swimming with Punch perched on his head. The other crocodiles would laugh and make fun of them. That did not bother Sniffles. He continued crying, sniffling and being friends with Punch.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "I sang in my church, and this made others happy too. Music has the power to bring people together. When we were singing we felt brave and strong.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "One sunny afternoon, Punch settled herself near Sniffles' ear and told him, “I have seen two men come this way with guns, they want to kill crocodiles for their skins.” “Don't these men have skins of their own?” asked a puzzled Sniffles. “I don't know Sniffles,” replied Punch. “Tell the other crocodiles and hide.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "People said my voice was a gift and my songs were special. I sang with other musicians and our music was heard all over the world.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "“But Punch, they might shoot you. Oh! What will I do,” cried Sniffles sobbing loudly. “People catch butterflies with nets and pin them on a board, my grandaunt told me,” said Punch and flew away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "My home was Sophiatown, a place of culture and music. Sophiatown, a place where South Africans could make music in harmony and dance together. But the people who ruled the land at the time did not like this togetherness. Those rulers didn’t want black and white people to be friends.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "The other crocodiles heard Sniffles crying and shouting, “Men coming to kill us. Hide ... Hurry ... Hide.” At first the crocodiles did not believe Sniffles, but then they heard the men's footsteps. The crocodiles went deep into the river and left some rotten logs floating on the water. The men shot at the logs which looked like crocodiles from afar. The men could not see any crocodiles, only hundreds of butterflies that flew into their faces and hair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "I knew it was wrong to treat people differently because of their skin colour. I did not hide my beliefs, and so those people in charge wanted me out of the country. When I was singing in America, I was told I could never return home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "Shaking their heads and trying to brush off the butterflies they said, “There are no crocodiles here, we will bring nets and catch the butterflies.” And off they went. All the crocodiles got together and said, “Thank you, Punch.” “Thank you, butterflies.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "People all over the world heard my story. My songs and my story helped many to see how there was no fairness in South Africa for those with black skin. I decided to go on singing and telling the truth about my country, no matter what.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "The next day Sniffles saw men with nets. He remembered Punch telling him about nets. “Punch, the nets! Come here quick! The men with the nets have come.” All the crocodiles came on the river bank. The butterflies settled on the backs and heads of the crocodiles.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "The world loved my music and I was welcomed in many countries. I won awards and sang for important people all over the globe. My life was good, but something was missing. I could not sing in my home country, and people there were not free.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "A few of the crocodiles made a circle around the men as they came close. The crocodiles snapped their jaws. Sniffles was in front, gnashing his teeth and whipping his tail around most menacingly.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Then a wonderful day dawned when Nelson Mandela became president of South Africa. New people were in charge and the unfair laws belonged to the past. I finally went home with new hope in my heart.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "The men were so frightened that they took to their heels and ran right out of the swamp. The other crocodiles were very proud of Sniffles, as he had acted like a real crocodile. Now Sniffles was also proud to be one.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "After that I could sing in a free, fair country. People of different skin colours could enjoy music together. I helped make this happen because I was brave and strong. I sang the truth in all of my songs.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "All the butterflies flew around the crocodiles, fluttering their wings. “Thank you, Sniffles, Thank you, crocodiles.” “It is all right,” said Sniffles shyly. “That is what friends are for, to take care of each other.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
       }
     ]
   },
   {
-    "id": "bd-en-sizwes-smile",
-    "title": "Sizwe’s Smile",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "It had been raining for days, and everyone was grumpy. Everyone except Sizwe, who woke up with a smile every morning. “Yoh! Sizwe! That smil...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/01.jpg",
+    "id": "pb-en-0098",
+    "title": "The Hare & the Tortoise (Again!)",
+    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
+    "description": "Do you remember the Great Race between the hare and the tortoise? For a long time, no one in the entire animal kingdom could talk about anyt...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T10:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "It had been raining for days, and everyone was grumpy. Everyone except Sizwe, who woke up with a smile every morning. “Yoh! Sizwe! That smile is magic!” said Gogo. “Is it for me?” Sizwe clapped his hand over his mouth. “But it’s MY smile, Gogo,” he whispered.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Do you remember the Great Race between the hare and the tortoise? For a long time, no one in the entire animal kingdom could talk about anything but the Great Race and its two contestants.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "His mother laughed. “Sizwe! A smile is something you can give away without losing it. Look!” She lifted him up to the mirror. There was his smile, just as bright as before.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "We all know that the rabbit was defeated because he was lazy and overconfident. We know that the tortoise won the race because he was slow and steady. The forest animals knew this too, and continued to respect both creatures equally.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "It was time to go out. Mama buttoned up Sizwe’s raincoat, and off they went, through the rain, to the library. Down the street, Sizwe’s best friend Zanele stood at the window of her house, looking sadly at the rain. Sizwe felt his smile creeping, creeping up. Before he knew it, his smile LEAPT out, and flew across the garden to Zanele.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Even the two competitors remained friends. The tortoise did not assume airs because he had won, and the hare, realizing he had been defeated fair and square, bore the tortoise no grudge.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Zanele held on tightly to the smile – it was far too precious to let it get away. As Sizwe walked away to the library, Zanele’s doorbell rang. It was the postman, with a letter from her favourite cousin. Zanele was so happy, that the smile bounced up, and beamed out at the postman. “Thank you, Mister Postman!” she said.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Many months passed. The king of the jungle where the hare and the tortoise lived had some important matters to discuss with the king of the neighbouring jungle. But the first king could not leave his jungle just then. He decided, instead, to send the hare and the tortoise to the neighbouring king, as his representatives.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "Zanele’s smile was the brightest thing the postman had seen all morning. It kept him warm as he trudged off through the rain. He came to a big house. Inside the gate, a dog was spinning around in circles, barking, barking, barking. He was so silly, that the postman couldn’t help smiling. The smile bounced through the gate with a glitter of glee.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "“At least one of you must go to the neighbouring kingdom,” ordered the king, when the hare and the tortoise had presented themselves.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "The dog stopped barking. He pricked up his ears and wagged his tail. Then he turned and ran back to the house with the precious, warm smile. A bent old man opened the door. “Oh, no! You can’t come inside. You’re all wet!” he told the dog. But right away, the smile beamed up at the old man.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "“I want you to discuss certain important matters with the king there, and come back to me with his thoughts on those matters.” “Now go!” he said, as he dismissed them. “And mind, you only have a day to complete the task.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "The old man stood a little straighter. “Eish,” he said, “Who cares if it’s raining? Let’s go for a walk, boy!” And off they went, splashing in the puddles. There, at the zebra crossing, stood grumpy Mrs Makabela, the traffic cop. She looked cold, and wet, and miserable. The old man knew just what to do. “Morning, Mrs Makabela!” he called, and smiled his biggest, brightest smile. But Mrs Makabela... did not smile back.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "The road to the neighbouring kingdom was not smooth or easy. It was rocky and full of thorns. There were also two rivers to cross on the way.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Standing in the rain for days can make a face sad, sad, sad. But a smile is a magical thing and, by now, the smile was so strong, and so bright, that it was very hard to keep inside. It didn’t work right away, but bit by tiny bit, it began to creep out until, at last...! A great, big smile lit up Mrs Makabela’s face! The school bell rang, and children ran to cross the road. Mrs Makabela put up her sign, and smiled, and smiled, at each and every child.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "After some thought, both the hare and the tortoise realized that neither of them could complete the task alone. They had to travel together. The plan was for the hare to carry the tortoise over the thorny parts of the route, and for the tortoise to carry the hare across the two rivers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "The children smiled at their moms and dads, and their gogos and tatas and brothers and sisters. They smiled at the bus driver and the greengrocer, and Mme Makau, who went off to smile at her husband, who smiled at the mayor... The smiles leapt and rolled and beamed and gleamed until EVERYONE was smiling and giggling and laughing out loud in the rain.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "The next day, they collected the various messages from their king and were ready to go. The hare made short work of the thorny parts of the route with his giant loping strides, while the tortoise held on for dear life.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "In the library, everything was quiet except for the sound of the rain. “It’s time to go,” said Sizwe’s mother, closingher book.“Aw, mom!” said Sizwe, who had run out of smiles.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "When they came to a river, they switched places, and the hare clambered on to the tortoise's back. The tortoise swam across the river swiftly and gracefully. Once both the rivers had been crossed, it did not take them long to arrive at the neighbouring kingdom.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "But as they stepped out into the street... WHAT A SIGHT! Everyone in town was there! Everyone! And they were ALL smiling!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
+        "text": "After extensive discussions with the neighbouring king on all the matters raised by their own king, the hare and the tortoise were ready to leave.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       },
       {
         "pageNumber": 12,
-        "text": "The smiles bounced around and beamed at Sizwe. They warmed him, and tickled him, and crept up, up, up from his toes... to the TOP of his head. He was so full of happiness that the smile burst out, brilliant and beaming bright. And something changed. The dark, gloomy, rainy afternoon didn’t seem so dark anymore. Could it be...? YES! The clouds parted, and the warm sun shone down on them, with the biggest, brightest, most brilliant smile of all.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "The return journey was even smoother than the onward journey, since both the hare and the tortoise now knew exactly what to do. The two old rivals had worked together so well that they reached their king a few hours before the deadline!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/12.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "Use your imagination and colour this picture anyway YOU like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/13.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Use your imagination and colour this picture anyway YOU like.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/14.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       }
     ]
   },
   {
-    "id": "bd-en-sleepy-mr-sloth",
-    "title": "Sleepy Mr Sloth",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One day, Mr Sloth came to visit. He said: I’m sleepy! I need a good branch for a bed!",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
+    "id": "pb-en-0100",
+    "title": "I Can Climb!",
+    "author": "Mini Shrinivasan • Illus. Deval Maniar (Pratham Books / CC BY 4.0)",
+    "description": "I am a big boy now.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/01.jpg",
+    "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
-    "rewardFamibux": 30,
+    "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-05T10:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "One day, Mr Sloth came to visit. He said: I’m sleepy! I need a good branch for a bed!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I am a big boy now.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "I’m quite good at climbing. I know how to swing. But sleeping’s my favourite, favourite thing!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "I can climb up the steps.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "But I cannot climb down again.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Oh no, Mr Sloth! A giraffe’s eating there! He might think you’re lunch and start nibbling your hair!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "I can climb on a chair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "But I cannot climb down again.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Oh no, Mr Sloth! There’s a beehive right there! You’ll never get sleep with those bees everywhere!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "I climb on to the chair, and then on the table!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "But I cannot climb down again.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "Oh no, Mr Sloth, that’s a snake over there! Not a branch! Poor old snake. You gave him quite a scare.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "“Papa! Papa!” I shout. Papa laughs. “Sonu, learn to climb down!” he says.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "I am afraid. But I do not cry.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "Oh no, Mr Sloth! There’s a bird squawking there! You’ll never get sleep with that noise in the air!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "Slowly, I get down from the table, and down from the chair.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "Try climb one more branch, Mr Sloth! they all said. And that branch was just the right one for his bed.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "The bird and the snake, the giraffe and each bee were happy to have Mr Sloth in their tree.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "At last, I have learnt to climb down too!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-thatos-birthday-surprise",
-    "title": "Thato’s Birthday Surprise",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "It is one week until Thato’s birthday. That’s seven whole days!",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/01.jpg",
+    "id": "pb-en-0101",
+    "title": "Flying High",
+    "author": "Vidya Tiware • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
+    "description": "Mother's song was soft and sweet. Chandu was listening to it. Chandu fell asleep. In his dream, he was flying.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-06T10:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "It is one week until Thato’s birthday. That’s seven whole days!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Mother's song was soft and sweet. Chandu was listening to it. Chandu fell asleep. In his dream, he was flying.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "His mama says: “Your birthday present will be a BIG surprise!” Thato wonders: what will it be?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "Flying, flying into a garden. Look! A butterfly, so pretty. The butterfly said, “Well, hello! How are you?” “Fine, thank you,” Chandu replied.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "On Monday Thato thinks: Maybe I will get giant wings so I can fly high in the sky like a bird...”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "Chandu flew a bit higher. Flying, flying. He flew into a sparrow. “Hi there! How do you do?” she asked. “Very well, thank you,” Chandu said.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "On Tuesday Thato thinks: “Maybe I will have a birthday cake as big as a house!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "Then Chandu soared still higher. Flying, still flying, he met an eagle. “Hello friend! How are you?” the eagle asked. “I feel good,” replied Chandu.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "On Wednesday Thato thinks: “Maybe I will get a rocket ship to whizz up to the moon.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "Chandu was flying higher and higher. It seemed so easy. Flying, flying. So high that he came up to an aeroplane. “Hey, Chandu, how do you do?” the aeroplane asked. “Fine. And safe journey!” Chandu quickly replied.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "On Thursday Thato thinks: “Maybe I will get fins so I can swim under the water like a fish.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "Soon Chandu climbed higher than before. Flying and still flying. A rocket came to meet him. “Hello sir, how do you do?” the rocket shouted. “Very well,” Chandu smiled.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "On Friday Thato thinks: “Maybe I will get magic soccer boots and score a thousand goals!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "Still, Chandu was flying higher and higher. Now the stars were twinkling all around. They were smiling at Chandu, as though he were a part of them. “How are you feeling Chandu?” one star asked him. “I am feeling great!” he said. Suddenly, the stars began to wobble. And shake.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "On Saturday Thato thinks: “Maybe I will get a key that opens a box filled with treasure!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "On Sunday it is Thato’s birthday. Mama smiles and says: “Come and see your surprise!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "It is the best present ever. Thato’s big brother Kudzai has come to visit all the way from the big city!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Thato smiles and smiles and his big brother lifts him up in the air and hugs him. Kudzai asks:“What do you want to do for your birthday, little brother?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "And Thato knows exactly what they will do the whole day long.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "It was Mother, shaking Chandu awake. “Good morning, how are you?” He hugged her hard and said, “Oh, now I feel better than ever before!”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       }
     ]
   },
   {
-    "id": "bd-en-the-best-thing-ever",
-    "title": "The best thing ever",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Muzi loves to build things. He dreams of building the best thing ever.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/01.jpg",
+    "id": "pb-en-0102",
+    "title": "Rumniya",
+    "author": "Rukmini Banerji • Illus. Henu (Pratham Books / CC BY 4.0)",
+    "description": "Many years ago when Rumniya was a baby, Nana, Nani and Rumniya went to a wedding.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T10:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Muzi loves to build things. He dreams of building the best thing ever.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "Many years ago when Rumniya was a baby, Nana, Nani and Rumniya went to a wedding.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Once he built a shelter for his toys. But it wasn’t the best thing ever.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "There were hundreds of people at the party, most of whom were near the food. After some time, Nani lost Rumniya.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Yesterday he built a bridge for his animals. It was a good thing. But not the best...",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "When things get lost, Nani does not worry; she feels that everything will turn up, and turn out right very soon. So Nani did not feel worried.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Today Muzi is going to visit uGogo. He is sad. Without his toys, how can he build the best thing ever?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "On the other hand, Rumniya was only one and a half years old, so she was quite worried and not as hopeful.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "At the bus stop, Muzi is amazed. He sees red things and blue things. Small things and big things. New things and old things.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "But rather than doing any silly baby-like things like crying, Rumniya thought of doing something else.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Muzi has a new idea for building the best thing ever.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "In that vast crowd, it was impossible for a small girl to search for people's faces.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "On the road to uGogo’s, Muzi finds many things. Long things and short things. Round things and square things.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "In fact, it was much easier to search for the right person by looking at people's feet, their shoes and sandals.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "By the riverside, Muzi finds more things. Soft things and pointy things. Green things and brown things.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "So that is what Rumniya did. She started from one end of the room.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "Look, Muzi! We are here.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "She lifted up the sari of each and every woman. Then she came to a sari that was familiar, and slippers that she knew. Sure enough, when Rumniya matched the face with the sari and slippers, it was Nani!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "While uGogo bakes for the hungry travellers... Muzi builds.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Look Gogo, a new house for you. Oh, Muzi, laughs Gogo. This is the best thing ever!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Gogo, Gogo! says Muzi. The world is full of toys. Look what I can build.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-best-thing-ever/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "And as Nani bent down to pick Rumniya up, Nani said to her friend, “See, I told you. There was nothing to worry about. Whenever you lose something, you will always find it.”",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       }
     ]
   },
   {
-    "id": "bd-en-the-elephant-in-the-room",
-    "title": "The Elephant in the Room",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One morning, Lindi found an elephant in her room. “Look!” she called. “There’s an elephant in my room!” “No there isn’t,” her mother called ...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
+    "id": "pb-en-0103",
+    "title": "I Can Make Things!",
+    "author": "Mini Shrinivasan • Illus. Tanvee Nabar (Pratham Books / CC BY 4.0)",
+    "description": "I am a big boy now. I can draw and I can make things.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/01.jpg",
+    "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
-    "rewardFamibux": 30,
+    "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-08T10:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "One morning, Lindi found an elephant in her room. “Look!” she called. “There’s an elephant in my room!” “No there isn’t,” her mother called back. “Elephants don’t live in houses. Everybody knows that.” The elephant yawned.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I am a big boy now. I can draw and I can make things.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "At breakfast, Lindi’s dad asked her to pass the milk. “I can’t,” said Lindi. “The elephant drank it all.” “There isn’t an elephant,” said her dad. “Elephants don’t live in the city. Everybody knows that.” The elephant burped.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "I draw my mother, she sits still.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "At school, the teacher grumbled, “What’s wrong with this chalkboard? It’s all wrinkly!” “That’s not the chalkboard. That’s my elephant!” said Lindi. “There are no elephants at school,” said the teacher. “Everybody knows that.” The elephant ate the teacher’s sandwiches.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "I draw my sister, she does not sit still.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "At break-time, the elephant followed Lindi to the playground. He knocked over the swings by mistake. “Go away!” said Lindi. “You’re not real and you shouldn’t be here! Everybody knows that!” The elephant drooped. He walked away, wiping his eyes with his trunk.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "I draw many things.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "After school, Lindi couldn’t see the elephant anywhere. “Elephant!” she called. “Where are you?",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "But I am told not to draw on the wall.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Lindi went home without him. She felt lonely. So she went outside, and sat on the steps, and waited. And waited. And waited.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "I can make things.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "And then ... she saw a trunk. And tusks. And ears. The elephant was coming down the road!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
+        "text": "I make a drawing of a cat, she is fat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       },
       {
         "pageNumber": 8,
-        "text": "She ran up and hugged him. “I’m sorry,” she said. “I didn’t mean it! I know you’re real. You’re my elephant.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
+        "text": "I make a fish. It is small.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/08.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#4C1D95"
       },
       {
         "pageNumber": 9,
-        "text": "The elephant lifted her up and put her on his back, and she rode down the street. She waved to her neighbours. “Hello, Mr Green! Hello, Mrs Green!” “Look at Lindi!” said Mr Green. “How did she get up there? Maybe she grew!” “Don’t be silly,” said Mrs Green. “Little girls don’t grow that high. Everybody knows that.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
+        "text": "I make paper boats, birds and planes.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/09.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#581C87"
       },
       {
         "pageNumber": 10,
-        "text": "The elephant took Lindi to the lake, and she slid down his trunk like it was a slide. “Wheeeee!” she shrieked. They played all afternoon, laughing and splashing and spraying each other with water.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
+        "text": "I make houses and trains.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/10.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#701A75"
       },
       {
         "pageNumber": 11,
-        "text": "That night, the elephant tucked her into bed. “Good night, Elephant,” said Lindi. “Thank you for a lovely day.” He patted her head, and curled up to sleep outside her window.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "“Elephants are the best friends in the world,” Lindi said to herself. “Nobody knows that, except for me and my elephant.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/the-elephant-in-the-room/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "My sister makes a mess! I can make many things. But my sister cannot!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/11.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#7C2D12"
       }
     ]
   },
   {
-    "id": "bd-en-there-must-be-a-rainbow",
-    "title": "There Must be a Rainbow",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Nestled in the Kingdom of the Zulu is a magnificent place called the Valley.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
+    "id": "pb-en-0104",
+    "title": "I lost my bat! I found my bat!",
+    "author": "Meera Tendolkar • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
+    "description": "I can't find my bat, it's lost!",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/01.jpg",
+    "ageRating": "TODDLER",
     "language": "en",
     "category": "Stories & Reading",
-    "rewardFamibux": 30,
+    "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-09T10:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Nestled in the Kingdom of the Zulu is a magnificent place called the Valley.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "I can't find my bat, it's lost!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "A little girl called Jabulile lives here. Jabulile was always a happy child. She was also curious, and full of questions about life. Everything fascinated her.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
+        "text": "It's not behind the door.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/02.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0F172A"
       },
       {
         "pageNumber": 3,
-        "text": "Jabulile’s father was a mielie farmer. Her mother was a teacher. They taught her to dream big dreams. Jabulile’s biggest dream was to help people.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
+        "text": "It's not on the shelf.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/03.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E3A8A"
       },
       {
         "pageNumber": 4,
-        "text": "Everyone in the village was Jabulile’s friend, especially the elders. They taught her about the wise men and women who once lived in the Valley. Jabulile also wanted to be wise.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
+        "text": "It's not under the bed either.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/04.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#0C4A6E"
       },
       {
         "pageNumber": 5,
-        "text": "One awful day, the clouds began to gather over the Valley. Everything grew dark and grey. An ugly storm swept over the land.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
+        "text": "It's not in the box.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/05.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
-        "text": "Great gusts of wind blew the roofs off the huts. All the animals lost their homes. It was a very sad day.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
+        "text": "It's not in the loft.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/06.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#14532D"
       },
       {
         "pageNumber": 7,
-        "text": "The village folk cried, “What shall we do now?” “All the crops are ruined!” cried the farmers. “Our homes are gone!” said the elders. All hope seemed lost. But Jabulile remembered something her wise father once told her.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Jabulile started speaking to the villagers. “The storm only hurts us,” she said, “because of the way we choose to see it. If you look up the sun is shining again. It is a new day. “After every storm, there must be a rainbow!” she shouted excitedly.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Just then a glorious rainbow appeared in the sky.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The villagers saw the rainbow and they began to smile. It stood as a promise that the storm was over.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The villagers rebuilt their homes. Farmers planted new crops. The grass grew greener than ever before.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Once again there was hope and happiness in the Valley.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
+        "text": "I can't find it anywhere!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/07.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#312E81"
       }
     ]
   },
   {
-    "id": "bd-en-together-were-strong",
-    "title": "Together We’re Strong: The Story of Albertina Sisulu",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One harsh winter, many people in the land were sick. Ma Monikazi’s cheeks burned. Sweat dripped from her body. She wanted to hold the icy gr...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/01.jpg",
+    "id": "pb-en-0105",
+    "title": "Mouse in the House",
+    "author": "Sowmya Rajendran • Illus. Tanaya Vyas (Pratham Books / CC BY 4.0)",
+    "description": "There was a mouse in the house. Grandma saw it first. \"Mouse!\" she screamed, jumping up the sofa. The cushions fell on the floor.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/01.jpg",
     "ageRating": "YOUNG_KIDS",
     "language": "en",
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T10:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "One harsh winter, many people in the land were sick. Ma Monikazi’s cheeks burned. Sweat dripped from her body. She wanted to hold the icy grass to her face to cool down. Under her blanket she held her belly and sang to the baby inside her: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!” Her stomach growled when the baby’s powerful kicks woke her at night. She ate the leftover meat in the cooking pot, hungry for life. One bright night the moon was bigger, fatter and pinker than ever. Her breath came fast. The baby was ready. The aunties in the birthing room rubbed her back and warmed the water. When Monikazi held her beautiful daughter in her arms, she knew she was a special girl, a fighter. What a blessing! Her name is Nontsikelelo. She will be the mother of all blessings.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
+        "text": "There was a mouse in the house. Grandma saw it first. \"Mouse!\" she screamed, jumping up the sofa. The cushions fell on the floor.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/01.jpg",
+        "illustrationEmoji": "📖✨",
+        "bgColor": "#1E293B"
       },
       {
         "pageNumber": 2,
-        "text": "Nontsikelelo was beautiful and strong with crinkling black button eyes. She loved her older brother, Mcengi. He made her laugh and so the laughter spread. She loved to eat meat before she had teeth. Her favourite aunt always kept a little portion on the side of her plate for Ntsiki. Mcengi chased the chickens that scratched in the garden where Ma Monikazi grew spinach and squash to feed her family. Ntsiki ran after him as her legs grew strong. Ma Monikazi had another baby boy, Velaphi, and another, Qudalele. Finally another sister, Nomyaleko. Little Ntsiki folded napkins and washed the baby clothes. She swept the house and fed the fire. She picked up her baby brother when he cried and tickled him till he laughed. She taught them to sing: “Be strong, little one. Winter is gone. Be brave, little one. Together we’re strong!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Qingqiwe, her grandfather, raised horses. His favourite was Shishi, a glossy black mare. As soon as Ntsiki was old enough, he hoisted her on to the saddle in front of him. His strong arms reached around her. He laced the reins through her fingers. He taught her to talk softly to Shishi, to groom her with a hard bristled brush. When she stroked its glossy coat, Albertina whispered, “You are the most beautiful creature. Thank you for letting me ride on your back.” Her father, Bonilizwe, came home from the mines at Christmas. Ntsiki pulled herself up onto Shishi’s broad back. She rode out to meet him at the bus stop. Ntsiki sat tall and straight. Her knees held firm. She handled the reins with gentle fingers. How proud Bonilizwe was of his daughter. The biggest smile Ntsiki had ever seen covered her father’s face.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "On her sixth birthday she went to school. “You must choose an English name,” said the Presbyterian teacher, but Ntsiki liked her own name. “Why do I need a new name?” she asked. The teacher scowled and read the names aloud: “Adah, Agnes, Albertina, Anna.” What did they mean? Ntsiki liked the long name best. Al-ber-ti-na! The name had rhythm. Al-ber-ti-na! The name had bounce. Albertina was a name you didn’t mess with. When her cousin married a handsome man from a nearby town, Albertina was chosen as an umkhapi. The maid of honour! Weeks before the wedding, she stitched her isikhakha, the short traditional skirt, and threaded bright beads onto her amatikiti. Her mother gave her the white flag and said, “You have a big job, my blessing.” At the bend in the road Albertina waved the flag, then turned Shishi back, leading everybody from miles around to the ceremony. People would gossip if she made a mistake, but the guests lined the road. They ululated and sang. They threw down flowers for the horse and the girl.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Her mother was often sick and needed Albertina to look after the home. In her last year of primary school, Albertina was the oldest pupil in the school. She was chosen to be the head girl and wore her badge with pride. Her best friend, Betty, told her about a competition, saying, “You must apply, my clever friend.” “What is the prize?” asked Albertina, growing curious. “A scholarship to high school!” said Betty. “You must apply. You’ll win it, for sure. ”Albertina studied until the candle burned down. She practised sums. She practised spelling. She sharpened her pencils and gave her shoes an extra shine. Next morning she passed Shishi in her paddock. The horse whinnied and stamped the ground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "The test began. Albertina’s fingers shook. The sums were tricky. Her mouth went dry. Her hand cramped on her pencil but she continued. “Well done, Albertina!” said her teacher at the end. The important official arrived and called the top two students to the stage. “Well done to Albertina for full marks,” he said, “but you are too old. The scholarship goes to...” Albertina tried not to cry. “That’s unfair,” shouted Betty, hopping with fury. “That wasn’t in the rules!” How would Albertina go to high school now? She dragged her feet all the way home. The teacher wrote to the newspaper about the unfair decision. Brother Joe at the Catholic Mission station read the story over his breakfast. He cracked his boiled egg with an extra flourish. He pushed the newspaper across the table to Father Bernard. He didn’t like the story one bit either.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Soon enough there was a scholarship for Albertina. Mariazell near Matatiele was a long way from Xolobe, but the whole village erupted. Their home girl was off to high school. She would make them proud. They threw a party like no other. The women brewed the sorghum beer and lit the fires. They slaughtered chickens and stirred up pots of meat. Albertina smiled till her face ached. She packed her brown suitcase and polished her shoes again. Before setting off on the bus to Matatiele, she said goodbye to Shishi. Albertina brushed her coat and stroked her wiry mane. She whispered all her questions into the horse’s silky ear: What if I get lost? Will I make new friends? Will I still be clever so far from home? Shishi whinnied and stamped the ground.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "School days started well before sunrise. The girls washed quickly in the cold water and swept the dormitories before Mass. The milky porridge was never quite enough; the stew not as tasty as Aunty’s back home. But Albertina studied hard. She played netball on sunny afternoons. In her school holidays Albertina worked at the mission station. She rubbed and scrubbed against the zinc washboard. She boiled sheets in copper tubs, then wound them through the wringer. She hoed and tilled the school garden but missed her family. Who was telling her brothers and sisters funny stories? Who wiped their eyes when they cried? Who tickled them until they laughed? Albertina loved the nuns who taught her. Could she become a holy sister? “But nuns earn no salary,” said Father Bernard. “Perhaps you should become a nurse? You’ll be paid while you study.”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Albertina took a train to Johannesburg. She bought a smart white uniform, new navy shoes and a shiny red fountain pen. Sick people came all day to the hospital. She cleaned their wounds with careful fingers. She held the old people gently. When the babies cried, she sang: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong! Some nights Albertina worked till dawn. She looked out the window and thought of her family. Were the children hungry? Did they go to school? Who was riding Shishi? She remembered the dark green spinach. She missed the scent of the earth. There was no vegetable garden here. There was nowhere for a horse. Albertina never went to parties. She saved every shilling. On her days off she learned to play tennis. Whoosh! Plop! She whacked the ball across the net. Always, she wished for a little more money to send home.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Walter Sisulu was a brave and clever man who dreamed of freedom for South Africa. His big smile captured Albertina’s eye. They walked together down the city streets. Her delicate hand rested on his arm. Walter wanted Albertina to be the mother of his children. Bright ribbons decorated the Bantu Men’s Social Centre on their wedding day. Albertina’s long-sleeved dress had a swirling train of lace. Many friends blessed their special day. Albertina planted flowers in her little garden. Within a year, Max was born. Albertina had become a mother. One day people would call her the mother of the nation. Max had his mother’s black button eyes and his father’s round chin. He was the hope for their future. Albertina wanted to fight for a new South Africa, so that Max could be free. When he cried, she sang: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Police came in the middle of the night, banging on the door. Albertina scolded the men who messed up her house. “How rude you are!” she said, “trampling mud inside my home.” In the morning Albertina’s favourite flowers lay crushed beneath their footprints. She remembered chasing the chickens from her vegetable garden back in Xolobe and set about replanting her garden. The earth, she knew, would recover. She would support her husband who kept many secrets and hid from the police.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "She joined the women and worked to organise a march to Pretoria. The women refused to carry a pass. They sang, “Wathint’ abafazi; wathint’ imbokodo! You strike a woman; you strike a rock!” Many hard years followed after Walter’s arrest. He was jailed on Robben Island for 26 years. Albertina, also, was sent to jail many times. Often she was scared. Often she was lonely. But even on the darkest nights, she could see a sliver of moon through the window in her cell. She sang the song that Ma Monikazi sang before she was born: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-tortoise-finds-his-home",
-    "title": "Tortoise finds his home",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "One day Tortoise was walking through the veld. He was searching and searching. He gazed into the distance and squinted at the grass. “Are yo...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-11T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "One day Tortoise was walking through the veld. He was searching and searching. He gazed into the distance and squinted at the grass. “Are you looking for something?” Snail asked. “Yes, I’m looking for my house. Have you seen it?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "“Where?” asked Pa, climbing up the window. He pulled the curtains down. “There!” shouted Ma, leaping up the table. The plates fell with a crash.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/02.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       },
       {
-        "pageNumber": 2,
-        "text": "“No, I haven’t, but I’ll help you look!” She climbed onto Tortoise’s shell. Tortoise walked on with Snail on his back. They looked and looked, but there was no sign of a house.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 3,
+        "text": "“Catch him!” said Mithun to the cat. The cat looked at the mouse and fled under the bed! “Mouse!” screamed Mithun, running behind the cat.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/03.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       },
       {
-        "pageNumber": 3,
-        "text": "“Are you looking for something?” asked Sparrow. “Yes, we're looking for Tortoise's house. Have you seen it?” “No, I haven’t, but I’ll help you look!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 4,
+        "text": "“I will chase it out!” said Ma bravely. She took out the broom and poked here and there. “Mouse!” shouted Pa. “Behind you!” Ma looked at the mouse, and fled under the bed!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/04.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#0C4A6E"
       },
       {
-        "pageNumber": 4,
-        "text": "Sparrow flapped his wings and he whizzed away. “You’re going too fast!” called Tortoise. “Alright, then I’ll hop on too.” Tortoise walked on with Snail and Sparrow perched on his shell. They looked and looked, but there was no sign of a house.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 5,
+        "text": "\"I know what to do!\" shouted Grandma jumping down from the sofa. She rolled up a newspaper and poked here and there.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/05.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       },
       {
-        "pageNumber": 5,
-        "text": "“Are you looking for something?” asked Ladybird. “Yes, we’re looking for Tortoise’s house. Have you seen it?”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 6,
+        "text": "“Mouse!” yelled Pa, climbing the window even higher. “To your left!” Grandma looked at the mouse, and fled under the bed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/06.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       },
       {
-        "pageNumber": 6,
-        "text": "“No, I haven’t, but I’ll help you look!” Ladybird hopped onto Tortoise’s shell. Tortoise walked on with Snail and Sparrow and Ladybird sitting on his back. They looked and looked, but there was no sign of a house. A breeze started to blow.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 7,
+        "text": "“Oh no!” said Pa softly. He couldn't go any higher. He climbed down carefully, and fled under the bed before the mouse could see him!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/07.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       },
       {
-        "pageNumber": 7,
-        "text": "“Are you looking for something?” asked Mouse. “Yes, Mouse, I’m looking for my house. Have you seen it?” “No, I haven’t, but I’ll help you look!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 8,
+        "text": "\"Mouse in the House!\" shouted everyone together. That woke Baby up. She sat up on her mat, rubbing her eyes sleepily. What was that on her pillow?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/08.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#4C1D95"
       },
       {
-        "pageNumber": 8,
-        "text": "Mouse jumped onto Tortoise’s back. Tortoise walked on with Snail and Sparrow and Ladybird and Mouse on his back. They looked and looked, but there was no sign of a house. The wind swept the leaves off the ground and swirled them around Tortoise.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 9,
+        "text": "It had two eyes, four feet, and a long tail. \"Mouse!\" said Baby, clapping happily. Baby looked at the mouse, and the mouse fled, with Baby right behind him!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/09.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       },
       {
-        "pageNumber": 9,
-        "text": "The wind got stronger and stronger. The sky turned dark. “Oh, where is my house?” Tortoise sighed. Thunder roared in the hills. Lightning flashed in the distance. Drip, drip came the rain. “Oh, where is Tortoise’s house?” asked Snail and Sparrow and Ladybird and Mouse.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
+        "pageNumber": 10,
+        "text": "Leaping up the sofa, climbing the window, jumping up the table, tumbling over the cushions...",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/10.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       },
       {
-        "pageNumber": 10,
-        "text": "The wind whirled and whipped and blew Snail and Sparrow and Ladybird and Mouse right off Tortoise’s back.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
         "pageNumber": 11,
-        "text": "“Eek!” squeaked Tortoise with a fright, and he shrank back into his shell. It was warm and cosy inside. “Oh, here is my house!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "“Oh, here is Tortoise’s house!”",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-walking-together",
-    "title": "Walking Together",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "When we go walking and the road is long, we’ll walk together singing a song.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-12T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "When we go walking and the road is long, we’ll walk together singing a song.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "I am with you and you are with me. A journey is fun with our family.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "I’ll keep you cosy like a mother hen. She keeps her chicks warm under her wing.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "If the rain starts to fall down from the sky, like that good hat I’ll keep your face dry.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "If storm clouds get angry and grumble and moan, be brave, why cry? You’re not alone.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "We’re walking together so we never get bored. Look up! Look around! See where we’ve explored!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "If you see something that’s funny to see, I don’t want to miss it. Please share it with me!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "If your feet start to hurt from the distance we’ve passed, don’t worry, we’ve made it! Here’s the clinic at last.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "We all need to check our throat, lungs and ears. Get strong as you grow, it’s no reason for tears.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Do you think it’s scary? Here, hold my hand. She’ll check your blood pressure with this clever armband.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
+        "text": "... running in between the curtains, scurrying over the plates, and out of the door!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/11.jpg",
+        "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "They give us our medicine, tell us what we should know, to keep us all healthy. Now back home we go.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "It’s okay to be tired, there’s so much we’ve seen. Now it’s your bedtime. Sleep well and sweet dreams.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
       }
     ]
   },
@@ -11929,6 +12415,5001 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
+    "id": "asp-en-0036",
+    "title": "Miss Helen's Magical World",
+    "author": "Jacqui L'ange • Illus. Wendy Morison (African Storybook / CC BY 4.0)",
+    "description": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a who...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-08T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a whole world here. She even made me. And she named her house after me. It was called 'The Owl House'.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Most of Helen's nine brothers and sisters were grown up and gone by the time she arrived. But she still had her sisters Annie and Alida. Helen didn't have many friends in the village, but she didn't mind. From the start, Helen did things differently from most people.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "After her sisters left home, Helen lived alone with her parents. She loved her mother, but she hated her father. Everyone agreed he was a very strange man. Her big sister Alida travelled all over the world. One day she sent Helen a postcard from Egypt. In her mind Helen saw princes and pyramids and camels in the sand.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As she grew older, Helen read more stories of faraway places. She especially liked poems from Persia in the Middle East. She dreamed of visiting the ocean one day. She kept a seashell on her bedside table, and imagined she could hear the sound of waves inside it. But of course, owls were always her favourite things of all!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Helen loved books and stories so much that she decided to become a teacher. She was very good at it too. But then she met Johannes Pienaar. He was also a teacher, and a writer and actor. He convinced her to run away with him.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Helen and Johannes got married. They travelled to many different towns, teaching and performing plays. Helen thought she might start a family like her sisters had done. But it was not to be. She and her husband were always fighting. When Helen's mother became very sick, she decided it was time to go back home.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Helen was not happy. Her mother was so sick, and her father was so grumpy. She kept to herself. People thought she was strange. The night her mother died, Helen kept a candle burning beside her bed all night. With the help of that little light, Helen didn't feel so afraid of the dark. And remember, we owls were there too. We watched over her, calling woowooh!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Helen decided she wanted brightness in her life. She began by changing the space around her. She needed helpers. Three men from the village, Jonas Adams, Piet van der Merwe, and Koos Malgas, made the things she imagined out of wire and cement. She filled her back garden with interesting creatures. There were sphinxes and camels, mermaids and cats. And lots and lots of owls! She called it her camel yard. On the fence she made a wire sign. It said: \"This is my world.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "During the day Helen made sculptures. At night, she practised catching light. She collected glasses and mirrors, candles and lamps. Anything that would shine. She put lanterns in every room. Mirrors caught and reflected the light. She covered the walls in glittering glass so that they could shine too. After Helen's father died, she had the house to herself. Each night she slept in a different room. She would always choose the one with the best view of the moon and the stars.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The people of Nieu Bethesda would walk past Helen's garden and marvel at the creatures in it. Some of the village children brought her glass bottles for her sculptures and called her \"Miss Helen.\" She always thanked them with sweets. Others were not so friendly. They called her names and threw stones on her roof. Miss Helen spent all her money on glass and cement. She lived on bread and black tea. In her diary she wrote: \"In my loneliness I am happy.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The garden grew and grew, until there was hardly space left for any more creatures. Miss Helen was tired now. Her hands were stiff and sore. Her eyes were going blind from working with tiny bits of glass. She wasn't afraid of being alone. But she was still afraid of the dark. And her world was getting darker and darker. She knew that soon she wouldn't be able to see anything at all.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/11.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "But when she closed her eyes for the last time, Miss Helen didn't see darkness. She saw the sun and the moon and the stars. She saw wise men and mermaids, camels and cats, acrobats and owls with big brown glittering glass eyes. And we still stand here today, just the way she left us, in the garden she made, looking East.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0036/12.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0037",
+    "title": "King of the birds",
+    "author": "South African Folktale • Illus. Wiehan de Jager (African Storybook / CC BY 4.0)",
+    "description": "Once long ago, the birds had a meeting. They wanted a king, just like people and animals. Which bird should be king?",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-09T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Once long ago, the birds had a meeting. They wanted a king, just like people and animals. Which bird should be king?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "\"The Eagle, he is strong and kingly!\" said one. \"No, he has no crown, and when he calls, he sounds too sad,\" said another. \"Then Ostrich, because he is the largest and roars like a lion,\" one called out. \"No, he can't fly. The king of the birds must be able to fly.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"I think I should be king,\" said Peacock, fanning his tail. \"I am so beautiful.\" \"You are too proud,\" said Owl. \"I have the largest eyes of any bird. I should be king.\" \"No, not you, Owl,\" they shouted. \"You go to sleep when the sun rises.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "And so they didn't get very far. Then one bird had an idea. \"He who can fly the highest will be king,\" he said. \"Yes, yes,\" they shouted, and they all flew up, up, into the sky.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The Goose flew for one day, straight over the highest mountains in the world. The Eagle flew for two days into the blue above the mountains. But the Vulture soared for three whole days without stopping, straight toward the sun.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Way above them, the birds heard Vulture cry, \"I am the highest, I am king!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "But then just above him Vulture heard a tiny voice, \"Tink, tink, tink! I am the highest, I am king.\" It was Ncede, the Neddicky, the smallest bird of all! He had held onto the great wing feathers of Vulture as he soared into the sky!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "\"You won't beat me again,\" said Vulture, and soared straight up into the air. He flew up and up until he could fly no more. \"I am higher than any other bird. I am your king!\" he cried.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "But out from under his wing crept the tiny bird. \"Tink, tink! Tink, tink! It is I, the smallest one! I am your king.\" Vulture was too exhausted to fly any further.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "So down he sailed - with the little bird still under his wing. The other birds were furious with Ncede. They waited for him, ready to pluck out all his feathers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "But the quick little bird saw how angry they were, and flew into an empty snake hole.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/11.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "\"With your big eyes, you must keep guard at the hole and catch him when he comes out,\" they said to Owl. So Owl sat in front of the hole.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/12.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "But the sun was warm and soon Owl was fast asleep. The little bird peeped out, saw that Owl was asleep, and z-zip, away he went.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/13.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "Owl was very ashamed that he had let the little bird escape. Now he only hunts at night. In the day, he sleeps, away from the sight of the other birds.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0037/14.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0038",
+    "title": "Neymar's visit to Africa",
+    "author": "Benard Agasi (African Storybook / CC BY 4.0)",
+    "description": "When Neymar arrived in Africa he landed in the capital city of Nigeria. The Nigerians told him to demonstrate the skill of passing the ball ...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-10T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "When Neymar arrived in Africa he landed in the capital city of Nigeria. The Nigerians told him to demonstrate the skill of passing the ball using the instep.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "From Nigeria, he moved to Ghana to demonstrate passing the ball using the inside of the foot. This made all the people in Ghana very happy.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "While in Ghana, Neymar received an invitation from South Africa to demonstrate trapping the ball using the front of the foot.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "From South Africa, he moved to Chad. In Chad he demonstrated trapping the ball using the side of the foot.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "When Neymar reached DR Congo, he shook the country with the skill of trapping the ball using the thigh.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The Ugandans who watched Neymar in the Congo decided to invite him to demonstrate the skill of tackling.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "This news then spread all over East Africa. The Kenyans welcomed Neymar to demonstrate punching in goal keeping.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The same week the Tanzanians called for Neymar to demonstrate the skill of heading in passing the ball.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "He later moved to Rwanda to demonstrate the skill of passing the ball using the outside of the foot.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "After Rwanda, Neymar concluded his African trip in South Sudan, where he demonstrated the skill of punting in goal keeping.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0038/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0039",
+    "title": "First man and first woman",
+    "author": "Southern African Folktale • Illus. Jemma Kahn (African Storybook / CC BY 4.0)",
+    "description": "Long long ago when the earth was new, great mountains covered the world like a blanket, and tall trees spiked the sky.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-11T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Long long ago when the earth was new, great mountains covered the world like a blanket, and tall trees spiked the sky.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "In this world, there was a deep dark pool, silent and cold.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "At the bottom of this pool were two snakes. One had thick strongly patterned coils, and the other was smaller and more delicate.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Then one day, there was a great storm. A flash of lightning pierced right to the bottom of the pool. The waters parted for a moment. The snakes saw the earth above, full of colours and shapes and feathered creatures. When the waters closed again, the snakes could not forget the beauty they had seen.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"We cannot stay in this dark cold pool any longer,\" they said to each other. \"Let us go up and see the earth above.\" \"How will we live on earth?\" said the smaller snake. \"Will we crawl on our bellies?\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"The birds of the air will not laugh at us for being so low,\" said her friend. \"We will not crawl, we will walk!\" Very slowly the snakes uncoiled themselves. Close together they began to swim up, up, to the light above.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "And as they reached the surface of the water, a strange thing happened. The tips of their tails split into two. They grew limbs with feet and toes. From just beneath their heads grew two arms with hands and fingers.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "They were no longer snakes, but Man and Woman.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"We will make our home in the hills,\" said Woman. \"Each morning we will see the sun rise and feel it warm on our backs.\" \"We will look after the grass and the trees,\" said Man. \"And be friends with Bird and Beast.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "\"Come,\" said First Man. \"I will,\" said First Woman. And they walked out together into their new world.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0039/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0040",
+    "title": "Kato Clever and the big trouble",
+    "author": "Herminder Ohri (African Storybook / CC BY 4.0)",
+    "description": "In a small garden in the city, there was a big tree. Many small animals lived together on the big tree. There also lived a family of squirre...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-12T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In a small garden in the city, there was a big tree. Many small animals lived together on the big tree. There also lived a family of squirrels. Vikki was one little squirrel among them who liked to talk big. His cousin, Kato from Far Forest had come to visit him.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "One evening, as all the animals who lived in the little garden were just going to sleep, they heard loud sounds from the park, next to the little garden.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Kato and the other squirrels saw big yellow machines, and men in hard yellow hats, pointing to the little garden and other houses on the street. They were going to pull them all down and build a parking lot.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The people who lived there would move to other houses. No one gave a thought to the animals, birds and insects who lived in the little garden.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The machines were first spotted by the mole family. To be more exact, by Mister Popples, the eldest who told Master Mopples, who in turn told the youngest, Little Popples.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "When they were young they were called Pop, Mop and Pip.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Mister Popples told the squirrels, the squirrels told the birds, caterpillars, butterflies, tiny spiders and all those who lived in the little garden. There was total panic, a lot of running, flying, scurrying and hopping, with no one knowing what to do? Where to go? The caterpillars said, \"Let us look for leaves.\" The butterflies said, \"We want flowers.\" The mice wanted holes. The squirrels, birds, insects wanted trees, bushes and grass. All the animals wanted the soft earth, not cement or concrete. \"Where will we find all this?\" they cried. \"We will surely die,\" they said and wept.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Kato's uncle and aunt were very quiet and all the little squirrels crept close to their mom. Kato cleared his throat and spoke shyly, \"I live in the Far Forest, may be we can all go there?\" There was a buzz of excitement and someone said, \"How?\" Kato scratched his head and thought hard, \"Well, the Squirrel Express can take the squirrels and the butterflies, spiders caterpillars and all the insects. The birds can either fly or come with us. The moles, mice and the grass snake family can go by the underground Mole Express.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Everyone thought it was a splendid idea. Mister Popples rushed to ask Mister Grumbles, the driver of the underground express train if he could take them all to the Far Forest. Mister Grumbles fumbled, stumbled, bumbled before he finally mumbled, \"Alright.\" Now it was Mister Popples' turn to be grand. \"Friends, you need not wory, my grandfather's grandson's...third nephew's second niece's family live in the Far Forest.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "So, in the early hours of the morning the Squirrel Express and the Mole underground train with all its passengers, chugged their way to the Far Forest with its trees, flowers, ponds and soft earth.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0040/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0041",
+    "title": "My family",
+    "author": "Clare Verbeek, Thembani Dladla, Zanele Buthelezi • Illus. Kathy Arbuckle (African Storybook / CC BY 4.0)",
+    "description": "My brother is reading a school book.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-13T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "My brother is reading a school book.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "My mother is reading a bible.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "My sister is reading a recipe book.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "My uncle is reading a newspaper.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Granny is reading a magazine.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "My little sister is reading a picture book.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I am reading this book.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Soon I will be able to read everything!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0041/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0042",
+    "title": "Hungry jackal and the sour grapes",
+    "author": "Kholeka Mabeta • Illus. Benjamin Mitchley (African Storybook / CC BY 4.0)",
+    "description": "Once upon a time there was a hungry jackal. He was walking around the bush looking for food.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-14T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Once upon a time there was a hungry jackal. He was walking around the bush looking for food.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "He came upon a big orchard of fresh ripe grapes. He spotted a bunch of grapes hanging from a high branch.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"Those look really delicious,\" he thought to himself. He took a few steps back so that he could make his highest jump.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The grapes were too high. Jackal fell on his back without getting to the grapes.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Jackal got up and went further back from his starting spot. This time he was planning to jump higher. He almost got high enough but he fell harder on his back.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "He tried again and again, but couldn't get to the grapes. He kept falling until his back was very sore.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Finally, he gave up and walked away.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Jackal was not happy at all. He stopped, looked back at the grapes and thought, \"Those grapes look really sour anyway.\" He carried on walking. He was hungrier than before.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0042/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0043",
+    "title": "Fire's story",
+    "author": "Deborah Namugosa, Beatrice Nabune, Alison Tukei, Rose Sabano • Illus. Rob Owen, Wiehan de Jager, Amir Bachir António Necas (African Storybook / CC BY 4.0)",
+    "description": "Let me tell you my story. I start as a small spark.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-15T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Let me tell you my story. I start as a small spark.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "I run wild when the wind carries me.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "We are good friends, you and I.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "I cook your food.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "I light your night.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "I have many tricks.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I am part of your family.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "But be careful when you invite me to your home. I don't like to be left alone.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0043/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0044",
+    "title": "Why the library was built?",
+    "author": "Kabubbu Remedial class • Illus. Marleen Visser, Wiehan de Jager, Rob Owen, Jesse Breytenbach, Magriet Brink, Karlien de Villiers, Alice Toich, Jano Strydom, Catherine Groenewald, Mlungisi Dlamini (African Storybook / CC BY 4.0)",
+    "description": ".......chairs and tables.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-16T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": ".......chairs and tables.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "..... a lot of story books for children and adults.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": ".....painted pictures on the wall.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": ".....white and blue clouds on the ceiling board.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Children and adults go to the library.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "......My friends and I go to the library in holidays.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": ".........We read this book on dear day.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "......My mother borrowed a picture book from the library.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "...... a place for me.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": ".....a place for you.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "....a place for all.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/11.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "........i enjoy the library so muuuuuuuuch!!",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0044/12.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0045",
+    "title": "The clever jackal and the foolish crow",
+    "author": "Kholeka Mabeta • Illus. Benjamin Mitchley (African Storybook / CC BY 4.0)",
+    "description": "Once upon a time Jackal was walking around the bush. He was very hungry. He saw the crow flying above the trees. Crow had a huge piece of ch...",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-17T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Once upon a time Jackal was walking around the bush. He was very hungry. He saw the crow flying above the trees. Crow had a huge piece of cheese in his mouth.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "\"Hmmm...that cheese looks delicious! I must find a way to get it,\" thought the jackal. \"Oh, I have a plan!\" said Jackal to himself while wiping his mouth quickly. He did not want Crow to notice that he was hungry.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Crow had been flying the whole morning. He was tired. He decided to sit on a branch of a tree. The jackal sat down under the tree where Crow was sitting.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Jackal called with a huge smile, \"Hello Crow! You're looking very good today. Your feathers look glossy and healthy. You must be taking very good care of yourself.\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Crow was very flattered to hear this. Crow always thought he was the strongest and most beautiful of all the other birds.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"I hear you also have the most beautiful singing voice of all the other birds. Won't you sing a song for me this morning?\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Crow was so flattered that he stretched his wings and prepared to sing for the jackal. He pushed his chest out and let out a loud pitched sound.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "As Crow started singing the cheese fell to the ground, right in front of Jackal. Crow stopped and looked down. Jackal grabbed the piece of cheese and ate it. He ran into the bush and crow was left angry and hungry.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0045/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0046",
+    "title": "Monkey's visit to the hunters home.",
+    "author": "Wesley Kipkorir Rop • Illus. Jesse Breytenbach (African Storybook / CC BY 4.0)",
+    "description": "In Nakwiga Forest, there lived Monkey who was always lonely but friendly. she had miscarriages most times baby.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-18T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In Nakwiga Forest, there lived Monkey who was always lonely but friendly. she had miscarriages most times baby.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "The pain of having miscarriages made Monkey jump up and down all the time. She would jump from one tree to another saying \"Kau! Kau! Kau!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Monkey was always lonely. She could feel bad when saw other monkeys playing with their babies on their backs.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The lonely Monkey would sway this way and that way. She would sway on this branch and on that branch! She would sway on this tree and the other tree! Days passed and Monkey cried more and more.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Then she conceived again and gave birth. She decided to take the baby to the path so that people passing by going to the river would see the baby and wish it well.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Monkey climbed down from the branch and put the baby on the path and climbed up and sat in between the branches to watch whoever passed by . At that time, a hunter and his dog were returning home. He saw the baby monkey lying on the side of the path .",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The hunter carried the baby monkey to his home. When the hunter reached home, his three boys were excited to meet a new friend, started playing with the monkey baby jumping up and down and fed it.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The three boys sang: \"Baby monkey you will not fall down we love you baby monkey x2 The monkey was thrown up and the boys couldn't allow it to fall down at all.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "As the three boys played with the baby monkey, mother Monkey was watching them. She was scared that her baby would fall down and break as the boys were throwing it up .",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The kind woman came and saw young boys playing with the baby monkey. She said politely to them, \"Be careful! Bring it here. You will break it!\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "She took the baby monkey in her arms, and blessed it in Jesus' name.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/11.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "When the woman put the baby monkey down, mother Monkey came running with a lot of joy. She held her baby to her chest and she disappeared up the tree.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0046/12.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0047",
+    "title": "My new shirt",
+    "author": "Ivan higenyi • Illus. Wiehan de Jager, Rob Owen, Joseph Ejoyi, Catherine Groenewald, Jano Strydom, Benard Agasi, Vusi Malindi, Jesse Breytenbach, Sandy Lightly (African Storybook / CC BY 4.0)",
+    "description": "Samba's dad bought him a new school shirt last market day.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-19T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Samba's dad bought him a new school shirt last market day.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Now Samba never misses school and it has become his best friend.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Samba likes playing football in his new shirt.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "He makes it dirty every day and does not want to wash it.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "In the field, he wants everyone to see his new shirt.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "In the morning he goes to school with the dirty shirt and finds the teacher at the gate.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Samba dodges school that day and goes across the road to play football.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Unfortunately the new shirt gets torn. And Samba is punished for dodging school and tearing the new school shirt.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0047/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0048",
+    "title": "Rabbit under the tree",
+    "author": "Phumy Zikode • Illus. Wiehan de Jager (African Storybook / CC BY 4.0)",
+    "description": "Rabbit was sleeping under an apple tree. An apple fell down from a branch.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-20T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Rabbit was sleeping under an apple tree. An apple fell down from a branch.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "A voice said, \"Run rabbit run!\" She woke up quickly and ran away with great speed.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "She met a chicken. \"Why are you running?\" asked the chicken. Rabbit replied, \"I don't know. I just heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The chicken was frightened. She started running when she heard what the rabbit said.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "They met a dog. Dog asked, \"Why are you running?\" Chicken said, \"I don't know. I just heard what the rabbit said, and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The dog was surprised about what she heard. She started running with Rabbit and Chicken.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "They met a horse. The horse asked the dog, \"Why are you running?\" Dog said, \"I don't know. I just heard what the chicken said, and she doesn't know. She heard what the rabbit said and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The horse starts to run with the others.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 9,
+        "text": "They met a donkey. The donkey asked, \"Why are you running?\" Horse replied, \"I don't know. I just heard what the dog said, and he doesn't know. He heard what the chicken said and she doesn't know. She heard what the rabbit said and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/09.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 10,
+        "text": "So Donkey starts running too.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/10.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 11,
+        "text": "They met a cow. The cow asked, \"Why are you running?\" Donkey replied, \"I don't know. I just heard what the horse said, and she doesn't know. She heard what the dog said and he doesn't know. He heard what the chicken said and she doesn't know. She heard what the rabbit said and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/11.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 12,
+        "text": "The cow is worried and starts to run as well.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/12.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 13,
+        "text": "They met a cat. The cat asked, \"Why are you running?\" Cow replied, \"I don't know. I just heard what the donkey said, and he doesn't know. He heard what the horse said and she doesn't know. She heard what the dog said and he doesn't know. He heard what the chicken said and she doesn't know. She heard what the rabbit said and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/13.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 14,
+        "text": "The cat started running with the other animals.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/14.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 15,
+        "text": "Then they met the boy riding the bicycle and he asked, \"Why are you running?'' And the animals replied, \"We don't know. We heard what the rabbit said and she doesn't know. She heard something falling and a voice said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/15.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 16,
+        "text": "The boy laughed and said, \"An apple feel off the tree because of the wind. I'm the one who said, 'Run rabbit run!'\"",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0048/16.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0049",
+    "title": "The Rainbow",
+    "author": "Ursula Nafula • Illus. Catherine Groenewald, Wiehan de Jager (African Storybook / CC BY 4.0)",
+    "description": "It has many colours.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-21T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It has many colours.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "They appear together.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "You see orange.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "You see blue.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "You see red.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The colours are so beautiful.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0049/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      }
+    ]
+  },
+  {
+    "id": "asp-en-0050",
+    "title": "What type of teeth?",
+    "author": "Zanele Buthelezi, Thembani Dladla, Clare Verbeek, Abu Enock, Dudu Mary, Ajuru Florence • Illus. Rob Owen (African Storybook / CC BY 4.0)",
+    "description": "A crocodile has sharp teeth.",
+    "coverUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-22T09:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A crocodile has sharp teeth.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/01.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E293B"
+      },
+      {
+        "pageNumber": 2,
+        "text": "A lion has sharp teeth as well.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/02.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "A shark has very sharp teeth! Why do some animals have sharp teeth?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/03.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 4,
+        "text": "A cow has strong teeth for grinding.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/04.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 5,
+        "text": "A bird does not have teeth. How does a bird eat?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/05.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Rats have big front teeth.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/06.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I used to have front teeth.",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/07.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 8,
+        "text": "My front teeth fell out! How many teeth do you have?",
+        "imageUrl": "https://raw.githubusercontent.com/global-asp/asp-imagebank/master/medium/0050/08.jpg",
+        "illustrationEmoji": "🌍📚",
+        "bgColor": "#4C1D95"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-a-beautiful-day",
+    "title": "A Beautiful Day",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "“What a beautiful day,” says Mom. “Wake up Nicholas.” “Hello sun,” says Nicholas. “Good morning birds.”",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-01T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "“What a beautiful day,” says Mom. “Wake up Nicholas.” “Hello sun,” says Nicholas. “Good morning birds.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“It’s a lovely day,” says Dad. “Let’s have a picnic by the river.” “Can my friend Jacob come?” asks Nicholas.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Don’t forget me. I love picnics!” says Donkey. “And me. I want to come too!” says Dog. “Follow us,” say the birds.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "“I’ll race you to that tree,” Nicholas says.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“I won, I won,” says Donkey. “Not fair,” says Nicholas. “You’ve got four legs.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "“Look what I can do,” says Nicholas. “I bet you can’t do this,” says Jacob.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“Here’s our picnic spot,” says Dad.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Race you to the water!” says Jacob.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "“Come and eat, boys and girls,” says Mom.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "“Time to go home,” says Mom.“Say goodbye to Jacob.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-beautiful-day/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-a-dancers-tale",
+    "title": "A Dancer's Tale: The Story of Phyllis Spira",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Once upon a time, not so far away, a baby called Phyllis was born for ballet. Two people in love, her Mom and her Dad, could not have known ...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-02T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Once upon a time, not so far away, a baby called Phyllis was born for ballet. Two people in love, her Mom and her Dad, could not have known yet what a dancer they had.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "When Phyllis was four she had us transfixed: impressing her teachers with ducky feet flicks. Before school and after, she danced every day. Nothing pleased Phyllis more than ballet.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The world would soon see, when, only fifteen, she travelled to London to live out her dream. Far from home and her friends, she was starting afresh. The Royal Ballet school would soon be impressed!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "When she danced Swan Lake it was fit for the Queen! After years pirouetting, it was time to be seen! She took to the stage, leaping, twirling about, with everyone smiling! They clap and they shout!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "From Mexico to Canada, the US to France, everyone asked her to visit and dance. With the Royal Ballet, and all of her friends, she spread love for dancing so it never would end.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Still, Phyllis missed home, they’d been too long apart. She longed to return and to make a fresh start. So she leaped and she bounded to her beautiful land, to walk once again on South African sand.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Dance isn’t just fun, as Phyllis well knew: she worked day and night, and with hard work she grew. Always smiling and tireless, through good times and tough,she aimed for her best.‘Good’ was never enough.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Romeo and Juliet, Swan Lake and Giselle. She captured each audience under her spell. With Gary Burne beside her, Eduard Greyling too, her dancing was magic in every review.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Reward comes eventually, when you’re put to the test. And one day South Africa would call her the best: ‘Prima Ballerina Assoluta’, greatest dancer of all, her title forever. Phyllis wanted no more.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Soon Phyllis found love when she met Philip Boyd, a dancer himself! They were both overjoyed. In love, they soon married, and together they’d dance. No match could be better when given the chance!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "They didn’t have children but never were sad, for they had a way to help all moms and dads. Their school, Dance For All, would give children a chance, from all walks of life, to learn and love dance.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Her gift to the world and all her success help others to realise they can be their best. They dance for us now, inspired by her feats,inspiring us, too, as we dream in our seats.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-dancers-tale/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-a-house-for-mouse",
+    "title": "A House for Mouse",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Mouse was looking for a new house.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-03T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Mouse was looking for a new house.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "This looks like a nice house.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“You can come and sleep with me,” said Puppy. “Thank you,” said Mouse.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "That night, Mouse’s dreams were bouncy and muddy.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“You can come and sleep with me,” said Parrot. “Thank you,” said Mouse.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "That night, Mouse’s dreams were noisy and wild.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“You can come and sleep with me,” said Fish. “Thank you,” said Mouse.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "That night, Mouse’s dreams were cold and wet.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Mouse needed somewhere warm and dry.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Mouse found a bookshelf nearby.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "That night, Mouse had warm and cosy dreams.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-house-for-mouse/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-a-tiny-seed",
+    "title": "A Tiny Seed: The Story of Wangari Maathai",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "In a village on the slopes of Mount Kenya in East Africa, a little girl worked in the fields with her mother. Her name was Wangari.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-04T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "In a village on the slopes of Mount Kenya in East Africa, a little girl worked in the fields with her mother. Her name was Wangari.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Wangari loved being outside. In her family’s food garden she broke up the soil with her machete. She pressed tiny seeds into the warm earth.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Her favourite time of day was just after sunset. When it got too dark to see the plants, Wangari knew it was time to go home. She would follow the narrow paths through the fields, crossing rivers as she went.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Wangari was a clever child and couldn’t wait to go to school. But her mother and father wanted her to stay and help them at home. When she was seven years old, her big brother persuaded her parents to let her go to school.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "She liked to learn! Wangari learnt more and more with every book she read. She did so well at school that she was invited to study in the United States of America. Wangari was excited! She wanted to know more about the world.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "At the American university Wangari learnt many new things. She studied plants and how they grow. And she remembered how she grew: playing games with her brothers in the shade of the trees in the beautiful Kenyan forests.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The more she learnt, the more she realised that she loved the people of Kenya. She wanted them to be happy and free. The more she learnt, the more she remembered her African home.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "When she had finished her studies, she returned to Kenya. But her country had changed. Huge farms stretched across the land. Women had no wood to make cooking fires. The people were poor and the children were hungry.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Wangari knew what to do. She taught the women how to plant trees from seeds. The women sold the trees and used the money to look after their families. The women were very happy. Wangari had helped them to feel powerful and strong.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "As time passed, the new trees grew into forests, and the rivers started flowing again. Wangari’s message spread across Africa. Today, millions of trees have grown from Wangari’s seeds.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Wangari had worked hard. People all over the world took notice, and gave her a famous prize. It is called the Nobel Peace Prize, and she was the first African woman ever to receive it.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Wangari died in 2011, but we can think of her every time we see a beautiful tree.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/a-tiny-seed/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-amazing-daisy",
+    "title": "Amazing Daisy!",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Once upon a time on a little farm near a little village there lived a little chicken called Daisy.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-05T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Once upon a time on a little farm near a little village there lived a little chicken called Daisy.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“When I grow up, I want to fly high, high into the sky,” Daisy said. But all the other chickens laughed at her.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“You are so weird,” they said. “We won’t play with you anymore.” “Daisy, we can all flap our wings but it’s very difficult for chickens to fly,” Mama told her.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Daisy wouldn’t give up. Every day she practised by herself, flapping her wings. Flap, flap, flap, she would flap her wings but she couldn’t lift off the ground.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "While she practised, she imagined herself flying high into the sky and looking at the chickens below. She imagined herself flying past the sparrows and past the swallows. “Wow!” the birds would say. “A chicken that can fly!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "So ... Flap, flap, flap, every day Daisy would flap her wings. She would lift off the ground but fall down again.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“I’m never going to fly!” Daisy cried to Mama. “The others are right.” “Daisy, you are different from the other chickens. They don’t want to fly but you do! You can do it,” Mama said.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The following day Daisy climbed to the top of the chicken coop and flap, flap, flap, she flapped her wings. She flew into the air and flapped her wings ... and flapped her wings ... and flapped her wings and ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "BAM! The other chickens laughed out loud.“Ha ha ha! We told you! Chickens can’t fly!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "But the next day Daisy climbed even higher, right up to the top of the rondavel. Flap, flap, flap, Daisy flapped her wings. She flew into the air and flapped her wings ... and flapped her wings ... and flapped her wings and ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "She kept flying! The wind beneath her wings grew stronger and she flew higher and higher! The sparrows and the swallows said, “Amazing! A flying chicken!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "And the other chickens wanted to be just like her. They said, “Oh Daisy, you’re amazing!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/amazing-daisy/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-bathtub-safari",
+    "title": "Bathtub Safari",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Bathtime is Jack’s favourite part of the day. ‘I’ll be back in a few moments,’ says his mom. ‘Make sure to clean behind your ears.’",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-06T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Bathtime is Jack’s favourite part of the day. ‘I’ll be back in a few moments,’ says his mom. ‘Make sure to clean behind your ears.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "There’s a SWOOSH. And a swish of a tail. And then...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Jack’s bathtub safari begins!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Look at what’s coming! There’s a twist and a turn.. Something’s growing... It’s a...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "TOOOT!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "There’s a RUMBLE! UP UP It’s going up and...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "SPLASH!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "There’s a SPLOSH. Something bubbles. It’s time to...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "AAAAAAH But something’s lurking in the background...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "ROAR",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "‘Time to get out. I hope you’re clean and ready for bed.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/bathtub-safari/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-come-back-cat",
+    "title": "Come back, cat!",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Come back, cat! Play with me.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-07T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Come back, cat! Play with me.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Sit in your basket. Stay right here!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Come back, cat! That’s way too high.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Come back, cat! Don’t go outside.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Come back, cat! That’s not yours.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Come back, cat! What have you got?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Come back, cat. That’s not your friend!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Hello, cat! Are you back?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Stay in your basket. It’s nap time now.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Cat?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/come-back-cat/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-gracas-dream",
+    "title": "Graça’s Dream",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Graça was about to be born in a small village in Mozambique. The country was poor and the people did not yet rule themselves. Children didn’...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-08T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Graça was about to be born in a small village in Mozambique. The country was poor and the people did not yet rule themselves. Children didn’t have good schools and many couldn’t read. Graça’s mother dreamed of giving her children better opportunities. But without education there was little hope.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Baby Graça would be the sixth child. But with this joyous event there was great sadness. Their beloved father was dying. He dreamed that his youngest daughter would go to a good school. He knew that education would give her opportunities he never had. His family promised to make their dad’s dream come true.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Just weeks after their dad died, the new baby was born. She was given a name to match the beauty and blessing that she was – Graça. As the years passed, Graça brought much joy to her family and they kept the promise made to their father. Graça would have a good education.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Graça worked hard at school and as a teenager she received a gift that would change her life. It was a scholarship to attend a rich city school. She dreamed of becoming a teacher and using her education to educate others. She wanted the children of her beloved Mozambique to know reading and learning. She dreamed of a time when all children would go to school.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Graça did her best in that city school and years later she was blessed again. It was another scholarship to attend a university in faraway Portugal. She met new friends, learned new languages and read a bounty of books. She realised her dream of becoming a teacher. All this made Graça very happy. There was only one thing that still made her sad...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Back at home people were still not free. But now Graça had an education, skills, and hope. She also had friends who felt as she did about children’s right to learn. She would use her knowledge and work with her friends. Together they would bring change to Mozambique.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Finally with the help of all her friends, Mozambique was free!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The man chosen to lead the country was Graça’s special friend, Samora Machel. They fell in love and got married.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Graça was given the important job of making sure that all children in Mozambique got a good education. It was a hard job because there were so many children in Mozambique who couldn’t read. She knew that they needed education and wanted to make real change in her country. She started with primary schools and getting boys and girls into classrooms. Literacy was her focus and putting books into children’s hands.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Graça and Samora had two children. They shared a dream to create good lives for their own family and for the Mozambican people. They were happy and hopeful. Then one terrible day, Samora died in an aeroplane crash.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Graça mourned Samora for many years, but she found love again. She met a man who had also spent his life dreaming of bringing freedom, hope and education to his people. Graça married Nelson Mandela and together they worked to help Africa’s children.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Here’s a book, my child. What will it inspire you to do?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/gracas-dream/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-grandpas-gold",
+    "title": "Grandpa's Gold",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "The children were talking about their Grandpas.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-09T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The children were talking about their Grandpas.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "My Grandpa can build a tower to the sky, said Giraffe. Once he built a skyscraper for a king.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "My Grandpa can fish for anything in the sea, said Cheetah. Once he caught a whale and kept it in his bath.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "My Grandpa can climb to the clouds in the sky, said Mountain Goat. He climbed the tallest mountain in the world, in just four hours.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "My Grandpa can cook a feast, said Elephant. Once he cooked a meal for a president’s birthday party. All by himself.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Well my Grandpa doesn’t build or fish or climb or cook, said Monkey. But he owns gold! He hides it in his mouth. And at night he soaks it in a glass of water.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "No, he doesn’t! Yes, he does! No, he doesn’t! Well, come and see if you don’t believe me, said Monkey.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "So the children went to see Monkey’s Grandpa.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "You see? said Monkey. And he can take them out.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "No, he can’t! cried the animals.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Waaah! said Grandpa Monkey. And there are enough ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "... for everyone!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/grandpas-gold/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-how-about-you",
+    "title": "How about you?",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Who are you?",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-10T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Who are you?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Is that goo? Eeuw! I want some too.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "We are two. How old are you? Six hundred and thirty two?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "I like blue. Do you too? I choose two shoes. Which do you choose?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Horseshoes!?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "I make toys with boys.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "We make lots of noise. Whaaa! eurgghhh...aargh!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "I take a nap on Gogo’s back.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "I don’t nap!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "I stay upright all through the night.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The ball goes THWOCK! Buddy, you ROCK!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "That’s what we do. How about you?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/how-about-you/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-i-will-help-you",
+    "title": "I Will Help You",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "“Ouch!” Mama Heron hurts her wing and leg on barbed wire.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-11T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "“Ouch!” Mama Heron hurts her wing and leg on barbed wire.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“I am hurt. I can’t get home to my children.” “Please help me.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Why are you crying Mama Heron?” “I can’t get home to my children.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "“I will help you,” says Lungile.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Thank you, Lungile!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The next day, Gogo sends Lungile to the shop to buy bread. On the way, he stops to play with his friends in the river.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Eish! The money is gone.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Don’t come home until you find that money!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "“Why are you crying, Lungile?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "“I lost the money Gogo gave me to buy bread. We have no supper now.” “I will help you.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Mama Heron’s sharp eyes see the coins shining in the water.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“Thank you, Mama Heron.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/i-will-help-you/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-is-there-anyone-like-me",
+    "title": "Is There Anyone Like Me?",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "I wonder if there’s another me somewhere in the world.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-12T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "I wonder if there’s another me somewhere in the world.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Who looks the same. And talks the same.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "And even has my curls.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Someone with my eyes my ears. Who even has my laugh.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Who can do what I can do ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "... and can’t do what I can’t.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I’ve looked and looked everywhere to find another me. I went down to the park and looked behind the trees.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "I looked around, up and down ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "... at every single face.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "I couldn’t find another me in any single place.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "There’s only one me in the world! I’m special, oh it’s true!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "But not just me, don’t you see? There’s only one of you!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/is-there-anyone-like-me/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-karabos-question",
+    "title": "Karabo’s Question",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "My sister Kifue chases roosters that crow. What do I do? What do I know?",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-13T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "My sister Kifue chases roosters that crow. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "My brother Katleho has a ball to throw. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "My cousin Kutloano plants seeds in a row. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "My cousin Kamohelo leans on her hoe. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "My aunt Keromang has a dress to sew. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "My uncle Khotso herds the cattle that low. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Mama dries wheat when the wind does not blow. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Papa rides a horse over mountains in snow. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Grandpa’s slow donkey walks to and fro. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Grandma sings songs till the fire burns low. What do I do? What do I know?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "You know how to say yes. You know how to say no. That’s what you do! That’s what you know!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Everyone laughs when you put on a show. Your work is to play. Your work is to grow.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/karabos-question/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-lara-the-yellow-ladybird",
+    "title": "Lara the Yellow Ladybird",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Lara the ladybird was a special bug. Unlike all her friends, she had bright yellow wings.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-14T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Lara the ladybird was a special bug. Unlike all her friends, she had bright yellow wings.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Everyone loved her yellow wings. Each morning, Bibi Butterfly said hello. And Manto Mantis always waved.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Even Sesa, the sulky spider, was happy to see her. At school, she played with lots of friends.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "But Lara wanted to be like the other ladybirds. “I wish I had red wings like you, Mama,” she cried.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "So one day, to cheer her up, Lara’s mother painted her wings bright red.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The next morning, nobody greeted Lara on her way to school.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "And when she got there, none of her friends said hello.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Lara sat all alone. No one noticed her new red wings. Until Miss Miya spotted her and said: “You’ve painted your lovely yellow wings!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Lara’s classmates were shocked. “Your wings are special!” “So unique!”“So rare!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "“Lara,” Miss Miya said, “your yellow wings are what make you you. Like Sipho’s spot ... and Sally’s legs.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Back home, Lara took a long bath and scrubbed until her golden wings gleamed. “I’ll never paint my wings again!” she thought. Except, maybe once or twice ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "To try a bit of purple ... or something nice. But not for ever and just for fun.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lara-the-yellow-ladybird/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-little-ants-big-plan",
+    "title": "Little Ant's Big Plan",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Little Ant loved to read. Little Ant was often teased. “Ants don’t read. Ants must feed. Ants collect the food they need.”",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-15T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Little Ant loved to read. Little Ant was often teased. “Ants don’t read. Ants must feed. Ants collect the food they need.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Little Ant would read all day, he’d read and read the day away. The other ants took what they found to store for winter underground.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "His mum and dad got really mad, and Little Ant felt really bad.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "In autumn when the leaves fall down, the ants must keep food underground.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "The Queen wants food to fill the store, so all the ants must work some more.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Little Ant begins to shout about a place he read about. “A restaurant is what we need, a place where people go to feed. It says so in the books I read.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The ants go marching one by one. They march into the setting sun.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "And Little Ant said “Hey, there’s one!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The ants go marching one by one, carrying a burger, carrying a bun.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "When they return the Queen is glad. The stores are full. They cheer like mad.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Ant gets hugs from mum and dad.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "His baby sister takes his hand “Now I think I understand.” “The way you love to read a book ... Makes me want to take a look.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/little-ants-big-plan/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-londi-the-dreaming-girl",
+    "title": "Londi the Dreaming Girl",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Londi was a dreaming girl. Up in the sky, she didn’t see clouds.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-16T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Londi was a dreaming girl. Up in the sky, she didn’t see clouds.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Instead Londi saw flying geese, jumping fish, and fluffy sheep running home.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "One afternoon, Gogo came outside, looking tired. “Londi, stop dreaming!” she said. “It’s time to go and fetch the water.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Londi stood up and smiled at her feet. “Let’s go, feet! You know the way there!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Londi started walking to the tap. She hopped over the rocks. She crept past Mama Neli’s house. She dashed down the path.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The line at the tap was long. “Oh no!” Londi said to her feet. “We’ll have to wait. Let’s stay in line. No dreaming away!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Ooh! Londi thought. But what’s that shining over there? I wonder who lost their shoe?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Did it belong to a girl like me? Or something else...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "And what’s that under there? Cheep! Cheep!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "And what’s that big shadow? Uh oh, it’s Gogo! “Londi, your bucket nearly rolled away!” “Sorry, Gogo. I dreamed too far, again.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "They filled up the bucket together. Londi watched the big sun sink into the hills. “Come let’s go, my dreaming girl,” said Gogo.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“Look, Gogo! There’s a pink pig in the sky!” “Oh Londi... It’s just a cloud,” Gogo sighed. Londi took Gogo’s hand and they walked home together happily.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/londi-the-dreaming-girl/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-lory-dory",
+    "title": "Lory Dory",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "One night Grandpa was tucking me in. His hands were soft and his hair was thin.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-17T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One night Grandpa was tucking me in. His hands were soft and his hair was thin.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "‘I’m going to tell you a special story, about a girl named Lory Dory.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "You couldn’t see Lory Dory at all because she was born invisible.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "You’d only see Lory when rain hit her head, or when she was curled under blankets in bed.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Lory was left out of all the kids’ games. They teased her and they called her names. ‘Look, it’s Lory. The Imaginary Friend! She’s not like us, she’s just pretend!’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "One day at school, a boy wanted to know: ‘How do you look? I only see you in snow.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "‘Can you paint yourself?’ Lory knew that she could. But not in the same way the boy thought she would.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Lory painted her body with all that she loved from the world all around and the sky up above.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "She painted herself every day with such pride, to bring out the person who she was inside.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "I know I’m invisible and hard to see. So I painted these pictures to show the real me.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "‘Are you making this up, Gramps? Is this story true?’ ‘Lory is real – real as me, real as you.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "When Grandpa had left me, I can’t quite be sure, but I think I saw Lory just outside my door.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/lory-dory/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-maddy-moona",
+    "title": "Maddy Moona’s Menagerie!",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "My name is Maddy Moona, and today I’m turning five. Dad promised I could choose a pet, a real one! Something live! We’ll travel across the w...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-18T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "My name is Maddy Moona, and today I’m turning five. Dad promised I could choose a pet, a real one! Something live! We’ll travel across the whole wide world, searching Mali through Tibet, until we find the perfect one... Oh, I know just what I’ll get!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "I’m going to get an elephant. I’ll ride on it to school. My brother Billy can walk behind, he’ll think I’m awfully cool. But... what if Ellie caught a cold? I guess she’d sneeze.... A LOT! There is no tissue big enough to wipe up all that snot.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "I want a Nile crocodile sent to me by the pharaohs. I’ll call him Tut and feed him soup, fish fingers, and baby marrows. I’ll keep him in the bathtub and brush his pearly whites, But... what if flossing all those teeth takes me all day and night?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Perhaps a pair of porcupines, for games of robbers and cops. Their prickly quills will be handy for holding up sweetie shops. I can munch away on candy bars while my gang sharpen their spines. But... what if my sharp-shooting pals put me in the firing line?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Maybe I need a stealthier plan. Let’s clear out the store with funk! There isn’t a smellier critter on earth. That’s what I want — a skunk! But... what if I can’t go into the shop after Skunky has let off his stink? Sweets are no good for my teeth anyway. A rotten idea! I need to rethink!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "A rhino! The horns, the big stomping feet, the armour on both of its flanks! Billy would never chase me again. It would be my own personal tank. But... what if Billy raises his temper and Rhino goes on the rampage? Crash bang boom! The teacups! The plates! Now I’m grounded ‘til I’m gran’s age.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I need a beast to tame my brother. With teeth, sharp claws and a roar. A LION! I could feed it Billy biltong... Yes! A lion would settle the score. But... a lion has a huge appetite. Skinny Billy won’t satisfy. And once Brutus has a taste for us Moonas, he’ll see me as Maddy stir-fry.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Dad thinks I should choose a cuddlier pet. My parents are so hard to please. They want me to have a pet I can hug. A python? A python has squeeze. But... if Snakey develops too much of a crush, he’ll suffocate me with affection. To be honest, I just can’t marry a snake! And reptiles can’t handle rejection.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "No, reptiles aren’t the way to go. I definitely need something taller. A giraffe would be awesome. I’ll slide down her neck, and think up a long name to call her. But... something more than eight foot tall is no good. Our house has a rather low ceiling. I’d spend hours massaging cricks out her neck. My fingers would lose all their feeling.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "None of these are the perfect pet! Oh what, oh what will I get?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Those animals just don’t work. None are my perfect partner in crime. I want something with fur, a pet who will follow. Oh wait! I know — a canine!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "My Bandit is the biggest bark on the block! He’s the fastest pup in the west! Nothing can stop us. Not Billy nor bedtime. I love my Bandit. He’s my best!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/maddy-moona/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-miss-helens-magical-world",
+    "title": "Miss Helen’s Magical World",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a who...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-19T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Meet my friend Helen. She was born in a little Karoo town called Nieu Bethesda. There was not much going on in this town. But she made a whole world here. She even made me. And she named her house after me. It was called ‘The Owl House’.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Most of Helen’s nine brothers and sisters were grown up and gone by the time she arrived. But she still had her sisters Annie and Alida. Helen didn’t have many friends in the village, but she didn’t mind. From the start, Helen did things differently from most people.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "After her sisters left home, Helen lived alone with her parents. She loved her mother, but she hated her father. Everyone agreed he was a very strange man. Her big sister Alida travelled all over the world. One day she sent Helen a postcard from Egypt. In her mind Helen saw princes and pyramids and camels in the sand.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As she grew older, Helen read more stories of faraway places. She especially liked poems from Persia in the Middle East. She dreamed of visiting the ocean one day. She kept a seashell on her bedside table, and imagined she could hear the sound of waves inside it. But of course, owls were always her favourite things of all!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Helen loved books and stories so much that she decided to become a teacher. She was very good at it too. But then she met Johannes Pienaar. He was also a teacher, and a writer and actor. He convinced her to run away with him.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Helen and Johannes got married. They travelled to many different towns, teaching and performing plays. Helen thought she might start a family like her sisters had done. But it was not to be. She and her husband were always fighting. When Helen’s mother became very sick, she decided it was time to go back home.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Helen was not happy. Her mother was so sick, and her father was so grumpy. She kept to herself. People thought she was strange. The night her mother died, Helen kept a candle burning beside her bed all night. With the help of that little light, Helen didn’t feel so afraid of the dark.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Helen decided she wanted brightness in her life. She began by changing the space around her. She needed helpers. Three men from the village, Jonas Adams, Piet van der Merwe, and Koos Malgas, made the things she imagined out of wire and cement. She filled her back garden with interesting creatures. There were sphinxes and camels, mermaids and cats. And lots and lots of owls! She called it her camel yard. On the fence she made a wire sign. It said: ‘This is my world’.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "During the day Helen made sculptures. At night, she practised catching light. She collected glasses and mirrors, candles and lamps. Anything that would shine. She put lanterns in every room. Mirrors caught and reflected the light. She covered the walls in glittering glass so that they could shine too. After Helen’s father died, she had the house to herself. Each night she slept in a different room. She would always choose the one with the best view of the moon and the stars.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The people of Nieu Bethesda would walk past Helen’s garden and marvel at the creatures in it. Some of the village children brought her glass bottles for her sculptures and called her ‘Miss Helen’. She always thanked them with sweets. Others were not so friendly. They called her names and threw stones on her roof. Miss Helen spent all her money on glass and cement. She lived on bread and black tea. In her diary she wrote: “In my loneliness I am happy.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The garden grew and grew, until there was hardly space left for any more creatures. Miss Helen was tired now. Her hands were stiff and sore. Her eyes were going blind from working with tiny bits of glass. She wasn’t afraid of being alone. But she was still afraid of the dark. And her world was getting darker and darker. She knew that soon she wouldn’t be able to see anything at all.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "But when she closed her eyes for the last time, Miss Helen didn’t see darkness. She saw the sun and the moon and the stars. She saw wise men and mermaids, camels and cats, acrobats and owls with big brown glittering glass eyes. And we still stand here today, just the way she left us, in the garden she made, looking East.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/miss-helens-magical-world/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-queen-of-soweto",
+    "title": "Queen of Soweto: The story of Basetsana Kumalo",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Basetsana Makgalemele was born in a township called Soweto. She was her parents’ third daughter. They named her Basetsana, which means “girl...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-20T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Basetsana Makgalemele was born in a township called Soweto. She was her parents’ third daughter. They named her Basetsana, which means “girls”. In Tswana culture, calling your daughter that means your next child will be a boy. This actually happened. Her parents’ next child was a boy. Her parents, big sisters and younger brother all called her Bassie for short.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "When she was a child, Bassie was very shy. She liked to sing and dance in her room on her own. One day at school netball practice, the coach told two girls to pick teams. Bassie stood on the edge of the field hoping someone would say, “Come play with us!” But nobody wanted her on their team. Little did they know, Bassie would become one of the most popular girls in the country.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "On weekends, she and her brother and sisters helped their teacher mom and bus driver dad to pay the bills. They made sandwiches to sell at local soccer matches. They tried to sell everything as fast as they could so they had time to play with the other children when the game was over.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "By the time Bassie turned 16, she was a beautiful young woman. She was so beautiful that she won two beauty competitions in one year: Miss Soweto and Miss Black South Africa. But Bassie was not only beautiful on the outside. She was also beautiful on the inside. Even though she was a beauty queen, she still cared about the community where she grew up.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Bassie was also very smart. She worked hard at school, especially on her favourite subject: science. Her hard work was rewarded when she was the top science student at her school in matric. That’s not all, she was also Head Girl. The shy little girl was now one of the most popular girls in school.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Bassie’s father always encouraged his children to read. He gave her a book called The Power of Positive Thinking. From that book, she learnt that being optimistic is the key to making your dreams a reality. She dreamt of winning Miss South Africa. Not only did that dream come true, she was even crowned First Princess in the Miss World competition!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Bassie’s mother was her role model. Bassie described her mom as a “fierce, hardworking Xhosa woman who did not suffer fools”. She was a teacher and Bassie had plans to follow in her footsteps, but things don’t always go as planned! After winning Miss South Africa, she became a TV presenter. She wasn’t a teacher, but like her mom, she was hardworking. Her career in TV led to her opening her own television production company. She was now a successful business woman.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Bassie’s motto is: “To whom much is given, much is expected.” She believes that you are given a gift so that you can give to others. Bassie does this by volunteering, giving of her time and money and even creating jobs. She is involved with projects and charities to help people in her community. One that is very close to her heart is the Nelson Mandela Institute.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Bassie had a very close relationship with Nelson Mandela. When she was crowned Miss South Africa, Madiba wrote her a letter of congratulations. In the letter, he called her “our Queen”. They shared a passion for children and education and the belief that an educated nation can help fight poverty.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "In 2002, Bassie married Romeo Kumalo and became known as Basetsana Kumalo. Together they established the Romeo & Basetsana Kumalo Family Foundation. The foundation looks after orphans - children who don’t have a mom and dad.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Bassie has had to learn to balance her busy work and family life. She has her own company called Basetsana Women Investment Holdings. She and Romeo have three children, two boys and a girl. Bassie sees her role as mother to her children as her “highest calling and greatest privilege”.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Bassie says the secret to her success is “courage, determination, passion and staying committed to the course”. Despite all her success, she remains humble while trying to make the world a better place. Being beautiful on the outside is not what makes you a beautiful person. It’s a heart filled with love and generosity. And that’s why Bassie is our beautiful Queen.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/queen-of-soweto/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-rafikis-style",
+    "title": "Rafiki’s Style",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "On Sunday, Jimmy Zogba scored the winning goal.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-21T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "On Sunday, Jimmy Zogba scored the winning goal.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "On Monday, the Cool Cat Crew strutted by.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Hey, Rafiki, where’s your zebra hair? Your hair’s so plain, like you don’t care.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "“Hey, Rafiki, where’s your fake tattoo? Your skin’s so boring. You are too.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Hey, Rafiki, where’s your bling? Your teeth are wonky, that’s the thing.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "That day, Rafiki walked home slowly.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“Auntie, can I have zebra hair?” “I can’t cut you zebra hair. Actually, I wouldn’t dare.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“My skin’s so boring, Sisi. Can you make a fake tattoo?” “You don’t need one to look like you.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "“Mkhulu, I wish I had some bling.”“Bling, my child, don’t mean a thing.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The next weekend, Santi Ramires scored the winning goal.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "On Monday, the Cool Cat Crew strutted by. “Hey, Rafiki! Looking fine!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Rafiki shrugged. “I look like me; this style is mine.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/rafikis-style/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sbus-special-shoes",
+    "title": "Sbu’s Special Shoes",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "These are my big brother Sbu’s shoes.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-22T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "These are my big brother Sbu’s shoes.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Look what I can do in them.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "I can race cars!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Sometimes, I even race our bouncy dog.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "With Sbu’s shoes I win every time.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Wait! Let me show you one more thing.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Watch me dance and spin.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "I can cartwheel over and over.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "I’m a monkey! Look at me hang upside down.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Watch me jump and catch the moon.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Here, try them on!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "See what you can do in Sbu’s special shoes.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sbus-special-shoes/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-searching-for-the-spirit-of-spring",
+    "title": "Searching for the spirit of spring",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "The Winter cold had passed. Spring was coming to Nkanyezi’s village. Soon the villagers would gather to celebrate the new season. Nkanyezi l...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-23T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The Winter cold had passed. Spring was coming to Nkanyezi’s village. Soon the villagers would gather to celebrate the new season. Nkanyezi looked forward to the Spring festival more than any other day in the year.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "One warm morning, Nkanyezi overheard two village elders talking about the festival. “The people of Ndlovu have lost their spirit of celebration,” one sighed. “How can we have a Spring festival in a village that has forgotten how to celebrate?” asked another.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Nkanyezi was worried. “How will the sun shine again unless we sing to wake it from its winter slumber?” she asked herself. Nkanyezi thought for a long time. “I must find what we have lost,” she decided. “I must go in search of things that will bring backthe spirit of celebration to my village.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "The elders gave Nkanyezi their blessing for the journey. They gave her a bag to carry the things she would find. Nkanyezi was afraid, but she believed she would succeed.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Nkanyezi walked all day. She hiked up a hill, and down into a valley. She sailed across the great river, and climbed between sharp rocks. She marched across the plains until she reached the shadow of the red mountains.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "As night was closing in, Nkanyezi arrived at a village of patterns and colours as she had never seen before. She told the village elders about her journey to bring back the spirit of celebration to her people The mother of this tribe gave Nkanyezi a gift.She told the girl, “With love we give to you this paint to restore colour to a village that has gone dull.” Nkanyezi thanked the elders and put the paint in her bag. Early the next morning she went on her way again, excited with this gift of colour.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Nkanyezi walked all day, through a vast forest of giant trees. As the sky became too dark for her to see, she heard the sound of beating drums. She hurried towards the drumming, feeling the spirit of dance coming to her tired feet.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Nkanyezi found herself in the village of the Bhubezi. People were sitting around a fire, drumming and singing. She had never before heard such wonderful music. She told the village elders about her journey to bring back the spirit of celebration to her people. The Bhubezi invited her to rest and stay the night.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "In the morning the chief called on Nkanyezi. “My child,” he said, “here is a special drum. It plays a new song every time you beat it.” Nkanyezi thanked the elders and put the drum in her bag. She went on her way again, delighted with this gift of music and dance.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "On the third day of her journey, as she a passed a field of fat cows, her nose started to tingle. An aroma tickled her taste buds and her mouth started to water. She followed the scent, and arrived in a village to find people standing over steaming pots of stew. This tribe was famous for its feasts and Nkanyezi had never before tasted such flavours. After she had eaten her fill, she told the village elders about her journey to bring back the spirit of celebration to her people.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The next day, the council of cooks gave her a secret spice blend. “Our daughter,” they said, “with these spices, happy tummies are guaranteed! We give you the gift of good food.” Nkanyezi thanked the elders and put the spices in her bag. She knew she had everything she needed. With new energy she started the long journey back to the village of Ndlovu.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "When she arrived home the villagers gathered around her to hear of her adventures. She told them the tales of what she had seen, heard, and eaten. Then she opened her bag to share the gifts given. The people rejoiced to receive these treasures. Through the generosity of others and the courage of Nkanyezi, the villagers again found the colour, song and dance in their lives. And so the spirit of celebration was restored to the village of Ndlovu.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/searching-for-the-spirit-of-spring/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sima-and-siza",
+    "title": "Sima and Siza",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Simamkele loves dolls. Mama buys him lots. They keep his loneliness away. Sima’s favourite doll is Siza. Sima wants to be a nurse when he gr...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-24T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Simamkele loves dolls. Mama buys him lots. They keep his loneliness away. Sima’s favourite doll is Siza. Sima wants to be a nurse when he grows up.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "He loves to put on Mama’s skirt, and twirl. Like magic, he suddenly becomes Sima the nurse. He plays hospital-hospital and makes sickly Siza and all his dolls better.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Wherever Sima is, Siza is there too.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "But Sima’s friends do not like Siza. One day, they took him away and stuck his head in the toilet.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "When Papa came home, Sima was nursing Siza. ‘What are you doing?’ asked Papa. ‘I’m being a nurse,’ said Sima. ‘Will you play with me?’ ‘Yes. But we will go to the park and play soccer,’ said Papa.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "His friends saw Sima and Papa playing soccer. They joined in. Sima and Papa often play soccer now. But they still haven’t played with dolls.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "One day, Sima was playing hospital-hospital with his dolls. He heard Mama shout. ‘Sima! Run! Papa is waiting to play with you at the park.’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "‘Why on earth are you wearing a dress?’ said Papa in an angry voice. Just then a ball flew out of nowhere and ...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "... knocked Papa down. Everyone panicked. Except Sima. He knelt and tied his blanket around Papa’s bleeding head. ‘Call an ambulance!’ he shouted.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "‘He needs stitches in his head. You did just the right thing,’ said the nurse. Sima was proud.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "‘You’re a hero. You’ll make a great doctor one day.’ ‘But I want to be a nurse, just like you,’ said Sima.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "‘Thank you, Nurse Sima,’ said Papa. Now Sima and Papa play hospital-hospital and soccer – and his friends do too.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sima-and-siza/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sindi-and-the-moon",
+    "title": "Sindi and the Moon",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Sindi was a very lively little girl who loved to sing and dance. She lived on a farm with her parents and her Gogo. Sindi enjoyed following ...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-25T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Sindi was a very lively little girl who loved to sing and dance. She lived on a farm with her parents and her Gogo. Sindi enjoyed following Gogo around and feeding the animals.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "One evening while Sindi and her family were having dinner, Sindi’s mother had something to tell her. “Sindi,” she said, “after the long Christmas holidays, you are going to go to school. ”Sindi was so excited. She was happy that she would finally get to learn how to read and write.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "When Sindi was happy, she danced. Her joy spread to the farm animals. The dogs barked more loudly. The cows mooed more beautifully. The butterflies flapped their wings and landed in her hair.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "When Sindi danced, she swayed from left to right, as if she were pushed and pulled by the wind. She sang along with its soft, slow music.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "As the holidays were ending after Christmas, Sindi started to wonder what school would really be like. She did not want her mother to know that she was nervous, so she asked Gogo what school would be like. “School is very serious,” Gogo said. “There is no more time for song and dance, only learning.” This did not make Sindi happy at all.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The night before school started was very hot. Sindi just could not sleep! She tiptoed outside and sat on the stoep, looking up at the dark sky. The moon was big and bright and beautiful and the stars were twinkling.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Sindi spoke to the beautiful moon. “Dear moon so bright,” she said, “are you afraid of the dark? Is that why you ask the stars to keep you company?” “I am going to school tomorrow, what will it be like?” “Will they let me sing? Will they let me dance?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Sindi started to sing. What she saw next made her rub her eyes in disbelief. Was she dreaming? The moon was smiling! And the stars were dancing to her song!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "A gentle voice spoke to her. “Dear little Sindi,” the voice said. “School is a wonderful place. You will learn many things: to read and write, to sing and dance and to make many friends.”“But for now, Sindi, you must rest. Tomorrow will be beautiful.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Sindi had never seen anything this amazing. She wanted to wake everyone up and show them the talking moon and dancing stars. But the moon stopped her. “Shhhh, Sindi,”it said. “This is our little secret.” The moon winked. Sindi returned to bed, comforted by the moon’s wise words, and slept peacefully.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The time came for school. Mama held Sindi’s hand as they approached the school. She was confident that the day would be beautiful, because the moon had told her so. Children were arriving with their mothers and fathers. They all looked excited. Sindi could not wait to make friends.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "By lunch time, Sindi loved everything about school. “I wish the moon could see me now,” she said to herself. “Now I will learn to read. I will learn to write. But also I will sing and dance!” And all of Sindi’s new friends danced with her, just like the animals had done. They clapped their hands and sang to her tune.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindi-and-the-moon/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sindiwe-and-the-fireflies",
+    "title": "Sindiwe and the Fireflies",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "One day a very clever baby was born in Gungululu in the Eastern Cape. Her name was Sindiwe Magona. She was the oldest of eight children.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-26T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One day a very clever baby was born in Gungululu in the Eastern Cape. Her name was Sindiwe Magona. She was the oldest of eight children.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "At night, her grandmother told magical stories about ogres and giants, animals of the forests, great beasts, and little creatures of the veld. It was Sindiwe’s favourite time.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Sindiwe loved school and she dreamed about being a teacher.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "When Sindiwe became a teenager, her family organised a feast to celebrate. She was given special things to wear and a wise old man sang a praise song to her. (Blessings, long life! May your ancestors guard you!)",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Sindiwe trained to be a teacher. She was very excited to teach at her first school. But there weren’t enough schools for black children and they had no desks or books to write in. This made Sindiwe feel scared. How could she be a good teacher when the children had nowhere to sit?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "She left the school to work as a cleaner. She worked in four different houses. Sometimes the people there treated her badly and Sindiwe became very unhappy.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "All this time Sindiwe studied. Her hard work paid off! She won a scholarship to study at a university in New York. She and her three small children packed their bags and flew across the sea to the United States of America.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "In New York, Sindiwe studied to become a social worker. She wanted to help families make their lives better.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "When she finished studying, the United Nations gave Sindiwe a job. Most of the countries in the world meet at the United Nations to talk about their problems.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Sindiwe told the world about South Africa, and how hard it was for black people living there. The people at the United Nations loved to listen to Sindiwe’s stories. They wanted to learn more and more about South Africans. Perhaps, together, they could help to change things in South Africa.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "She worked at the United Nations for twenty years while her children grew into adults. But Sindiwe missed the country where she was born. She wanted to tell her stories to the people at home. So she packed her luggage, got on a plane and flew back over the sea to Cape Town.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Sindiwe’s love for books and stories have helped her write piles and piles of books. And children and grown-ups love to read her stories. Many people call her Nomabali because she’s always writing, telling and reading stories.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sindiwe-and-the-fireflies/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-singing-the-truth",
+    "title": "Singing the Truth: the story of Miriam Makeba",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "A long time ago, in the vast city of Johannesburg, a baby girl was born. That baby was me. My mom called me Miriam. Miriam Makeba.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-27T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "A long time ago, in the vast city of Johannesburg, a baby girl was born. That baby was me. My mom called me Miriam. Miriam Makeba.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Mom was a sangoma, but she also worked to make other people’s homes neat and clean. It was hard for my mom to earn enough for both of us. She started selling homemade beer to bring in more money.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "The laws of the land said that selling homemade beer was wrong. The police sent my mom to jail for six long months. I was only 18 days old, and needed my mom. So even though I was just a baby, I went to jail too.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "As a little girl I loved to sing. When I was older, I helped my mom clean houses. Singing songs as I worked made the chores go faster and the days seem brighter. Singing made me happier than I can explain.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "I sang in my church, and this made others happy too. Music has the power to bring people together. When we were singing we felt brave and strong.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "People said my voice was a gift and my songs were special. I sang with other musicians and our music was heard all over the world.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "My home was Sophiatown, a place of culture and music. Sophiatown, a place where South Africans could make music in harmony and dance together. But the people who ruled the land at the time did not like this togetherness. Those rulers didn’t want black and white people to be friends.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "I knew it was wrong to treat people differently because of their skin colour. I did not hide my beliefs, and so those people in charge wanted me out of the country. When I was singing in America, I was told I could never return home.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "People all over the world heard my story. My songs and my story helped many to see how there was no fairness in South Africa for those with black skin. I decided to go on singing and telling the truth about my country, no matter what.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The world loved my music and I was welcomed in many countries. I won awards and sang for important people all over the globe. My life was good, but something was missing. I could not sing in my home country, and people there were not free.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Then a wonderful day dawned when Nelson Mandela became president of South Africa. New people were in charge and the unfair laws belonged to the past. I finally went home with new hope in my heart.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "After that I could sing in a free, fair country. People of different skin colours could enjoy music together. I helped make this happen because I was brave and strong. I sang the truth in all of my songs.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/singing-the-truth/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sizwes-smile",
+    "title": "Sizwe’s Smile",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "It had been raining for days, and everyone was grumpy. Everyone except Sizwe, who woke up with a smile every morning. “Yoh! Sizwe! That smil...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-28T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It had been raining for days, and everyone was grumpy. Everyone except Sizwe, who woke up with a smile every morning. “Yoh! Sizwe! That smile is magic!” said Gogo. “Is it for me?” Sizwe clapped his hand over his mouth. “But it’s MY smile, Gogo,” he whispered.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "His mother laughed. “Sizwe! A smile is something you can give away without losing it. Look!” She lifted him up to the mirror. There was his smile, just as bright as before.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "It was time to go out. Mama buttoned up Sizwe’s raincoat, and off they went, through the rain, to the library. Down the street, Sizwe’s best friend Zanele stood at the window of her house, looking sadly at the rain. Sizwe felt his smile creeping, creeping up. Before he knew it, his smile LEAPT out, and flew across the garden to Zanele.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Zanele held on tightly to the smile – it was far too precious to let it get away. As Sizwe walked away to the library, Zanele’s doorbell rang. It was the postman, with a letter from her favourite cousin. Zanele was so happy, that the smile bounced up, and beamed out at the postman. “Thank you, Mister Postman!” she said.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Zanele’s smile was the brightest thing the postman had seen all morning. It kept him warm as he trudged off through the rain. He came to a big house. Inside the gate, a dog was spinning around in circles, barking, barking, barking. He was so silly, that the postman couldn’t help smiling. The smile bounced through the gate with a glitter of glee.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The dog stopped barking. He pricked up his ears and wagged his tail. Then he turned and ran back to the house with the precious, warm smile. A bent old man opened the door. “Oh, no! You can’t come inside. You’re all wet!” he told the dog. But right away, the smile beamed up at the old man.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The old man stood a little straighter. “Eish,” he said, “Who cares if it’s raining? Let’s go for a walk, boy!” And off they went, splashing in the puddles. There, at the zebra crossing, stood grumpy Mrs Makabela, the traffic cop. She looked cold, and wet, and miserable. The old man knew just what to do. “Morning, Mrs Makabela!” he called, and smiled his biggest, brightest smile. But Mrs Makabela... did not smile back.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Standing in the rain for days can make a face sad, sad, sad. But a smile is a magical thing and, by now, the smile was so strong, and so bright, that it was very hard to keep inside. It didn’t work right away, but bit by tiny bit, it began to creep out until, at last...! A great, big smile lit up Mrs Makabela’s face! The school bell rang, and children ran to cross the road. Mrs Makabela put up her sign, and smiled, and smiled, at each and every child.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The children smiled at their moms and dads, and their gogos and tatas and brothers and sisters. They smiled at the bus driver and the greengrocer, and Mme Makau, who went off to smile at her husband, who smiled at the mayor... The smiles leapt and rolled and beamed and gleamed until EVERYONE was smiling and giggling and laughing out loud in the rain.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "In the library, everything was quiet except for the sound of the rain. “It’s time to go,” said Sizwe’s mother, closingher book.“Aw, mom!” said Sizwe, who had run out of smiles.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "But as they stepped out into the street... WHAT A SIGHT! Everyone in town was there! Everyone! And they were ALL smiling!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "The smiles bounced around and beamed at Sizwe. They warmed him, and tickled him, and crept up, up, up from his toes... to the TOP of his head. He was so full of happiness that the smile burst out, brilliant and beaming bright. And something changed. The dark, gloomy, rainy afternoon didn’t seem so dark anymore. Could it be...? YES! The clouds parted, and the warm sun shone down on them, with the biggest, brightest, most brilliant smile of all.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sizwes-smile/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-sleepy-mr-sloth",
+    "title": "Sleepy Mr Sloth",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "One day, Mr Sloth came to visit. He said: I’m sleepy! I need a good branch for a bed!",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-01T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One day, Mr Sloth came to visit. He said: I’m sleepy! I need a good branch for a bed!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "I’m quite good at climbing. I know how to swing. But sleeping’s my favourite, favourite thing!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Oh no, Mr Sloth! A giraffe’s eating there! He might think you’re lunch and start nibbling your hair!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Oh no, Mr Sloth! There’s a beehive right there! You’ll never get sleep with those bees everywhere!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Oh no, Mr Sloth, that’s a snake over there! Not a branch! Poor old snake. You gave him quite a scare.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "This branch looks lovely! I think I’ll sleep here. And you? Don’t you think that’s a splendid idea?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Oh no, Mr Sloth! There’s a bird squawking there! You’ll never get sleep with that noise in the air!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Try climb one more branch, Mr Sloth! they all said. And that branch was just the right one for his bed.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "The bird and the snake, the giraffe and each bee were happy to have Mr Sloth in their tree.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/sleepy-mr-sloth/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-thatos-birthday-surprise",
+    "title": "Thato’s Birthday Surprise",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "It is one week until Thato’s birthday. That’s seven whole days!",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-02T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It is one week until Thato’s birthday. That’s seven whole days!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "His mama says: “Your birthday present will be a BIG surprise!” Thato wonders: what will it be?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "On Monday Thato thinks: Maybe I will get giant wings so I can fly high in the sky like a bird...”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "On Tuesday Thato thinks: “Maybe I will have a birthday cake as big as a house!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "On Wednesday Thato thinks: “Maybe I will get a rocket ship to whizz up to the moon.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "On Thursday Thato thinks: “Maybe I will get fins so I can swim under the water like a fish.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "On Friday Thato thinks: “Maybe I will get magic soccer boots and score a thousand goals!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "On Saturday Thato thinks: “Maybe I will get a key that opens a box filled with treasure!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "On Sunday it is Thato’s birthday. Mama smiles and says: “Come and see your surprise!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "It is the best present ever. Thato’s big brother Kudzai has come to visit all the way from the big city!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Thato smiles and smiles and his big brother lifts him up in the air and hugs him. Kudzai asks:“What do you want to do for your birthday, little brother?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "And Thato knows exactly what they will do the whole day long.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/thatos-birthday-surprise/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-there-must-be-a-rainbow",
+    "title": "There Must be a Rainbow",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Nestled in the Kingdom of the Zulu is a magnificent place called the Valley.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-03T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Nestled in the Kingdom of the Zulu is a magnificent place called the Valley.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "A little girl called Jabulile lives here. Jabulile was always a happy child. She was also curious, and full of questions about life. Everything fascinated her.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Jabulile’s father was a mielie farmer. Her mother was a teacher. They taught her to dream big dreams. Jabulile’s biggest dream was to help people.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Everyone in the village was Jabulile’s friend, especially the elders. They taught her about the wise men and women who once lived in the Valley. Jabulile also wanted to be wise.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "One awful day, the clouds began to gather over the Valley. Everything grew dark and grey. An ugly storm swept over the land.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Great gusts of wind blew the roofs off the huts. All the animals lost their homes. It was a very sad day.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "The village folk cried, “What shall we do now?” “All the crops are ruined!” cried the farmers. “Our homes are gone!” said the elders. All hope seemed lost. But Jabulile remembered something her wise father once told her.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Jabulile started speaking to the villagers. “The storm only hurts us,” she said, “because of the way we choose to see it. If you look up the sun is shining again. It is a new day. “After every storm, there must be a rainbow!” she shouted excitedly.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Just then a glorious rainbow appeared in the sky.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The villagers saw the rainbow and they began to smile. It stood as a promise that the storm was over.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "The villagers rebuilt their homes. Farmers planted new crops. The grass grew greener than ever before.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "Once again there was hope and happiness in the Valley.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/there-must-be-a-rainbow/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-together-were-strong",
+    "title": "Together We’re Strong: The Story of Albertina Sisulu",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "One harsh winter, many people in the land were sick. Ma Monikazi’s cheeks burned. Sweat dripped from her body. She wanted to hold the icy gr...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-04T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One harsh winter, many people in the land were sick. Ma Monikazi’s cheeks burned. Sweat dripped from her body. She wanted to hold the icy grass to her face to cool down. Under her blanket she held her belly and sang to the baby inside her: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!” Her stomach growled when the baby’s powerful kicks woke her at night. She ate the leftover meat in the cooking pot, hungry for life. One bright night the moon was bigger, fatter and pinker than ever. Her breath came fast. The baby was ready. The aunties in the birthing room rubbed her back and warmed the water. When Monikazi held her beautiful daughter in her arms, she knew she was a special girl, a fighter. What a blessing! Her name is Nontsikelelo. She will be the mother of all blessings.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Nontsikelelo was beautiful and strong with crinkling black button eyes. She loved her older brother, Mcengi. He made her laugh and so the laughter spread. She loved to eat meat before she had teeth. Her favourite aunt always kept a little portion on the side of her plate for Ntsiki. Mcengi chased the chickens that scratched in the garden where Ma Monikazi grew spinach and squash to feed her family. Ntsiki ran after him as her legs grew strong. Ma Monikazi had another baby boy, Velaphi, and another, Qudalele. Finally another sister, Nomyaleko. Little Ntsiki folded napkins and washed the baby clothes. She swept the house and fed the fire. She picked up her baby brother when he cried and tickled him till he laughed. She taught them to sing: “Be strong, little one. Winter is gone. Be brave, little one. Together we’re strong!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Qingqiwe, her grandfather, raised horses. His favourite was Shishi, a glossy black mare. As soon as Ntsiki was old enough, he hoisted her on to the saddle in front of him. His strong arms reached around her. He laced the reins through her fingers. He taught her to talk softly to Shishi, to groom her with a hard bristled brush. When she stroked its glossy coat, Albertina whispered, “You are the most beautiful creature. Thank you for letting me ride on your back.” Her father, Bonilizwe, came home from the mines at Christmas. Ntsiki pulled herself up onto Shishi’s broad back. She rode out to meet him at the bus stop. Ntsiki sat tall and straight. Her knees held firm. She handled the reins with gentle fingers. How proud Bonilizwe was of his daughter. The biggest smile Ntsiki had ever seen covered her father’s face.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "On her sixth birthday she went to school. “You must choose an English name,” said the Presbyterian teacher, but Ntsiki liked her own name. “Why do I need a new name?” she asked. The teacher scowled and read the names aloud: “Adah, Agnes, Albertina, Anna.” What did they mean? Ntsiki liked the long name best. Al-ber-ti-na! The name had rhythm. Al-ber-ti-na! The name had bounce. Albertina was a name you didn’t mess with. When her cousin married a handsome man from a nearby town, Albertina was chosen as an umkhapi. The maid of honour! Weeks before the wedding, she stitched her isikhakha, the short traditional skirt, and threaded bright beads onto her amatikiti. Her mother gave her the white flag and said, “You have a big job, my blessing.” At the bend in the road Albertina waved the flag, then turned Shishi back, leading everybody from miles around to the ceremony. People would gossip if she made a mistake, but the guests lined the road. They ululated and sang. They threw down flowers for the horse and the girl.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Her mother was often sick and needed Albertina to look after the home. In her last year of primary school, Albertina was the oldest pupil in the school. She was chosen to be the head girl and wore her badge with pride. Her best friend, Betty, told her about a competition, saying, “You must apply, my clever friend.” “What is the prize?” asked Albertina, growing curious. “A scholarship to high school!” said Betty. “You must apply. You’ll win it, for sure. ”Albertina studied until the candle burned down. She practised sums. She practised spelling. She sharpened her pencils and gave her shoes an extra shine. Next morning she passed Shishi in her paddock. The horse whinnied and stamped the ground.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The test began. Albertina’s fingers shook. The sums were tricky. Her mouth went dry. Her hand cramped on her pencil but she continued. “Well done, Albertina!” said her teacher at the end. The important official arrived and called the top two students to the stage. “Well done to Albertina for full marks,” he said, “but you are too old. The scholarship goes to...” Albertina tried not to cry. “That’s unfair,” shouted Betty, hopping with fury. “That wasn’t in the rules!” How would Albertina go to high school now? She dragged her feet all the way home. The teacher wrote to the newspaper about the unfair decision. Brother Joe at the Catholic Mission station read the story over his breakfast. He cracked his boiled egg with an extra flourish. He pushed the newspaper across the table to Father Bernard. He didn’t like the story one bit either.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Soon enough there was a scholarship for Albertina. Mariazell near Matatiele was a long way from Xolobe, but the whole village erupted. Their home girl was off to high school. She would make them proud. They threw a party like no other. The women brewed the sorghum beer and lit the fires. They slaughtered chickens and stirred up pots of meat. Albertina smiled till her face ached. She packed her brown suitcase and polished her shoes again. Before setting off on the bus to Matatiele, she said goodbye to Shishi. Albertina brushed her coat and stroked her wiry mane. She whispered all her questions into the horse’s silky ear: What if I get lost? Will I make new friends? Will I still be clever so far from home? Shishi whinnied and stamped the ground.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "School days started well before sunrise. The girls washed quickly in the cold water and swept the dormitories before Mass. The milky porridge was never quite enough; the stew not as tasty as Aunty’s back home. But Albertina studied hard. She played netball on sunny afternoons. In her school holidays Albertina worked at the mission station. She rubbed and scrubbed against the zinc washboard. She boiled sheets in copper tubs, then wound them through the wringer. She hoed and tilled the school garden but missed her family. Who was telling her brothers and sisters funny stories? Who wiped their eyes when they cried? Who tickled them until they laughed? Albertina loved the nuns who taught her. Could she become a holy sister? “But nuns earn no salary,” said Father Bernard. “Perhaps you should become a nurse? You’ll be paid while you study.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Albertina took a train to Johannesburg. She bought a smart white uniform, new navy shoes and a shiny red fountain pen. Sick people came all day to the hospital. She cleaned their wounds with careful fingers. She held the old people gently. When the babies cried, she sang: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong! Some nights Albertina worked till dawn. She looked out the window and thought of her family. Were the children hungry? Did they go to school? Who was riding Shishi? She remembered the dark green spinach. She missed the scent of the earth. There was no vegetable garden here. There was nowhere for a horse. Albertina never went to parties. She saved every shilling. On her days off she learned to play tennis. Whoosh! Plop! She whacked the ball across the net. Always, she wished for a little more money to send home.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Walter Sisulu was a brave and clever man who dreamed of freedom for South Africa. His big smile captured Albertina’s eye. They walked together down the city streets. Her delicate hand rested on his arm. Walter wanted Albertina to be the mother of his children. Bright ribbons decorated the Bantu Men’s Social Centre on their wedding day. Albertina’s long-sleeved dress had a swirling train of lace. Many friends blessed their special day. Albertina planted flowers in her little garden. Within a year, Max was born. Albertina had become a mother. One day people would call her the mother of the nation. Max had his mother’s black button eyes and his father’s round chin. He was the hope for their future. Albertina wanted to fight for a new South Africa, so that Max could be free. When he cried, she sang: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Police came in the middle of the night, banging on the door. Albertina scolded the men who messed up her house. “How rude you are!” she said, “trampling mud inside my home.” In the morning Albertina’s favourite flowers lay crushed beneath their footprints. She remembered chasing the chickens from her vegetable garden back in Xolobe and set about replanting her garden. The earth, she knew, would recover. She would support her husband who kept many secrets and hid from the police.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "She joined the women and worked to organise a march to Pretoria. The women refused to carry a pass. They sang, “Wathint’ abafazi; wathint’ imbokodo! You strike a woman; you strike a rock!” Many hard years followed after Walter’s arrest. He was jailed on Robben Island for 26 years. Albertina, also, was sent to jail many times. Often she was scared. Often she was lonely. But even on the darkest nights, she could see a sliver of moon through the window in her cell. She sang the song that Ma Monikazi sang before she was born: “Be strong, little one. Winter’s not long. Be brave, little one. Together we’re strong!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/together-were-strong/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-tortoise-finds-his-home",
+    "title": "Tortoise finds his home",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "One day Tortoise was walking through the veld. He was searching and searching. He gazed into the distance and squinted at the grass. “Are yo...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-05T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "One day Tortoise was walking through the veld. He was searching and searching. He gazed into the distance and squinted at the grass. “Are you looking for something?” Snail asked. “Yes, I’m looking for my house. Have you seen it?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“No, I haven’t, but I’ll help you look!” She climbed onto Tortoise’s shell. Tortoise walked on with Snail on his back. They looked and looked, but there was no sign of a house.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "“Are you looking for something?” asked Sparrow. “Yes, we're looking for Tortoise's house. Have you seen it?” “No, I haven’t, but I’ll help you look!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Sparrow flapped his wings and he whizzed away. “You’re going too fast!” called Tortoise. “Alright, then I’ll hop on too.” Tortoise walked on with Snail and Sparrow perched on his shell. They looked and looked, but there was no sign of a house.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Are you looking for something?” asked Ladybird. “Yes, we’re looking for Tortoise’s house. Have you seen it?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "“No, I haven’t, but I’ll help you look!” Ladybird hopped onto Tortoise’s shell. Tortoise walked on with Snail and Sparrow and Ladybird sitting on his back. They looked and looked, but there was no sign of a house. A breeze started to blow.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "“Are you looking for something?” asked Mouse. “Yes, Mouse, I’m looking for my house. Have you seen it?” “No, I haven’t, but I’ll help you look!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Mouse jumped onto Tortoise’s back. Tortoise walked on with Snail and Sparrow and Ladybird and Mouse on his back. They looked and looked, but there was no sign of a house. The wind swept the leaves off the ground and swirled them around Tortoise.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "The wind got stronger and stronger. The sky turned dark. “Oh, where is my house?” Tortoise sighed. Thunder roared in the hills. Lightning flashed in the distance. Drip, drip came the rain. “Oh, where is Tortoise’s house?” asked Snail and Sparrow and Ladybird and Mouse.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "The wind whirled and whipped and blew Snail and Sparrow and Ladybird and Mouse right off Tortoise’s back.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "“Eek!” squeaked Tortoise with a fright, and he shrank back into his shell. It was warm and cosy inside. “Oh, here is my house!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“Oh, here is Tortoise’s house!”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/tortoise-finds-his-home/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-walking-together",
+    "title": "Walking Together",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "When we go walking and the road is long, we’ll walk together singing a song.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-06T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "When we go walking and the road is long, we’ll walk together singing a song.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "I am with you and you are with me. A journey is fun with our family.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "I’ll keep you cosy like a mother hen. She keeps her chicks warm under her wing.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "If the rain starts to fall down from the sky, like that good hat I’ll keep your face dry.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "If storm clouds get angry and grumble and moan, be brave, why cry? You’re not alone.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "We’re walking together so we never get bored. Look up! Look around! See where we’ve explored!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "If you see something that’s funny to see, I don’t want to miss it. Please share it with me!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "If your feet start to hurt from the distance we’ve passed, don’t worry, we’ve made it! Here’s the clinic at last.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "We all need to check our throat, lungs and ears. Get strong as you grow, it’s no reason for tears.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "Do you think it’s scary? Here, hold my hand. She’ll check your blood pressure with this clever armband.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "They give us our medicine, tell us what we should know, to keep us all healthy. Now back home we go.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "It’s okay to be tired, there’s so much we’ve seen. Now it’s your bedtime. Sleep well and sweet dreams.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/walking-together/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-what-if",
+    "title": "What if...?",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Nandi sat on the blue steps of her house.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-07T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Nandi sat on the blue steps of her house.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "She was wondering...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "What if jelly beans made you jump really high? You could get to school in one big leap!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "What if goats and chickens could talk? Would they tell good jokes?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "What if houses were rocket ships? Your family could go on holidays to the moon!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "What if no one had to cook? What if supper just arrived on the table? (And it was always your favourite.)",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "What if ice-lollies never melted? They could last all summer.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "What if the pictures in books flew around your head when Dad read to you?",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "What if my pink gumboots were magical? I could run faster than my big brother!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "What if you squeezed your eyes shut and...",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "“Nandi, what are you doing?” asked Nandi’s big brother. Nandi sat back on the step with a big smile on her face.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“Just wondering,” she said.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/what-if/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-whose-button-is-this",
+    "title": "Whose button is this?",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Tinny Tim was sitting on the road when a button bounced his way.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/01.jpg",
+    "ageRating": "TODDLER",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 20,
+    "isApproved": true,
+    "createdAt": "2026-01-08T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Tinny Tim was sitting on the road when a button bounced his way.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "“I wonder where this comes from,” he said. He wanted to find out.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "It was busy on the side of the road. “Woah!” He nearly got squashed.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "He made a lucky escape. “It’s scary out here,” he said.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "“Hey there, is this yours?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "The green man said nothing. He just turned red. “What a rude person.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Tinny Tim carried on looking. “Whose button is this?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "“Woah..! ...at least he’s friendly.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "“I’ve got to get to the other side. I’m sure that’s where this comes from.”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "SPLASH! “That was close.” He waited for the cars to pass before he carried on.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Maybe this was who he was looking for. “Hello, who are you?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "“I’m Ruby Rags.” “I think this is yours,”he said.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      },
+      {
+        "pageNumber": 13,
+        "text": "“Thank you, little robot. Can we be friends?”",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/whose-button-is-this/en/images/13.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E293B"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-why-is-nita-upside-down",
+    "title": "Why Is Nita Upside Down?",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "Nita’s hanging upside down, her long hair tickling at the ground. The trees, the grass, the everything is all the wrong way round.",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-09T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Nita’s hanging upside down, her long hair tickling at the ground. The trees, the grass, the everything is all the wrong way round.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "Her feet, they poke into the sky. Little Navi’s walking by. He says ‘I’ve seen you here before. You’re upside down again! What for?’",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "His feet swim lightly in the air. She tries to hide behind her hair. ‘It’s h-h-h-hard to t-t-talk’, she says to him. ‘I’m not the same. I don’t fit in.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "Navi takes her by the hand. He wants to help her understand. They climb to Navi’s look-out spot. From up here they can see a lot. They perch and have a quiet stare at children playing here and there.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "Those kids are not the same at all. Abe’s round. Chi's freckled.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "Lala’s extra tall.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Bambam’s wild and must be free, while Lulu's reading quietly.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "Look at Freya's crazy hair.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "And Sid wears glasses everywhere.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "And me, I am just skin and bone. And you are you. You’re not alone. Each human’s sort of strange, you see. That makes you just the same, like me. This world is really one big game. To play, we can’t all be the same.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Nita feels the right way round, thanks to the new friend she's found. Upside down was never fun. Now she plays with everyone.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      }
+    ]
+  },
+  {
+    "id": "bd-en-zanele-situ-my-story",
+    "title": "Zanele Situ: My story",
+    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
+    "description": "I was born in summer, in a town called Matatiele in the Eastern Cape. Matatiele is near Lesotho where there are many mountains. In the winte...",
+    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/01.jpg",
+    "ageRating": "YOUNG_KIDS",
+    "language": "en",
+    "category": "Stories & Reading",
+    "rewardFamibux": 30,
+    "isApproved": true,
+    "createdAt": "2026-01-10T10:00:00.000Z",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "I was born in summer, in a town called Matatiele in the Eastern Cape. Matatiele is near Lesotho where there are many mountains. In the winter they are covered with snow.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/01.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0F172A"
+      },
+      {
+        "pageNumber": 2,
+        "text": "My father was a builder and he moved from place to place to find work. We moved to Lesotho and that's where I started school. I was very happy. But when I was eleven years old, I grew tired and weak, and then I couldn't walk. My parents took me to the hospital.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/02.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1E3A8A"
+      },
+      {
+        "pageNumber": 3,
+        "text": "I had to stay in hospital for three years. I was very tired and I slept many hours every day. After three years the doctors told me I would not be able to walk again. I was very sad because I love sports.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/03.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#0C4A6E"
+      },
+      {
+        "pageNumber": 4,
+        "text": "I went to a special school in Umtata, and my teachers encouraged me. It was a very busy school, with lots of activities like sport and sewing. On weekends we had tasks to do. We had to clean our rooms, polish our shoes and clean our wheelchairs.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/04.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#064E3B"
+      },
+      {
+        "pageNumber": 5,
+        "text": "I decided to keep trying, and never give up. If you have a disability, you can still do something you love. I love to see how far I can go, so I entered a competition. I won a bronze medal for shot putt, a silver medal for discus and a gold medal for javelin.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/05.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#14532D"
+      },
+      {
+        "pageNumber": 6,
+        "text": "I wanted to get better and better at my sports, so I trained very hard. When I rested, I loved to sew and listen to gospel music.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/06.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#312E81"
+      },
+      {
+        "pageNumber": 7,
+        "text": "I entered more competitions and I got many medals and prizes. I started to dream about maybe competing in the Paralympics one day.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/07.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#4C1D95"
+      },
+      {
+        "pageNumber": 8,
+        "text": "The Paralympics are just like the Olympics, where the best athletes in the world compete for gold, silver and bronze medals. But in the Paralympics, the athletes are disabled in different ways, so they have to try even harder to train and win!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/08.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#581C87"
+      },
+      {
+        "pageNumber": 9,
+        "text": "Then I heard that I was going to Sydney in Australia, to take part in the 2000 Paralympics. At last we were in the plane, flying over the Indian Ocean!",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/09.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#701A75"
+      },
+      {
+        "pageNumber": 10,
+        "text": "But when I got there, I suddenly felt very scared of all the people watching me. I just wanted to go home again.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/10.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#7C2D12"
+      },
+      {
+        "pageNumber": 11,
+        "text": "Then, when I threw my javelin it landed far in front of everyone's. I broke the world record and I got a gold medal! I was the first African woman to win a gold medal in the Paralympics. I was so happy and very proud.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/11.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#78350F"
+      },
+      {
+        "pageNumber": 12,
+        "text": "My motto is: Keep going, follow your dreams and never give up. Even if something happens to make you sad or scared. That is what I teach my little girl, Azamazi. She is eight years old and she also loves to do athletics and gymnastics. I am still training and going to competitions, and in 2016 I hope to go to the Paralympics in Rio de Janeiro.",
+        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/12.jpg",
+        "illustrationEmoji": "🎨📖",
+        "bgColor": "#1F2937"
+      }
+    ]
+  },
+  {
     "id": "cr-id-asal-mula-batu-kuwung",
     "title": "Asal Mula Batu Kuwung",
     "author": "Cerita Rakyat Jawa (Kemdikbudristek / Warisan Budaya Nusantara)",
@@ -12036,63 +17517,6 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "cr-id-legenda-candi-prambanan",
-    "title": "Legenda Candi Prambanan",
-    "author": "Cerita Rakyat Jawa (Kemdikbudristek / Warisan Budaya Nusantara)",
-    "description": "Cerita rakyat nusantara dari daerah Jawa: Dahulu kala ada seorang raja bernama Prabu Boko yang memerintah di Prambanan. Prabu Boko adalah seorang raksasa yang sakti. Ia mempunyai seo...",
-    "coverUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-    "ageRating": "YOUNG_KIDS",
-    "language": "id",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-03T11:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Dahulu kala ada seorang raja bernama Prabu Boko yang memerintah di Prambanan. Prabu Boko adalah seorang raksasa yang sakti. Ia mempunyai seorang puteri yang bernama Roro Jonggrang. Roro Jonggrang sangat cantik. Berbatasan dengan kerajaan Boko ada sebuah kerajaan bernama Pengging. Pada suatu hari raja Pengging ingin memperluas wilayah kerajaannya, maka ia mengutus puteranya, Bandung Bondowoso memimpin pasukan menyerang kerajaan Prambanan. Bandung Bondowoso berhasil mengalahkan pasukan Boko bahkan membunuh raja Boko.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Bandung Bondowoso pun tinggal di istana Prambanan. Ia jatuh cinta kepada Roro Jonggrang dan meminta gadis itu menjadi permaisurinya. Roro Jonggrang tidak ingin menjadi isteri Bandung Bondowoso yang telah membunuh ayahandanya. Ia mencari akal agar dapat menolak pinangan pangeran Pengging itu dengan halus. Akhirnya ia menemui Bandung Bondowoso dan berkata, “Aku mau menjadi isterimu, tetapi sebagai syaratnya engkau harus membuat dua buah sumur dan seribu candi dalam waktu semalam.”Meskipun syarat yang diajukan Roro Jonggrang mustahil dipenuhi orang lain, Bandung Bondowoso langsung menyanggupinya. Ia mengumpulkan makhluk-makhluk halus yang menjadi anak buahnya dan mulai menggali sumur dan membangun candi.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Bandung Bondowoso dan anak buahnya bekerja dengan sangat cepat. Dalam waktu singkat mereka sudah menyelesaikan sebuah sumur dan ratusan candi. Roro Jonggrang mengamati dari kejauhan dengan cemas. Ia berpikir keras untuk menemukan cara menggagalkan usaha Bandung Bondowoso. Roro Jonggrang pun memanggil dayang-dayang dan menyuruh mereka membakar jerami dan menabuh lesung. Api dari jerami yang dibakar membuat suasana menjadi terang dan suara tabuhan lesung yang gaduh mengejutkan makhluk-makhluk halus yang sedang bekerja. Mereka mengira hari telah pagi. Mereka pun melarikan diri, meninggalkan Bandung Bondowoso serta sumur dan candi yang belum selesai. Bandung Bondowoso berusaha memanggil mereka kembali, tetapi mereka tetap meninggalkannya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Bandung Bondowoso sangat marah karena ia tahu Roro Jonggrang telah menggagalkan kerja kerasnya, namun ia berusaha menahan diri, “Tentu saja candi sudah selesai. Kalau tak percaya, silakan kau hitung sendiri.” Roro Jonggrang ditemani dayang-dayangnya menghitung candi satu persatu. Ternyata Bandung Bondowoso telah berhasil menyelesaikan sembilan ratus sembilan puluh sembilan candi.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“ Kau gagal, Bandung. Masih kurang satu candi lagi,” kata Roro Jonggrang.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Bandung Bondowoso naik darah, “Kalau kau tidak berbuat curang, aku pasti bisa menyelesaikan seribu candi untukmu, Jonggrang,” katanya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#14532D"
-      }
-    ]
-  },
-  {
     "id": "cr-id-sangkuriang",
     "title": "Sangkuriang",
     "author": "Cerita Rakyat Jawa (Kemdikbudristek / Warisan Budaya Nusantara)",
@@ -12103,7 +17527,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T11:00:00.000Z",
+    "createdAt": "2026-01-03T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12139,7 +17563,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T11:00:00.000Z",
+    "createdAt": "2026-01-04T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12179,56 +17603,6 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "cr-id-timun-mas",
-    "title": "Timun Mas",
-    "author": "Cerita Rakyat Jawa (Kemdikbudristek / Warisan Budaya Nusantara)",
-    "description": "Cerita rakyat nusantara dari daerah Jawa: Mbok Sirni namanya, ia seorang janda yang menginginkan seorang anak agar dapat membantunya bekerja. Suatu hari ia didatangi oleh raksasa yan...",
-    "coverUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-    "ageRating": "YOUNG_KIDS",
-    "language": "id",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-06T11:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Mbok Sirni namanya, ia seorang janda yang menginginkan seorang anak agar dapat membantunya bekerja. Suatu hari ia didatangi oleh raksasa yang ingin memberi seorang anak dengan syarat apabila anak itu berusia enam tahun harus diserahkan keraksasa itu untuk disantap. Mbok Sirnipun setuju. Raksasa memberinya biji mentimun agar ditanam dan dirawat setelah dua minggu diantara buah ketimun yang ditanamnya ada satu yang paling besar dan berkilau seperti emas.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kemudian Mbok Sirni membelah buah itu dengan hati-hati. Ternyata isinya seorang bayi cantik yang diberi nama timun emas. Semakin hari timun emas tumbuh menjadi gadis jelita. Suatu hari datanglah raksasa untuk menagih janji Mbok sirni amat takut kehilangan timun emas, dia mengulur janji agar raksasa datang 2 tahun lagi, karena semakin dewasa,semakin enak untuk disantap, raksasa pun setuju. Mbok Sirnipun semakin sayang pada timun emas, setiap kali ia teringat akan janinya hatinyapun menjadi cemas dan sedih.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Suatu malam mbok sirni bermimpi, agar anaknya selamat ia harus menemui petapa di Gunung Gundul. Paginya ia pergi. Di sana ia bertemu seorang petapa yang memberinya empat buah bungkusan kecil, yaitu biji mentimun, jarum, garam, dan terasi sebagai penangkal. Sesampainya dirumah diberikannya empat bungkusan tadi kepada timun emas, dan disuruhnya timun emas berdoa.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Paginya raksasa datang lagi untuk menagih janji. Timun emaspun disuruh keluar lewat pintu belakang oleh Mbok sirni. Raksasapun mengejarnya. Timun emaspun teringat akan bungkusannya, maka ditebarnya biji mentimun. Sungguh ajaib, hutan menjadi ladang mentimun yang lebat buahnya. Raksasapun memakannya tapi buah timun itu malah menambah tenaga raksasa. Lalu timun emas menaburkan jarum, dalam sekejap tumbuhlan pohon-pohon bambu yang sangat tinggi dan tajam.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Dengan kaki yang berdarah-darah raksasa terus mengejar. Timun emaspun membuka bungkusan garam dan ditaburkannya. Seketika hutanpun menjadi lautan luas. Dengan kesakitannya raksasa dapat melewati. Yang terakhit Timun Emas akhirnya menaburkan terasi, seketika terbentuklah lautan lumpur yang mendidih, akhirnya raksasapun mati. \" Terimakasih Tuhan, Engkau telah melindungi hambamu ini \" Timun Emas mengucap syukur. Akhirnya Timun Emas dan Mbok Sirni hidup bahagia dan damai.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#064E3B"
-      }
-    ]
-  },
-  {
     "id": "cr-id-asal-mula-danau-toba",
     "title": "Asal Mula Danau Toba",
     "author": "Cerita Rakyat Sumatera (Kemdikbudristek / Warisan Budaya Nusantara)",
@@ -12239,7 +17613,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T11:00:00.000Z",
+    "createdAt": "2026-01-05T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12296,7 +17670,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T11:00:00.000Z",
+    "createdAt": "2026-01-06T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12322,7 +17696,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 4,
         "text": "tapi Mai Malah menolaknya. Lalu Baitusen mengantarakan istrinya ke seberang pulau. Dengan bersusah payah ia membopong istrinya ke perahu. Tiba-tiba Mai Lamah ingat akan peti hartanya. Ia pun menyuruh Baitusen untuk membawanya. Baitusen pun menuruti perintah istrinya. Baitusen mendayung perahunya sekuat tenaga. Perahu itu terasa berat. Apalagi, gelombang di lautan tinggi sekali. Perahu mulai oleng dan tenggelam. Mai Lamah berteriak-teriak melihat peti hartanya tenggelam. Baitusen tak memedulikan hartanya. Baginya, keselamatan istrinya jauh lebih penting. Ia menarik tangan Mai Lamah dan terjun ke laut. Ia berusaha berenang sambil menarik istrinya menuju daratan.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Baitusen%20dan%20Mai%20Lamah/i_2345283d619c5d68_html_7c24d29c.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Baitusen%20dan%20Mai%20Lamah/i_2345283d619c5d68_html_31369c2f.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       },
@@ -12346,7 +17720,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T11:00:00.000Z",
+    "createdAt": "2026-01-07T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12396,7 +17770,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T11:00:00.000Z",
+    "createdAt": "2026-01-08T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12453,7 +17827,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-11T11:00:00.000Z",
+    "createdAt": "2026-01-09T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12510,7 +17884,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-12T11:00:00.000Z",
+    "createdAt": "2026-01-10T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12567,7 +17941,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T11:00:00.000Z",
+    "createdAt": "2026-01-11T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12593,7 +17967,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 4,
         "text": "Pada malam harinya, ia bermimpi didatangi oleh seorang lelaki tua berjenggot panjang mengenakan pakaian berwarna putih. Putri Tangguk belum sempat berkata apa-apa, orang tua itu sudah menghilang. Ia terbangun dari tidurnya saat hari mulai siang. Ia akan menjalani hidup bersama keluarganya dengan kesengsaraan. Ia sangat menyesali semua perbuatannya yang sombong dan takabbur dengan menyerakkan padi untuk pelapis jalan licin.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Putri%20Tangguk/i_50e18e1ec7076f54_html_cdf8ce9f.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Putri%20Tangguk/i_50e18e1ec7076f54_html_c31a1a04.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       }
@@ -12610,7 +17984,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T11:00:00.000Z",
+    "createdAt": "2026-01-12T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12650,7 +18024,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 6,
         "text": "Menurut cerita rakyat setempat, kain sutra melayang-layang dan jatuh menjadi negeri Lipat Kain yang terletak di Kampar Kiri, gongya terlempar ke Kampar Kanan dan menjadi sungai Ogong, sedangkan bendera kapal Si Lancang terlempar hingga sampai di sebuah danau yang diberi nama danau Si Lancang. Hingga sekarang, nama-nama tempat itu masih ada.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Si%20Lancang/i_f705cc25da4b886d_html_6bdef0be.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sumatera/Si%20Lancang/i_f705cc25da4b886d_html_787be84d.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
@@ -12667,7 +18041,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T11:00:00.000Z",
+    "createdAt": "2026-01-13T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12724,7 +18098,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T11:00:00.000Z",
+    "createdAt": "2026-01-14T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12781,7 +18155,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T11:00:00.000Z",
+    "createdAt": "2026-01-15T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12838,7 +18212,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T11:00:00.000Z",
+    "createdAt": "2026-01-16T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12895,7 +18269,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-19T11:00:00.000Z",
+    "createdAt": "2026-01-17T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -12942,63 +18316,6 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "cr-id-telaga-bidadari",
-    "title": "Telaga Bidadari",
-    "author": "Cerita Rakyat Kalimantan (Kemdikbudristek / Warisan Budaya Nusantara)",
-    "description": "Cerita rakyat nusantara dari daerah Kalimantan: Dahulu kala, ada seorang pemuda yang tampan dan gagah. Ia bernama Awang Sukma. Awang Sukma mengembara sampai ke tengah hutan belantara. Ia t...",
-    "coverUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-    "ageRating": "YOUNG_KIDS",
-    "language": "id",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-20T11:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Dahulu kala, ada seorang pemuda yang tampan dan gagah. Ia bernama Awang Sukma. Awang Sukma mengembara sampai ke tengah hutan belantara. Ia tertegun melihat aneka macam kehidupan di dalam hutan. Ia membangun sebuah rumah pohon di sebuah dahan pohon yang sangat besar.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kehidupan di hutan rukun dan damai. Setelah lama tinggal di hutan, Awang Sukma diangkat menjadi penguasa daerah itu dan bergelar Datu. Sebulan sekali, Awang Sukma berkeliling daerah kekuasaannya dan sampailah ia di sebuah telaga yang jernih dan bening. Telaga tersebut terletak di bawah pohon yg rindang dengan buah-buahan yang banyak. Berbagai jenis burung dan serangga hidup dengan riangnya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Keesokan harinya, ketika Datu Awang Sukma sedang meniup serulingnya, ia mendengar suara riuh rendah di telaga. Di sela-sela tumpukan batu yang bercelah, Datu Awang Sukma mengintip ke arah telaga. Betapa terkejutnya Awang Sukma ketika melihat ada 7 orang gadis cantik sedang bermain air.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Tujuh gadis cantik itu tidak sadar jika mereka sedang diperhatikan dan tidak menghiraukan selendang mereka yang digunakan untuk terbang, bertebaran di sekitar telaga. Salah satu selendang tersebut terletak di dekat Awang Sukma.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Mendengar suara dedaunan, para putri terkejut dan segera mengambil selendang masing-masing. Ketika ketujuh putri tersebut ingin terbang, ternyata ada salah seorang putri yang tidak menemukan pakaiannya. Ia telah ditinggal oleh keenam kakaknya. Saat itu, Datu Awang Sukma segera keluar dari persembunyiannya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Datu Awang Sukma sangat mengagumi kecantikan Putri Bungsu. Demikian juga dengan Putri Bungsu. Ia merasa bahagia berada di dekat seorang yang tampan dan gagah perkasa. Akhirnya mereka memutuskan untuk menjadi suami istri. Setahun kemudian lahirlah seorang bayi perempuan yang cantik dan diberi nama Kumalasari. Kehidupan keluarga Datu Awang Sukma sangat bahagia.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#14532D"
-      }
-    ]
-  },
-  {
     "id": "cr-id-batu-bagga",
     "title": "Batu Bagga",
     "author": "Cerita Rakyat Sulawesi (Kemdikbudristek / Warisan Budaya Nusantara)",
@@ -13009,7 +18326,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T11:00:00.000Z",
+    "createdAt": "2026-01-18T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13066,7 +18383,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-22T11:00:00.000Z",
+    "createdAt": "2026-01-19T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13123,7 +18440,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-23T11:00:00.000Z",
+    "createdAt": "2026-01-20T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13149,7 +18466,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 4,
         "text": "Suatu hari, saat La Sirimbone sedang berjalan-jalan ke desa tetangga, ia mendengar suara tangis seorang gadis. Gadis itu bernama Wa Ngkurorio. Tib-tiba seeokor itu datang dan siap menyantap Wo Ngkurorio. Gadis itu gemetar. la takut luar biasa. Namun La Sirimbone menenangkannya. Dengan tenang, ia berbisik memberi perintah pada keris pusakanya untuk menikam naga itu. Dalam sekejap, keris itu menusuk perut naga tersebut don mengoyak-oyak perutnya. Naga itu mati seketika. Wa Ngkurorio sangat takjub melihat kejadian tersebut, demikian pula dengan orangtuanya dan Seluruh warga desa. Sebagai ucapan terima kasih mereka meminta La Sirimbone untuk tinggal di desa mereka. La Sirimbone pun bersedia. Ia kemudian pulang untuk berpamitan pada raksasa yang telah membantunya selama ini. Mulai saat itu La Sirimbone hidup bahagia dan damai bersama sahabat-sahabat barunya.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sulawesi/Legenda%20La%20Sirimbone/i_f93e6bd9297d47eb_html_646c00e7.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Sulawesi/Legenda%20La%20Sirimbone/i_f93e6bd9297d47eb_html_bc05513e.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       }
@@ -13166,7 +18483,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-24T11:00:00.000Z",
+    "createdAt": "2026-01-21T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13223,7 +18540,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-25T11:00:00.000Z",
+    "createdAt": "2026-01-22T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13259,7 +18576,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-26T11:00:00.000Z",
+    "createdAt": "2026-01-23T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13316,7 +18633,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-27T11:00:00.000Z",
+    "createdAt": "2026-01-24T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13349,14 +18666,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 5,
         "text": "Rusa lari dengan santai sementara Kulomang berlari dengan tenang. Tak terasa, rusa telah tiba di perhentian pertama. Ia menoleh ke belakang dan tersenyum, \"Pasti siput itu masih jauh di belakang,\"",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Maluku/Si%20Rusa%20dan%20si%20Kulomang/i_7394446922c768da_html_b68257a5.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Maluku/Si%20Rusa%20dan%20si%20Kulomang/i_7394446922c768da_html_f0cc76c5.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
         "text": "\"Siapa bilang aku masih di belakang?\" tiba- tiba terdengar jawaban Kulomang. Sebenarnya itu bukan Kulomang, melainkan temannya yang menunggu di pemberhentian pertama. Rusa terkejut setengah mati, ia heran bagaimana Kulomang bisa mendahuluinya?",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Maluku/Si%20Rusa%20dan%20si%20Kulomang/i_7394446922c768da_html_b68257a5.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Maluku/Si%20Rusa%20dan%20si%20Kulomang/i_7394446922c768da_html_928af52.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
@@ -13373,7 +18690,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T11:00:00.000Z",
+    "createdAt": "2026-01-25T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13406,63 +18723,6 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     ]
   },
   {
-    "id": "cr-id-asal-mula-bukit-catu",
-    "title": "Asal Mula Bukit Catu",
-    "author": "Cerita Rakyat Nusa Tenggara (Kemdikbudristek / Warisan Budaya Nusantara)",
-    "description": "Cerita rakyat nusantara dari daerah Nusa Tenggara: Alkisah di pedalaman Pulau Bali, terdapat sebuah desa yang subur dan makmur. Di desa tersebut tinggal seorang petani bernama Pak Jurna dan i...",
-    "coverUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-    "ageRating": "YOUNG_KIDS",
-    "language": "id",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-01T11:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Alkisah di pedalaman Pulau Bali, terdapat sebuah desa yang subur dan makmur. Di desa tersebut tinggal seorang petani bernama Pak Jurna dan istrinya. Mereka menginginkan hasil panen padinya lebih banyak dari pada hasil panen sebelumnya. \"Hem, sebaiknya pada musim tanam padi sekarang ini kita berkaul,\" usul Pak Jurna pada istrinya. \"Berkaul apa, pak?\" sahut Bu Jurna. \"Begini, jika hasil panen padi nanti meningkat kita buat sebuah tumpeng nasi besar, ujar Pak Jurna penuh harap. Ibu Jurna setuju.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Ternyata hasil panen padi Pak Jurna meningkat. Sesuai dengan kaul yang telah diucapkan, lantas Pak Jurna dan istrinya membuat sebuah tumpeng nasi besar. Namun Pak Jurna dan istrinya belum puas dengan hasil panen yang mereka peroleh. Mereka ingin berkaul lagi dimusim padi berikutnya. \"Sekarang kita berkaul lagi. Jika hasil panen padi nanti lebih meningkat, kita akan membuat tiga tumpeng nasi besar-besar,\" ujar Pak Jurna yang didukung istrinya. Mereka pun ingin mengadakan pesta yang lebih meriah daripada pesta sebelumnya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Ternyata benar-benar terjadi. Hasil panen padi lebih meningkat lagi. Pak Jurna dan istrinya segera melaksanakan kaulnya. Sebagian sisa panen dibelikan hewan ternak oleh Pak Jurna. Tapi mereka masih belum puas. Pak Jurna dan istrinya berkaul lagi akan membuat lima tumpeng besar jika hasil panen dan ternaknya menjadi lebih banyak. Panen berikutnya melimpah ruah dan ternaknya semakin banyak. \"Suatu anugerah dari Sang Dewata, apa yang kita mohon berhasil,\" ucap Pak Jurna datar.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Di suatu pagi yang cerah, Pak Juran pergi ke sawah. Sewaktu tiba di pinggir lahan persawahan, ia melihat sesuatu yang aneh. \"Onggokan tanah sebesar catu?\" tanyanya dalam hati. \"Perasaanku onggokan tanah ini kemarin belum ada,\" gumam pak Juran sambil mengingat-ingat. Catu adalah alat penakar beras dari tempurung kelapa. Setelah mengamati onggokan tanah itu, pak Jurna segera melanjutkan perjalanan mengelilingi sawahnya. Setelah itu, ia pulang ke rumah. Setibanya di rumah, pak Jurna bercerita pada istrinya tentang apa yang dilihatnya tadi. Ia segera mengusulkan agar membuat catu nasi seperti yang dilihat di sawah. Ibu Jurna mendukung rencana suaminya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "\"Begini, pak. Kita buat beberapa catu nasi. Dengan begitu, panenan kita akan berlimpah ruah, sehingga dapat melebihi panenan orang lain,\" usul Bu Jurna.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Hasil panen berlimpah ruah. Lumbung padi penuh. Para tetangga Pak Jurna takjub melihat hasil panen yang tiada bandingnya itu. \"Pak Jurna itu petani ulung,\" kata seorang lelaki setengah baya kepada teman-temannya. \"Bukan petani ulung tetapi petani beruntung,\" timpal salah satu temannya sambil tersenyum. Pak Jurna dan istrinya membuat beberapa catu nasi. Pesta pora segera dilaksanakan sangat meriah. Beberapa catu nasi segera dibawa ke tempat sebuah catu yang berupa onggokan tanah. Namun, Pak Jurna sangat terkejut melihat catu tersebut bertambah besar.",
-        "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🇮🇩📜",
-        "bgColor": "#14532D"
-      }
-    ]
-  },
-  {
     "id": "cr-id-legenda-pohon-enau",
     "title": "Legenda Pohon Enau",
     "author": "Cerita Rakyat Nusa Tenggara (Kemdikbudristek / Warisan Budaya Nusantara)",
@@ -13473,7 +18733,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-02T11:00:00.000Z",
+    "createdAt": "2026-01-26T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13509,7 +18769,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T11:00:00.000Z",
+    "createdAt": "2026-01-27T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13542,14 +18802,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 5,
         "text": "Tidak lama kemudian, mereka menangkap Suri Ikun. Ia lalu di kurung dalam sebuah gua yang gelap gulita. Hanya ada sebuah celah sempit tempat sinar matahari dapat masuk. Dari celah tersebut Suri Ikun melihat ada dua ekor anak burung yang sedang kelaparan. Ia lalu melemparkan makanannya ke arah mereka. Lama-kelamaan kedua burung itu tumbuh menjadi burung dewasa yang sangat besar dan kuat.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Nusa%20Tenggara/Suri%20Ikun%20dan%20Dua%20Burung/i_d8169180e3c6c7db_html_900eaea1.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Nusa%20Tenggara/Suri%20Ikun%20dan%20Dua%20Burung/i_d8169180e3c6c7db_html_29e543e3.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
         "text": "Dan sebagai ungkapan rasa terima kasih, kedua burung itu lalu membebaskan Suri Ikun dari sekapan para hantu. Tidak itu saja, secara gaib mereka lantas membuatkan sebuah istana yang lengkap dengan para pengawal dan pelayannya. Disanalah untuk selanjutnya Suri Ikun hidup berbahagia.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Nusa%20Tenggara/Suri%20Ikun%20dan%20Dua%20Burung/i_d8169180e3c6c7db_html_900eaea1.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Nusa%20Tenggara/Suri%20Ikun%20dan%20Dua%20Burung/i_d8169180e3c6c7db_html_8eba318a.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
@@ -13566,7 +18826,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T11:00:00.000Z",
+    "createdAt": "2026-01-28T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13599,14 +18859,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
       {
         "pageNumber": 5,
         "text": "“ kau tidak usah khawatir Towjatuwa. Aku akan menolong istrimu melahirkan.” Kata buaya ajaib itu.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Papua/Buaya%20Ajaib/i_ee832b812f48580b_html_ec34e47b.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Papua/Buaya%20Ajaib/i_ee832b812f48580b_html_bc5f1aca.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       },
       {
         "pageNumber": 6,
         "text": "Towjawa merasa senang mendengar ucapan sang buaya. Ia pun kembali ke rumah dan menceritakan pertemuannya dengan buaya ajaib kepada istrinya. Esok hari, perut istri Towjatuwa terasa sakit. Towjatuwa sangat panik, ia menunggu- nunggu kedatangan si Buaya ajaib. Namun disaat-saat terakhir, ketika sudah tak kuat menahan rasa sakit, buaya ajaib tiba-tiba muncul di hadapannya. Dengan kesaktiannya, Watuwe membantu proses persalinan istri Towjatuwa. Akhirnya istri bisa melahirkan ananknya dengan selamat. Towjatuwa merasa lega dan bahagia. Bayinya lahir dengan sehat dan diberi nama Naarrowra.",
-        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Papua/Buaya%20Ajaib/i_ee832b812f48580b_html_ec34e47b.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/trionoputra/cerita-rakyat/master/app/src/main/assets/Papua/Buaya%20Ajaib/i_ee832b812f48580b_html_1a1d8ab4.jpg",
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
@@ -13623,7 +18883,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T11:00:00.000Z",
+    "createdAt": "2026-01-01T11:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -13661,449 +18921,5 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "bgColor": "#064E3B"
       }
     ]
-  },
-  {
-    "id": "fabel-kancil-buaya",
-    "title": "Si Kancil dan Buaya",
-    "author": "Fabel Nusantara • Cerita Tradisional Indonesia (Public Domain)",
-    "description": "Kisah kecerdikan Kancil saat ingin menyeberangi sungai deras yang dipenuhi buaya lapar.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Kancil merasa sangat lapar di tepi sungai yang rimbun.",
-        "imageUrl": "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🦌🌿",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Di seberang sungai tampak banyak pohon berbuah manis dan segar.",
-        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🍎🌳",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Kancil memanggil para buaya untuk berbaris rapi dari tepi ke tepi.",
-        "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐊🌊",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Satu, dua, tiga, Kancil melompat gembira melintasi punggung buaya.",
-        "imageUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=720&h=440&fit=crop",
-        "illustrationEmoji": "✨🐾",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Sampai di seberang, Kancil makan buah kenyang dan berterima kasih.",
-        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🍉😊",
-        "bgColor": "#1E293B"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-kancil-kura",
-    "title": "Kancil dan Kura-Kura",
-    "author": "Fabel Nusantara • Dongeng Budi Pekerti (Public Domain)",
-    "description": "Pelajaran berharga tentang ketekunan kura-kura yang tidak pernah putus asa.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Kancil yang lincah menantang Kura-kura untuk berlomba lari.",
-        "imageUrl": "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🦌💨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kura-kura melangkah perlahan namun mantap tanpa henti.",
-        "imageUrl": "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐢🌿",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Karena sombong, Kancil tertidur lelap di bawah pohon beringin teduh.",
-        "imageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?w=720&h=440&fit=crop",
-        "illustrationEmoji": "😴🌳",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Kura-kura terus berjalan hingga akhirnya menyentuh garis akhir terlebih dahulu.",
-        "imageUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🏆🐢",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-gajah-semut",
-    "title": "Gajah yang Baik dan Kawanan Semut",
-    "author": "Fabel Nusantara • Dongeng Persahabatan (Public Domain)",
-    "description": "Belajar saling menghargai antara hewan berbadan besar dan sahabat kecil.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Gajah besar berjalan hati-hati agar tidak menginjak sarang semut.",
-        "imageUrl": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐘🐜",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kawanan semut menyapa gajah dengan senyuman hangat dari balik daun.",
-        "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🌿🐜",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Ketika ada duri menancap di kaki gajah, semut bergotong royong mencabutnya.",
-        "imageUrl": "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🤝❤️",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Mereka hidup berdampingan dengan damai di hutan rimba yang asri.",
-        "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🌳🌟",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-keong-mas",
-    "title": "Keong Mas dan Nenek Baik Hati",
-    "author": "Cerita Rakyat Jawa Timur (Public Domain)",
-    "description": "Kisah putri baik hati yang disihir menjadi keong emas dan ditolong oleh seorang nenek.",
-    "ageRating": "YOUNG_KIDS",
-    "rewardFamibux": 30,
-    "coverUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Seorang nenek yang sedang mencari ikan di sungai menemukan seekor keong emas berkilauan.",
-        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "👵🐚",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Nenek membawa keong emas itu pulang dan merawatnya di dalam tempayan air bersih.",
-        "imageUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🏡💧",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Setiap pulang dari ladang, nenek selalu mendapati meja makan penuh dengan hidangan lezat.",
-        "imageUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🍲✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Ternyata keong emas itu adalah Putri Candra Kirana yang baik hati dan penuh kasih.",
-        "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=720&h=440&fit=crop",
-        "illustrationEmoji": "👸🌟",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Sihir pun sirna, dan sang putri hidup bahagia bersama pangeran serta nenek tercinta.",
-        "imageUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🏰❤️",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-kera-ayam",
-    "title": "Kera dan Ayam Bersahabat",
-    "author": "Fabel Budi Pekerti Anak (Kemdikbudristek / Public Domain)",
-    "description": "Belajar arti ketulusan dalam menjalin persahabatan sejati di tengah hutan.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Ayam jantan berkokok riang menyambut terbitnya fajar yang cerah.",
-        "imageUrl": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐓🌅",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kera melompat dari dahan pohon membawa setandan pisang manis.",
-        "imageUrl": "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐒🍌",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Mereka berbagi sarapan bersama di atas batu tepi telaga yang damai.",
-        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🥣🌿",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Sahabat yang baik selalu saling peduli dan berbagi dalam suka maupun duka.",
-        "imageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=720&h=440&fit=crop",
-        "illustrationEmoji": "❤️🤝",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-cendrawasih",
-    "title": "Burung Cendrawasih Berbulu Emas",
-    "author": "Cerita Alam Papua • Warisan Literasi Nusantara (Public Domain)",
-    "description": "Kisah keindahan burung surga dari tanah Papua yang selalu menjaga hutan hijau.",
-    "ageRating": "YOUNG_KIDS",
-    "rewardFamibux": 30,
-    "coverUrl": "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Di hutan belantara Papua yang megah, hiduplah seekor burung cendrawasih yang memesona.",
-        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🦜🌳",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Bulu ekornya yang panjang meliuk indah berwarna kuning emas seperti sinar mentari.",
-        "imageUrl": "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=720&h=440&fit=crop",
-        "illustrationEmoji": "✨🕊️",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Setiap pagi ia menari dari pucuk pohon tertinggi dan bernyanyi merdu menyapa alam.",
-        "imageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🎵🌿",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Seluruh hewan rimba bersatu padu menjaga keasrian hutan agar lestari sepanjang masa.",
-        "imageUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🌲🌟",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-kancil-pak-tani",
-    "title": "Kancil dan Pak Tani yang Murah Hati",
-    "author": "Fabel Nusantara • Cerita Tradisional Indonesia (Public Domain)",
-    "description": "Kancil belajar tidak mengambil mentimun tanpa izin dan membantu Pak Tani menjaga kebun.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Kebun mentimun Pak Tani berbuah lebat di tepi ladang desa.",
-        "imageUrl": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🥒🏡",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kancil datang dan meminta maaf karena telah memetik mentimun tanpa izin.",
-        "imageUrl": "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🦌🙏",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Pak Tani yang baik hati memaafkan Kancil dan memberinya sekeranjang mentimun segar.",
-        "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🧺✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Kancil berjanji untuk selalu jujur dan membantu menjaga kebun Pak Tani dari hama.",
-        "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🤝❤️",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-kancil-harimau",
-    "title": "Kancil dan Harimau yang Mengaum",
-    "author": "Fabel Nusantara • Cerita Tradisional Indonesia (Public Domain)",
-    "description": "Kancil menolong Harimau yang terjepit dahan pohon tumbang.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Harimau mengaum keras meminta bantuan di tengah lebatnya hutan bambu.",
-        "imageUrl": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐯🎋",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Kancil mencari batang kayu panjang untuk mengungkit dahan yang menindih kaki Harimau.",
-        "imageUrl": "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🪵🦌",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Dengan sekuat tenaga, Kancil mendorong kayu hingga Harimau bisa melangkah bebas.",
-        "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=720&h=440&fit=crop",
-        "illustrationEmoji": "✨💪",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Harimau berterima kasih dan berjanji akan menjadi sahabat setia sang Kancil selamanya.",
-        "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🤝🌳",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-semut-belalang",
-    "title": "Semut yang Rajin dan Belalang Bernyanyi",
-    "author": "Fabel Edukasi Anak • Cerita Dunia Terjemahan Bahasa Indonesia (Public Domain)",
-    "description": "Pentingnya mempersiapkan bekal masa depan dengan giat dan rajin berusaha.",
-    "ageRating": "TODDLER",
-    "rewardFamibux": 20,
-    "coverUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Sepanjang musim kemarau, kawanan semut sibuk mengumpulkan butir-butir gandum.",
-        "imageUrl": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🐜🌾",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Belalang asyik memetik senar gitar sambil bernyanyi riang di pucuk daun.",
-        "imageUrl": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🦗🎵",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Saat musim hujan tiba, semut memiliki lumbung makanan yang hangat dan cukup.",
-        "imageUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🌧️🏡",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Semut dengan murah hati mengajak Belalang berteduh dan makan bersama di sarangnya.",
-        "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🥣❤️",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
-  },
-  {
-    "id": "fabel-batu-belah",
-    "title": "Batu Belah Batu Bertangkup",
-    "author": "Cerita Rakyat Melayu & Kepulauan Riau (Public Domain)",
-    "description": "Pesan moral untuk selalu berbakti dan mendengarkan nasihat orang tua dengan penuh kasih sayang.",
-    "ageRating": "YOUNG_KIDS",
-    "rewardFamibux": 30,
-    "coverUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Di sebuah pulau kecil tepi pantai, hiduplah seorang ibu nelayan bersama dua anaknya yang manja.",
-        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🏝️👵",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Ibu bekerja keras memancing ikan dari pagi hingga petang demi makan sehari-hari.",
-        "imageUrl": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🎣🌊",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Anak-anaknya menyadari betapa besar pengorbanan sang ibu dan bertekad untuk berubah menjadi anak yang rajin.",
-        "imageUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=720&h=440&fit=crop",
-        "illustrationEmoji": "🌅🙏",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Mereka saling berpelukan erat dan berjanji untuk selalu menjaga keharmonisan keluarga.",
-        "imageUrl": "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=720&h=440&fit=crop",
-        "illustrationEmoji": "❤️🏡",
-        "bgColor": "#0F172A"
-      }
-    ],
-    "language": "id",
-    "category": "Stories & Reading",
-    "isApproved": true,
-    "createdAt": "2026-01-15T12:00:00.000Z"
   }
 ];
