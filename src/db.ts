@@ -5,7 +5,9 @@ import {
   DEFAULT_TODDLER_ENABLED_TOPICS,
   getCategoryMatchTags,
   isCategoryAllowedForAge,
+  isContentAllowedForChildReligion,
   isVideoCategoriesAllowedForAge,
+  normalizeReligion,
   normalizeVideoTags,
   resolveVideoCategories,
   videoMatchesAgeTag,
@@ -133,6 +135,7 @@ function mapVideoRow(row: RowDataPacket): Video {
     isApproved: Boolean(row.isApproved),
     views: Number(row.views) || 0,
     tags: normalizeVideoTags(rawTags, row.ageRating, row.category),
+    religion: row.religion || null,
     createdAt: row.createdAt
   };
 }
@@ -313,6 +316,7 @@ function mapUserRow(row: RowDataPacket): User {
       ? parseJson<string[]>(row.toddlerHiddenVideoIdsJson, [])
       : [],
     toddlerCooldownUntil: row.toddlerCooldownUntil || null,
+    religion: row.religion || null,
     parentalOverride: row.parentalOverrideJson
       ? parseJson<ParentalControlsOverride | null>(row.parentalOverrideJson, null)
       : null,
@@ -439,6 +443,7 @@ class Database {
         createdAt VARCHAR(64) NOT NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+    await this.ensureColumnExists('videos', 'religion', 'VARCHAR(32) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS playlists (
@@ -504,6 +509,7 @@ class Database {
     await this.ensureColumnExists('users', 'toddlerEnabledTopicsJson', 'TEXT NULL');
     await this.ensureColumnExists('users', 'toddlerHiddenVideoIdsJson', 'TEXT NULL');
     await this.ensureColumnExists('users', 'toddlerCooldownUntil', 'VARCHAR(64) NULL');
+    await this.ensureColumnExists('users', 'religion', 'VARCHAR(32) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS channel_invites (
@@ -734,6 +740,7 @@ class Database {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
     await this.ensureColumnExists('story_books', 'tags', 'JSON NULL');
+    await this.ensureColumnExists('story_books', 'religion', 'VARCHAR(32) NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS kid_story_completions (
@@ -1029,6 +1036,8 @@ class Database {
     anyTags?: string[];
     excludeTags?: string[];
     presetIds?: string[];
+    childReligion?: string | null;
+    religion?: string | null;
   }): Promise<Video[]> {
     const [rows] = await this.pool.query<RowDataPacket[]>(
       'SELECT * FROM videos ORDER BY createdAt DESC'
@@ -1107,6 +1116,11 @@ class Database {
           presetIds: filter?.presetIds
         })
       );
+    }
+
+    if (filter?.childReligion !== undefined || filter?.religion !== undefined) {
+      const targetRel = filter.childReligion !== undefined ? filter.childReligion : filter.religion;
+      list = list.filter((v) => isContentAllowedForChildReligion(v, targetRel));
     }
 
     return list;
@@ -1719,8 +1733,8 @@ class Database {
 
   public async createUser(user: User): Promise<User> {
     await this.pool.query(
-      `INSERT INTO users (id, email, name, passwordHash, role, parentId, referralCode, referredByUserId, referredByCode, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, parentalOverrideJson, verificationToken, verificationExpiresAt, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO users (id, email, name, passwordHash, role, parentId, referralCode, referredByUserId, referredByCode, birthday, ageRating, isVerified, youtubeSearchEnabled, searchViewLimit, searchViewsUsed, searchRequireApproval, parentalOverrideJson, religion, verificationToken, verificationExpiresAt, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.id,
         user.email.trim().toLowerCase(),
@@ -1739,6 +1753,7 @@ class Database {
         user.searchViewsUsed ?? 0,
         user.searchRequireApproval !== false ? 1 : 0,
         user.parentalOverride ? JSON.stringify(user.parentalOverride) : null,
+        user.religion || null,
         user.verificationToken || null,
         user.verificationExpiresAt || null,
         user.createdAt
@@ -1873,6 +1888,7 @@ class Database {
       toddlerEnabledTopics?: string[];
       toddlerHiddenVideoIds?: string[];
       toddlerCooldownUntil?: string | null;
+      religion?: string | null;
       parentalOverride?: ParentalControlsOverride | null;
     }
   ): Promise<User | null> {
@@ -1948,12 +1964,13 @@ class Database {
       updates.toddlerCooldownUntil !== undefined
         ? updates.toddlerCooldownUntil
         : (existing.toddlerCooldownUntil ?? null);
+    const religion = updates.religion !== undefined ? updates.religion : (existing.religion ?? null);
     const parentalOverride =
       updates.parentalOverride !== undefined ? updates.parentalOverride : (existing.parentalOverride ?? null);
 
     await this.pool.query(
       `UPDATE users
-       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?, toddlerCooldownUntil = ?, parentalOverrideJson = ?
+       SET name = ?, birthday = ?, ageRating = ?, passwordHash = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchViewsUsed = ?, searchRequireApproval = ?, parentPin = ?, dailyLimitMinutes = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?, toddlerCooldownUntil = ?, parentalOverrideJson = ?, religion = ?
        WHERE id = ? AND parentId = ?`,
       [
         name,
@@ -1978,6 +1995,7 @@ class Database {
         JSON.stringify(toddlerHiddenVideoIds),
         toddlerCooldownUntil,
         parentalOverride && Object.keys(parentalOverride).length > 0 ? JSON.stringify(parentalOverride) : null,
+        religion || null,
         childId,
         parentId
       ]
@@ -3224,6 +3242,7 @@ class Database {
       category: row.category || 'Stories & Reading',
       pages,
       tags: parseJson<string[]>(row.tags, []),
+      religion: row.religion || null,
       rewardFamibux: Number(row.rewardFamibux) || 25,
       isApproved: Boolean(row.isApproved),
       ownerId: row.ownerId || undefined,
@@ -3238,6 +3257,8 @@ class Database {
     onlyApproved?: boolean;
     search?: string;
     category?: string;
+    childReligion?: string | null;
+    religion?: string | null;
   }): Promise<StoryBook[]> {
     const onlyApproved = opts?.onlyApproved !== false;
     const includeAllAges = Boolean(opts?.includeAllAges);
@@ -3284,6 +3305,10 @@ class Database {
             return a.ageRating === 'YOUNG_KIDS' ? -1 : 1;
           });
       }
+    }
+    if (opts?.childReligion !== undefined || opts?.religion !== undefined) {
+      const targetRel = opts.childReligion !== undefined ? opts.childReligion : opts.religion;
+      books = books.filter((b) => isContentAllowedForChildReligion(b, targetRel));
     }
     return books;
   }

@@ -38,6 +38,7 @@ import {
   fetchYouTubeChannelInfo,
   fetchYouTubePlaylistVideos,
   isCategoryAllowedForAge,
+  normalizeReligion,
   resolveVideoCategories
 } from './utils.js';
 import { PARENT_FILTER_PRESETS, TAG_TAXONOMY, parseTagList } from './tags.js';
@@ -108,7 +109,8 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
       Array.isArray(parent?.toddlerEnabledTopics) && parent.toddlerEnabledTopics.length > 0
         ? parent.toddlerEnabledTopics
         : [...DEFAULT_TODDLER_ENABLED_TOPICS],
-    toddlerHiddenVideoIds: Array.isArray(parent?.toddlerHiddenVideoIds) ? parent.toddlerHiddenVideoIds : []
+    toddlerHiddenVideoIds: Array.isArray(parent?.toddlerHiddenVideoIds) ? parent.toddlerHiddenVideoIds : [],
+    religion: normalizeReligion(parent?.religion) || null
   };
 }
 
@@ -135,7 +137,8 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
     toddlerEnabledTopics:
       ov.toddlerEnabledTopics ?? child.toddlerEnabledTopics ?? global.toddlerEnabledTopics,
     toddlerHiddenVideoIds:
-      ov.toddlerHiddenVideoIds ?? child.toddlerHiddenVideoIds ?? global.toddlerHiddenVideoIds
+      ov.toddlerHiddenVideoIds ?? child.toddlerHiddenVideoIds ?? global.toddlerHiddenVideoIds,
+    religion: ov.religion !== undefined ? normalizeReligion(ov.religion) : (normalizeReligion(child.religion) ?? normalizeReligion(global.religion) ?? null)
   };
 }
 
@@ -148,6 +151,7 @@ function formatChildResponse(parent: User | undefined, child: User) {
     role: child.role,
     birthday: child.birthday || null,
     ageRating: effective.ageRating,
+    religion: effective.religion || null,
     youtubeSearchEnabled: effective.youtubeSearchEnabled,
     searchViewLimit: effective.searchViewLimit,
     searchViewsUsed: child.searchViewsUsed ?? 0,
@@ -232,7 +236,8 @@ apiRouter.get('/tags/taxonomy', (_req, res) => {
 // Get list of approved videos with optional filters
 apiRouter.get(
   '/videos',
-  asyncHandler(async (req, res) => {
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
     const {
       category,
       channelId,
@@ -244,8 +249,29 @@ apiRouter.get(
       anyTags,
       excludeTags,
       preset,
-      presets
+      presets,
+      religion,
+      childId
     } = req.query;
+
+    let childReligion: string | null | undefined = undefined;
+    if (religion !== undefined) {
+      childReligion = normalizeReligion(religion);
+    } else if (childId) {
+      const targetChild = await db.getUserById(String(childId));
+      if (targetChild && targetChild.role === 'CHILD') {
+        const parentUser = targetChild.parentId ? await db.getUserById(targetChild.parentId) : undefined;
+        const effective = resolveEffectiveParentalControls(parentUser, targetChild);
+        childReligion = effective.religion || null;
+      }
+    } else if (req.user?.sub) {
+      const requestingUser = await db.getUserById(req.user.sub);
+      if (requestingUser?.role === 'CHILD') {
+        const parentUser = requestingUser.parentId ? await db.getUserById(requestingUser.parentId) : undefined;
+        const effective = resolveEffectiveParentalControls(parentUser, requestingUser);
+        childReligion = effective.religion || null;
+      }
+    }
 
     const resolvedIncludeTags = parseTagList(includeTags ?? tags);
     const resolvedAnyTags = parseTagList(anyTags);
@@ -262,7 +288,8 @@ apiRouter.get(
       includeTags: resolvedIncludeTags.length > 0 ? resolvedIncludeTags : undefined,
       anyTags: resolvedAnyTags.length > 0 ? resolvedAnyTags : undefined,
       excludeTags: resolvedExcludeTags.length > 0 ? resolvedExcludeTags : undefined,
-      presetIds: resolvedPresetIds.length > 0 ? resolvedPresetIds : undefined
+      presetIds: resolvedPresetIds.length > 0 ? resolvedPresetIds : undefined,
+      childReligion
     });
 
     res.json({
@@ -2470,6 +2497,7 @@ apiRouter.post(
       password,
       birthday,
       ageRating,
+      religion,
       youtubeSearchEnabled = true,
       searchViewLimit = 0,
       searchRequireApproval = true
@@ -2477,6 +2505,7 @@ apiRouter.post(
     const cleanEmail = String(email || '').trim().toLowerCase();
     const cleanName = String(name || '').trim();
     const cleanBirthday = birthday ? String(birthday).trim() : undefined;
+    const cleanReligion = normalizeReligion(religion);
 
     if (!cleanEmail || !cleanEmail.includes('@')) {
       return res.status(400).json({ success: false, message: 'Valid child email address is required' });
@@ -2529,6 +2558,7 @@ apiRouter.post(
       parentId: req.user!.sub,
       birthday: cleanBirthday,
       ageRating: resolvedRating,
+      religion: cleanReligion || null,
       isVerified: true,
       youtubeSearchEnabled: Boolean(youtubeSearchEnabled),
       searchViewLimit: Math.max(0, Number(searchViewLimit) || 0),
@@ -2546,6 +2576,7 @@ apiRouter.post(
         role: child.role,
         birthday: child.birthday || null,
         ageRating: child.ageRating,
+        religion: child.religion || null,
         youtubeSearchEnabled: Boolean(child.youtubeSearchEnabled),
         searchViewLimit: child.searchViewLimit ?? 0,
         searchViewsUsed: child.searchViewsUsed ?? 0,
@@ -2567,6 +2598,7 @@ apiRouter.put(
       name,
       birthday,
       ageRating,
+      religion,
       password,
       youtubeSearchEnabled,
       searchViewLimit,
@@ -2656,6 +2688,7 @@ apiRouter.put(
       applyOverride('toddlerHiddenVideoIds', ob.toddlerHiddenVideoIds, (v) =>
         Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
       );
+      applyOverride('religion', ob.religion, (v) => normalizeReligion(v));
     }
 
     // Also support flat fields on PUT body for direct per-kid override updates
@@ -2679,6 +2712,7 @@ apiRouter.put(
     applyOverride('toddlerHiddenVideoIds', toddlerHiddenVideoIds, (v) =>
       Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
     );
+    applyOverride('religion', religion === null ? null : (religion !== undefined ? normalizeReligion(religion) : undefined), (v) => v as string);
 
     const effective = resolveEffectiveParentalControls(parentUser, {
       ...existingChild,
@@ -2707,6 +2741,7 @@ apiRouter.put(
       toddlerEnabledTopics: effective.toddlerEnabledTopics,
       toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
       toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : undefined,
+      religion: effective.religion || null,
       parentalOverride: Object.keys(nextOverrides).length > 0 ? nextOverrides : null
     });
     if (!updated) {
@@ -2895,7 +2930,8 @@ apiRouter.get(
 
     const allToddlerVideos = await db.getVideos({
       ageRating: 'TODDLER',
-      onlyApproved: true
+      onlyApproved: true,
+      childReligion: targetChild ? (effective.religion || null) : undefined
     });
 
     const { channels, weekNumber } = buildToddlerWeeklyChannelLoops(allToddlerVideos, {
@@ -4571,7 +4607,21 @@ apiRouter.get(
       String(req.query.includeAllAges || '').toLowerCase() === 'true' ||
       req.query.includeAllAges === '1';
 
-    if ((!ageRating || !language) && req.user?.sub) {
+    let childReligion: string | null | undefined = undefined;
+    if (req.query.religion !== undefined) {
+      childReligion = normalizeReligion(req.query.religion);
+    } else if (req.query.childId) {
+      const child = await db.getUserById(String(req.query.childId));
+      if (child && child.role === 'CHILD') {
+        const parent = child.parentId ? await db.getUserById(child.parentId) : undefined;
+        const effective = resolveEffectiveParentalControls(parent, child);
+        if (!ageRating) ageRating = effective.ageRating;
+        if (!language && effective.contentLanguage !== 'bilingual') {
+          language = effective.contentLanguage;
+        }
+        childReligion = effective.religion || null;
+      }
+    } else if (req.user?.sub) {
       const user = await db.getUserById(req.user.sub);
       if (user?.role === 'CHILD') {
         const parent = user.parentId ? await db.getUserById(user.parentId) : undefined;
@@ -4580,6 +4630,7 @@ apiRouter.get(
         if (!language && effective.contentLanguage !== 'bilingual') {
           language = effective.contentLanguage;
         }
+        childReligion = effective.religion || null;
       }
     }
 
@@ -4594,7 +4645,8 @@ apiRouter.get(
       includeAllAges,
       onlyApproved: true,
       search,
-      category
+      category,
+      childReligion
     });
 
     let paged = stories;

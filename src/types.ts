@@ -42,6 +42,7 @@ export interface Video {
   isApproved: boolean;
   views: number;
   tags: string[];
+  religion?: string | null;
   createdAt: string;
 }
 
@@ -252,6 +253,7 @@ export interface ParentalControls {
   toddlerSubStage: ToddlerSubStage;
   toddlerEnabledTopics: string[];
   toddlerHiddenVideoIds: string[];
+  religion?: string | null;
 }
 
 export type ParentalControlsOverride = Partial<ParentalControls>;
@@ -314,6 +316,7 @@ export interface User {
   toddlerHiddenVideoIds?: string[];
   toddlerCooldownUntil?: string | null;
   parentalOverride?: ParentalControlsOverride | null;
+  religion?: string | null;
   verificationToken?: string;
   verificationExpiresAt?: string;
   createdAt: string;
@@ -482,6 +485,7 @@ export interface StoryBook {
   category: string;
   pages: StoryPage[];
   tags?: string[];
+  religion?: string | null;
   rewardFamibux: number;
   isApproved: boolean;
   ownerId?: string;

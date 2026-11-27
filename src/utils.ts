@@ -1116,3 +1116,140 @@ export async function fetchYouTubeChannelInfo(urlOrHandle: string): Promise<YouT
     return null;
   }
 }
+
+export const SUPPORTED_RELIGIONS = [
+  'ISLAM',
+  'CHRISTIANITY',
+  'CATHOLICISM',
+  'HINDUISM',
+  'BUDDHISM',
+  'JUDAISM',
+  'CONFUCIANISM',
+  'OTHER'
+] as const;
+
+export type SupportedReligion = typeof SUPPORTED_RELIGIONS[number];
+
+export function normalizeReligion(val: unknown): string | null {
+  if (val === null || val === undefined) return null;
+  const s = String(val).trim().toUpperCase();
+  if (!s || s === 'NONE' || s === 'ALL' || s === 'SECULAR' || s === 'NULL' || s === 'UNDEFINED') return null;
+  return s;
+}
+
+const RELIGION_KEYWORDS: Record<string, string[]> = {
+  ISLAM: [
+    'islam', 'islamic', 'muslim', 'muslimah', 'quran', 'koran', 'ramadan', 'ramadhan',
+    'eid', 'idul fitri', 'idul adha', 'hijrah', 'hijri', 'hadith', 'sunnah', 'sholat',
+    'salat', 'solat', 'doa harian', 'asbabun nuzul', 'kisah nabi', 'prophet muhammad',
+    'rasulullah', 'ustadz', 'pesantren', 'hijab'
+  ],
+  CHRISTIANITY: [
+    'christian', 'christianity', 'jesus', 'bible', 'gospel', 'easter', 'christmas',
+    'sunday school', 'sekolah minggu', 'gereja', 'alkitab', 'kristen', 'protestan',
+    'tuhan yesus', 'natal', 'paskah'
+  ],
+  CATHOLICISM: [
+    'catholic', 'catholicism', 'katolik', 'pope', 'paus', 'rosary', 'rosario',
+    'saint', 'eucharist', 'ekaristi', 'misa'
+  ],
+  HINDUISM: [
+    'hindu', 'hinduism', 'vedas', 'veda', 'bhagavad gita', 'krishna', 'shiva',
+    'vishnu', 'diwali', 'deepavali', 'nyepi', 'pura', 'sanatana dharma'
+  ],
+  BUDDHISM: [
+    'buddha', 'buddhism', 'buddhist', 'dharma', 'vesak', 'waisak', 'monk',
+    'vihara', 'tri pitaka', 'tripitaka'
+  ],
+  JUDAISM: [
+    'jewish', 'judaism', 'torah', 'hanukkah', 'synagogue', 'kosher', 'shabbat', 'hebrew'
+  ],
+  CONFUCIANISM: [
+    'confucian', 'confucianism', 'konghucu', 'imlek', 'klenteng', 'yin yang'
+  ]
+};
+
+const GENERAL_RELIGIOUS_KEYWORDS = [
+  'religion', 'religious', 'agama', 'keagamaan', 'faith-based', 'spiritual', 'ibadah', 'sembahyang'
+];
+
+export function getReligiousTheme(item: {
+  tags?: string[];
+  category?: string;
+  title?: string;
+  description?: string;
+  religion?: string | null;
+}): { isReligious: boolean; religion: string | null } {
+  const explicit = normalizeReligion(item.religion);
+  if (explicit) {
+    return { isReligious: true, religion: explicit };
+  }
+
+  const tags = (item.tags || []).map((t) => t.toLowerCase().trim());
+  const category = (item.category || '').toLowerCase().trim();
+  const title = (item.title || '').toLowerCase();
+  const desc = (item.description || '').toLowerCase();
+  const fullText = `${category} ${title} ${desc} ${tags.join(' ')}`;
+
+  for (const tag of tags) {
+    if (tag.startsWith('religion:')) {
+      const relPart = normalizeReligion(tag.replace('religion:', ''));
+      if (relPart) return { isReligious: true, religion: relPart };
+    }
+  }
+
+  for (const [rel, keywords] of Object.entries(RELIGION_KEYWORDS)) {
+    for (const kw of keywords) {
+      const regex = new RegExp(`(^|[^a-z0-9])${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9]|$)`, 'i');
+      if (regex.test(fullText)) {
+        return { isReligious: true, religion: rel };
+      }
+    }
+  }
+
+  if (tags.includes('advisory:religious-cultural') || tags.includes('religion') || category === 'religion' || category === 'religious') {
+    return { isReligious: true, religion: null };
+  }
+  for (const kw of GENERAL_RELIGIOUS_KEYWORDS) {
+    const regex = new RegExp(`(^|[^a-z0-9])${kw}([^a-z0-9]|$)`, 'i');
+    if (regex.test(fullText)) {
+      return { isReligious: true, religion: null };
+    }
+  }
+
+  return { isReligious: false, religion: null };
+}
+
+export function isContentAllowedForChildReligion(
+  item: {
+    tags?: string[];
+    category?: string;
+    title?: string;
+    description?: string;
+    religion?: string | null;
+  },
+  childReligion?: string | null
+): boolean {
+  const normChild = normalizeReligion(childReligion);
+  const theme = getReligiousTheme(item);
+
+  if (!normChild) {
+    // Parent did not specify religion for child:
+    // "if not selected then none contents/videos/stories that have religious theme will be shown"
+    return !theme.isReligious;
+  }
+
+  // Child HAS a religion selected:
+  if (!theme.isReligious) {
+    return true; // Secular content is always allowed
+  }
+
+  if (theme.religion) {
+    if (theme.religion === normChild) return true;
+    if (normChild === 'CATHOLICISM' && theme.religion === 'CHRISTIANITY') return true;
+    if (normChild === 'CHRISTIANITY' && theme.religion === 'CATHOLICISM') return true;
+    return false;
+  }
+
+  return true;
+}

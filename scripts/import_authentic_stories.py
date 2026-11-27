@@ -407,6 +407,87 @@ def import_indonesian_folklore():
             
     return batch_verify_books(candidates)
 
+def import_bible_stories():
+    """
+    Imports age-appropriate illustrated Bible stories for Toddlers (2-4) and Young Kids (5-8)
+    from Open Bible Stories (Door43 / unfoldingWord under CC BY-SA 4.0).
+    Every single illustration is verified directly from Door43 CDN.
+    """
+    print("\nFetching age-appropriate Open Bible Stories (Door43 / unfoldingWord CC BY-SA 4.0)...")
+    toddler_indices = [1, 3, 23, 30, 34]
+    young_kids_indices = [8, 9, 12, 17, 27, 31, 33, 35, 44]
+    curated = toddler_indices + young_kids_indices
+    candidates = []
+    
+    for s_idx in curated:
+        for lang in ["en", "id"]:
+            try:
+                if lang == "en":
+                    url = f"https://git.door43.org/unfoldingWord/en_obs/raw/branch/master/content/{s_idx:02d}.md"
+                else:
+                    url = f"https://git.door43.org/shower/ind_obs/raw/branch/master/ingredients/content/{s_idx:02d}.md"
+                    
+                md = fetch_url(url, timeout=10)
+                title = ""
+                for line in md.splitlines():
+                    if line.startswith('#'):
+                        title = line.strip('# \t')
+                        title = re.sub(r'^\d+\.\s*', '', title)
+                        break
+                        
+                chunks = re.split(r'!\[.*?\]\((.*?)\)', md)
+                pages = []
+                page_num = 1
+                for i in range(1, len(chunks), 2):
+                    img_url = chunks[i].strip()
+                    text = chunks[i+1].strip()
+                    text = re.sub(r'//.*?//', '', text, flags=re.DOTALL).strip()
+                    text = re.sub(r'_.*?_', '', text, flags=re.DOTALL).strip()
+                    text = ' '.join(text.split())
+                    if not text:
+                        continue
+                    pages.append({
+                        "pageNumber": page_num,
+                        "text": text,
+                        "imageUrl": img_url,
+                        "illustrationEmoji": "📖✨" if lang == "en" else "🇮🇩📖",
+                        "bgColor": BG_COLORS[(page_num - 1) % len(BG_COLORS)]
+                    })
+                    page_num += 1
+                    
+                if not pages:
+                    continue
+                    
+                age_rating = "TODDLER" if s_idx in toddler_indices else "YOUNG_KIDS"
+                reward = 25 if age_rating == "TODDLER" else 35
+                slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+                desc = pages[0]['text'][:140] + "..." if len(pages[0]['text']) > 140 else pages[0]['text']
+                
+                author_credit = (
+                    "Door43 & unfoldingWord (Open Bible Stories / CC BY-SA 4.0)"
+                    if lang == "en"
+                    else "Door43 & unfoldingWord Indonesia (Kisah Alkitab Terbuka / CC BY-SA 4.0)"
+                )
+                
+                candidates.append({
+                    "id": f"obs-{lang}-{s_idx:02d}-{slug}",
+                    "title": title,
+                    "author": author_credit,
+                    "description": desc,
+                    "coverUrl": pages[0]['imageUrl'],
+                    "ageRating": age_rating,
+                    "language": lang,
+                    "category": "Bible Stories",
+                    "rewardFamibux": reward,
+                    "isApproved": True,
+                    "createdAt": f"2026-01-{(s_idx % 28) + 1:02d}T10:00:00.000Z",
+                    "pages": pages
+                })
+            except Exception as e:
+                pass
+                
+    return batch_verify_books(candidates)
+
 def generate_story_tags(book):
     title = (book.get('title') or '').lower()
     desc = (book.get('description') or '').lower()
@@ -440,6 +521,38 @@ def generate_story_tags(book):
         tags.update(['learning', 'culture'])
     elif 'book dash' in author or 'bd-en' in book.get('id', ''):
         tags.update(['picture-book', 'creative'])
+    elif 'door43' in author or 'unfoldingword' in author or 'obs-' in book.get('id', '') or category == 'bible stories':
+        tags.update(['bible', 'bible-stories', 'faith', 'scripture'])
+        if lang == 'id':
+            tags.update(['alkitab', 'cerita-alkitab', 'iman'])
+        if 'creation' in full_corpus or 'penciptaan' in full_corpus:
+            tags.update(['creation', 'penciptaan', 'nature', 'animals', 'world'])
+        if 'flood' in full_corpus or 'air bah' in full_corpus or 'noah' in full_corpus or 'nuh' in full_corpus:
+            tags.update(['noah', 'ark', 'animals', 'rainbow', 'bahtera-nuh', 'hewan'])
+        if 'joseph' in full_corpus or 'yusuf' in full_corpus:
+            tags.update(['joseph', 'yusuf', 'family', 'forgiveness', 'patience', 'keluarga'])
+        if 'moses' in full_corpus or 'musa' in full_corpus:
+            tags.update(['moses', 'musa', 'baby-moses', 'courage', 'keberanian'])
+        if 'exodus' in full_corpus or 'keluaran' in full_corpus:
+            tags.update(['exodus', 'red-sea', 'journey', 'freedom', 'keluaran', 'laut-merah'])
+        if 'david' in full_corpus or 'daud' in full_corpus:
+            tags.update(['david', 'daud', 'shepherd', 'gembala', 'music', 'courage'])
+        if 'birth of jesus' in full_corpus or 'kelahiran yesus' in full_corpus:
+            tags.update(['jesus', 'yesus', 'nativity', 'christmas', 'natal', 'baby-jesus', 'peace'])
+        if 'samaritan' in full_corpus or 'samaria' in full_corpus:
+            tags.update(['good-samaritan', 'samaria-yang-baik', 'kindness', 'kebaikan', 'helping', 'menolong'])
+        if 'feeds' in full_corpus or 'memberi makan' in full_corpus:
+            tags.update(['jesus', 'yesus', 'miracle', 'mukjizat', 'sharing', 'berbagi', 'food', 'fish', 'bread'])
+        if 'water' in full_corpus or 'berjalan di atas air' in full_corpus:
+            tags.update(['jesus', 'yesus', 'miracle', 'mukjizat', 'faith', 'iman', 'courage'])
+        if 'farmer' in full_corpus or 'petani' in full_corpus:
+            tags.update(['parable', 'perumpamaan', 'farmer', 'petani', 'nature', 'growth'])
+        if 'other stories' in full_corpus or 'lainnya' in full_corpus or 'lost sheep' in full_corpus or 'domba' in full_corpus:
+            tags.update(['parable', 'perumpamaan', 'lost-sheep', 'domba-tersesat', 'shepherd', 'gembala', 'love', 'kasih', 'animals'])
+        if 'compassionate father' in full_corpus or 'penuh kasih' in full_corpus or 'prodigal' in full_corpus:
+            tags.update(['parable', 'perumpamaan', 'prodigal-son', 'compassionate-father', 'family', 'keluarga', 'forgiveness', 'love', 'kasih'])
+        if 'beggar' in full_corpus or 'pengemis' in full_corpus or 'peter and john' in full_corpus or 'petrus' in full_corpus:
+            tags.update(['peter-and-john', 'petrus-yohanes', 'healing', 'miracle', 'mukjizat', 'joy', 'kindness'])
         
     animal_patterns = [
         (r'\b(animal|animals|beast|creature|zoo|safari|wildlife)\b', ['animals']),
@@ -515,6 +628,10 @@ def main():
     cr = import_indonesian_folklore()
     all_books.extend(cr)
     
+    # 5. Open Bible Stories (Door43 / unfoldingWord CC BY-SA 4.0) with 100% verified source illustrations
+    obs = import_bible_stories()
+    all_books.extend(obs)
+    
     # Assign rich topical tags to each verified book
     for b in all_books:
         b['tags'] = generate_story_tags(b)
@@ -527,10 +644,12 @@ def main():
     id_books = [b for b in all_books if b['language'] == 'id']
     toddler_books = [b for b in all_books if b['ageRating'] == 'TODDLER']
     young_books = [b for b in all_books if b['ageRating'] == 'YOUNG_KIDS']
+    bible_books = [b for b in all_books if b['category'] == 'Bible Stories']
     print(f" - English stories: {len(en_books)}")
     print(f" - Indonesian stories: {len(id_books)}")
     print(f" - Toddler level: {len(toddler_books)}")
     print(f" - Young Kids level: {len(young_books)}")
+    print(f" - Bible stories: {len(bible_books)}")
     print(f"==========================================")
     
     catalog_ts = os.path.join(os.path.dirname(__file__), "..", "src", "story-seed-catalog.ts")
