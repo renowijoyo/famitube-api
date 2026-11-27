@@ -557,7 +557,11 @@ apiRouter.post(
       });
     }
 
-    await sendVerificationEmail(user.email, user.name, verificationToken);
+    try {
+      await sendVerificationEmail(user.email, user.name, verificationToken);
+    } catch (mailErr) {
+      console.warn('Failed to send verification email during registration:', mailErr);
+    }
 
     res.status(201).json({
       success: true,
@@ -626,7 +630,11 @@ apiRouter.post(
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const verificationExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
     await db.updateUserVerificationToken(user.id, verificationToken, verificationExpiresAt);
-    await sendVerificationEmail(user.email, user.name, verificationToken);
+    try {
+      await sendVerificationEmail(user.email, user.name, verificationToken);
+    } catch (mailErr) {
+      console.warn('Failed to send verification email during registration:', mailErr);
+    }
 
     res.json({
       success: true,
