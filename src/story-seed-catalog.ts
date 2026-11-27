@@ -91,6 +91,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "deer",
+      "early-reader",
+      "elephant",
+      "english",
+      "funny",
+      "humor",
+      "learning",
+      "monkey",
+      "mouse-deer",
+      "nature",
+      "picture-book",
+      "rabbit",
+      "toddler"
     ]
   },
   {
@@ -155,6 +172,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "dog",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -240,6 +268,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -402,6 +438,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "cat",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -466,6 +517,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -479,7 +541,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -635,6 +697,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -648,7 +718,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -727,6 +797,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "english",
+      "fish",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -740,7 +822,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -805,6 +887,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "kindness",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -818,7 +911,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -925,6 +1018,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -938,7 +1039,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1045,6 +1146,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "courage",
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1058,7 +1171,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1130,6 +1243,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "cat",
+      "culture",
+      "english",
+      "family",
+      "friendship",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1143,7 +1270,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1264,6 +1391,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1277,7 +1413,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1356,6 +1492,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1369,7 +1514,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1469,6 +1614,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "animals",
+      "cow",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1482,7 +1640,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1533,6 +1691,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1546,7 +1717,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1597,6 +1768,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1610,7 +1792,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T08:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1668,6 +1850,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "deer",
+      "english",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "mouse-deer",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1681,7 +1879,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T08:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1851,6 +2049,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "cat",
+      "culture",
+      "english",
+      "family",
+      "friendship",
+      "insects",
+      "learning",
+      "magic",
+      "music",
+      "nature",
+      "read-along",
+      "tiger",
+      "young-kids"
     ]
   },
   {
@@ -1864,7 +2079,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-19T08:00:00.000Z",
+    "createdAt": "2026-01-20T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1908,6 +2123,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "funny",
+      "humor",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -1921,7 +2146,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T08:00:00.000Z",
+    "createdAt": "2026-01-21T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -1972,6 +2197,13 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -1985,7 +2217,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T08:00:00.000Z",
+    "createdAt": "2026-01-22T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2092,6 +2324,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "english",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2105,7 +2346,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-22T08:00:00.000Z",
+    "createdAt": "2026-01-23T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2149,6 +2390,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "dog",
+      "early-reader",
+      "english",
+      "family",
+      "friendship",
+      "frog",
+      "funny",
+      "humor",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -2162,7 +2418,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-23T08:00:00.000Z",
+    "createdAt": "2026-01-24T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2234,6 +2490,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2247,7 +2514,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-24T08:00:00.000Z",
+    "createdAt": "2026-01-25T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2298,6 +2565,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "cat",
+      "culture",
+      "dog",
+      "early-reader",
+      "english",
+      "fish",
+      "food",
+      "insects",
+      "learning",
+      "monkey",
+      "music",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -2311,7 +2594,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-25T08:00:00.000Z",
+    "createdAt": "2026-01-26T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2474,6 +2757,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "kindness",
+      "learning",
+      "monkey",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2487,7 +2786,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-26T08:00:00.000Z",
+    "createdAt": "2026-01-27T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2566,6 +2865,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2579,7 +2887,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-27T08:00:00.000Z",
+    "createdAt": "2026-01-28T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2658,6 +2966,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "english",
+      "fish",
+      "friendship",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2671,7 +2989,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T08:00:00.000Z",
+    "createdAt": "2026-01-01T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2750,6 +3068,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "dog",
+      "english",
+      "friendship",
+      "learning",
+      "music",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2763,7 +3092,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-01T08:00:00.000Z",
+    "createdAt": "2026-01-02T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2842,6 +3171,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -2855,7 +3192,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-02T08:00:00.000Z",
+    "createdAt": "2026-01-03T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2927,6 +3264,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -2940,7 +3291,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T08:00:00.000Z",
+    "createdAt": "2026-01-04T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -2991,6 +3342,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "dog",
+      "english",
+      "friendship",
+      "learning",
+      "read-along",
+      "tiger",
+      "young-kids"
     ]
   },
   {
@@ -3004,7 +3366,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T08:00:00.000Z",
+    "createdAt": "2026-01-05T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3069,6 +3431,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "culture",
+      "dog",
+      "english",
+      "family",
+      "funny",
+      "humor",
+      "learning",
+      "lion",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3082,7 +3458,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T08:00:00.000Z",
+    "createdAt": "2026-01-06T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3175,6 +3551,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3188,7 +3579,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3267,6 +3658,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "insects",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3280,7 +3684,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3345,6 +3749,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "animals",
+      "bear",
+      "bird",
+      "culture",
+      "deer",
+      "elephant",
+      "english",
+      "friendship",
+      "learning",
+      "monkey",
+      "mouse-deer",
+      "nature",
+      "rabbit",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3358,7 +3779,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3423,6 +3844,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3436,7 +3868,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3627,6 +4059,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "animals",
+      "bear",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "insects",
+      "kindness",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3640,7 +4088,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3747,6 +4195,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3760,7 +4218,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3839,6 +4297,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "early-reader",
+      "english",
+      "friendship",
+      "learning",
+      "music",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -3852,7 +4322,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -3980,6 +4450,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -3993,7 +4475,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4107,6 +4589,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4120,7 +4612,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4185,6 +4677,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "magic",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4198,7 +4701,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4263,6 +4766,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "funny",
+      "humor",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4276,7 +4789,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4327,6 +4840,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4340,7 +4861,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-17T08:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4419,6 +4940,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -4432,7 +4967,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-18T08:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4539,6 +5074,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -4552,7 +5096,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-19T08:00:00.000Z",
+    "createdAt": "2026-01-20T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4659,6 +5203,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "deer",
+      "dog",
+      "english",
+      "food",
+      "friendship",
+      "kindness",
+      "learning",
+      "mouse-deer",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4672,7 +5232,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T08:00:00.000Z",
+    "createdAt": "2026-01-21T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4856,6 +5416,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -4869,7 +5440,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T08:00:00.000Z",
+    "createdAt": "2026-01-22T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -4948,6 +5519,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bird",
+      "cow",
+      "culture",
+      "dog",
+      "english",
+      "kindness",
+      "learning",
+      "lion",
+      "read-along",
+      "tiger",
+      "young-kids"
     ]
   },
   {
@@ -4961,7 +5547,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-22T08:00:00.000Z",
+    "createdAt": "2026-01-23T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5040,6 +5626,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "kindness",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5053,7 +5648,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-23T08:00:00.000Z",
+    "createdAt": "2026-01-24T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5132,6 +5727,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5145,7 +5753,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-24T08:00:00.000Z",
+    "createdAt": "2026-01-25T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5196,6 +5804,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "english",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5209,7 +5825,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-25T08:00:00.000Z",
+    "createdAt": "2026-01-26T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5302,6 +5918,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -5315,7 +5939,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-26T08:00:00.000Z",
+    "createdAt": "2026-01-27T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5394,6 +6018,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5407,7 +6046,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-27T08:00:00.000Z",
+    "createdAt": "2026-01-28T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5507,6 +6146,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "dog",
+      "english",
+      "family",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5520,7 +6169,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T08:00:00.000Z",
+    "createdAt": "2026-01-01T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5571,6 +6220,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5584,7 +6249,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-01T08:00:00.000Z",
+    "createdAt": "2026-01-02T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5635,6 +6300,13 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5648,7 +6320,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-02T08:00:00.000Z",
+    "createdAt": "2026-01-03T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5783,6 +6455,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "friendship",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5796,7 +6477,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T08:00:00.000Z",
+    "createdAt": "2026-01-04T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5847,6 +6528,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "bear",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5860,7 +6554,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T08:00:00.000Z",
+    "createdAt": "2026-01-05T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5911,6 +6605,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "chicken",
+      "cow",
+      "culture",
+      "dog",
+      "english",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -5924,7 +6632,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T08:00:00.000Z",
+    "createdAt": "2026-01-06T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -5996,6 +6704,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "animals",
+      "culture",
+      "elephant",
+      "english",
+      "friendship",
+      "learning",
+      "music",
+      "rabbit",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -6009,7 +6729,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
+    "createdAt": "2026-01-07T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6088,6 +6808,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "friendship",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -6101,7 +6830,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
+    "createdAt": "2026-01-08T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6145,6 +6874,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -6158,7 +6900,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
+    "createdAt": "2026-01-09T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6237,6 +6979,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -6250,7 +7000,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
+    "createdAt": "2026-01-10T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6413,6 +7163,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "culture",
+      "elephant",
+      "english",
+      "family",
+      "learning",
+      "magic",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -6426,7 +7189,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
+    "createdAt": "2026-01-11T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6491,6 +7254,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "funny",
+      "humor",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -6504,7 +7277,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
+    "createdAt": "2026-01-12T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6632,6 +7405,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -6645,7 +7433,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
+    "createdAt": "2026-01-13T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6759,6 +7547,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "animals",
+      "butterfly",
+      "cat",
+      "culture",
+      "dog",
+      "duck",
+      "early-reader",
+      "english",
+      "fish",
+      "frog",
+      "insects",
+      "learning",
+      "music",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -6772,7 +7578,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
+    "createdAt": "2026-01-14T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6851,6 +7657,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "funny",
+      "humor",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -6864,7 +7681,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
+    "createdAt": "2026-01-15T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -6943,6 +7760,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -6956,7 +7782,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
+    "createdAt": "2026-01-16T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7035,6 +7861,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "early-reader",
+      "english",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -7048,7 +7882,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
+    "createdAt": "2026-01-17T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7127,6 +7961,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -7140,7 +7984,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T08:00:00.000Z",
+    "createdAt": "2026-01-18T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7205,6 +8049,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "learning",
+      "magic",
+      "nature",
+      "read-along",
+      "tiger",
+      "young-kids"
     ]
   },
   {
@@ -7218,7 +8080,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T08:00:00.000Z",
+    "createdAt": "2026-01-19T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7297,6 +8159,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -7310,7 +8180,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-19T08:00:00.000Z",
+    "createdAt": "2026-01-20T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7347,6 +8217,28 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "cow",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "fish",
+      "food",
+      "friendship",
+      "funny",
+      "goat",
+      "humor",
+      "kindness",
+      "learning",
+      "magic",
+      "music",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -7360,7 +8252,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T08:00:00.000Z",
+    "createdAt": "2026-01-21T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7467,6 +8359,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#0F172A"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "friendship",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -7480,7 +8381,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-21T08:00:00.000Z",
+    "createdAt": "2026-01-22T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7580,6 +8481,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "kindness",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -7593,7 +8507,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-22T08:00:00.000Z",
+    "createdAt": "2026-01-23T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7658,6 +8572,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "culture",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "learning",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -7671,7 +8596,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-23T08:00:00.000Z",
+    "createdAt": "2026-01-24T08:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -7722,1819 +8647,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "📖✨",
         "bgColor": "#312E81"
       }
-    ]
-  },
-  {
-    "id": "pb-en-0084",
-    "title": "Who is a good dog?",
-    "author": "Purvi Shah • Illus. Parismita (Pratham Books / CC BY 4.0)",
-    "description": "The dog wants to catch the bird.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-24T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "The dog wants to catch the bird.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Dog goes to man for help. Please help me catch the bird.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Man swells up in anger. Why do you want to catch the poor bird?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "I am going to teach you a lesson.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "I am going to teach you a lesson.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "GOTCHA!!!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Understood? No more chasing birds. Good Dog.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0084/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0085",
-    "title": "When Amma Went to School",
-    "author": "Nandini Nayar • Illus. Ruchi Shah (Pratham Books / CC BY 4.0)",
-    "description": "“Meera, I went to your school today!” Amma said one day. “Really?” Meera said. “And the gate was wide open, and the watchman was missing!” “...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-25T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "“Meera, I went to your school today!” Amma said one day. “Really?” Meera said. “And the gate was wide open, and the watchman was missing!” “Oh! He was in our classroom, to see why our teacher had screamed!” “And why did your teacher scream?” Amma asked. “Because Rohan began crying!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "“And why did Rohan cry?” Amma wanted to know. “Because the snake he had brought back from the zoo had eaten his mouse! And then the teacher screamed and the watchman came running!” “But I went to your classroom, and there was nobody there!” said Amma.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“We were all hiding in the Staff Room,” Meera said.“Because Rohan's snake was in our classroom!” “But Meera, when I went to the Staff Room, I didn't see anyone there!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "“That is because we had all run away to the Principal's Room,” Meera said. “Because Rohan said the snake was following us!” “But when I went to the Principal's Room, it was empty!” Amma said.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“We couldn't stay there,” Meera said, “because Rohan's snake was looking for him. We climbed up to the terrace and stayed there till the bell rang!” “And I waited and waited in your school, all alone!” Amma said.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“Not all alone, Amma, you had the snake for company!” “The snake!” Amma said, sitting down with a thump on a chair.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0085/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0086",
-    "title": "Grandpa Fish and the Radio",
-    "author": "Venkatramana Gowda • Illus. Srikrishna Kedilaya (Pratham Books / CC BY 4.0)",
-    "description": "Once upon a time, there was a little village. In the little village was a little stream.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-26T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Once upon a time, there was a little village. In the little village was a little stream.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "In the stream, several families of frogs, tortoises, and fish lived happily in each other's company. The fish family was the largest of them all.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "The fish family was also the most respected. The reason?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "A big fat radio that occupied pride of place in their underwater home.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Grandpa Fish was the head of the fish family. He was obeyed in most things, not just by the younger fish but also by the frog and tortoise families.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "But there was one thing over which he simply had no control: the family radio.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Never did Grandpa Fish get a chance to listen to the news.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "The younger fish, frogs, and tortoises simply adored film music, and would not move from the radio's side as long as it was playing.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "By the time he had convinced the younger ones to let him listen to the news, it was usually too late. Most often, all Grandpa Fish heard was the newscaster saying, “And that is the end of the news...” It was very annoying.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "One day, Grandpa managed to convince the younger ones a little earlier than usual. Rushing to the radio, he tuned in to the news, and heard the newscaster say, “And before we end, the headlines once again...” The Breaking News on the River Radio network that morning was very frightening.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "“A group of humans are using a new technique to capture the maximum number of fish possible!” said the newscaster. “They are poisoning the water of the rivers one by one! When the fish die, the humans just trap them all in their nets and take them away!They could be coming to your river very soon!\"",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Grandpa Fish was stunned. He quickly relayed the information to the rest of the fish and to the other river creatures. Numb with fear, everyone sat quietly thinking about the next course of action. No one wanted to listen to film music now.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 13,
-        "text": "Meanwhile, the daughter of the village headman came to the river to fetch some water. Grandpa Fish and the headman had been friends for a long time.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/13.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      },
-      {
-        "pageNumber": 14,
-        "text": "Swimming quickly to the surface, Grandpa Fish informed the girl that there was an emergency. \"Please tell your father to come and see me immediately,\" he said anxiously.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/14.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 15,
-        "text": "The headman came at once. Grandpa Fish first made sure his guest was comfortable and even offered him a cup of coffee. Only then did he bring up the subject of the frightening news he had heard on the radio. Now the headman was worried too.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/15.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 16,
-        "text": "Thinking quickly, he came up with a plan to make sure the river in his village, and all the creatures in it, would be safe.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/16.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 17,
-        "text": "The headman quickly reassured the old fish and his clan. “Don't worry, Grandpa Fish,” he said. “I will see to it that you and your fellow creatures will be safe from those terrible human beings.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/17.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 18,
-        "text": "The younger fish, frogs, and tortoises realized what a huge disaster it would have been had Grandpa Fish not listened to the news on the River Radio network that day.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/18.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 19,
-        "text": "Ashamed of their earlier behaviour, they resolved to mend their ways in the future.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/19.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 20,
-        "text": "Use your imagination and colour this picture any way YOU like.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/20.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 21,
-        "text": "Use your imagination and colour this picture any way YOU like.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0086/21.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0087",
-    "title": "Rain, Rain",
-    "author": "Sanjiv Jaiswal 'Sanjay' • Illus. Ajit Narayan (Pratham Books / CC BY 4.0)",
-    "description": "A cloud rolled along merrily in the sky.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-27T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "A cloud rolled along merrily in the sky.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "The peacock said, “Why don't you rain? I will dance for you.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "The fish said, \"Please rain. I need more water.\"",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "The farmer said, “Please rain. I'll plant seeds for the next crop.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Raju said, “If you rain, I'll sail paper boats.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "The cloud rained in a shower of shimmering drops.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "The peacock spread its pretty feathers and danced.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "The pond filled up. The fish was happy.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The farmer started planting seeds.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Splish! Splash! Splosh! Raju and his friends had a wonderful time in the puddles.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The cloud filled everybody's heart with joy. It moved on. All the children waved goodbye.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0087/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0088",
-    "title": "The Flyaway Cradle",
-    "author": "Sridala Swami • Illus. Sanjay Sarkar (Pratham Books / CC BY 4.0)",
-    "description": "That is a cradle hanging from the Neem tree. You know what is in there? Devi's little sister!",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-28T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "That is a cradle hanging from the Neem tree. You know what is in there? Devi's little sister!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Yes, she is crying. You mean you can hear it as well? Devi certainly can. And she is sick of it!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Devi has finally stopped playing hopscotch, and she has taken her sister out. Oops! The cradle is flying! Right over the tree! It's only an old sari, what do you expect?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "That is Krishna, Devi's friend. He thinks throwing small rocks at the sari will bring it down. The little girl in the orange skirt is Leela.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "She wants Devi to use a long stick to untangle the sari. All the kids are laughing at her. “If it was that easy, do you think WE wouldn't have thought of it?” they ask.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Salia is taking running jumps at the sari. She is quite tall, and her fingers just touch the cloth. Now ALL the children are lining up for jumps!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Devi's sister is quite happy. She is smiling and chewing on some grass she has found. Oh, no, she isn't. Devi has taken it from her.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Raju has organised all the children, big ones first, small ones later. Oh, gosh! Do you think he's going to make them climb on top of each other? Yes! and they are going to manage it!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "No, they are not! What now?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "That is Devi's father at the top of the road! Quick! Think of something! Leela is tottering under the long pole she has found. It's about to fall!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "No, it isn't. Krishna has taken it from her. Raju is helping too. This time they just might get it down!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Quick! Put the baby in the cradle before Devi's father sees! In any case, it is nice to have friends to play hopscotch with.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 13,
-        "text": "Quick! Put the baby in the cradle before Devi's father sees! In any case, it is nice to have friends to play hopscotch with.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0088/13.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0089",
-    "title": "The Magic Powder - A Folktale from Myanmar",
-    "author": "Greystroke • Illus. P. G. Dinesh (Pratham Books / CC BY 4.0)",
-    "description": "Once upon a time, in a little village on the banks of the Irrawaddy river, there lived a young woman called Thuza. She was very happily marr...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-01T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Once upon a time, in a little village on the banks of the Irrawaddy river, there lived a young woman called Thuza. She was very happily married to handsome young Theingi. But there was one problem that nagged Thuza – her husband believed he was an alchemist and would spend all his time dreaming about ways to turn dirt into gold. All day, and for days on end, Theingi spent his time in experiments, searching for a breakthrough. Soon, all their money was over, and young Thuza had to struggle to buy food for the two of them. She became very worried. “You should find a job soon,” she pleaded with her husband. “We cannot continue like this!” But Theingi wouldn't listen. “I'm on the verge of a breakthrough! Why do I have to work when we will be rich beyond our wildest dreams? We will soon be able to turn all the dirt we find into gold!” Disheartened, Thuza approached her father, wise old Thet, for a solution. Thet was surprised when he heard that his son-in-law was an alchemist. He thought for a while and asked to see Theingi. Thuza returned home happily that day, for she knew her wise father would have a solution.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "The next day, Theingi arrived at his father-in-law's house, fully prepared for a scolding. He was taken by surprise when Thet took him aside and whispered, “When I was young like you, I was an alchemist too!” The two of them spent the whole afternoon discussing Theingi's work. Finally, the old man stood up and said, “Why Theingi, you've done everything exactly like I did when I was your age! You are definitely on the verge of a breakthrough! Congratulations! But you seem to be lacking one very important ingredient in your experiments. You will need this when you finally turn dirt to gold. Only recently did I discover this. But I am too old for this task. It requires enormous effort...” “Then let me do it for you, Father!” cried Theingi. He was really excited. All his efforts would pay off at last. “Tell me what the ingredient is!” “Good, you are excited!” said Thet. He leaned closer and whispered, “Son, the secret ingredient is a silver powder that is found only on banana leaves. You will have to plant the bananas yourself and cast certain spells on them. Then, as the plants grow, the powder on the leaves will gain magical powers.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“How much of this powder will we need, Father?” asked Theingi excitedly. “A kilo,” replied Thet. “A kilo!” cried Theingi. “That would require hundreds of banana plants!” “I'm afraid so, Son,” said the old man. “That is why I can't complete the task myself...” “Don't lose heart, Father!” said Theingi. “I shall!” Later that evening, the old man taught his son-in-law the magic spells and loaned him the money to start the work. The very next day, Theingi bought a small field near his home and cleared it. Just as he had been instructed, he dug the ground himself and planted the saplings after carefully chanting the magic spells. Every day he went to the field and examined the saplings. He kept the weeds and pests away diligently. When the plants grew and bore fruit, he carefully collected the silver powder from the leaves and kept it safely in a box.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "There was hardly any powder on each leaf, so Theingi had to buy more land and grow more bananas. But he was determined to do what was needed. It took him several years, but at the end of it all, he had managed to collect enough of the magic powder. He rushed to his father-in-law, excited as never before. He would soon be able to make gold from mere dirt! “Father, finally... here is the kilo of magic powder!” he cried. The old man was filled with joy. “Wonderful!'' he said. “Wonderful! You've done well, Theingi. I'm proud of you. Now I will show you how to turn dirt into gold. But first, let's get Thuza. We need her help.” Theingi was a little puzzled, but without losing any time, he ran to his wife and was soon back with her. “Thuza,” asked the old man, “what did you do with the bananas when your husband was collecting the powder?” “Why, I sold them, Father,” replied Thuza. “That's how we earned a living.” “Then you must have been able to save some money too. Theingi grew more than enough bananas...” the old man continued. “Yes, I did,” replied Thuza. “Can we see it?” asked Thet. “Of course, I have kept it safely at home,” beamed Thuza. The three of them went to Theingi's house where Thuza produced several bags from the loft where she had kept them safely. Thet opened one of the bags, peered inside, and smiled. He then emptied one of the bags on the table. Gold coins tinkled as they fell in a huge, shiny heap. Then he went to the field and came back with a handful of dirt, which he placed next to the heap of gold. “You see, Theingi,” he said, turning to his son-in-law, “you have changed dirt into gold!” Never after that day did Theingi collect any more magic powder from the leaves. But he continued to grow bananas. His “alchemist” father-in-law had taught him the best way to turn dirt into gold, after all. He didn't need the magic powder any more.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "BANANAGIC! After Theingi's magic powder from bananas, how about surprising your friends with some magical bananas?! Tell them about a new variety that you have just discovered – one that grows in slices! MAKE YOUR OWN MAGICAL BANANAS YOU'LL NEED: A few ripe bananas A toothpick or sewing needle",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "HOW TO MAKE IT: 1. Push the toothpick into the banana somewhere along the seam. 2. Without taking it out, carefully rotate the toothpick left and right inside the banana. You should cut all the way through the fruit, but not through the peel, mind you. Also, try and keep the toothpick hole as small as possible – the smaller, the lesser it will be visible.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "3. Remove the toothpick and repeat the above step at another spot on the banana, say after an inch. Keep making internal one-inch slices until you have at least five or six. Do these two steps with all the bananas you have. That's it – your magic bananas are ready to eat. Offer the “new variety” to your friends while telling them a big story about how you discovered them in the field nearby. When your friends peel the banana, imagine the look on their faces when they find that it is already sliced? While inside the skin! Isn't that some yummy banana magic?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0089/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0090",
-    "title": "Raza Meets the King",
-    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
-    "description": "It was a very special day and so Raza was wearing his best clothes. Today, he was going to meet someone very important – His Majesty Jalalud...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-02T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "It was a very special day and so Raza was wearing his best clothes. Today, he was going to meet someone very important – His Majesty Jalaluddin Akbar, the great Mughal king! Raza's father Rahmat Khan was an important man too. He was the royal tailor to the king, and he stitched all his angarakhas – the loose coats that the king wore over his tight churidar pyjamas. This morning they were going to the palace in Fatehpur Sikri with the angarakhas the king had ordered for summer. The king was very fussy about his clothes and it was very hard to please him. Rahmat Khan had worked hard to make the angarakhas – cutting and stitching late into the night. Raza had helped too – putting in tiny stitches using the finest needle and the best silken thread. The spring sun shone brightly, the flowers smiled, and the pigeons cooed happily as the two of them walked to the fortress of Fatehpur Sikri. Two soldiers holding spears stood guarding the gate. “I'm Rahmat Khan,” Raza's father said, “I'm the angarakha maker to His Majesty and I've brought new sets for him.” “Is His Majesty expecting you?” the guard with big moustaches asked. “Ji huzoor. He chose the designs himself.” “Wait here,” the guard turned to go inside, “I'll call the Royal Steward.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "After a while the guard returned with another man. Rahmat bowed to him. “I've brought the summer clothes, Dhaniji,” he said. “Good! Come with me. His Majesty is still in his sleeping chamber. He'll see you before he leaves for the royal court.” As they walked in, Raza whispered, “Who is he, Abbu?” “Dhani Singh. He works in the Khwabgah.” “Khwabgah?” “The king's personal palace, where he has his sitting room and bedroom.” It was a long walk. Raza looked around, his eyes wide with wonder. The Mughal palaces were so beautiful! All made of red sandstone with slim carved pillars and curving arches. In between were gardens filled with flowers, lily pools and sparkling fountains. Raza thought he was in heaven. As they waited at the door of the king's bedroom, Raza studied Dhani Singh. Being a tailor's son, he noticed the clothes first. Dhani Singh was wearing a cotton angarakha in a red and white flowery print over white churidars. His nagra shoes had pointed toes that curved inward. He had tied a narrow cloth belt, a patka, at his waist. What Raza liked most was his bright red turban, printed with a design in white and yellow squares and dots.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“Your turban is very nice, Dhaniji,” he said, “that's a really pretty design!” “Thank you! I come from the land of the Rajputs and... this design, called bandhani, is from my homeland.” As they entered the room, Raza's heart was thudding. Sunlight poured in through the arched doorways, lighting up the thick silken Persian carpet woven in jewelled colours. The room was furnished with a beautifully carved bed and exquisite chairs. There were silk and gold cushions on the low bed. Even the curtains were made of silk! Raza bowed and then looked at his king. Akbar was choosing jewellery from a box held before him by a servant. He was not very tall but he had the broad shoulders of a sword-fighter. He had large, slightly slanted eyes, a drooping moustache, and a small mole above his lips. Hearing them enter, Akbar turned and smiled, “Ah Rahmat! You've brought the angarakhas? And who is this boy with you?” “My son Raza, huzoor.” “And can you stitch too, Raza?” “I'm learning, huzoor,” Raza replied nervously, “but I still make mistakes in cutting the cloth.” “You'll learn. Your father will teach you,” Akbar said gently. Rahmat opened the bundle and laid out the angarakhas on the bed.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "They were made of the finest muslin and covered with delicate embroidery. All of them were in light summery colours – cream, lemon, pale blue, green and a sparkling white. Raza knew the king's favourite colour was white. Rahmat helped Akbar put on a white angarakha. Then Dhani Singh brought a large mirror and held it before the king. “I like the embroidery... and it fits well too,” Akbar said, looking pleased. “Now tie a patka. Let's see how it looks.” Rahmat took out a handful of belts and tied a light blue one around Akbar's waist, letting the fringed ends hang in front. “No...” said Akbar moodily, “this is too pale... I want something brighter.” Raza and his father then tried one patka after another – green and yellow, orange and purple, but nothing pleased Akbar. “I don't like any of the colours, Rahmat!” Akbar said, frowning impatiently. Raza saw that his father was beginning to look worried. Oh no! If His Majesty did not like the patkas, would he send all the clothes back? “I have to do something fast!” Raza thought. He looked around and said suddenly, “Huzoor, would you like to try a bright red one with a white and yellow design?” “What kind of red?” Akbar boomed. “Show me!” Raza pointed to Dhani Singh's turban, “That red?” “Hmmm...” Akbar stared thoughtfully at Dhani Singh's moustached face and said, “Let me give it a try.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "In a flash, Raza had taken off Dhani Singh's turban, unrolled it and tied it around Akbar's waist. He waited with bated breath while Akbar studied his reflection in the mirror. He noticed Dhani Singh grinning widely – he must have been amused to see the king wearing his turban as a belt! “I like the colour... and a new design too!” Akbar said finally. “Bandhani, huzoor... from the land of the Rajputs,” said Raza promptly. “Aha! Rajput like my queen, Jodh Bai!” Akbar began to smile. “Dhani, pay Rahmat for the angarakhas and patkas. I'll take them all!” “Huzoor,” asked Raza cautiously, “Dhaniji needs a turban. We've taken the one he was wearing.” “Give him a patka!” laughed Akbar. “That boring pale blue one. I am keeping his turban.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "FUN FACTS OF HISTORY 1. Raza lived during the reign of King Akbar over 400 years ago. Akbar was the greatest king of the Mughal dynasty. He was also a famous warrior. He loved wearing clothes with new designs. He also enjoyed flying kites and eating mangoes! 2. Babur, the founder of the Mughal dynasty, was the king of Kabul. He invaded India in 1526 and defeated the Sultan of Delhi, Ibrahim Lodi, at the Battle of Panipat. Akbar was Babur's grandson. He was an equally successful general and never lost a battle during his 49-year rule. 3. Two Mughal kings built new cities. Akbar built Fatehpur Sikri near Agra and Shahjahan built Shahjahanabad in Delhi. Fatehpur Sikri lies empty today but Shahjahanabad (present-day Old Delhi) is full of life and people.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "4. Shahjahan's famous Peacock Throne was a square flat seat, with slim pillars at each corner covered with precious jewels. The seat had a canopy, which had the figure of a peacock studded with gems on top of it. The emperor sat under the canopy, leaning against silk cushions. 5. Many Mughal princesses were highly educated. Gulbadan Begum wrote the biography of her father, Babur. Shahjahan's daughter Jahanara was a poet. 6. The Mughal fort had many kitchens. Each kitchen sent food for the king. So when he sat down to eat, he would have as many as thirty dishes to choose from! Lip-smacking Mughlai cusine, which includes yummy dishes like biryani, pulao, kalia and korma, originated in these kitchens.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0090/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0091",
-    "title": "The Boat Ride",
-    "author": "Herminder Ohri (Pratham Books / CC BY 4.0)",
-    "description": "In a small garden in the city, there was a big pipal tree. A family of squirrels lived on that tree. Vikki is one member of that family who ...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-03T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "In a small garden in the city, there was a big pipal tree. A family of squirrels lived on that tree. Vikki is one member of that family who likes to talk big. His cousin, Kato had come to visit him from Far Forest.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "“Today we shall go on a big boat,” said Vikki to Kato. “B... B... But, I... I...am afraid of water, I cannot swim,” mumbled Kato. “Come on, you scrappy squirrel! With Vikki around, you need not be afraid. I have been on a boat many times.” Vikki importantly leading the way, they reached the river.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "The boat was tied to a post. So they ran up the rope, hopped into the boat, and sat curled in a corner.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Slowly the boat started moving up and down the river, which curled and curved through the trees. Kato saw many ducks swimming past them. The fish put their heads out of the water and gulped a “Hello!” Some swans majestically glided near them.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "They were so beautiful that Kato tried to touch one and he toppled over into the river. As he went deeper into the water, he passed some fish. “Help! Help!” he gurgled, as he passed the boat.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Vikki did not know what to do. He just scampered from one side of the boat to the other side, shouting, “Help! Squirrel overboard!” A swan had seen Kato fall into the water. She just put her head down in the water and picked up Kato in her beak. Then she tossed him into the boat.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "A shivering, trembling Kato sat in a sunny corner to dry himself. Vikki sat quietly near him. As he got warm and dry, he cheered up, “What an adventure! Wait till I tell the folks back home.” Already he fancied himself as a sailor! A hero! Brave and adventurous!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "When the boat reached the bank, the squirrels hopped off and swaggered their way home. Kato was finding it difficult to keep his grand adventure inside his head. His head was going round and round like the boat. He shut his eyes and fell fast asleep at the dinner table.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0091/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0092",
-    "title": "The Sparrow and The Fruit",
-    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
-    "description": "There was once a sparrow called Gubbi. One day, Gubbi went off to the market and bought herself a nice juicy guava. On the way back, the gua...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-04T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "There was once a sparrow called Gubbi. One day, Gubbi went off to the market and bought herself a nice juicy guava. On the way back, the guava slipped from Gubbi's beak and fell into a clump of thorns. Gubbi couldn't bear the thought of losing her fruit. She decided she would get it back at any cost.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "First she went to a boy working nearby. “Little boy, little boy, please get my guava back for me,” she begged. “Can't do it,” replied the boy. “Go away!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Gubbi was furious. She went straight to the farmer. She said, “I dropped my fruit in a clump of thorns. I asked the boy to help me but he didn't. Now I want you to give him a good beating.” “Won't do it,” said the farmer. “Go away!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Gubbi went straight to a cow that was grazing in the farmer's pasture. She said, “I dropped my fruit in a clump of thorns. I asked the boy to help me but he didn't. I asked the farmer to give the boy a beating but he didn't. Now I want you to go and eat up the farmer's crops.” “Can't do it,” said the cow, and turned her head away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Gubbi flew straight to the fisherman. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, and the cow did not help me. Now I want you to whip the cow.” “Won't do it,” said the fisherman and cast his net again.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Gubbi went straight to the rat. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, the cow did not help me, and the fisherman did not help me. Now I want you to chew up the fisherman's net.” “Can't do it,” said the rat, and scurried away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Gubbi flew straight to the cat. She said, “I dropped my fruit in a clump of thorns. The boy did not help me, the farmer did not help me, the cow did not help me, the fisherman did not help me, and the rat did not help me. Now I want you to catch the rat.” “Won't do it,” said the cat.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Gubbi did not know what to do. She wished someone would do as she said. Suddenly, she remembered her friend, the ant. Gubbi knew he could help her get her fruit back.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Gubbi flew straight to the ant's house. When she saw him, she asked simply, “Will you bite a cat for me?” “Sure!” said the ant. “Show me where she is!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The ant kept his word and bit the cat. The cat went chasing after the rat and caught him. The rat quickly chewed up the fisherman's net. The fisherman whipped the cow. The cow ate up all the farmer's crops.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The farmer gave the boy a beating. The boy picked up the guava that had fallen into the clump of thorns and gave it back to Gubbi. Gubbi was thrilled. She thanked her friend the ant with all her heart.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "Greedy Gubbi wanted to eat the guava immediately. She settled down on a branch for a feast. She had only had a small bite of it when something heavy fell on her head. A crow flying overhead with a big chunk of firewood in his beak had dropped it on Gubbi by accident. Gubbi fainted. And that is how naughty Gubbi was punished. And that is the end of the story.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0092/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0093",
-    "title": "Marching to Freedom",
-    "author": "Subhadra Sen Gupta • Illus. Tapas Guha (Pratham Books / CC BY 4.0)",
-    "description": "Dhani knew something exciting was being planned at the ashram, but no one would tell him anything. “Just because I'm nine years old,” though...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-05T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Dhani knew something exciting was being planned at the ashram, but no one would tell him anything. “Just because I'm nine years old,” thought Dhani glumly. “I'm sure they think I'm stupid. I am not!” Dhani and his parents lived in a very special place. It was Mahatma Gandhi's Sabarmati Ashram near Ahmedabad where people from all over India came to stay. Like Gandhiji, they were all fighting for India's freedom. During their stay at the ashram, they spent their time spinning khadi thread on charkhas, singing bhajans and listening to Gandhiji's lectures. At Sabarmati, everyone had to work – cook and clean, wash clothes, fetch water from the well, milk the cows and goats, and grow vegetables. Even Dhani had a job – he had to take care of Binni, one of the ashram's goats. He quite enjoyed that because Binni was his best friend and he liked talking to her.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "That morning, as Dhani fed Binni with fresh grass and changed the water in her bowl, he said, “Something's up, Binni! They all sit and talk in Gandhiji's room. They are planning something. I know it!” Binni chewed and nodded as if she understood. Dhani felt hungry. He headed towards the kitchen, with Binni skipping along beside him. His mother was fanning the chulha, filling up the room with smoke. “Amma, is Gandhiji going somewhere?” he asked. His mother coughed in the smoke and said, “They are going on a march.” “March? Where are they going?” Dhani queried. “Somewhere near the sea. Now stop asking questions and go away Dhani!” his mother said impatiently. “Let me finish the cooking first.” Dhani wandered off to the vegetable garden where old Binda was digging up potatoes.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“Binda chacha,” Dhani sat beside him, “are you going on the march too?” Binda shook his head. Before he could say anything, Dhani eagerly asked, “Who is marching? Where are they going? What is happening?” Binda stopped digging and said, “I'll answer all your questions, but first tie up that troublesome goat. She's chewing up my spinach.” Dhani dragged Binni away and tied her to the lemon tree nearby. Then Binda told him about the march. Gandhiji and some of the men from the ashram were going to walk through Gujarat to reach the sea at a place called Dandi. They would walk through villages and towns for a whole month. Once they reached Dandi, they would make salt. “Salt?” Dhani sat up and frowned. “Why will they make salt? You can buy it in every shop!” “I know,” Binda laughed. “But Mahatmaji has a plan. You know he always marches to protest against something, right?” “Of course I know. He leads the Satyagraha marches to fight the British government and win freedom for India. But why is he protesting about salt? It's silly!” “It's not silly at all, Dhani! Do you know we all have to pay a tax on salt?” “So what?” “Everyone needs salt... that means, every Indian, even the poorest, has to pay this tax,” explained Binda chacha. “That is really unfair!” Dhani's eyes were hot with anger. “Of course it's unfair. Not only that, Indians are not allowed to make any salt either. Mahatmaji has asked the British to stop the tax, but they have refused. So he has decided to walk to Dandi and make salt from seawater.” “Walking for a month!” Dhani brooded worriedly. “Gandhiji will get really tired. Why don't they take a bus or train to Dandi instead?” “Because, if he goes on this long march and walks all the way to Dandi, the news will spread. There will be pictures in the papers and reports on the radio, and people all over the world will know that we are fighting for our freedom. And that will really embarrass the British.” “Gandhiji is clever, isn't he?” Dhani's eyes were shining. “Ah, that he is!” Binda's eyes crinkled with laughter. “He's even written to the Viceroy and told him what he plans to do! The British have no idea what they are in for!” Later in the morning, Dhani wandered up to the hut where Gandhiji was staying and peered in through a window. Inside, many of the ashram people were talking to Gandhiji. Dhani heard them planning the route along which they would walk to Dandi. He was thrilled to see his father sitting among the people. In the afternoon, when the ashram was quiet, Dhani went looking for his father. He found him under a tree, spinning on his charkha. “Pitaji, are you and Amma going on the march to Dandi?” Dhani got straight to the point. “I am going. You and Amma will stay here.” “I am coming with you.” “Don't be silly, Dhani. You can't walk so much. Only the ashram's young men will go.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "“I'm nine and I can run faster than you can!” Dhani replied stubbornly. “You can't stop me from coming with you.” His father stopped spinning and explained patiently, “Only the people who have been chosen by Mahatmaji will go.” “Fine! I'll talk to him then! I'm sure he'll say yes,” said Dhani and marched off. Gandhiji was a very busy man and it was not easy to catch him alone. But Dhani knew exactly when he would have the time to listen – early every morning when he went for a walk around the ashram. The next morning, as the sun came up, Dhani slipped out of bed and went looking for Gandhiji. He found him in the cowshed checking on all the cows. Then he strolled into the vegetable garden to inspect the peas and cabbage and have a chat with Binda.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "All the while, Dhani and Binni followed him. Finally, Gandhiji headed back to his hut. He sat down beside his charkha in the verandah and called out to Dhani, “Come here, child!” Dhani ran up, with Binni skipping along. “What's your name beta?” “Dhani, Gandhiji.” “And this is your goat?” “Yes, Gandhiji! This is my friend Binni, who gives the milk you drink every morning.” Dhani smiled proudly and said, “I take care of her.” “Good!” Gandhiji leaned forward. “Now Dhani, tell me why you and Binni have been following me everywhere this morning?” “I wanted to ask you something,” Dhani began nervously. “Can I come with you to Dandi?” Gandhiji smiled, “You are too small, beta. Dandi is 385 kilometres away and only young men like your father will be able to walk with me.” “But you are not young!” Dhani said. “Won't you feel tired?” “I am a very good walker,” Gandhiji replied. “I am a good walker too.” Dhani was adamant. “Ah yes,” Gandhiji looked thoughtful. “But there is a problem. If you go with me, who will take care of Binni? After walking for so long, I will become weak. When I come back, I'll need to drink lots of milk to become strong again.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“Hmm, you're right, Gandhiji. Binni eats only when I feed her.” Dhani lovingly stroked Binni's head, “And only I know what she likes to eat.” “Exactly! So will you stay in the ashram and take care of Binni for me?” “Yes, Gandhiji, I will,” said Dhani. “And Binni and I will be waiting for you.” “Hmm, you're right, Gandhiji. Binni eats only when I feed her.” Dhani lovingly stroked Binni's head, “And only I know what she likes to eat.” “Exactly! So will you stay in the ashram and take care of Binni for me?” \"Yes, Gandhiji, I will,” said Dhani. “And Binni and I will be waiting for you.” Fun facts of History 1. In March 1930, Mahatma Gandhi led the march to Dandi to protest against the tax on salt imposed by the British. Gandhi and his followers walked through Gujarat for 24 days. All along the way, they were welcomed with flowers and songs. Newspapers across the world carried reports about the march. 2. At Dandi, Gandhi and his followers collected salt from the seashore and were arrested. The arrest sparked off the Non-cooperation Movement, and people all over India boycotted schools, colleges and offices. 3. There were 78 volunteers who accompanied Gandhi on the march. They covered a distance of 385 kilometres. 4. The march began on 12 March and ended on 5 April 1930. The youngest marcher was 16 years old. 5. The year 2005 marks the 75th anniversary of the Dandi March.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0093/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0094",
-    "title": "Going to Buy a Book",
-    "author": "Rukmini Banerji • Illus. Santosh Pujari (Pratham Books / CC BY 4.0)",
-    "description": "One day, grandfather gave my brother and me some money. \"Go and buy books,\" he said. We were both very happy. We both love to read.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-06T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "One day, grandfather gave my brother and me some money. \"Go and buy books,\" he said. We were both very happy. We both love to read.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Should we go now? Should we go later? Should we go today? Should we go tomorrow? We decided to go right now.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Should we go to the big market? Should we go to the small shop? Should we go with somebody? Should we go alone? We decided to go to the small shop, just the two of us.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "We like the small bookshop. It is small but it has many books. The man in the shop likes us. He always helps us.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Should I buy a book with a lot of pictures? Should I buy a book with many stories? Should I buy a thin book? I could not decide.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "We do not know which book to buy. The man in the shop smiled at us. “Relax, come with me,” he said. “These books are about animals. Those are about machines. Those over there are about wars. Take what you want.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "I picked up some books. My brother picked up some books. I sat on the floor. He sat on the chair. And we read and we read and we read.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "It was very quiet. There was no sound. One hour passed. Two hours passed. Finally, we knew which books to buy.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The man in the bookshop smiled at us. I got a fat book with many stories. My brother got a big book with many pictures. We ran home to our grandfather. We climbed on his bed. He put his arms around us and then we read, and read, and read.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0094/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0095",
-    "title": "Shobhini and Nani",
-    "author": "Sarvendra Vikram • Illus. Vibhash Pandey (Pratham Books / CC BY 4.0)",
-    "description": "Mela Shobhini asked Nani, “Shall we go to the mela?” From a distance they could see the big giant wheel. It turned slowly and then faster an...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-07T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Mela Shobhini asked Nani, “Shall we go to the mela?” From a distance they could see the big giant wheel. It turned slowly and then faster and faster. “Shall we take a ride on the giant wheel?” Shobhini said to Nani. The wheel began to move slowly. Then it began to go faster and faster. Shobhini closed her eyes tightly. She was not really scared but felt better when she held on to Nani's hand. She would open her eyes a little from time to time to see where they were. Shobhini noticed that Nani did not shut her eyes. Instead she was laughing and waving to the people below. When the ride was over, Shobhini and Nani wandered around in the mela. Shobhini bought a little horn. She tooted so hard that a dog jumped up and ran away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Nani bought Shobhini a gas balloon. When they came home, Shobhini tied a small paper basket to the balloon and put some ants in the basket. Then she let go of the string. The balloon floated high above the house, beyond the field, past the mela and went off far, far away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "# Shobhini Combs Nani's Hair Nani had just washed her hair. Her hair was long, soft and white and it was shining in the sunshine. “Nani, can I comb your hair for you?” asked Shobhini. “I will do it carefully. I won't hurt you at all.” Shobhini combed Nani's hair carefully. She made a parting in the middle and divided her hair into two parts. With each portion she made a pony tail on either side of Nani's head. Not happy with the pony tails, she made them into two long plaits. Quickly Shobhini found a big yellow flower. She stuck the flower in one of Nani's plaits. A red and orange butterfly came and sat down on Nani's hair. Right next to the big yellow flower. Shobhini ran to bring a mirror. She showed Nani the two long plaits, the big yellow flower and the colourful butterfly.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "# Jungle “Shall we go to the jungle?” Shobhini asked Nani. “There are wild animals there. You won't be scared, I hope?” Shobhini and Nani reached the jungle. First they saw a rabbit. He was lost and was looking for his mother. His eyes were full of tears. Shobhini and Nani helped him find his mother. Elephants were bathing in the river. They filled water in their trunks and sprayed it like a fountain over each other. It looked like a lot of fun. One monkey was eating a mango on a tree. Shobhini teased the monkey and made a face at him. The monkey was furious. He took a mango and threw it at Shobhini. Nani quickly put her hand out and swiftly caught the mango before it could hit Shobhini. It was a very good catch. “Wow! Nani!!” said Shobhini. “I did not know that you could play cricket!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Rain It was raining. Sometimes it was windy and the rain came pouring down hard and loud. Sometimes the rain was soft. Shobhini asked Nani, “Can I go out and play in the rain? I want to get wet.” “Be careful of the lightning,” replied Nani. Shobhini's dog Pillu was under the chair. When he saw Shobhini with an umbrella, he came out from under the chair. Pillu licked Shobhini's hand and wagged his tail. “All right,” said Shobhini “You can come too.” Shobhini walked ahead. Pillu was just behind her. As they reached the end of the verandah, there was a sudden gust of wind. Shobhini's umbrella flew out of her hand and out onto the grass. There was a streak of lightning in the sky. Shobhini stopped.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "A few seconds later, there was a very loud clap of thunder. Pillu ran back to the house and hid under the chair. Shobhini ran back and hid in Nani's lap. Wool Nani was sitting in the sun. She was rolling wool into a ball. “Can I help you?” asked Shobhini. Shobhini looked for the end of the wool. She started rolling it into a ball like Nani was doing. Soon the wool became a big ball. When it was too big, it slipped out of Shobhini's hand and jumped up in the air. Many swans were flying overhead. One of them caught the ball of wool. Shobhini looked up and saw a long string of red wool hanging from the sky. Shobhini clapped her hands when she saw this sight. The other end of the wool slipped out of her hands. When the swan heard the clap he looked down. He could see Shobhini on the ground but she looked very small from so high up.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "As he looked, the ball of wool slipped out of his mouth. Shobhini ran to where the wool fell from the sky. She quickly rolled up all the wool and gave the ball to Nani. The River It was a hot summer day. “Nani, will you come with me to the river to bathe?” asked Shobhini. The river was quite far from the house. Nani and Shobhini sat in a tonga and reached the riverbank. Many people were bathing on the ghats. The water near the banks did not flow very fast. Shobhini had brought many paper boats with her. One of her boats quickly floated away very far. Nani talked to a boatman. Shobhini and Nani sat in the boat and went quite far. The boatman said, “The water is very deep here. If you put one elephant on top of another, they would both sink.” ‘Wow! One elephant on top of another,' thought Shobhini, entranced. A goldfish leapt out of the water. It touched Shobhini's hand. Shobhini was delighted.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "The boatman said, “Come again, Shobhini.” “You know me?” asked Shobhini surprised. “Yes, I know your mother too,” said the boatman, “When she was little, I used to take her out on this boat.” Nani smiled at Shobhini.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The Moon “Let us go to the moon today,” said Shobhini to Nani. She took Nani's special walking stick – the one that had a head of silver. First Shobhini climbed on the stick. “Get on carefully, Nani,” said Shobhini. “There is nothing to be scared of.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "The stick zoomed into the air with Shobhini sitting on the stick and Nani behind her. They flew into the sky, above all the birds and the clouds. Soon they were like tiny dots in the sky. We are all waiting for them to come back...",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0095/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0096",
-    "title": "Samira Goes Shopping",
-    "author": "Bharati Jagannathan • Illus. Preeti Krishnamurthy (Pratham Books / CC BY 4.0)",
-    "description": "Amma had just begun to make some halwa for Samira's birthday when she found that there was no sooji. “Will you please run down to that shop ...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-08T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Amma had just begun to make some halwa for Samira's birthday when she found that there was no sooji. “Will you please run down to that shop and buy some sooji, dear?” said Amma pointing to the shop at the corner of the street, and gave her some money.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "“Here are twelve rupees. Ask for half a kilo of sooji. Take Mouchak with you, and don't talk to any strangers on the way,” she said. “And don't go climbing trees,” she added as Samira set out with Mouchak to buy half a kilo of sooji. It was a pleasant February day. Samira sang, “Tra la la la la,” as she skipped along. “Woof! Woof!” said Mouchak friskily.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "They had just reached the corner when Samira saw a butterfly. “Oh! How lovely! Let us try and catch it,” she said, and both of them ran after the butterfly.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "It went and sat on a baramasi flower, but away it flew exactly when Samira reached out to it. “Oh, oh!” she said sadly, then remembered that it wasn't right to catch butterflies anyway. They should be free.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "A brown cat with grey stripes ran across and Mouchak began to chase it, saying, “Bow wow, bow wow wow!” And behind Mouchak ran Samira, breathless. The brown-and-grey cat leapt over a wall and disappeared. Mouchak and Samira stopped, looked at each other and laughed.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Then Samira saw a chandni bush. ‘Aren't the flowers like stars in the night sky? How happy Amma will be to have them,' she thought, and plucked a lot of chandni flowers.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Mouchak sniffed at them and turned away. He had found something more exciting ahead! “Hey, where are you off to?” asked Samira, but all she got was, “Woof, woof, woof,” as Mouchak bounded off joyfully. He had found a bone and he held it out proudly to Samira. Wasn't that nice?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "They had reached a great simal tree a-twitter with parrots and bulbuls. The ground below was carpeted with hundreds of rich scarlet flowers. Delighted, Samira filled her pinafore with the waxy blossoms. Her arms full of flowers, she looked up and realized that she didn't know where she was.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "She looked right and she looked left, she looked ahead and she turned on her heel, but everything was new. Samira was lost. She sat down on the pavement and began to cry, “I want to go home. I want Amma.” Mouchak ran up and down and said, “Woof! Woof,” which meant, “Don't worry,” but Samira didn't understand and kept crying.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Then Mouchak pulled at her dress saying, “Bow bow,” (which meant “Come, come,”) till at last she looked up and dabbed her eyes. Off they both went then, Samira sniffing a little and dropping half her flowers.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "She ran behind Mouchak, turning left and turning right, up one street and down another, and soon they were home. Amma was standing at the gate, looking up and down anxiously. “Where have you been?” she asked, looking at Samira's tear-stained face.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "And Samira told Amma how she had got lost and how Mouchak had brought her home. “Good dog,” said Amma, and gave him a nice big biscuit as Mouchak buried his bone in the garden.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 13,
-        "text": "Just then, Samira remembered that she was clutching a bunch of flowers in her hand. “Oh, Amma, these are for you,” she held out the chandni flowers. One simal blossom was sticking out of her pocket too. “These are lovely!” said Amma. “Thank you so much. But where is the sooji?” Amma is going to make kheer now as there is no sooji for the halwa. Samira loves kheer too. And isn't Mouchak lucky? He'll have a huge bowl of kheer in the evening with his juicy bone.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0096/13.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0097",
-    "title": "Sniffles, the Crocodile and Punch, the Butterfly",
-    "author": "Herminder Ohri (Pratham Books / CC BY 4.0)",
-    "description": "In the swamp on the far side of the Far Forest, lived Sniffles, the Crocodile. Sniffles was always crying big crocodile tears or going sniff...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-09T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "In the swamp on the far side of the Far Forest, lived Sniffles, the Crocodile. Sniffles was always crying big crocodile tears or going sniff... sniff... Even his mom was quite tired of him and would say, “Stop snivelling and crying, start behaving like a crocodile. Go hunt for your food.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "But Sniffles would burst into tears at the thought of eating another animal. So mom and dad had to feed Sniffles every day.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Sniffles did not want to be a crocodile. 'I am so ugly,' he thought, bursting into tears. He did not even want to live like crocodiles do. His best friend was Punch, a golden yellow butterfly. And Punch wanted to be big and strong. So Punch always had her feeler curled into a fist saying, “Look out! I will punch you in the mouth.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "They made a very funny pair. Sniffles swimming with Punch perched on his head. The other crocodiles would laugh and make fun of them. That did not bother Sniffles. He continued crying, sniffling and being friends with Punch.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "One sunny afternoon, Punch settled herself near Sniffles' ear and told him, “I have seen two men come this way with guns, they want to kill crocodiles for their skins.” “Don't these men have skins of their own?” asked a puzzled Sniffles. “I don't know Sniffles,” replied Punch. “Tell the other crocodiles and hide.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“But Punch, they might shoot you. Oh! What will I do,” cried Sniffles sobbing loudly. “People catch butterflies with nets and pin them on a board, my grandaunt told me,” said Punch and flew away.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "The other crocodiles heard Sniffles crying and shouting, “Men coming to kill us. Hide ... Hurry ... Hide.” At first the crocodiles did not believe Sniffles, but then they heard the men's footsteps. The crocodiles went deep into the river and left some rotten logs floating on the water. The men shot at the logs which looked like crocodiles from afar. The men could not see any crocodiles, only hundreds of butterflies that flew into their faces and hair.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Shaking their heads and trying to brush off the butterflies they said, “There are no crocodiles here, we will bring nets and catch the butterflies.” And off they went. All the crocodiles got together and said, “Thank you, Punch.” “Thank you, butterflies.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The next day Sniffles saw men with nets. He remembered Punch telling him about nets. “Punch, the nets! Come here quick! The men with the nets have come.” All the crocodiles came on the river bank. The butterflies settled on the backs and heads of the crocodiles.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "A few of the crocodiles made a circle around the men as they came close. The crocodiles snapped their jaws. Sniffles was in front, gnashing his teeth and whipping his tail around most menacingly.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "The men were so frightened that they took to their heels and ran right out of the swamp. The other crocodiles were very proud of Sniffles, as he had acted like a real crocodile. Now Sniffles was also proud to be one.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "All the butterflies flew around the crocodiles, fluttering their wings. “Thank you, Sniffles, Thank you, crocodiles.” “It is all right,” said Sniffles shyly. “That is what friends are for, to take care of each other.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0097/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0098",
-    "title": "The Hare & the Tortoise (Again!)",
-    "author": "Venkatramana Gowda • Illus. Padmanabh (Pratham Books / CC BY 4.0)",
-    "description": "Do you remember the Great Race between the hare and the tortoise? For a long time, no one in the entire animal kingdom could talk about anyt...",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-10T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Do you remember the Great Race between the hare and the tortoise? For a long time, no one in the entire animal kingdom could talk about anything but the Great Race and its two contestants.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "We all know that the rabbit was defeated because he was lazy and overconfident. We know that the tortoise won the race because he was slow and steady. The forest animals knew this too, and continued to respect both creatures equally.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Even the two competitors remained friends. The tortoise did not assume airs because he had won, and the hare, realizing he had been defeated fair and square, bore the tortoise no grudge.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Many months passed. The king of the jungle where the hare and the tortoise lived had some important matters to discuss with the king of the neighbouring jungle. But the first king could not leave his jungle just then. He decided, instead, to send the hare and the tortoise to the neighbouring king, as his representatives.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "“At least one of you must go to the neighbouring kingdom,” ordered the king, when the hare and the tortoise had presented themselves.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“I want you to discuss certain important matters with the king there, and come back to me with his thoughts on those matters.” “Now go!” he said, as he dismissed them. “And mind, you only have a day to complete the task.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "The road to the neighbouring kingdom was not smooth or easy. It was rocky and full of thorns. There were also two rivers to cross on the way.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "After some thought, both the hare and the tortoise realized that neither of them could complete the task alone. They had to travel together. The plan was for the hare to carry the tortoise over the thorny parts of the route, and for the tortoise to carry the hare across the two rivers.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "The next day, they collected the various messages from their king and were ready to go. The hare made short work of the thorny parts of the route with his giant loping strides, while the tortoise held on for dear life.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "When they came to a river, they switched places, and the hare clambered on to the tortoise's back. The tortoise swam across the river swiftly and gracefully. Once both the rivers had been crossed, it did not take them long to arrive at the neighbouring kingdom.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "After extensive discussions with the neighbouring king on all the matters raised by their own king, the hare and the tortoise were ready to leave.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 12,
-        "text": "The return journey was even smoother than the onward journey, since both the hare and the tortoise now knew exactly what to do. The two old rivals had worked together so well that they reached their king a few hours before the deadline!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/12.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 13,
-        "text": "Use your imagination and colour this picture anyway YOU like.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/13.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1F2937"
-      },
-      {
-        "pageNumber": 14,
-        "text": "Use your imagination and colour this picture anyway YOU like.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0098/14.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0100",
-    "title": "I Can Climb!",
-    "author": "Mini Shrinivasan • Illus. Deval Maniar (Pratham Books / CC BY 4.0)",
-    "description": "I am a big boy now.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-11T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "I am a big boy now.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "I can climb up the steps.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "But I cannot climb down again.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "I can climb on a chair.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "But I cannot climb down again.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "I climb on to the chair, and then on the table!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "But I cannot climb down again.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "“Papa! Papa!” I shout. Papa laughs. “Sonu, learn to climb down!” he says.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "I am afraid. But I do not cry.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Slowly, I get down from the table, and down from the chair.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "At last, I have learnt to climb down too!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0100/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0101",
-    "title": "Flying High",
-    "author": "Vidya Tiware • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
-    "description": "Mother's song was soft and sweet. Chandu was listening to it. Chandu fell asleep. In his dream, he was flying.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-12T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Mother's song was soft and sweet. Chandu was listening to it. Chandu fell asleep. In his dream, he was flying.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Flying, flying into a garden. Look! A butterfly, so pretty. The butterfly said, “Well, hello! How are you?” “Fine, thank you,” Chandu replied.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "Chandu flew a bit higher. Flying, flying. He flew into a sparrow. “Hi there! How do you do?” she asked. “Very well, thank you,” Chandu said.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Then Chandu soared still higher. Flying, still flying, he met an eagle. “Hello friend! How are you?” the eagle asked. “I feel good,” replied Chandu.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Chandu was flying higher and higher. It seemed so easy. Flying, flying. So high that he came up to an aeroplane. “Hey, Chandu, how do you do?” the aeroplane asked. “Fine. And safe journey!” Chandu quickly replied.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Soon Chandu climbed higher than before. Flying and still flying. A rocket came to meet him. “Hello sir, how do you do?” the rocket shouted. “Very well,” Chandu smiled.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Still, Chandu was flying higher and higher. Now the stars were twinkling all around. They were smiling at Chandu, as though he were a part of them. “How are you feeling Chandu?” one star asked him. “I am feeling great!” he said. Suddenly, the stars began to wobble. And shake.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "It was Mother, shaking Chandu awake. “Good morning, how are you?” He hugged her hard and said, “Oh, now I feel better than ever before!”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0101/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0102",
-    "title": "Rumniya",
-    "author": "Rukmini Banerji • Illus. Henu (Pratham Books / CC BY 4.0)",
-    "description": "Many years ago when Rumniya was a baby, Nana, Nani and Rumniya went to a wedding.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-13T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Many years ago when Rumniya was a baby, Nana, Nani and Rumniya went to a wedding.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "There were hundreds of people at the party, most of whom were near the food. After some time, Nani lost Rumniya.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "When things get lost, Nani does not worry; she feels that everything will turn up, and turn out right very soon. So Nani did not feel worried.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "On the other hand, Rumniya was only one and a half years old, so she was quite worried and not as hopeful.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "But rather than doing any silly baby-like things like crying, Rumniya thought of doing something else.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "In that vast crowd, it was impossible for a small girl to search for people's faces.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "In fact, it was much easier to search for the right person by looking at people's feet, their shoes and sandals.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "So that is what Rumniya did. She started from one end of the room.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "She lifted up the sari of each and every woman. Then she came to a sari that was familiar, and slippers that she knew. Sure enough, when Rumniya matched the face with the sari and slippers, it was Nani!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "And as Nani bent down to pick Rumniya up, Nani said to her friend, “See, I told you. There was nothing to worry about. Whenever you lose something, you will always find it.”",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0102/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0103",
-    "title": "I Can Make Things!",
-    "author": "Mini Shrinivasan • Illus. Tanvee Nabar (Pratham Books / CC BY 4.0)",
-    "description": "I am a big boy now. I can draw and I can make things.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-14T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "I am a big boy now. I can draw and I can make things.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "I draw my mother, she sits still.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "I draw my sister, she does not sit still.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "I draw many things.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "But I am told not to draw on the wall.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "I can make things.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "I make a drawing of a cat, she is fat.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "I make a fish. It is small.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "I make paper boats, birds and planes.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "I make houses and trains.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "My sister makes a mess! I can make many things. But my sister cannot!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0103/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0104",
-    "title": "I lost my bat! I found my bat!",
-    "author": "Meera Tendolkar • Illus. Rijuta Ghate (Pratham Books / CC BY 4.0)",
-    "description": "I can't find my bat, it's lost!",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/01.jpg",
-    "ageRating": "TODDLER",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 20,
-    "isApproved": true,
-    "createdAt": "2026-01-15T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "I can't find my bat, it's lost!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "It's not behind the door.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "It's not on the shelf.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "It's not under the bed either.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "It's not in the box.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "It's not in the loft.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "I can't find it anywhere!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0104/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      }
-    ]
-  },
-  {
-    "id": "pb-en-0105",
-    "title": "Mouse in the House",
-    "author": "Sowmya Rajendran • Illus. Tanaya Vyas (Pratham Books / CC BY 4.0)",
-    "description": "There was a mouse in the house. Grandma saw it first. \"Mouse!\" she screamed, jumping up the sofa. The cushions fell on the floor.",
-    "coverUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-16T08:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "There was a mouse in the house. Grandma saw it first. \"Mouse!\" she screamed, jumping up the sofa. The cushions fell on the floor.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/01.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E293B"
-      },
-      {
-        "pageNumber": 2,
-        "text": "“Where?” asked Pa, climbing up the window. He pulled the curtains down. “There!” shouted Ma, leaping up the table. The plates fell with a crash.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/02.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "“Catch him!” said Mithun to the cat. The cat looked at the mouse and fled under the bed! “Mouse!” screamed Mithun, running behind the cat.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/03.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 4,
-        "text": "“I will chase it out!” said Ma bravely. She took out the broom and poked here and there. “Mouse!” shouted Pa. “Behind you!” Ma looked at the mouse, and fled under the bed!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/04.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 5,
-        "text": "\"I know what to do!\" shouted Grandma jumping down from the sofa. She rolled up a newspaper and poked here and there.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/05.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 6,
-        "text": "“Mouse!” yelled Pa, climbing the window even higher. “To your left!” Grandma looked at the mouse, and fled under the bed.",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/06.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 7,
-        "text": "“Oh no!” said Pa softly. He couldn't go any higher. He climbed down carefully, and fled under the bed before the mouse could see him!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/07.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 8,
-        "text": "\"Mouse in the House!\" shouted everyone together. That woke Baby up. She sat up on her mat, rubbing her eyes sleepily. What was that on her pillow?",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/08.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 9,
-        "text": "It had two eyes, four feet, and a long tail. \"Mouse!\" said Baby, clapping happily. Baby looked at the mouse, and the mouse fled, with Baby right behind him!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/09.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 10,
-        "text": "Leaping up the sofa, climbing the window, jumping up the table, tumbling over the cushions...",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/10.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 11,
-        "text": "... running in between the curtains, scurrying over the plates, and out of the door!",
-        "imageUrl": "https://raw.githubusercontent.com/global-asp/pb-imagebank/master/medium/0105/11.jpg",
-        "illustrationEmoji": "📖✨",
-        "bgColor": "#7C2D12"
-      }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "learning",
+      "magic",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -9627,6 +8755,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -9698,6 +8835,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "chicken",
+      "cow",
+      "culture",
+      "dog",
+      "early-reader",
+      "english",
+      "folklore",
+      "goat",
+      "horse",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -9769,6 +8921,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -9840,6 +9002,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "adventure",
+      "african-stories",
+      "animals",
+      "cow",
+      "culture",
+      "dog",
+      "english",
+      "folklore",
+      "friendship",
+      "goat",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -9925,6 +9101,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "folklore",
+      "food",
+      "friendship",
+      "insects",
+      "nature",
+      "read-along",
+      "turtle",
+      "young-kids"
     ]
   },
   {
@@ -9982,6 +9172,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "friendship",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -10025,6 +9226,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -10096,6 +9306,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -10167,6 +9386,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "cat",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -10245,6 +9475,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "crocodile",
+      "culture",
+      "elephant",
+      "english",
+      "family",
+      "fish",
+      "folklore",
+      "food",
+      "lion",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10316,6 +9562,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -10380,6 +9637,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "food",
+      "friendship",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -10521,6 +9790,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10592,6 +9870,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10691,6 +9979,26 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "courage",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "friendship",
+      "funny",
+      "horse",
+      "humor",
+      "learning",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10783,6 +10091,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "dog",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "kindness",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10889,6 +10210,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "learning",
+      "music",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -10988,6 +10321,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "bedtime",
+      "culture",
+      "english",
+      "folklore",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11101,6 +10444,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11158,6 +10513,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "kindness",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -11236,6 +10601,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "folklore",
+      "kindness",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11321,6 +10696,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -11392,6 +10778,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "culture",
+      "english",
+      "folklore",
+      "food",
+      "friendship",
+      "lion",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11477,6 +10876,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "folklore",
+      "friendship",
+      "rabbit",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11520,6 +10930,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "goat",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -11598,6 +11019,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11725,6 +11156,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "food",
+      "learning",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -11810,6 +11253,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "folklore",
+      "friendship",
+      "rabbit",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11874,6 +11328,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#312E81"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "butterfly",
+      "crocodile",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -11924,6 +11396,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "funny",
+      "humor",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -12009,6 +11494,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "goat",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12101,6 +11600,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -12179,6 +11687,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#581C87"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "folklore",
+      "food",
+      "insects",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12320,6 +11840,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12412,6 +11945,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -12511,6 +12054,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "bird",
+      "cat",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "kindness",
+      "learning",
+      "magic",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12624,6 +12185,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#1E293B"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "folklore",
+      "lion",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12709,6 +12283,14 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "folklore",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -12794,6 +12376,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "folklore",
+      "friendship",
+      "funny",
+      "humor",
+      "nature",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -12879,6 +12476,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#701A75"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bedtime",
+      "bird",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "nature",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -12950,6 +12562,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "folklore",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -13021,6 +12644,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "folklore",
+      "food",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13092,6 +12724,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "bedtime",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "folklore",
+      "food",
+      "friendship",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -13191,6 +12836,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "learning",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -13262,6 +12919,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bird",
+      "culture",
+      "english",
+      "folklore",
+      "funny",
+      "humor",
+      "kindness",
+      "music",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13361,6 +13033,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "culture",
+      "dog",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "monkey",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13432,6 +13118,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "english",
+      "family",
+      "folklore",
+      "friendship",
+      "learning",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13559,6 +13256,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "chicken",
+      "culture",
+      "dog",
+      "english",
+      "folklore",
+      "horse",
+      "nature",
+      "rabbit",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13616,6 +13327,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "friendship",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -13687,6 +13408,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🌍📚",
         "bgColor": "#4C1D95"
       }
+    ],
+    "tags": [
+      "african-stories",
+      "animals",
+      "bird",
+      "cow",
+      "crocodile",
+      "culture",
+      "early-reader",
+      "english",
+      "folklore",
+      "food",
+      "lion",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -13772,6 +13508,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "creative",
+      "dog",
+      "english",
+      "family",
+      "friendship",
+      "horse",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13871,6 +13621,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "funny",
+      "humor",
+      "learning",
+      "magic",
+      "music",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -13963,6 +13728,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "dog",
+      "early-reader",
+      "english",
+      "fish",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14062,6 +13838,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "creative",
+      "english",
+      "family",
+      "food",
+      "kindness",
+      "learning",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -14161,6 +13949,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "chicken",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -14253,6 +14054,15 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#78350F"
       }
+    ],
+    "tags": [
+      "animals",
+      "creative",
+      "early-reader",
+      "english",
+      "family",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14338,6 +14148,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#7C2D12"
       }
+    ],
+    "tags": [
+      "animals",
+      "cat",
+      "creative",
+      "early-reader",
+      "english",
+      "friendship",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14437,6 +14257,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -14536,6 +14368,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "elephant",
+      "english",
+      "family",
+      "fish",
+      "food",
+      "goat",
+      "monkey",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -14549,7 +14397,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-10T10:00:00.000Z",
+    "createdAt": "2026-01-11T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -14635,6 +14483,13 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "creative",
+      "early-reader",
+      "english",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14648,7 +14503,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-11T10:00:00.000Z",
+    "createdAt": "2026-01-12T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -14734,6 +14589,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "creative",
+      "early-reader",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "kindness",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14747,7 +14614,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-12T10:00:00.000Z",
+    "createdAt": "2026-01-13T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -14833,6 +14700,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "creative",
+      "early-reader",
+      "english",
+      "funny",
+      "humor",
+      "nature",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -14846,7 +14723,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-13T10:00:00.000Z",
+    "createdAt": "2026-01-14T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -14932,6 +14809,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "cow",
+      "creative",
+      "english",
+      "family",
+      "horse",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -14945,7 +14834,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-14T10:00:00.000Z",
+    "createdAt": "2026-01-15T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15031,6 +14920,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "butterfly",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "insects",
+      "learning",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15044,7 +14946,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-15T10:00:00.000Z",
+    "createdAt": "2026-01-16T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15130,6 +15032,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "creative",
+      "english",
+      "family",
+      "food",
+      "insects",
+      "learning",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15143,7 +15058,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-16T10:00:00.000Z",
+    "createdAt": "2026-01-18T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15229,6 +15144,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "creative",
+      "english",
+      "family",
+      "fish",
+      "goat",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15242,7 +15169,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-17T10:00:00.000Z",
+    "createdAt": "2026-01-19T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15328,6 +15255,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "learning",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15341,7 +15280,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-18T10:00:00.000Z",
+    "createdAt": "2026-01-20T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15427,6 +15366,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bedtime",
+      "creative",
+      "crocodile",
+      "elephant",
+      "english",
+      "family",
+      "fish",
+      "kindness",
+      "learning",
+      "lion",
+      "picture-book",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -15440,7 +15397,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-19T10:00:00.000Z",
+    "createdAt": "2026-01-21T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15526,6 +15483,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "cat",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "magic",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15539,7 +15513,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-20T10:00:00.000Z",
+    "createdAt": "2026-01-23T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15625,6 +15599,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "learning",
+      "music",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15638,7 +15625,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-21T10:00:00.000Z",
+    "createdAt": "2026-01-24T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15724,6 +15711,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "cat",
+      "creative",
+      "early-reader",
+      "english",
+      "kindness",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -15737,7 +15734,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-22T10:00:00.000Z",
+    "createdAt": "2026-01-25T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15823,6 +15820,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "creative",
+      "dog",
+      "early-reader",
+      "english",
+      "family",
+      "music",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -15836,7 +15844,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-23T10:00:00.000Z",
+    "createdAt": "2026-01-26T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -15922,6 +15930,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "adventure",
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "music",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -15935,7 +15955,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-24T10:00:00.000Z",
+    "createdAt": "2026-01-28T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16021,6 +16041,16 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "magic",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16034,7 +16064,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-25T10:00:00.000Z",
+    "createdAt": "2026-01-01T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16120,6 +16150,22 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "dog",
+      "english",
+      "family",
+      "funny",
+      "humor",
+      "learning",
+      "music",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16133,7 +16179,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-26T10:00:00.000Z",
+    "createdAt": "2026-01-02T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16219,6 +16265,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "kindness",
+      "learning",
+      "magic",
+      "music",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16232,7 +16292,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-27T10:00:00.000Z",
+    "createdAt": "2026-01-03T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16318,6 +16378,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "courage",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "music",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16331,7 +16402,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-28T10:00:00.000Z",
+    "createdAt": "2026-01-04T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16417,6 +16488,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "creative",
+      "dog",
+      "english",
+      "family",
+      "friendship",
+      "funny",
+      "humor",
+      "kindness",
+      "learning",
+      "magic",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16430,7 +16518,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-01T10:00:00.000Z",
+    "createdAt": "2026-01-05T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16516,6 +16604,18 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "english",
+      "food",
+      "insects",
+      "picture-book",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -16529,7 +16629,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-02T10:00:00.000Z",
+    "createdAt": "2026-01-06T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16615,6 +16715,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "bird",
+      "creative",
+      "english",
+      "family",
+      "fish",
+      "magic",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16628,7 +16742,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-03T10:00:00.000Z",
+    "createdAt": "2026-01-09T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16714,6 +16828,19 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "kindness",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16727,7 +16854,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-04T10:00:00.000Z",
+    "createdAt": "2026-01-10T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16813,6 +16940,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bedtime",
+      "courage",
+      "creative",
+      "english",
+      "family",
+      "food",
+      "friendship",
+      "funny",
+      "horse",
+      "humor",
+      "learning",
+      "music",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -16826,7 +16972,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-05T10:00:00.000Z",
+    "createdAt": "2026-01-11T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -16912,6 +17058,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "animals",
+      "bird",
+      "creative",
+      "english",
+      "kindness",
+      "picture-book",
+      "read-along",
+      "turtle",
+      "young-kids"
     ]
   },
   {
@@ -16925,7 +17082,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-06T10:00:00.000Z",
+    "createdAt": "2026-01-12T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -17011,6 +17168,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "chicken",
+      "courage",
+      "creative",
+      "english",
+      "family",
+      "friendship",
+      "funny",
+      "humor",
+      "music",
+      "nature",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17024,7 +17198,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 30,
     "isApproved": true,
-    "createdAt": "2026-01-07T10:00:00.000Z",
+    "createdAt": "2026-01-13T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -17110,6 +17284,17 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1F2937"
       }
+    ],
+    "tags": [
+      "bedtime",
+      "creative",
+      "english",
+      "family",
+      "food",
+      "learning",
+      "picture-book",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17123,7 +17308,7 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
     "category": "Stories & Reading",
     "rewardFamibux": 20,
     "isApproved": true,
-    "createdAt": "2026-01-08T10:00:00.000Z",
+    "createdAt": "2026-01-17T10:00:00.000Z",
     "pages": [
       {
         "pageNumber": 1,
@@ -17216,197 +17401,13 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🎨📖",
         "bgColor": "#1E293B"
       }
-    ]
-  },
-  {
-    "id": "bd-en-why-is-nita-upside-down",
-    "title": "Why Is Nita Upside Down?",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "Nita’s hanging upside down, her long hair tickling at the ground. The trees, the grass, the everything is all the wrong way round.",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-09T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "Nita’s hanging upside down, her long hair tickling at the ground. The trees, the grass, the everything is all the wrong way round.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "Her feet, they poke into the sky. Little Navi’s walking by. He says ‘I’ve seen you here before. You’re upside down again! What for?’",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "His feet swim lightly in the air. She tries to hide behind her hair. ‘It’s h-h-h-hard to t-t-talk’, she says to him. ‘I’m not the same. I don’t fit in.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "Navi takes her by the hand. He wants to help her understand. They climb to Navi’s look-out spot. From up here they can see a lot. They perch and have a quiet stare at children playing here and there.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "Those kids are not the same at all. Abe’s round. Chi's freckled.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "Lala’s extra tall.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "Bambam’s wild and must be free, while Lulu's reading quietly.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "Look at Freya's crazy hair.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "And Sid wears glasses everywhere.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "And me, I am just skin and bone. And you are you. You’re not alone. Each human’s sort of strange, you see. That makes you just the same, like me. This world is really one big game. To play, we can’t all be the same.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Nita feels the right way round, thanks to the new friend she's found. Upside down was never fun. Now she plays with everyone.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/why-is-nita-upside-down/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      }
-    ]
-  },
-  {
-    "id": "bd-en-zanele-situ-my-story",
-    "title": "Zanele Situ: My story",
-    "author": "Book Dash Authors & Illustrators (Book Dash / CC BY 4.0)",
-    "description": "I was born in summer, in a town called Matatiele in the Eastern Cape. Matatiele is near Lesotho where there are many mountains. In the winte...",
-    "coverUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/01.jpg",
-    "ageRating": "YOUNG_KIDS",
-    "language": "en",
-    "category": "Stories & Reading",
-    "rewardFamibux": 30,
-    "isApproved": true,
-    "createdAt": "2026-01-10T10:00:00.000Z",
-    "pages": [
-      {
-        "pageNumber": 1,
-        "text": "I was born in summer, in a town called Matatiele in the Eastern Cape. Matatiele is near Lesotho where there are many mountains. In the winter they are covered with snow.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/01.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0F172A"
-      },
-      {
-        "pageNumber": 2,
-        "text": "My father was a builder and he moved from place to place to find work. We moved to Lesotho and that's where I started school. I was very happy. But when I was eleven years old, I grew tired and weak, and then I couldn't walk. My parents took me to the hospital.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/02.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1E3A8A"
-      },
-      {
-        "pageNumber": 3,
-        "text": "I had to stay in hospital for three years. I was very tired and I slept many hours every day. After three years the doctors told me I would not be able to walk again. I was very sad because I love sports.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/03.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#0C4A6E"
-      },
-      {
-        "pageNumber": 4,
-        "text": "I went to a special school in Umtata, and my teachers encouraged me. It was a very busy school, with lots of activities like sport and sewing. On weekends we had tasks to do. We had to clean our rooms, polish our shoes and clean our wheelchairs.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/04.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#064E3B"
-      },
-      {
-        "pageNumber": 5,
-        "text": "I decided to keep trying, and never give up. If you have a disability, you can still do something you love. I love to see how far I can go, so I entered a competition. I won a bronze medal for shot putt, a silver medal for discus and a gold medal for javelin.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/05.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#14532D"
-      },
-      {
-        "pageNumber": 6,
-        "text": "I wanted to get better and better at my sports, so I trained very hard. When I rested, I loved to sew and listen to gospel music.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/06.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#312E81"
-      },
-      {
-        "pageNumber": 7,
-        "text": "I entered more competitions and I got many medals and prizes. I started to dream about maybe competing in the Paralympics one day.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/07.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#4C1D95"
-      },
-      {
-        "pageNumber": 8,
-        "text": "The Paralympics are just like the Olympics, where the best athletes in the world compete for gold, silver and bronze medals. But in the Paralympics, the athletes are disabled in different ways, so they have to try even harder to train and win!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/08.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#581C87"
-      },
-      {
-        "pageNumber": 9,
-        "text": "Then I heard that I was going to Sydney in Australia, to take part in the 2000 Paralympics. At last we were in the plane, flying over the Indian Ocean!",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/09.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#701A75"
-      },
-      {
-        "pageNumber": 10,
-        "text": "But when I got there, I suddenly felt very scared of all the people watching me. I just wanted to go home again.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/10.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#7C2D12"
-      },
-      {
-        "pageNumber": 11,
-        "text": "Then, when I threw my javelin it landed far in front of everyone's. I broke the world record and I got a gold medal! I was the first African woman to win a gold medal in the Paralympics. I was so happy and very proud.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/11.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#78350F"
-      },
-      {
-        "pageNumber": 12,
-        "text": "My motto is: Keep going, follow your dreams and never give up. Even if something happens to make you sad or scared. That is what I teach my little girl, Azamazi. She is eight years old and she also loves to do athletics and gymnastics. I am still training and going to competitions, and in 2016 I hope to go to the Paralympics in Rio de Janeiro.",
-        "imageUrl": "https://raw.githubusercontent.com/bookdash/bookdash-books/gh-pages/zanele-situ-my-story/en/images/12.jpg",
-        "illustrationEmoji": "🎨📖",
-        "bgColor": "#1F2937"
-      }
+    ],
+    "tags": [
+      "creative",
+      "early-reader",
+      "english",
+      "picture-book",
+      "toddler"
     ]
   },
   {
@@ -17457,6 +17458,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "bali",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "food",
+      "heritage",
+      "indonesia",
+      "jawa",
+      "legend",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17514,6 +17530,26 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bedtime",
+      "cerita-rakyat",
+      "chicken",
+      "culture",
+      "family",
+      "folklore",
+      "friendship",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "jawa",
+      "kindness",
+      "legend",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17550,6 +17586,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "deer",
+      "dog",
+      "folklore",
+      "goat",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "jawa",
+      "legend",
+      "mouse-deer",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17600,6 +17655,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "betawi",
+      "cerita-rakyat",
+      "courage",
+      "culture",
+      "family",
+      "folklore",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "jawa",
+      "kindness",
+      "learning",
+      "legend",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -17657,6 +17731,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "fish",
+      "folklore",
+      "food",
+      "heritage",
+      "indonesia",
+      "kindness",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17707,6 +17799,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "fish",
+      "folklore",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "riau",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17757,6 +17867,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "food",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17814,6 +17941,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17871,6 +18012,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "aceh",
+      "adventure",
+      "animals",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "jawa",
+      "legend",
+      "monkey",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17928,6 +18088,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "bahasa-indonesia",
+      "bali",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -17971,6 +18148,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "adventure",
+      "bahasa-indonesia",
+      "bali",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "food",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -18028,6 +18223,20 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -18085,6 +18294,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "kindness",
+      "legend",
+      "nature",
+      "read-along",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -18142,6 +18368,27 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bedtime",
+      "cerita-rakyat",
+      "crocodile",
+      "culture",
+      "family",
+      "fish",
+      "folklore",
+      "food",
+      "heritage",
+      "indonesia",
+      "lampung",
+      "legend",
+      "nature",
+      "read-along",
+      "snake",
+      "sumatera",
+      "young-kids"
     ]
   },
   {
@@ -18199,6 +18446,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "jawa",
+      "kalimantan",
+      "legend",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18256,6 +18518,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "food",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "jawa",
+      "kalimantan",
+      "legend",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18313,6 +18592,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "deer",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "kalimantan",
+      "legend",
+      "mouse-deer",
+      "nature",
+      "read-along",
+      "snake",
+      "young-kids"
     ]
   },
   {
@@ -18370,6 +18667,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "fish",
+      "folklore",
+      "friendship",
+      "funny",
+      "heritage",
+      "humor",
+      "indonesia",
+      "legend",
+      "read-along",
+      "sulawesi",
+      "young-kids"
     ]
   },
   {
@@ -18427,6 +18741,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "food",
+      "friendship",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "jawa",
+      "kindness",
+      "legend",
+      "read-along",
+      "sulawesi",
+      "young-kids"
     ]
   },
   {
@@ -18470,6 +18803,24 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "fish",
+      "folklore",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "kindness",
+      "legend",
+      "nature",
+      "read-along",
+      "sulawesi",
+      "young-kids"
     ]
   },
   {
@@ -18527,6 +18878,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "friendship",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "legend",
+      "magic",
+      "nature",
+      "read-along",
+      "sulawesi",
+      "young-kids"
     ]
   },
   {
@@ -18563,6 +18933,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "culture",
+      "folklore",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "kindness",
+      "legend",
+      "nature",
+      "read-along",
+      "sulawesi",
+      "young-kids"
     ]
   },
   {
@@ -18620,6 +19007,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bahasa-indonesia",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "legend",
+      "nature",
+      "read-along",
+      "sulawesi",
+      "sumatera",
+      "tiger",
+      "young-kids"
     ]
   },
   {
@@ -18677,6 +19083,27 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "deer",
+      "folklore",
+      "friendship",
+      "funny",
+      "heritage",
+      "hewan",
+      "humor",
+      "indonesia",
+      "jawa",
+      "legend",
+      "maluku",
+      "mouse-deer",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18720,6 +19147,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#0C4A6E"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "bali",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "friendship",
+      "heritage",
+      "indonesia",
+      "legend",
+      "maluku",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18756,6 +19200,21 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#1E3A8A"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "kindness",
+      "learning",
+      "legend",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18813,6 +19272,26 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "adventure",
+      "animals",
+      "bahasa-indonesia",
+      "bedtime",
+      "bird",
+      "cerita-rakyat",
+      "courage",
+      "culture",
+      "family",
+      "folklore",
+      "heritage",
+      "hewan",
+      "indonesia",
+      "jawa",
+      "legend",
+      "nature",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18870,6 +19349,25 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#14532D"
       }
+    ],
+    "tags": [
+      "animals",
+      "bahasa-indonesia",
+      "bali",
+      "cerita-rakyat",
+      "crocodile",
+      "culture",
+      "folklore",
+      "heritage",
+      "indonesia",
+      "jawa",
+      "kindness",
+      "legend",
+      "magic",
+      "nature",
+      "papua",
+      "read-along",
+      "young-kids"
     ]
   },
   {
@@ -18920,6 +19418,23 @@ export const STORY_CATALOG_AUTHENTIC: StoryBook[] = [
         "illustrationEmoji": "🇮🇩📜",
         "bgColor": "#064E3B"
       }
+    ],
+    "tags": [
+      "bahasa-indonesia",
+      "bedtime",
+      "cerita-rakyat",
+      "culture",
+      "family",
+      "folklore",
+      "food",
+      "heritage",
+      "indonesia",
+      "kindness",
+      "legend",
+      "nature",
+      "papua",
+      "read-along",
+      "young-kids"
     ]
   }
 ];

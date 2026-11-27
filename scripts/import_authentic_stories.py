@@ -407,6 +407,94 @@ def import_indonesian_folklore():
             
     return batch_verify_books(candidates)
 
+def generate_story_tags(book):
+    title = (book.get('title') or '').lower()
+    desc = (book.get('description') or '').lower()
+    author = (book.get('author') or '').lower()
+    category = (book.get('category') or '').lower()
+    lang = book.get('language') or 'en'
+    age = book.get('ageRating') or 'TODDLER'
+    
+    pages_text = ' '.join((p.get('text') or '').lower() for p in book.get('pages', [])[:8])
+    full_corpus = f"{title} {desc} {pages_text} {author}"
+    
+    tags = set()
+    if age == 'TODDLER':
+        tags.update(['toddler', 'early-reader', 'picture-book'])
+    else:
+        tags.update(['young-kids', 'read-along'])
+        
+    if lang == 'id':
+        tags.add('bahasa-indonesia')
+    else:
+        tags.add('english')
+        
+    if 'cerita rakyat' in author or 'kemdikbud' in author or 'nusantara' in full_corpus or 'cr-id-' in book.get('id', ''):
+        tags.update(['folklore', 'cerita-rakyat', 'indonesia', 'legend', 'culture', 'heritage'])
+        for reg in ['jawa', 'sunda', 'sumatera', 'bali', 'kalimantan', 'sulawesi', 'papua', 'maluku', 'ntb', 'ntt', 'aceh', 'lampung', 'riau', 'madura', 'betawi']:
+            if reg in full_corpus:
+                tags.add(reg)
+    elif 'african storybook' in author or 'asp-en' in book.get('id', ''):
+        tags.update(['folklore', 'culture', 'african-stories'])
+    elif 'pratham' in author or 'pb-en' in book.get('id', ''):
+        tags.update(['learning', 'culture'])
+    elif 'book dash' in author or 'bd-en' in book.get('id', ''):
+        tags.update(['picture-book', 'creative'])
+        
+    animal_patterns = [
+        (r'\b(animal|animals|beast|creature|zoo|safari|wildlife)\b', ['animals']),
+        (r'\b(hewan|binatang|satwa)\b', ['animals', 'hewan']),
+        (r'\b(rabbit|bunny|hare|kelinci)\b', ['animals', 'rabbit']),
+        (r'\b(elephant|elephants|gajah)\b', ['animals', 'elephant']),
+        (r'\b(lion|lions|singa)\b', ['animals', 'lion']),
+        (r'\b(tiger|tigers|harimau|macan)\b', ['animals', 'tiger']),
+        (r'\b(monkey|monkeys|baboon|ape|chimpanzee|monyet|kera|lutung)\b', ['animals', 'monkey']),
+        (r'\b(bear|bears|beruang)\b', ['animals', 'bear']),
+        (r'\b(dog|dogs|puppy|puppies|anjing)\b', ['animals', 'dog']),
+        (r'\b(cat|cats|kitten|kittens|kucing)\b', ['animals', 'cat']),
+        (r'\b(bird|birds|owl|eagle|sparrow|crow|burung|elang)\b', ['animals', 'bird']),
+        (r'\b(fish|fishes|ikan)\b', ['animals', 'fish']),
+        (r'\b(frog|frogs|toad|katak|kodok)\b', ['animals', 'frog']),
+        (r'\b(turtle|tortoise|penyu|kura-kura)\b', ['animals', 'turtle']),
+        (r'\b(crocodile|alligator|buaya)\b', ['animals', 'crocodile']),
+        (r'\b(deer|fawn|gazelle|rusa|kijang|kancil)\b', ['animals', 'deer', 'mouse-deer']),
+        (r'\b(cow|cattle|bull|ox|calf|sapi|lembu)\b', ['animals', 'cow']),
+        (r'\b(goat|sheep|lamb|kambing|domba)\b', ['animals', 'goat']),
+        (r'\b(horse|pony|donkey|kuda|keledai)\b', ['animals', 'horse']),
+        (r'\b(chicken|rooster|hen|chick|ayam|jago)\b', ['animals', 'chicken']),
+        (r'\b(duck|duckling|bebek|itik)\b', ['animals', 'duck']),
+        (r'\b(butterfly|caterpillar|kupu-kupu|ulat)\b', ['animals', 'butterfly']),
+        (r'\b(bee|bees|ant|ants|spider|insect|lebah|semut|laba-laba|serangga)\b', ['animals', 'insects']),
+        (r'\b(snake|serpent|ular)\b', ['animals', 'snake']),
+    ]
+    for pattern, matched_tags in animal_patterns:
+        if re.search(pattern, full_corpus):
+            tags.update(matched_tags)
+            
+    theme_patterns = [
+        (r'\b(bedtime|sleep|sleepy|dream|night|moon|lullaby|tidur|terlelap|mimpi|malam|bulan)\b', ['bedtime']),
+        (r'\b(nature|forest|tree|trees|flower|garden|rain|river|mountain|sun|sky|alam|hutan|pohon|bunga|taman|hujan|sungai|gunung|matahari|langit)\b', ['nature']),
+        (r'\b(friend|friends|friendship|together|share|sharing|play|teman|sahabat|persahabatan|bersama|berbagi|bermain)\b', ['friendship']),
+        (r'\b(family|mother|father|mom|dad|mama|papa|sister|brother|baby|grandma|grandpa|keluarga|ibu|ayah|bunda|kakak|adik|bayi|nenek|kakek)\b', ['family']),
+        (r'\b(adventure|journey|explore|quest|travel|petualangan|perjalanan|menjelajah)\b', ['adventure']),
+        (r'\b(kind|kindness|help|helping|care|caring|honest|baik|kebaikan|menolong|tolong|peduli|jujur)\b', ['kindness']),
+        (r'\b(brave|bravery|courage|hero|fearless|berani|keberanian|pahlawan)\b', ['courage']),
+        (r'\b(learn|learning|school|count|counting|number|numbers|alphabet|read|reading|belajar|sekolah|angka|huruf|membaca|berhitung)\b', ['learning']),
+        (r'\b(food|eat|eating|cook|cooking|kitchen|fruit|bread|makan|makanan|memasak|buah|roti|dapur)\b', ['food']),
+        (r'\b(music|sing|song|dance|dancing|drum|musik|nyanyi|lagu|tari|menari)\b', ['music']),
+        (r'\b(laugh|laughing|funny|silly|smile|smiling|lucu|konyol|tertawa|senyum)\b', ['humor', 'funny']),
+        (r'\b(magic|magical|wizard|fairy|witch|sihir|ajaib)\b', ['magic']),
+    ]
+    for pattern, matched_tags in theme_patterns:
+        if re.search(pattern, full_corpus):
+            tags.update(matched_tags)
+            
+    if len(tags) < 4:
+        tags.add('storytime')
+        tags.add('kids')
+        
+    return sorted(list(tags))
+
 def main():
     print("=== STARTING AUTHENTIC STORY IMPORT WITH PARALLEL SOURCE-IMAGE VERIFICATION ===")
     all_books = []
@@ -426,6 +514,10 @@ def main():
     # 4. Indonesian Regional Folklore with 100% verified source illustrations
     cr = import_indonesian_folklore()
     all_books.extend(cr)
+    
+    # Assign rich topical tags to each verified book
+    for b in all_books:
+        b['tags'] = generate_story_tags(b)
     
     # Note: Indonesian Fables using Unsplash stock photos are completely omitted
     
@@ -448,7 +540,7 @@ def main():
         json.dump(all_books, f, ensure_ascii=False, indent=2)
         f.write(";\n")
         
-    print(f"Saved authentic catalog with 100% verified source images to {catalog_ts}")
+    print(f"Saved authentic catalog with 100% verified source images and rich tags to {catalog_ts}")
 
 if __name__ == "__main__":
     main()

@@ -481,6 +481,7 @@ export interface StoryBook {
   language: StoryLanguage;
   category: string;
   pages: StoryPage[];
+  tags?: string[];
   rewardFamibux: number;
   isApproved: boolean;
   ownerId?: string;

@@ -726,12 +726,14 @@ class Database {
         language VARCHAR(16) NOT NULL DEFAULT 'en',
         category VARCHAR(255) NOT NULL DEFAULT 'Stories & Reading',
         pages JSON NOT NULL,
+        tags JSON NULL,
         rewardFamibux INT NOT NULL DEFAULT 25,
         isApproved TINYINT(1) NOT NULL DEFAULT 1,
         ownerId VARCHAR(64) NULL,
         createdAt VARCHAR(64) NOT NULL
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
+    await this.ensureColumnExists('story_books', 'tags', 'JSON NULL');
 
     await this.pool.query(`
       CREATE TABLE IF NOT EXISTS kid_story_completions (
@@ -3221,6 +3223,7 @@ class Database {
       language: row.language === 'id' ? 'id' : 'en',
       category: row.category || 'Stories & Reading',
       pages,
+      tags: parseJson<string[]>(row.tags, []),
       rewardFamibux: Number(row.rewardFamibux) || 25,
       isApproved: Boolean(row.isApproved),
       ownerId: row.ownerId || undefined,
@@ -3266,6 +3269,7 @@ class Database {
           b.title.toLowerCase().includes(search) ||
           b.author.toLowerCase().includes(search) ||
           b.description.toLowerCase().includes(search) ||
+          (Array.isArray(b.tags) && b.tags.some((t) => t.toLowerCase().includes(search))) ||
           b.pages.some((p) => p.text.toLowerCase().includes(search))
       );
     }
@@ -3295,8 +3299,8 @@ class Database {
 
   public async createStoryBook(book: StoryBook): Promise<StoryBook> {
     await this.pool.query(
-      `INSERT INTO story_books (id, title, author, description, coverUrl, ageRating, language, category, pages, rewardFamibux, isApproved, ownerId, createdAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO story_books (id, title, author, description, coverUrl, ageRating, language, category, pages, tags, rewardFamibux, isApproved, ownerId, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         book.id,
         book.title,
@@ -3307,6 +3311,7 @@ class Database {
         book.language,
         book.category,
         JSON.stringify(book.pages),
+        JSON.stringify(book.tags || []),
         book.rewardFamibux,
         book.isApproved ? 1 : 0,
         book.ownerId || null,
@@ -3323,11 +3328,12 @@ class Database {
       ...existing,
       ...updates,
       id: existing.id,
-      pages: updates.pages && updates.pages.length > 0 ? updates.pages : existing.pages
+      pages: updates.pages && updates.pages.length > 0 ? updates.pages : existing.pages,
+      tags: updates.tags !== undefined ? updates.tags : existing.tags
     };
     await this.pool.query(
       `UPDATE story_books
-       SET title = ?, author = ?, description = ?, coverUrl = ?, ageRating = ?, language = ?, category = ?, pages = ?, rewardFamibux = ?, isApproved = ?
+       SET title = ?, author = ?, description = ?, coverUrl = ?, ageRating = ?, language = ?, category = ?, pages = ?, tags = ?, rewardFamibux = ?, isApproved = ?
        WHERE id = ?`,
       [
         merged.title,
@@ -3338,6 +3344,7 @@ class Database {
         merged.language,
         merged.category,
         JSON.stringify(merged.pages),
+        JSON.stringify(merged.tags || []),
         merged.rewardFamibux,
         merged.isApproved ? 1 : 0,
         id
