@@ -4607,6 +4607,148 @@ apiRouter.get(
 // STORYBOOKS & READ-ALONG APIS
 // ==========================================
 
+const STORY_CATEGORIES_DEFINITIONS = [
+  // Toddler categories (Ages 1.5 - 3)
+  {
+    id: 'Animals & Pets',
+    name: 'Animals & Pets',
+    emoji: '🐾',
+    description: 'Cute animals, furry pets, and baby wildlife friends.',
+    ageRatings: ['TODDLER']
+  },
+  {
+    id: 'Colors & First Words',
+    name: 'Colors & First Words',
+    emoji: '🎨',
+    description: 'Bright picture books exploring colors, counting, and early words.',
+    ageRatings: ['TODDLER']
+  },
+  {
+    id: 'Bedtime & Sleep',
+    name: 'Bedtime & Sleep',
+    emoji: '🌙',
+    description: 'Gentle, comforting stories to help little ones drift off to dream.',
+    ageRatings: ['TODDLER']
+  },
+  {
+    id: 'Family & Daily Life',
+    name: 'Family & Daily Life',
+    emoji: '🏡',
+    description: 'Warm moments with mom, dad, playtime, and daily adventures.',
+    ageRatings: ['TODDLER']
+  },
+  {
+    id: 'Rhymes & Music',
+    name: 'Rhymes & Music',
+    emoji: '🎶',
+    description: 'Rhythmic tales, funny sounds, and catchy story songs.',
+    ageRatings: ['TODDLER']
+  },
+
+  // Young Kids categories (Ages 4 - 6 / 5 - 8)
+  {
+    id: 'Friendship & Kindness',
+    name: 'Friendship & Kindness',
+    emoji: '🤝',
+    description: 'Stories about sharing, empathy, and making good friends.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+  {
+    id: 'Folk Tales & Legends',
+    name: 'Folk Tales & Legends',
+    emoji: '🌍',
+    description: 'Timeless folklore, Indonesian heritage stories, and world legends.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+  {
+    id: 'Funny & Silly Stories',
+    name: 'Funny & Silly Stories',
+    emoji: '😄',
+    description: 'Giggle-filled misadventures, playful tricks, and comedic tales.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+  {
+    id: 'Nature & Science',
+    name: 'Nature & Science',
+    emoji: '🌿',
+    description: 'Curious questions about the Earth, sky, plants, and discoveries.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+  {
+    id: 'Animal Adventures',
+    name: 'Animal Adventures',
+    emoji: '🦊',
+    description: 'Clever animals, jungle expeditions, and wild adventures.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+  {
+    id: 'Courage & Growing Up',
+    name: 'Courage & Growing Up',
+    emoji: '🦁',
+    description: 'Overcoming fears, being brave, and learning life lessons.',
+    ageRatings: ['YOUNG_KIDS']
+  },
+
+  // Faith & Values (applicable across age tiers if religion is enabled)
+  {
+    id: 'Faith & Values',
+    name: 'Faith & Values',
+    emoji: '🕊️',
+    description: 'Curated stories reflecting faith, morals, and spiritual traditions.',
+    ageRatings: ['TODDLER', 'YOUNG_KIDS']
+  }
+];
+
+apiRouter.get(
+  '/stories/categories',
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    let ageRating = req.query.ageRating ? String(req.query.ageRating).toUpperCase() : '';
+    const includeAll = String(req.query.includeAllAges || '').toLowerCase() === 'true';
+
+    let childReligion: string | null | undefined = undefined;
+    if (req.query.religion !== undefined) {
+      childReligion = normalizeReligion(req.query.religion);
+    } else if (req.user?.sub) {
+      const user = await db.getUserById(req.user.sub);
+      if (user?.role === 'CHILD') {
+        const parent = user.parentId ? await db.getUserById(user.parentId) : undefined;
+        const effective = resolveEffectiveParentalControls(parent, user);
+        if (!ageRating) ageRating = effective.ageRating;
+        childReligion = effective.religion || null;
+      }
+    }
+
+    let categories = STORY_CATEGORIES_DEFINITIONS;
+
+    if (!includeAll && ageRating) {
+      if (ageRating === 'TODDLER') {
+        categories = categories.filter(c => c.ageRatings.includes('TODDLER'));
+      } else if (ageRating === 'YOUNG_KIDS') {
+        categories = categories.filter(c => c.ageRatings.includes('YOUNG_KIDS'));
+      }
+    }
+
+    if (childReligion === null) {
+      categories = categories.filter(c => c.id !== 'Faith & Values');
+    }
+
+    const allStories = await db.getStoryBooks({
+      ageRating: ageRating || undefined,
+      includeAllAges: includeAll,
+      onlyApproved: true,
+      childReligion
+    });
+
+    const categoriesWithCount = categories.map(cat => ({
+      ...cat,
+      count: allStories.filter(s => s.category.toLowerCase().includes(cat.id.toLowerCase())).length
+    }));
+
+    res.json({ success: true, data: categoriesWithCount });
+  })
+);
+
 apiRouter.get(
   '/stories',
   optionalAuth,

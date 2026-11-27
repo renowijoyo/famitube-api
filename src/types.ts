@@ -515,3 +515,12 @@ export interface ClientCrashReport {
   userRole?: string | null;
   createdAt?: string;
 }
+
+export interface StoryCategoryInfo {
+  id: string;
+  name: string;
+  emoji: string;
+  description: string;
+  ageRatings: StoryAgeRating[];
+  count?: number;
+}
