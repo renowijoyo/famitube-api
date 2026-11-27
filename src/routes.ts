@@ -4618,9 +4618,7 @@ apiRouter.get(
         const parent = child.parentId ? await db.getUserById(child.parentId) : undefined;
         const effective = resolveEffectiveParentalControls(parent, child);
         if (!ageRating) ageRating = effective.ageRating;
-        if (!language && effective.contentLanguage !== 'bilingual' && effective.contentLanguage !== 'all') {
-          language = effective.contentLanguage;
-        }
+        // Language filter is removed for storybooks in child mode
         childReligion = effective.religion || null;
       }
     } else if (req.user?.sub) {
@@ -4629,9 +4627,7 @@ apiRouter.get(
         const parent = user.parentId ? await db.getUserById(user.parentId) : undefined;
         const effective = resolveEffectiveParentalControls(parent, user);
         if (!ageRating) ageRating = effective.ageRating;
-        if (!language && effective.contentLanguage !== 'bilingual' && effective.contentLanguage !== 'all') {
-          language = effective.contentLanguage;
-        }
+        // Language filter is removed for storybooks in child mode
         childReligion = effective.religion || null;
       }
     }
