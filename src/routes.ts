@@ -4583,13 +4583,35 @@ apiRouter.get(
       }
     }
 
+    const search = req.query.search ? String(req.query.search).trim() : undefined;
+    const category = req.query.category ? String(req.query.category).trim() : undefined;
+    const page = req.query.page ? Math.max(1, parseInt(String(req.query.page), 10) || 1) : undefined;
+    const limit = req.query.limit ? Math.max(1, parseInt(String(req.query.limit), 10) || 24) : undefined;
+
     const stories = await db.getStoryBooks({
       ageRating: ageRating || undefined,
       language: language || undefined,
       includeAllAges,
-      onlyApproved: true
+      onlyApproved: true,
+      search,
+      category
     });
-    res.json({ success: true, data: stories });
+
+    let paged = stories;
+    if (page !== undefined || limit !== undefined) {
+      const p = page || 1;
+      const l = limit || 24;
+      paged = stories.slice((p - 1) * l, p * l);
+    }
+
+    res.json({
+      success: true,
+      data: paged,
+      total: stories.length,
+      page: page || 1,
+      limit: limit || stories.length,
+      totalPages: limit ? Math.max(1, Math.ceil(stories.length / limit)) : 1
+    });
   })
 );
 
@@ -4638,9 +4660,16 @@ apiRouter.post(
 
 apiRouter.get(
   '/admin/stories',
-  asyncHandler(async (_req, res) => {
-    const stories = await db.getStoryBooks({ includeAllAges: true, onlyApproved: false });
-    res.json({ success: true, data: stories });
+  asyncHandler(async (req, res) => {
+    const search = req.query.search ? String(req.query.search).trim() : undefined;
+    const category = req.query.category ? String(req.query.category).trim() : undefined;
+    const stories = await db.getStoryBooks({
+      includeAllAges: true,
+      onlyApproved: false,
+      search,
+      category
+    });
+    res.json({ success: true, data: stories, total: stories.length });
   })
 );
 

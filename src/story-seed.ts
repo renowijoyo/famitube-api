@@ -1,6 +1,7 @@
 import { StoryBook } from './types.js';
+import { STORY_CATALOG_300 } from './story-seed-catalog.js';
 
-export const INITIAL_STORY_BOOKS: StoryBook[] = [
+const CORE_STORY_BOOKS: StoryBook[] = [
   // ==========================================
   // TODDLER STORIES (Ages 2–4)
   // ==========================================
@@ -381,3 +382,5 @@ export const INITIAL_STORY_BOOKS: StoryBook[] = [
     ]
   }
 ];
+
+export const INITIAL_STORY_BOOKS: StoryBook[] = [...CORE_STORY_BOOKS, ...STORY_CATALOG_300];

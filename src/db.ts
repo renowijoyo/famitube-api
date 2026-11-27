@@ -3233,11 +3233,15 @@ class Database {
     language?: string;
     includeAllAges?: boolean;
     onlyApproved?: boolean;
+    search?: string;
+    category?: string;
   }): Promise<StoryBook[]> {
     const onlyApproved = opts?.onlyApproved !== false;
     const includeAllAges = Boolean(opts?.includeAllAges);
     const ageRating = opts?.ageRating ? String(opts.ageRating).toUpperCase() : '';
     const lang = opts?.language ? String(opts.language).toLowerCase() : '';
+    const search = opts?.search ? String(opts.search).trim().toLowerCase() : '';
+    const category = opts?.category ? String(opts.category).trim().toLowerCase() : '';
 
     if (!includeAllAges && (ageRating === 'OLDER_KIDS' || ageRating === 'ALL')) {
       return [];
@@ -3252,6 +3256,18 @@ class Database {
     }
     if (lang === 'en' || lang === 'id') {
       books = books.filter((b) => b.language === lang);
+    }
+    if (category) {
+      books = books.filter((b) => b.category.toLowerCase().includes(category));
+    }
+    if (search) {
+      books = books.filter(
+        (b) =>
+          b.title.toLowerCase().includes(search) ||
+          b.author.toLowerCase().includes(search) ||
+          b.description.toLowerCase().includes(search) ||
+          b.pages.some((p) => p.text.toLowerCase().includes(search))
+      );
     }
     if (!includeAllAges) {
       if (ageRating === 'TODDLER') {
