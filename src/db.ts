@@ -63,7 +63,8 @@ import {
   StoryPage,
   StoryLanguage,
   StoryReadingMode,
-  StoryAgeRating
+  StoryAgeRating,
+  ClientCrashReport
 } from './types.js';
 
 import { INITIAL_CATEGORIES, INITIAL_CHANNELS, INITIAL_VIDEOS } from './catalog-seed.js';
@@ -752,6 +753,23 @@ class Database {
         completedDate VARCHAR(16) NOT NULL,
         completedAt VARCHAR(64) NOT NULL,
         INDEX idx_ksc_kid_date (kidId, storyId, completedDate)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    await this.pool.query(`
+      CREATE TABLE IF NOT EXISTS client_crashes (
+        id VARCHAR(64) PRIMARY KEY,
+        appVersion VARCHAR(32),
+        deviceModel VARCHAR(128),
+        osVersion VARCHAR(64),
+        currentRoute VARCHAR(128),
+        errorType VARCHAR(128),
+        message TEXT,
+        stackTrace MEDIUMTEXT,
+        userId VARCHAR(64) NULL,
+        userRole VARCHAR(32) NULL,
+        createdAt VARCHAR(64) NOT NULL,
+        INDEX idx_cc_created (createdAt)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
   }
@@ -3418,6 +3436,49 @@ class Database {
 
     const storiesReadCount = await this.getKidStoriesReadCount(kidId);
     return { awardedFamibux, alreadyRewardedToday, storiesReadCount };
+  }
+
+  async saveClientCrashReport(report: ClientCrashReport): Promise<ClientCrashReport> {
+    const id = report.id || `crash-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+    const createdAt = report.createdAt || new Date().toISOString();
+    await this.pool.query(
+      `INSERT INTO client_crashes (id, appVersion, deviceModel, osVersion, currentRoute, errorType, message, stackTrace, userId, userRole, createdAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        id,
+        report.appVersion || 'Unknown',
+        report.deviceModel || 'Unknown',
+        report.osVersion || 'Unknown',
+        report.currentRoute || 'Unknown',
+        report.errorType || 'Unknown',
+        report.message || 'No message',
+        report.stackTrace || '',
+        report.userId || null,
+        report.userRole || null,
+        createdAt
+      ]
+    );
+    return { ...report, id, createdAt };
+  }
+
+  async getClientCrashReports(limit: number = 50): Promise<ClientCrashReport[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT * FROM client_crashes ORDER BY createdAt DESC LIMIT ?`,
+      [limit]
+    );
+    return rows.map(r => ({
+      id: r.id,
+      appVersion: r.appVersion,
+      deviceModel: r.deviceModel,
+      osVersion: r.osVersion,
+      currentRoute: r.currentRoute,
+      errorType: r.errorType,
+      message: r.message,
+      stackTrace: r.stackTrace,
+      userId: r.userId,
+      userRole: r.userRole,
+      createdAt: r.createdAt
+    }));
   }
 }
 

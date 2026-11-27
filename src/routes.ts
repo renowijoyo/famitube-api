@@ -4841,3 +4841,42 @@ apiRouter.delete(
     res.json({ success: true, message: 'Storybook deleted' });
   })
 );
+
+// Client Crash Reporting & Telemetry
+apiRouter.post(
+  '/telemetry/crash-report',
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const b = req.body || {};
+    if (!b.message && !b.stackTrace && !b.errorType) {
+      return res.status(400).json({ success: false, message: 'Missing error details' });
+    }
+
+    const report = await db.saveClientCrashReport({
+      appVersion: String(b.appVersion || 'Unknown').slice(0, 32),
+      deviceModel: String(b.deviceModel || 'Unknown').slice(0, 128),
+      osVersion: String(b.osVersion || 'Unknown').slice(0, 64),
+      currentRoute: String(b.currentRoute || 'Unknown').slice(0, 128),
+      errorType: String(b.errorType || 'Unknown').slice(0, 128),
+      message: String(b.message || '').slice(0, 4000),
+      stackTrace: String(b.stackTrace || '').slice(0, 50000),
+      userId: req.user?.sub || b.userId || null,
+      userRole: req.user?.role || b.userRole || null,
+      createdAt: b.timestamp ? String(b.timestamp) : new Date().toISOString()
+    });
+
+    console.warn(`[Client Crash Report] Saved crash ${report.id} (${report.errorType}: ${report.message}) on ${report.deviceModel}`);
+
+    res.json({ success: true, data: { id: report.id } });
+  })
+);
+
+apiRouter.get(
+  '/telemetry/crash-reports',
+  optionalAuth,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const limit = Math.min(Math.max(Number(req.query.limit) || 50, 1), 200);
+    const reports = await db.getClientCrashReports(limit);
+    res.json({ success: true, data: reports });
+  })
+);

@@ -501,3 +501,17 @@ export interface KidStoryCompletion {
   completedDate: string;
   completedAt: string;
 }
+
+export interface ClientCrashReport {
+  id?: string;
+  appVersion?: string;
+  deviceModel?: string;
+  osVersion?: string;
+  currentRoute?: string;
+  errorType?: string;
+  message?: string;
+  stackTrace?: string;
+  userId?: string | null;
+  userRole?: string | null;
+  createdAt?: string;
+}
