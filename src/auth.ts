@@ -283,7 +283,11 @@ export async function sendParentVideoRequestEmail(
 
   const safeParentName = escapeHtml(params.parentName || 'Parent');
   const safeKidName = escapeHtml(params.kidName || 'Your child');
-  const safeKidEmail = escapeHtml(params.kidEmail || '');
+  const rawKidEmail =
+    params.kidEmail && !params.kidEmail.toLowerCase().endsWith('@profiles.famitube.local')
+      ? params.kidEmail
+      : '';
+  const safeKidEmail = escapeHtml(rawKidEmail);
   const safeTitle = escapeHtml(params.title || 'YouTube Video');
   const safeChannelTitle = escapeHtml(params.channelTitle || 'YouTube');
   const safeThumbnailUrl = escapeHtml(params.thumbnailUrl || '');
@@ -297,7 +301,7 @@ export async function sendParentVideoRequestEmail(
     text: [
       `Hi ${params.parentName || 'Parent'},`,
       '',
-      `${params.kidName || 'Your child'}${params.kidEmail ? ` (${params.kidEmail})` : ''} is asking for your permission to watch a YouTube video on FamiTube:`,
+      `${params.kidName || 'Your child'}${rawKidEmail ? ` (${rawKidEmail})` : ''} is asking for your permission to watch a YouTube video on FamiTube:`,
       '',
       `Title: ${params.title}`,
       `Channel: ${params.channelTitle}`,

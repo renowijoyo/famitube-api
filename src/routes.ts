@@ -142,11 +142,16 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
   };
 }
 
+function isSyntheticChildEmail(email?: string | null): boolean {
+  return Boolean(email && email.toLowerCase().endsWith('@profiles.famitube.local'));
+}
+
 function formatChildResponse(parent: User | undefined, child: User) {
   const effective = resolveEffectiveParentalControls(parent, child);
   return {
     id: child.id,
     email: child.email,
+    isPasswordless: isSyntheticChildEmail(child.email),
     name: child.name,
     role: child.role,
     birthday: child.birthday || null,
@@ -2493,7 +2498,7 @@ apiRouter.get(
   })
 );
 
-// Register a child account by their email (Parent only)
+// Register a child profile (Parent only; email & password optional for passwordless profiles)
 apiRouter.post(
   '/parent/children',
   requireAuth,
@@ -2510,27 +2515,32 @@ apiRouter.post(
       searchViewLimit = 0,
       searchRequireApproval = true
     } = req.body;
-    const cleanEmail = String(email || '').trim().toLowerCase();
+    const childId = `chd-${uuidv4().slice(0, 8)}`;
+    const rawEmail = String(email || '').trim().toLowerCase();
+    const cleanEmail = rawEmail || `kid-${childId.replace(/^chd-/, '')}@profiles.famitube.local`;
     const cleanName = String(name || '').trim();
+    const rawPassword = password !== undefined && password !== null ? String(password) : '';
     const cleanBirthday = birthday ? String(birthday).trim() : undefined;
     const cleanReligion = normalizeReligion(religion);
 
-    if (!cleanEmail || !cleanEmail.includes('@')) {
+    if (rawEmail && !rawEmail.includes('@')) {
       return res.status(400).json({ success: false, message: 'Valid child email address is required' });
     }
     if (!cleanName) {
       return res.status(400).json({ success: false, message: 'Child name is required' });
     }
-    if (!password || String(password).length < 6) {
+    if (rawPassword && rawPassword.length < 6) {
       return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
     }
     if (cleanBirthday && !deriveAgeRatingFromBirthday(cleanBirthday)) {
       return res.status(400).json({ success: false, message: 'Birthday must be a valid YYYY-MM-DD date' });
     }
 
-    const existing = await db.getUserByEmail(cleanEmail);
-    if (existing) {
-      return res.status(409).json({ success: false, message: 'Email is already registered' });
+    if (rawEmail) {
+      const existing = await db.getUserByEmail(cleanEmail);
+      if (existing) {
+        return res.status(409).json({ success: false, message: 'Email is already registered' });
+      }
     }
 
     const parentUser = await db.getUserById(req.user!.sub);
@@ -2557,11 +2567,12 @@ apiRouter.post(
         ? (ageRating as AgeRating)
         : (derivedFromBirthday || 'ALL');
 
+    const secretPassword = rawPassword || crypto.randomBytes(24).toString('hex');
     const child = await db.createUser({
-      id: `chd-${uuidv4().slice(0, 8)}`,
+      id: childId,
       email: cleanEmail,
       name: cleanName,
-      passwordHash: hashPassword(String(password)),
+      passwordHash: hashPassword(secretPassword),
       role: 'CHILD',
       parentId: req.user!.sub,
       birthday: cleanBirthday,
@@ -2577,20 +2588,7 @@ apiRouter.post(
 
     res.status(201).json({
       success: true,
-      data: {
-        id: child.id,
-        email: child.email,
-        name: child.name,
-        role: child.role,
-        birthday: child.birthday || null,
-        ageRating: child.ageRating,
-        religion: child.religion || null,
-        youtubeSearchEnabled: Boolean(child.youtubeSearchEnabled),
-        searchViewLimit: child.searchViewLimit ?? 0,
-        searchViewsUsed: child.searchViewsUsed ?? 0,
-        searchRequireApproval: child.searchRequireApproval !== false,
-        createdAt: child.createdAt
-      }
+      data: formatChildResponse(parentUser, child)
     });
   })
 );
@@ -2799,6 +2797,120 @@ apiRouter.post(
       name: child.name,
       role: 'CHILD',
       parentId: req.user!.sub
+    });
+
+    res.json({
+      success: true,
+      token,
+      user: formatChildResponse(parent, child)
+    });
+  })
+);
+
+interface KidDevicePairEntry {
+  code: string;
+  childId: string;
+  parentId: string;
+  expiresAt: number;
+}
+const kidDevicePairCodes = new Map<string, KidDevicePairEntry>();
+
+function pruneExpiredPairCodes(): void {
+  const now = Date.now();
+  for (const [code, entry] of kidDevicePairCodes.entries()) {
+    if (entry.expiresAt <= now) {
+      kidDevicePairCodes.delete(code);
+    }
+  }
+}
+
+// Generate a 6-digit single-use pairing code for a child's device (Parent only)
+apiRouter.post(
+  '/parent/children/:childId/pair-code',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const childId = String(req.params.childId);
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    const child = children.find((c) => c.id === childId);
+    if (!child) {
+      return res.status(404).json({ success: false, message: 'Child profile not found' });
+    }
+
+    pruneExpiredPairCodes();
+    for (const [existingCode, entry] of kidDevicePairCodes.entries()) {
+      if (entry.childId === childId) {
+        kidDevicePairCodes.delete(existingCode);
+      }
+    }
+
+    let code = '';
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const candidate = crypto.randomInt(100000, 1000000).toString();
+      if (!kidDevicePairCodes.has(candidate)) {
+        code = candidate;
+        break;
+      }
+    }
+    if (!code) {
+      return res.status(503).json({ success: false, message: 'Unable to generate pairing code, try again' });
+    }
+
+    const ttlSeconds = 600;
+    kidDevicePairCodes.set(code, {
+      code,
+      childId: child.id,
+      parentId: req.user!.sub,
+      expiresAt: Date.now() + ttlSeconds * 1000
+    });
+
+    res.json({
+      success: true,
+      data: {
+        code,
+        expiresInSeconds: ttlSeconds,
+        childId: child.id,
+        childName: child.name
+      }
+    });
+  })
+);
+
+// Redeem a 6-digit pairing code on a child's device (public)
+apiRouter.post(
+  '/auth/pair-device',
+  asyncHandler(async (req, res) => {
+    const code = String(req.body?.code || '').replace(/\D/g, '');
+    if (code.length !== 6) {
+      return res.status(400).json({ success: false, message: 'Enter a valid 6-digit pairing code' });
+    }
+
+    pruneExpiredPairCodes();
+    const entry = kidDevicePairCodes.get(code);
+    if (!entry) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid or expired pairing code. Generate a new code from Parent Mode.'
+      });
+    }
+
+    kidDevicePairCodes.delete(code);
+
+    const [parent, child] = await Promise.all([
+      db.getUserById(entry.parentId),
+      db.getUserById(entry.childId)
+    ]);
+
+    if (!child || child.role !== 'CHILD' || child.parentId !== entry.parentId) {
+      return res.status(404).json({ success: false, message: 'Child profile no longer exists' });
+    }
+
+    const token = signAuthToken({
+      sub: child.id,
+      email: child.email,
+      name: child.name,
+      role: 'CHILD',
+      parentId: entry.parentId
     });
 
     res.json({
