@@ -6,7 +6,6 @@ export const FREE_ENTITLEMENTS: Omit<PlanEntitlements, 'plan' | 'isPremium' | 'p
   maxActivePresets: 1,
   allowCustomTagRules: false,
   allowPrivateChannels: false,
-  allowAttentionTracking: false,
   allowWeeklyInsights: false,
   dailySearchRequestLimit: 3
 };
@@ -17,7 +16,6 @@ export const PREMIUM_ENTITLEMENTS: Omit<PlanEntitlements, 'plan' | 'isPremium' |
   maxActivePresets: null,
   allowCustomTagRules: true,
   allowPrivateChannels: true,
-  allowAttentionTracking: true,
   allowWeeklyInsights: true,
   dailySearchRequestLimit: null
 };

@@ -94,7 +94,7 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
     parentPin: parent?.parentPin || '1234',
     dailyLimitMinutes: parent?.dailyLimitMinutes ?? 45,
     ageRating,
-    attentionTrackingEnabled: parent?.attentionTrackingEnabled !== false,
+    attentionTrackingEnabled: false,
     attentionPauseSeconds: parent?.attentionPauseSeconds ?? 30,
     attentionMinWatchPercent: parent?.attentionMinWatchPercent ?? 70,
     youtubeSearchEnabled: parent?.youtubeSearchEnabled !== false,

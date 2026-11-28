@@ -225,7 +225,6 @@ export interface PlanEntitlements {
   maxActivePresets: number | null;
   allowCustomTagRules: boolean;
   allowPrivateChannels: boolean;
-  allowAttentionTracking: boolean;
   allowWeeklyInsights: boolean;
   dailySearchRequestLimit: number | null;
 }
