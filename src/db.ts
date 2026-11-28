@@ -1846,9 +1846,28 @@ class Database {
         ? updates.toddlerHiddenVideoIds
         : (existing.toddlerHiddenVideoIds || []);
 
+    const nextParentMeta: ParentalControlsOverride = { ...(existing.parentalOverride || {}) };
+    if (updates.quietHoursEnabled !== undefined) {
+      nextParentMeta.quietHoursEnabled = Boolean(updates.quietHoursEnabled);
+    }
+    if (updates.quietHoursStart !== undefined) {
+      nextParentMeta.quietHoursStart = updates.quietHoursStart;
+    }
+    if (updates.quietHoursEnd !== undefined) {
+      nextParentMeta.quietHoursEnd = updates.quietHoursEnd;
+    }
+    if (updates.episodeLimitPerSession !== undefined) {
+      nextParentMeta.episodeLimitPerSession = Math.max(
+        0,
+        Math.min(20, Math.round(Number(updates.episodeLimitPerSession) || 0))
+      );
+    }
+    const parentalOverrideJson =
+      Object.keys(nextParentMeta).length > 0 ? JSON.stringify(nextParentMeta) : null;
+
     await this.pool.query(
       `UPDATE users
-       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?
+       SET parentPin = ?, dailyLimitMinutes = ?, ageRating = ?, attentionTrackingEnabled = ?, attentionPauseSeconds = ?, attentionMinWatchPercent = ?, youtubeSearchEnabled = ?, searchViewLimit = ?, searchRequireApproval = ?, contentLanguage = ?, cultureMode = ?, toddlerLoopMinutes = ?, toddlerCooldownMinutes = ?, toddlerSubStage = ?, toddlerEnabledTopicsJson = ?, toddlerHiddenVideoIdsJson = ?, parentalOverrideJson = ?
        WHERE id = ? AND role = 'PARENT'`,
       [
         parentPin,
@@ -1867,6 +1886,7 @@ class Database {
         toddlerSubStage,
         JSON.stringify(toddlerEnabledTopics),
         JSON.stringify(toddlerHiddenVideoIds),
+        parentalOverrideJson,
         parentId
       ]
     );

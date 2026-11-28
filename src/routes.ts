@@ -88,8 +88,47 @@ function normalizeToddlerSubStage(val: unknown, fallback: ToddlerSubStage = 'AUT
   return fallback;
 }
 
+function normalizeTimeHm(val: unknown, fallback: string): string {
+  const s = String(val || '').trim();
+  return /^([01]\d|2[0-3]):([0-5]\d)$/.test(s) ? s : fallback;
+}
+
+function normalizeEpisodeLimit(val: unknown, fallback = 0): number {
+  const num = Number(val);
+  if (!Number.isFinite(num)) return fallback;
+  return Math.max(0, Math.min(20, Math.round(num)));
+}
+
+function parseSharedYouTubeInput(
+  rawInput: unknown
+): { kind: 'VIDEO'; youtubeVideoId: string } | { kind: 'CHANNEL'; handle: string } | null {
+  const raw = String(rawInput || '').trim();
+  if (!raw) return null;
+  const urlMatch = raw.match(/https?:\/\/[^\s]+/i);
+  const candidate = urlMatch ? urlMatch[0] : raw;
+
+  const liveMatch = candidate.match(/youtube\.com\/live\/([\w-]{11})/i);
+  const videoId = extractYouTubeId(candidate) || (liveMatch ? liveMatch[1] : null);
+  if (videoId) {
+    return { kind: 'VIDEO', youtubeVideoId: videoId };
+  }
+
+  const handleUrlMatch = candidate.match(/youtube\.com\/@([A-Za-z0-9_.-]+)/i);
+  if (handleUrlMatch?.[1]) {
+    return { kind: 'CHANNEL', handle: `@${handleUrlMatch[1]}` };
+  }
+
+  const bareHandleMatch = raw.match(/^@([A-Za-z0-9_.-]+)$/);
+  if (bareHandleMatch?.[1]) {
+    return { kind: 'CHANNEL', handle: `@${bareHandleMatch[1]}` };
+  }
+
+  return null;
+}
+
 function getGlobalParentalControls(parent?: User): ParentalControls {
   const ageRating = parent?.ageRating || 'ALL';
+  const meta = parent?.parentalOverride || {};
   return {
     parentPin: parent?.parentPin || '1234',
     dailyLimitMinutes: parent?.dailyLimitMinutes ?? 45,
@@ -110,7 +149,11 @@ function getGlobalParentalControls(parent?: User): ParentalControls {
         ? parent.toddlerEnabledTopics
         : [...DEFAULT_TODDLER_ENABLED_TOPICS],
     toddlerHiddenVideoIds: Array.isArray(parent?.toddlerHiddenVideoIds) ? parent.toddlerHiddenVideoIds : [],
-    religion: normalizeReligion(parent?.religion) || null
+    religion: normalizeReligion(parent?.religion) || null,
+    quietHoursEnabled: Boolean(meta.quietHoursEnabled),
+    quietHoursStart: normalizeTimeHm(meta.quietHoursStart, '20:00'),
+    quietHoursEnd: normalizeTimeHm(meta.quietHoursEnd, '07:00'),
+    episodeLimitPerSession: normalizeEpisodeLimit(meta.episodeLimitPerSession, 0)
   };
 }
 
@@ -138,7 +181,11 @@ function resolveEffectiveParentalControls(parent: User | undefined, child: User)
       ov.toddlerEnabledTopics ?? child.toddlerEnabledTopics ?? global.toddlerEnabledTopics,
     toddlerHiddenVideoIds:
       ov.toddlerHiddenVideoIds ?? child.toddlerHiddenVideoIds ?? global.toddlerHiddenVideoIds,
-    religion: ov.religion !== undefined ? normalizeReligion(ov.religion) : (normalizeReligion(child.religion) ?? normalizeReligion(global.religion) ?? null)
+    religion: ov.religion !== undefined ? normalizeReligion(ov.religion) : (normalizeReligion(child.religion) ?? normalizeReligion(global.religion) ?? null),
+    quietHoursEnabled: ov.quietHoursEnabled !== undefined ? Boolean(ov.quietHoursEnabled) : global.quietHoursEnabled,
+    quietHoursStart: ov.quietHoursStart !== undefined ? normalizeTimeHm(ov.quietHoursStart, global.quietHoursStart) : global.quietHoursStart,
+    quietHoursEnd: ov.quietHoursEnd !== undefined ? normalizeTimeHm(ov.quietHoursEnd, global.quietHoursEnd) : global.quietHoursEnd,
+    episodeLimitPerSession: ov.episodeLimitPerSession !== undefined ? normalizeEpisodeLimit(ov.episodeLimitPerSession, global.episodeLimitPerSession) : global.episodeLimitPerSession
   };
 }
 
@@ -174,6 +221,10 @@ function formatChildResponse(parent: User | undefined, child: User) {
     toddlerEnabledTopics: effective.toddlerEnabledTopics,
     toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
     toddlerCooldownUntil: child.toddlerCooldownUntil || null,
+    quietHoursEnabled: effective.quietHoursEnabled,
+    quietHoursStart: effective.quietHoursStart,
+    quietHoursEnd: effective.quietHoursEnd,
+    episodeLimitPerSession: effective.episodeLimitPerSession,
     overrides: child.parentalOverride || {},
     createdAt: child.createdAt
   };
@@ -982,16 +1033,28 @@ apiRouter.get(
   requireAuth,
   asyncHandler(async (req: AuthenticatedRequest, res) => {
     const dbUser = await db.getUserById(req.user!.sub);
+    const parentUser =
+      dbUser?.role === 'CHILD' && dbUser.parentId ? await db.getUserById(dbUser.parentId) : undefined;
+    const effective =
+      dbUser?.role === 'CHILD'
+        ? resolveEffectiveParentalControls(parentUser, dbUser)
+        : getGlobalParentalControls(dbUser);
     const entitlements = dbUser ? await db.getEffectiveEntitlements(dbUser) : null;
     res.json({
       success: true,
       user: {
         ...req.user,
-        ageRating: dbUser?.ageRating,
-        youtubeSearchEnabled: Boolean(dbUser?.youtubeSearchEnabled),
-        searchViewLimit: dbUser?.searchViewLimit ?? 0,
+        ageRating: effective.ageRating || dbUser?.ageRating,
+        dailyLimitMinutes: effective.dailyLimitMinutes,
+        parentPin: effective.parentPin,
+        quietHoursEnabled: effective.quietHoursEnabled,
+        quietHoursStart: effective.quietHoursStart,
+        quietHoursEnd: effective.quietHoursEnd,
+        episodeLimitPerSession: effective.episodeLimitPerSession,
+        youtubeSearchEnabled: effective.youtubeSearchEnabled,
+        searchViewLimit: effective.searchViewLimit,
         searchViewsUsed: dbUser?.searchViewsUsed ?? 0,
-        searchRequireApproval: dbUser?.searchRequireApproval !== false,
+        searchRequireApproval: effective.searchRequireApproval,
         plan: entitlements?.plan ?? 'FREE',
         entitlements
       }
@@ -2430,7 +2493,11 @@ apiRouter.put(
       toddlerCooldownMinutes,
       toddlerSubStage,
       toddlerEnabledTopics,
-      toddlerHiddenVideoIds
+      toddlerHiddenVideoIds,
+      quietHoursEnabled,
+      quietHoursStart,
+      quietHoursEnd,
+      episodeLimitPerSession
     } = req.body || {};
 
     const cleanPin = parentPin !== undefined ? String(parentPin).trim() : undefined;
@@ -2468,7 +2535,12 @@ apiRouter.put(
         : undefined,
       toddlerHiddenVideoIds: Array.isArray(toddlerHiddenVideoIds)
         ? toddlerHiddenVideoIds.map((id) => String(id).trim()).filter(Boolean)
-        : undefined
+        : undefined,
+      quietHoursEnabled: quietHoursEnabled !== undefined ? Boolean(quietHoursEnabled) : undefined,
+      quietHoursStart: quietHoursStart !== undefined ? normalizeTimeHm(quietHoursStart, '20:00') : undefined,
+      quietHoursEnd: quietHoursEnd !== undefined ? normalizeTimeHm(quietHoursEnd, '07:00') : undefined,
+      episodeLimitPerSession:
+        episodeLimitPerSession !== undefined ? normalizeEpisodeLimit(episodeLimitPerSession, 0) : undefined
     });
     if (!updated) {
       return res.status(404).json({ success: false, message: 'Parent account not found' });
@@ -2623,6 +2695,10 @@ apiRouter.put(
       toddlerEnabledTopics,
       toddlerHiddenVideoIds,
       toddlerCooldownUntil,
+      quietHoursEnabled,
+      quietHoursStart,
+      quietHoursEnd,
+      episodeLimitPerSession,
       overrides: overridesBody
     } = req.body;
     const cleanBirthday = birthday !== undefined ? String(birthday).trim() : undefined;
@@ -2695,6 +2771,10 @@ apiRouter.put(
         Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
       );
       applyOverride('religion', ob.religion, (v) => normalizeReligion(v));
+      applyOverride('quietHoursEnabled', ob.quietHoursEnabled, (v) => Boolean(v));
+      applyOverride('quietHoursStart', ob.quietHoursStart, (v) => normalizeTimeHm(v, '20:00'));
+      applyOverride('quietHoursEnd', ob.quietHoursEnd, (v) => normalizeTimeHm(v, '07:00'));
+      applyOverride('episodeLimitPerSession', ob.episodeLimitPerSession, (v) => normalizeEpisodeLimit(v, 0));
     }
 
     // Also support flat fields on PUT body for direct per-kid override updates
@@ -2719,6 +2799,10 @@ apiRouter.put(
       Array.isArray(v) ? v.map((x) => String(x).trim()).filter(Boolean) : []
     );
     applyOverride('religion', religion === null ? null : (religion !== undefined ? normalizeReligion(religion) : undefined), (v) => v as string);
+    applyOverride('quietHoursEnabled', quietHoursEnabled, (v) => Boolean(v));
+    applyOverride('quietHoursStart', quietHoursStart === null ? null : quietHoursStart, (v) => normalizeTimeHm(v, '20:00'));
+    applyOverride('quietHoursEnd', quietHoursEnd === null ? null : quietHoursEnd, (v) => normalizeTimeHm(v, '07:00'));
+    applyOverride('episodeLimitPerSession', episodeLimitPerSession, (v) => normalizeEpisodeLimit(v, 0));
 
     const effective = resolveEffectiveParentalControls(parentUser, {
       ...existingChild,
@@ -2917,6 +3001,268 @@ apiRouter.post(
       success: true,
       token,
       user: formatChildResponse(parent, child)
+    });
+  })
+);
+
+// Preview a YouTube URL or @channel handle shared from the YouTube app (Parent only)
+apiRouter.post(
+  '/parent/youtube-share-preview',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const parsed = parseSharedYouTubeInput(req.body?.sharedText);
+    if (!parsed) {
+      return res.status(400).json({
+        success: false,
+        message: 'Paste or share a valid YouTube video URL, Shorts link, or @channel handle.'
+      });
+    }
+
+    if (parsed.kind === 'VIDEO') {
+      const meta = await fetchYouTubeOEmbed(parsed.youtubeVideoId);
+      return res.json({
+        success: true,
+        data: {
+          kind: 'VIDEO',
+          youtubeVideoId: parsed.youtubeVideoId,
+          title: meta?.title || 'YouTube Video',
+          channelTitle: meta?.author_name || 'YouTube',
+          thumbnailUrl: meta?.thumbnail_url || getYouTubeThumbnail(parsed.youtubeVideoId),
+          sourceUrl: `https://www.youtube.com/watch?v=${parsed.youtubeVideoId}`
+        }
+      });
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        kind: 'CHANNEL',
+        handle: parsed.handle,
+        title: parsed.handle.slice(1),
+        channelTitle: parsed.handle,
+        thumbnailUrl: ''
+      }
+    });
+  })
+);
+
+// Approve a shared YouTube video or @channel directly for selected child profiles (Parent only)
+apiRouter.post(
+  '/parent/quick-approve-youtube',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const { sharedText, childIds, trustLevel } = req.body || {};
+    const parsed = parseSharedYouTubeInput(sharedText);
+    if (!parsed) {
+      return res.status(400).json({
+        success: false,
+        message: 'Paste or share a valid YouTube video URL, Shorts link, or @channel handle.'
+      });
+    }
+
+    const children = await db.getChildrenByParentId(req.user!.sub);
+    if (children.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Add a child profile first before approving videos.'
+      });
+    }
+
+    const requestedIds = Array.isArray(childIds) ? childIds.map((id) => String(id).trim()).filter(Boolean) : [];
+    const targetChildren =
+      requestedIds.length > 0 ? children.filter((c) => requestedIds.includes(c.id)) : children;
+    if (targetChildren.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'No matching child profiles selected.'
+      });
+    }
+
+    const nowIso = new Date().toISOString();
+
+    if (parsed.kind === 'VIDEO') {
+      const meta = await fetchYouTubeOEmbed(parsed.youtubeVideoId);
+      const title = meta?.title || 'Approved YouTube Video';
+      const channelTitle = meta?.author_name || 'YouTube';
+      const thumbnailUrl = meta?.thumbnail_url || getYouTubeThumbnail(parsed.youtubeVideoId);
+      const sourceUrl = `https://www.youtube.com/watch?v=${parsed.youtubeVideoId}`;
+
+      for (const child of targetChildren) {
+        await db.upsertKidHistory({
+          id: `hist-${child.id}-${parsed.youtubeVideoId}`,
+          kidId: child.id,
+          itemKey: parsed.youtubeVideoId,
+          youtubeVideoId: parsed.youtubeVideoId,
+          title,
+          channelTitle,
+          thumbnailUrl,
+          sourceType: 'YOUTUBE',
+          sourceUrl,
+          isApprovedSearch: true,
+          watchedAt: nowIso
+        });
+        await db.createNotification(
+          child.id,
+          'VIDEO_DECISION',
+          'Shared by Parent!',
+          `"${title}" was added for you to watch.`,
+          parsed.youtubeVideoId
+        );
+      }
+
+      return res.json({
+        success: true,
+        data: {
+          kind: 'VIDEO',
+          youtubeVideoId: parsed.youtubeVideoId,
+          title,
+          channelTitle,
+          thumbnailUrl,
+          approvedChildNames: targetChildren.map((c) => c.name)
+        }
+      });
+    }
+
+    const resolvedTrust = trustLevel === 'SUPERVISED' ? 'SUPERVISED' : 'TRUSTED';
+    const cleanHandle = parsed.handle;
+    const channelTitle = cleanHandle.slice(1);
+    for (const child of targetChildren) {
+      await db.upsertKidYouTubeSubscription({
+        id: `ytsub-${child.id}-${cleanHandle.toLowerCase()}`,
+        kidId: child.id,
+        handle: cleanHandle,
+        title: channelTitle,
+        avatarUrl: '',
+        description: 'Approved by Parent via Share',
+        trustLevel: resolvedTrust,
+        subscribedAt: nowIso
+      });
+      await db.setKidYouTubeSubscriptionTrustLevel(child.id, cleanHandle, resolvedTrust);
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        kind: 'CHANNEL',
+        handle: cleanHandle,
+        title: channelTitle,
+        channelTitle: cleanHandle,
+        thumbnailUrl: '',
+        approvedChildNames: targetChildren.map((c) => c.name)
+      }
+    });
+  })
+);
+
+// Weekly family watch & topic insights across children (Parent only)
+apiRouter.get(
+  '/parent/weekly-insights',
+  requireAuth,
+  requireParent,
+  asyncHandler(async (req: AuthenticatedRequest, res) => {
+    const [parentUser, children, allRequests, approvedVideos] = await Promise.all([
+      db.getUserById(req.user!.sub),
+      db.getChildrenByParentId(req.user!.sub),
+      db.getKidVideoRequestsForParent(req.user!.sub),
+      db.getVideos({ onlyApproved: true })
+    ]);
+    if (!parentUser) {
+      return res.status(404).json({ success: false, message: 'Parent account not found' });
+    }
+
+    const entitlements = await db.getEffectiveEntitlements(parentUser);
+    const cutoffMs = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const videoById = new Map<string, Video>();
+    const videoByYtId = new Map<string, Video>();
+    for (const v of approvedVideos) {
+      videoById.set(v.id, v);
+      if (v.youtubeVideoId) videoByYtId.set(v.youtubeVideoId, v);
+    }
+
+    let totalVideosWatched7d = 0;
+    let totalApprovedRequests7d = 0;
+
+    const childInsights = await Promise.all(
+      children.map(async (child) => {
+        const [history, searches] = await Promise.all([
+          db.getKidHistory(child.id),
+          db.getKidYouTubeSearchHistory(child.id, 200)
+        ]);
+
+        const recentHistory = history.filter((item) => {
+          const ts = Date.parse(item.watchedAt);
+          return Number.isFinite(ts) && ts >= cutoffMs;
+        });
+        const recentSearches = searches.filter((item) => {
+          const ts = Date.parse(item.searchedAt);
+          return Number.isFinite(ts) && ts >= cutoffMs;
+        });
+        const recentApproved = allRequests.filter((r) => {
+          if (r.kidId !== child.id || r.status !== 'APPROVED') return false;
+          const ts = Date.parse(r.decidedAt || r.createdAt);
+          return Number.isFinite(ts) && ts >= cutoffMs;
+        });
+
+        totalVideosWatched7d += recentHistory.length;
+        totalApprovedRequests7d += recentApproved.length;
+
+        const topicCounts = new Map<string, number>();
+        const channelCounts = new Map<string, number>();
+
+        for (const item of recentHistory) {
+          const matchedVideo =
+            (item.videoId ? videoById.get(item.videoId) : undefined) ||
+            (item.youtubeVideoId ? videoByYtId.get(item.youtubeVideoId) : undefined);
+          const topic = matchedVideo?.category || 'Approved YouTube';
+          topicCounts.set(topic, (topicCounts.get(topic) || 0) + 1);
+          const chTitle = item.channelTitle || matchedVideo?.channelTitle || 'YouTube';
+          channelCounts.set(chTitle, (channelCounts.get(chTitle) || 0) + 1);
+        }
+
+        const totalHits = recentHistory.length || 1;
+        const sortedTopics = Array.from(topicCounts.entries())
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, entitlements.allowWeeklyInsights ? 5 : 1)
+          .map(([topic, count]) => ({
+            topic,
+            count,
+            percent: Math.round((count / totalHits) * 100)
+          }));
+
+        const sortedChannels = Array.from(channelCounts.entries())
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, entitlements.allowWeeklyInsights ? 5 : 1)
+          .map(([channelTitle, count]) => ({ channelTitle, count }));
+
+        const effective = resolveEffectiveParentalControls(parentUser, child);
+
+        return {
+          childId: child.id,
+          childName: child.name,
+          ageRating: effective.ageRating,
+          videosWatched7d: recentHistory.length,
+          approvedRequests7d: recentApproved.length,
+          searches7d: recentSearches.length,
+          topTopics: sortedTopics,
+          topChannels: sortedChannels
+        };
+      })
+    );
+
+    res.json({
+      success: true,
+      data: {
+        allowWeeklyInsights: entitlements.allowWeeklyInsights,
+        plan: entitlements.plan,
+        summary: {
+          totalVideosWatched7d,
+          totalApprovedRequests7d,
+          childrenCount: children.length
+        },
+        children: childInsights
+      }
     });
   })
 );
@@ -3171,7 +3517,11 @@ apiRouter.post(
         toddlerSubStage: effective.toddlerSubStage,
         toddlerEnabledTopics: effective.toddlerEnabledTopics,
         toddlerHiddenVideoIds: effective.toddlerHiddenVideoIds,
-        toddlerCooldownUntil: user.toddlerCooldownUntil || null
+        toddlerCooldownUntil: user.toddlerCooldownUntil || null,
+        quietHoursEnabled: effective.quietHoursEnabled,
+        quietHoursStart: effective.quietHoursStart,
+        quietHoursEnd: effective.quietHoursEnd,
+        episodeLimitPerSession: effective.episodeLimitPerSession
       }
     });
   })
@@ -3214,7 +3564,11 @@ apiRouter.put(
       toddlerSubStage,
       toddlerEnabledTopics,
       toddlerHiddenVideoIds,
-      toddlerCooldownUntil
+      toddlerCooldownUntil,
+      quietHoursEnabled,
+      quietHoursStart,
+      quietHoursEnd,
+      episodeLimitPerSession
     } = req.body || {};
 
     const cleanNewPin =
@@ -3264,6 +3618,18 @@ apiRouter.put(
       if (Array.isArray(toddlerHiddenVideoIds)) {
         nextOverrides.toddlerHiddenVideoIds = toddlerHiddenVideoIds.map((id) => String(id).trim()).filter(Boolean);
       }
+      if (quietHoursEnabled !== undefined) {
+        nextOverrides.quietHoursEnabled = Boolean(quietHoursEnabled);
+      }
+      if (quietHoursStart !== undefined) {
+        nextOverrides.quietHoursStart = normalizeTimeHm(quietHoursStart, currentEffective.quietHoursStart);
+      }
+      if (quietHoursEnd !== undefined) {
+        nextOverrides.quietHoursEnd = normalizeTimeHm(quietHoursEnd, currentEffective.quietHoursEnd);
+      }
+      if (episodeLimitPerSession !== undefined) {
+        nextOverrides.episodeLimitPerSession = normalizeEpisodeLimit(episodeLimitPerSession, 0);
+      }
 
       const nextEffective = resolveEffectiveParentalControls(parentUser, {
         ...user,
@@ -3304,7 +3670,11 @@ apiRouter.put(
           toddlerSubStage: nextEffective.toddlerSubStage,
           toddlerEnabledTopics: nextEffective.toddlerEnabledTopics,
           toddlerHiddenVideoIds: nextEffective.toddlerHiddenVideoIds,
-          toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : (user.toddlerCooldownUntil || null)
+          toddlerCooldownUntil: toddlerCooldownUntil !== undefined ? toddlerCooldownUntil : (user.toddlerCooldownUntil || null),
+          quietHoursEnabled: nextEffective.quietHoursEnabled,
+          quietHoursStart: nextEffective.quietHoursStart,
+          quietHoursEnd: nextEffective.quietHoursEnd,
+          episodeLimitPerSession: nextEffective.episodeLimitPerSession
         },
         message: 'Parental controls updated and synced.'
       });
@@ -3325,7 +3695,12 @@ apiRouter.put(
         attentionPauseSeconds !== undefined ? Math.max(5, Math.min(300, Number(attentionPauseSeconds))) : undefined,
       attentionMinWatchPercent:
         attentionMinWatchPercent !== undefined ? Math.max(10, Math.min(100, Number(attentionMinWatchPercent))) : undefined,
-      contentLanguage: contentLanguage !== undefined ? normalizeContentLanguage(contentLanguage) : undefined
+      contentLanguage: contentLanguage !== undefined ? normalizeContentLanguage(contentLanguage) : undefined,
+      quietHoursEnabled: quietHoursEnabled !== undefined ? Boolean(quietHoursEnabled) : undefined,
+      quietHoursStart: quietHoursStart !== undefined ? normalizeTimeHm(quietHoursStart, '20:00') : undefined,
+      quietHoursEnd: quietHoursEnd !== undefined ? normalizeTimeHm(quietHoursEnd, '07:00') : undefined,
+      episodeLimitPerSession:
+        episodeLimitPerSession !== undefined ? normalizeEpisodeLimit(episodeLimitPerSession, 0) : undefined
     });
     const nextGlobal = getGlobalParentalControls(updatedParent || user);
     res.json({
@@ -3337,7 +3712,11 @@ apiRouter.put(
         attentionTrackingEnabled: nextGlobal.attentionTrackingEnabled,
         attentionPauseSeconds: nextGlobal.attentionPauseSeconds,
         attentionMinWatchPercent: nextGlobal.attentionMinWatchPercent,
-        contentLanguage: nextGlobal.contentLanguage
+        contentLanguage: nextGlobal.contentLanguage,
+        quietHoursEnabled: nextGlobal.quietHoursEnabled,
+        quietHoursStart: nextGlobal.quietHoursStart,
+        quietHoursEnd: nextGlobal.quietHoursEnd,
+        episodeLimitPerSession: nextGlobal.episodeLimitPerSession
       },
       message: 'Parental controls updated.'
     });

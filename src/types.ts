@@ -253,9 +253,30 @@ export interface ParentalControls {
   toddlerEnabledTopics: string[];
   toddlerHiddenVideoIds: string[];
   religion?: string | null;
+  quietHoursEnabled: boolean;
+  quietHoursStart: string;
+  quietHoursEnd: string;
+  episodeLimitPerSession: number;
 }
 
 export type ParentalControlsOverride = Partial<ParentalControls>;
+
+export interface WeeklyTopicStat {
+  topic: string;
+  count: number;
+  percent: number;
+}
+
+export interface WeeklyChildInsight {
+  childId: string;
+  childName: string;
+  ageRating: AgeRating;
+  videosWatched7d: number;
+  approvedRequests7d: number;
+  searches7d: number;
+  topTopics: WeeklyTopicStat[];
+  topChannels: { channelTitle: string; count: number }[];
+}
 
 export interface ToddlerTvChannelLoop {
   topic: string;
